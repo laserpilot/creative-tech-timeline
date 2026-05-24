@@ -1,0 +1,514 @@
+{
+  "categories": {
+    "programming": {
+      "name": "Programming Tools",
+      "color": "#1f77b4",
+      "description": "General purpose creative coding frameworks and platforms"
+    },
+    "creative-libraries": {
+      "name": "Creative Libraries",
+      "color": "#ff7f0e",
+      "description": "Libraries that extend creative coding capabilities"
+    },
+    "physical-computing": {
+      "name": "Physical Computing",
+      "color": "#2ca02c",
+      "description": "Hardware and software for physical interactions"
+    },
+    "audio-visual": {
+      "name": "Audio-Visual",
+      "color": "#d62728",
+      "description": "Tools focused on audio and visual performance"
+    },
+    "data-visualization": {
+      "name": "Data Visualization",
+      "color": "#9467bd",
+      "description": "Frameworks for visualizing data"
+    },
+    "web": {
+      "name": "Web-Based Tools",
+      "color": "#8c564b",
+      "description": "Tools for creative web development"
+    },
+    "other": {
+      "name": "Other",
+      "color": "#7f7f7f",
+      "description": "Uncategorized tools"
+    }
+  },
+  "tools": {
+    "Processing": {
+      "category": "programming",
+      "description": "Java-based creative coding language and environment",
+      "releases": [
+        { "version": "1.0 - Rev 0162", "dateString": "24 Nov 2008", "link": "https://raw.githubusercontent.com/processing/processing/master/build/shared/revisions.txt", "notes": "" },
+        { "version": "1.0.1 - Rev 0163", "dateString": "29 November 2008", "notes": "" },
+        { "version": "1.0.2 Rev 0164", "dateString": "21 February 2009", "notes": "" },
+        { "version": "1.0.3 Rev 0165", "dateString": "24 February 2009", "notes": "" },
+        { "version": "1.0.4 Rev 0166", "dateString": "31 May 2009", "notes": "" },
+        { "version": "1.0.5 Rev 0167", "dateString": "07 June 2009", "notes": "" },
+        { "version": "1.0.6 Rev 0168", "dateString": "12 August 2009", "notes": "" },
+        { "version": "1.0.7 Rev 0169", "dateString": "04 September 2009", "notes": "" },
+        { "version": "1.0.8 Rev 0170", "dateString": "18 October 2009", "notes": "" },
+        { "version": "1.0.9 Rev 0171", "dateString": "20 October 2009", "notes": "" },
+        { "version": "Rev 0176", "dateString": "20 February 2010", "notes": "" },
+        { "version": "Rev 0177", "dateString": "21 February 2010", "notes": "" },
+        { "version": "Rev 0178", "dateString": "04 March 2010", "notes": "" },
+        { "version": "1.1 - Rev 0179", "dateString": "11 March 2010", "notes": "" },
+        { "version": "Rev 0180", "dateString": "15 March 2010", "notes": "" },
+        { "version": "Rev 0181", "dateString": "19 March 2010", "notes": "" },
+        { "version": "Rev 0182", "dateString": "29 March 2010", "notes": "" },
+        { "version": "Rev 0183", "dateString": "31 March 2010", "notes": "" },
+        { "version": "Rev 0184", "dateString": "14 April 2010", "notes": "" },
+        { "version": "Rev 0185", "dateString": "20 June 2010", "notes": "" },
+        { "version": "Rev 0186", "dateString": "26 June 2010", "notes": "" },
+        { "version": "Rev 0187", "dateString": "12 July 2010", "notes": "" },
+        { "version": "1.2 - Rev 188", "dateString": "13 July 2010", "notes": "" },
+        { "version": "1.2.1 - Rev 0189", "dateString": "14 July 2010", "notes": "" }
+      ]
+    },
+    "P5.js": {
+      "category": "web",
+      "description": "JavaScript library for creative coding on the web",
+      "releases": [
+        { "version": "0.2.22", "dateString": "21 July 2014", "link": "https://github.com/processing/p5.js/releases?after=0.3.4", "notes": "Preliminary Alpha Release" },
+        { "version": "0.2.23", "dateString": "31 July 2014", "notes": "" },
+        { "version": "0.3.0", "dateString": "06 August 2014", "notes": "First Public Beta" },
+        { "version": "0.3.2", "dateString": "08 August 2014", "notes": "" },
+        { "version": "0.3.3", "dateString": "17 August 2014", "notes": "" },
+        { "version": "0.3.4", "dateString": "26 August 2014", "notes": "" },
+        { "version": "0.3.5", "dateString": "28 August 2014", "notes": "" },
+        { "version": "0.3.6", "dateString": "11 September 2014", "notes": "" },
+        { "version": "0.3.7", "dateString": "19 September 2014", "notes": "" },
+        { "version": "0.3.8", "dateString": "25 September 2014", "notes": "" },
+        { "version": "0.3.9", "dateString": "10 October 2014", "notes": "" },
+        { "version": "0.3.11", "dateString": "03 November 2014", "notes": "" },
+        { "version": "0.3.12", "dateString": "23 November 2014", "notes": "" },
+        { "version": "0.3.13", "dateString": "04 December 2014", "notes": "" },
+        { "version": "0.3.14", "dateString": "10 December 2014", "notes": "" },
+        { "version": "0.3.15", "dateString": "23 December 2014", "notes": "" },
+        { "version": "0.3.16", "dateString": "08 January 2015", "notes": "" },
+        { "version": "0.4.0", "dateString": "02 February 2015", "notes": "Major Release" },
+        { "version": "0.4.1", "dateString": "13 February 2015", "notes": "" },
+        { "version": "0.4.2", "dateString": "16 February 2015", "notes": "" },
+        { "version": "0.4.3", "dateString": "30 March 2015", "notes": "" },
+        { "version": "0.4.4", "dateString": "12 April 2015", "notes": "" },
+        { "version": "0.4.5", "dateString": "27 May 2015", "notes": "" },
+        { "version": "0.4.6", "dateString": "24 June 2015", "notes": "" },
+        { "version": "0.4.7", "dateString": "17 July 2015", "notes": "" },
+        { "version": "0.4.8", "dateString": "18 August 2015", "notes": "" },
+        { "version": "0.4.9", "dateString": "31 August 2015", "notes": "" },
+        { "version": "0.4.10", "dateString": "12 September 2015", "notes": "" },
+        { "version": "0.4.11", "dateString": "14 September 2015", "notes": "" },
+        { "version": "0.4.12", "dateString": "15 September 2015", "notes": "" },
+        { "version": "0.4.13", "dateString": "20 September 2015", "notes": "" },
+        { "version": "0.4.14", "dateString": "05 October 2015", "notes": "" },
+        { "version": "0.4.15", "dateString": "06 October 2015", "notes": "" },
+        { "version": "0.4.16", "dateString": "12 October 2015", "notes": "" },
+        { "version": "0.4.17", "dateString": "13 October 2015", "notes": "" },
+        { "version": "0.4.18", "dateString": "09 November 2015", "notes": "" },
+        { "version": "0.4.19", "dateString": "11 November 2015", "notes": "" },
+        { "version": "0.4.20", "dateString": "11 December 2015", "notes": "" },
+        { "version": "0.4.21", "dateString": "04 January 2016", "notes": "" },
+        { "version": "0.4.22", "dateString": "04 February 2016", "notes": "" },
+        { "version": "0.4.23", "dateString": "04 March 2016", "notes": "" },
+        { "version": "0.4.24", "dateString": "25 April 2016", "notes": "" },
+        { "version": "0.5.0", "dateString": "02 May 2016", "notes": "Major Release, WebGL overhaul" },
+        { "version": "0.5.1", "dateString": "10 June 2016", "notes": "" },
+        { "version": "0.5.2", "dateString": "16 June 2016", "notes": "" },
+        { "version": "0.5.3", "dateString": "17 August 2016", "notes": "" },
+        { "version": "0.5.4", "dateString": "01 October 2016", "notes": "" },
+        { "version": "0.5.5", "dateString": "05 December 2016", "notes": "" },
+        { "version": "0.5.6", "dateString": "03 January 2017", "notes": "" },
+        { "version": "0.5.7", "dateString": "08 February 2017", "notes": "" },
+        { "version": "0.5.8", "dateString": "25 March 2017", "notes": "" },
+        { "version": "0.5.9", "dateString": "10 May 2017", "notes": "" },
+        { "version": "0.5.10", "dateString": "18 May 2017", "notes": "" },
+        { "version": "0.5.11", "dateString": "01 June 2017", "notes": "" },
+        { "version": "0.5.12", "dateString": "11 August 2017", "notes": "" },
+        { "version": "0.5.13", "dateString": "25 August 2017", "notes": "" },
+        { "version": "0.5.14", "dateString": "28 August 2017", "notes": "" },
+        { "version": "0.5.15", "dateString": "09 October 2017", "notes": "" },
+        { "version": "0.5.16", "dateString": "11 October 2017", "notes": "" },
+        { "version": "0.6.0", "dateString": "19 January 2018", "notes": "Major Release, YUIDocs and linting overhaul, Shader support" },
+        { "version": "0.6.1", "dateString": "27 April 2018", "notes": "" },
+        { "version": "0.7.0", "dateString": "09 August 2018", "notes": "Major Release, core file restructure, developer_docs refactor" },
+        { "version": "0.7.1", "dateString": "10 August 2018", "notes": "" },
+        { "version": "0.7.2", "dateString": "02 September 2018", "notes": "" },
+        { "version": "1.0", "dateString": "2014", "notes": "Initial release" }
+      ]
+    },
+    "Max/MSP": {
+      "category": "audio-visual",
+      "description": "Visual programming language for music and multimedia",
+      "releases": [
+        { "version": "Initial", "dateString": "1990", "link": "https://en.wikipedia.org/wiki/Max_(software)", "notes": "" },
+        { "version": "Max 2?", "dateString": "1997?", "notes": "Was Max/MSP (first Cycling '74 release) the same as Max 2?" },
+        { "version": "Max 3", "dateString": "", "notes": "" },
+        { "version": "Max 4", "dateString": "2003", "notes": "" },
+        { "version": "Jitter", "dateString": "2003", "notes": "" },
+        { "version": "Max 5", "dateString": "2008", "notes": "" },
+        { "version": "Max 6", "dateString": "2011", "notes": "" },
+        { "version": "Max 7", "dateString": "2014", "notes": "" },
+        { "version": "1.0", "dateString": "1990", "notes": "" }
+      ]
+    },
+    "Pure Data": {
+      "category": "audio-visual",
+      "description": "Open source visual programming language for multimedia",
+      "releases": [
+        { "version": "0.15", "dateString": "16 September 1997", "link": "http://msp.ucsd.edu/Pd_documentation/x5.htm", "notes": "" },
+        { "version": "0.18", "dateString": "07 December 1997", "link": "http://msp.ucsd.edu/Software/", "notes": "Binary file creation dates" },
+        { "version": "1.0", "dateString": "1996", "notes": "" }
+      ]
+    },
+    "Cinder": {
+      "category": "programming",
+      "description": "C++ creative coding framework",
+      "releases": [
+        { "version": "0.8", "dateString": "27 April 2010", "link": "https://github.com/cinder/Cinder/releases", "notes": "First release?" },
+        { "version": "0.8.1", "dateString": "21 May 2010", "notes": "" },
+        { "version": "0.8.2", "dateString": "14 October 2010", "notes": "" },
+        { "version": "0.8.3", "dateString": "18 July 2011", "notes": "" },
+        { "version": "0.8.4", "dateString": "17 May 2012", "notes": "" },
+        { "version": "0.8.5", "dateString": "24 April 2013", "notes": "" },
+        { "version": "0.8.6", "dateString": "07 August 2014", "notes": "" },
+        { "version": "0.9.0", "dateString": "2 October 2015", "notes": "" },
+        { "version": "0.9.1", "dateString": "31 March 2017", "notes": "" },
+        { "version": "1.0", "dateString": "April 2010", "notes": "" }
+      ]
+    },
+    "openFrameworks": {
+      "category": "programming",
+      "description": "C++ creative coding toolkit",
+      "releases": [
+        { "version": "preRelease_v0.01", "dateString": "March 2007", "link": "https://openframeworks.cc/versions/", "notes": "" },
+        { "version": "preRelease_v0.02", "dateString": "", "link": "https://github.com/openframeworks/openFrameworks/releases?after=0.8.0", "notes": "" },
+        { "version": "preRelease_v0.03", "dateString": "", "notes": "" },
+        { "version": "preRelease_v0.04", "dateString": "", "notes": "" },
+        { "version": "preRelease_v0.05", "dateString": "", "notes": "" },
+        { "version": "preRelease_v0.06", "dateString": "", "notes": "" },
+        { "version": "preRelease_v0.061", "dateString": "11 February 2010", "notes": "" },
+        { "version": "preRelease_v0.062", "dateString": "17 November 2010", "notes": "" },
+        { "version": "preRelease_v0.07", "dateString": "21 July 2011", "notes": "" },
+        { "version": "v0.071", "dateString": "28 May 2012", "notes": "" },
+        { "version": "v0072", "dateString": "20 October 2012", "notes": "" },
+        { "version": "v0073", "dateString": "14 November 2012", "notes": "" },
+        { "version": "v0.7.4", "dateString": "15 February 2013", "notes": "" },
+        { "version": "v0.8.0", "dateString": "11 August 2013", "notes": "" },
+        { "version": "v0.8.1", "dateString": "28 March 2014", "notes": "" },
+        { "version": "v0.8.2", "dateString": "29 June 2014", "notes": "" },
+        { "version": "v0.8.3", "dateString": "2 July 2014", "notes": "" },
+        { "version": "v0.8.4", "dateString": "9 September 2014", "notes": "" },
+        { "version": "v0.9.0", "dateString": "8 November 2015", "notes": "" },
+        { "version": "v0.9.1", "dateString": "31 January 2016", "notes": "" },
+        { "version": "v0.9.2", "dateString": "8 February 2016", "notes": "" },
+        { "version": "v0.9.3", "dateString": "9 March 2016", "notes": "" },
+        { "version": "v0.9.4", "dateString": "4 October 2016", "notes": "" },
+        { "version": "v0.9.5", "dateString": "21 October 2016", "notes": "" },
+        { "version": "v0.9.6", "dateString": "24 October 2016", "notes": "" },
+        { "version": "v0.9.7", "dateString": "31 October 2016", "notes": "" },
+        { "version": "v0.9.8", "dateString": "22 November 2016", "notes": "" },
+        { "version": "v0.10.0", "dateString": "07 May 2018", "notes": "" },
+        { "version": "ofBook - alpha", "dateString": "01 April 2014", "notes": "Related documentation" },
+        { "version": "ofBook - 0.4.0", "dateString": "09 September 2016", "notes": "" },
+        { "version": "1.0", "dateString": "2005", "notes": "" }
+      ]
+    },
+    "VDMX": {
+      "category": "audio-visual",
+      "description": "Real-time visual performance software",
+      "releases": [
+        { "version": "b8.2.3.2", "dateString": "04 December 2014", "notes": "" },
+        { "version": "b8.6.1.1", "dateString": "14 November 2016", "notes": "" },
+        { "version": "b8.6.1.3", "dateString": "24 February 2017", "notes": "" },
+        { "version": "b8.6.1.7", "dateString": "27 June 2017", "notes": "" },
+        { "version": "b8.6.2.1", "dateString": "22 September 2017", "notes": "" },
+        { "version": "b8.6.2.3", "dateString": "03 November 2017", "notes": "" },
+        { "version": "b8.6.2.5", "dateString": "08 December 2017", "notes": "" },
+        { "version": "b8.7.0.0", "dateString": "19 July 2018", "notes": "" },
+        { "version": "1.0", "dateString": "2005", "notes": "" }
+      ]
+    },
+    "FilterFactory": {
+      "category": "creative-libraries",
+      "description": "Photoshop plugin for creating custom filters",
+      "releases": [
+        { "version": "", "dateString": "1994", "link": "http://www.filtermeister.com/docs/gettings.pdf", "notes": "This was a plugin that was released with Photoshop 3.0 which allowed to write filters using a very limited instruction set. In hindsight one could say it was the predecessor or what ShaderToy is now. Around this plugin a very active community of coders had gathered in a mailing list called \"The Filter Factory Discussion Group\" which was originally started on Compuserve in 1995. During the ~4 years in which the group was most active thousands of experimental filters were shared that went beyond basic color manipulations but rather tried to push the language and memory limits that the plugin imposed. Lots of the code shared I would definitely call \"Generative Art\"." }
+      ]
+    },
+    "Unity": {
+      "category": "programming",
+      "description": "Game development platform",
+      "releases": [
+        { "version": "1.0", "dateString": "June 2005", "notes": "" }
+      ]
+    },
+    "Unreal Engine": {
+      "category": "programming",
+      "description": "Game development platform",
+      "releases": [
+        { "version": "1.0", "dateString": "May 1998", "notes": "" }
+      ]
+    },
+    "TouchDesigner": {
+      "category": "programming",
+      "description": "Visual development platform for real-time media",
+      "releases": [
+        { "version": "1.0", "dateString": "2008", "notes": "" }
+      ]
+    },
+    "Three.js": {
+      "category": "web",
+      "description": "JavaScript 3D library",
+      "releases": [
+        { "version": "1.0", "dateString": "April 2010", "notes": "" }
+      ]
+    },
+    "Arduino": {
+      "category": "physical-computing",
+      "description": "Open-source electronics platform",
+      "releases": [
+        { "version": "1.0", "dateString": "2005", "notes": "" }
+      ]
+    },
+    "Raspberry Pi": {
+      "category": "physical-computing",
+      "description": "Single-board computer",
+      "releases": [
+        { "version": "1.0", "dateString": "February 2012", "notes": "" }
+      ]
+    },
+    "Teensy": {
+      "category": "physical-computing",
+      "description": "USB-based microcontroller development board",
+      "releases": [
+        { "version": "1.0", "dateString": "2008", "notes": "" }
+      ]
+    },
+    "VVVV": {
+      "category": "programming",
+      "description": "Visual programming environment for multimedia",
+      "releases": [
+        { "version": "1.0", "dateString": "December 2002", "notes": "" }
+      ]
+    },
+    "D3.js": {
+      "category": "data-visualization",
+      "description": "JavaScript library for data visualization",
+      "releases": [
+        { "version": "1.0", "dateString": "February 2011", "notes": "" }
+      ]
+    },
+    "Ableton Live": {
+      "category": "audio-visual",
+      "description": "Digital audio workstation",
+      "releases": [
+        { "version": "1.0", "dateString": "October 2001", "notes": "" }
+      ]
+    },
+    "Cables.gl": {
+      "category": "web",
+      "description": "Visual programming environment for the web",
+      "releases": [
+        { "version": "1.0", "dateString": "2017", "notes": "" }
+      ]
+    },
+    "Runway ML": {
+      "category": "creative-libraries",
+      "description": "Machine learning tool for creators",
+      "releases": [
+        { "version": "1.0", "dateString": "2018", "notes": "" }
+      ]
+    },
+    "Paper.js": {
+      "category": "web",
+      "description": "Vector graphics scripting framework",
+      "releases": [
+        { "version": "1.0", "dateString": "December 2011", "notes": "" }
+      ]
+    },
+    "A-Frame": {
+      "category": "web",
+      "description": "Web framework for building VR experiences",
+      "releases": [
+        { "version": "1.0", "dateString": "December 2015", "notes": "" }
+      ]
+    },
+    "TensorFlow": {
+      "category": "creative-libraries",
+      "description": "Machine learning framework",
+      "releases": [
+        { "version": "1.0", "dateString": "November 2015", "notes": "" }
+      ]
+    },
+    "ML5.js": {
+      "category": "creative-libraries",
+      "description": "Friendly machine learning for the web",
+      "releases": [
+        { "version": "1.0", "dateString": "2018", "notes": "" }
+      ]
+    },
+    "Flutter": {
+      "category": "programming",
+      "description": "UI toolkit for building natively compiled applications",
+      "releases": [
+        { "version": "1.0", "dateString": "December 2018", "notes": "" }
+      ]
+    },
+    "Nannou": {
+      "category": "programming",
+      "description": "Creative coding framework for Rust",
+      "releases": [
+        { "version": "1.0", "dateString": "2017", "notes": "" }
+      ]
+    },
+    "Svelte": {
+      "category": "web",
+      "description": "Component framework that runs at build time",
+      "releases": [
+        { "version": "1.0", "dateString": "November 2016", "notes": "" }
+      ]
+    },
+    "Babylon.js": {
+      "category": "web",
+      "description": "3D engine for web applications",
+      "releases": [
+        { "version": "1.0", "dateString": "2013", "notes": "" }
+      ]
+    },
+    "Vuo": {
+      "category": "programming",
+      "description": "Visual programming environment for interactive media",
+      "releases": [
+        { "version": "1.0", "dateString": "December 2013", "notes": "" }
+      ]
+    },
+    "OpenRNDR": {
+      "category": "programming",
+      "description": "Creative coding framework for Kotlin",
+      "releases": [
+        { "version": "1.0", "dateString": "2017", "notes": "" }
+      ]
+    },
+    "MadMapper": {
+      "category": "audio-visual",
+      "description": "Video mapping software",
+      "releases": [
+        { "version": "1.0", "dateString": "2011", "notes": "" }
+      ]
+    },
+    "Notch": {
+      "category": "audio-visual",
+      "description": "Real-time visual creation tool",
+      "releases": [
+        { "version": "1.0", "dateString": "2016", "notes": "" }
+      ]
+    },
+    "Sonic Pi": {
+      "category": "audio-visual",
+      "description": "Code-based music creation and performance tool",
+      "releases": [
+        { "version": "1.0", "dateString": "September 2013", "notes": "" }
+      ]
+    },
+    "Resolume": {
+      "category": "audio-visual",
+      "description": "VJ software and media server",
+      "releases": [
+        { "version": "1.0", "dateString": "2002", "notes": "" }
+      ]
+    },
+    "ESP8266": {
+      "category": "physical-computing",
+      "description": "Low-cost Wi-Fi microchip",
+      "releases": [
+        { "version": "1.0", "dateString": "2014", "notes": "" }
+      ]
+    },
+    "ESP32": {
+      "category": "physical-computing",
+      "description": "Low-cost system on a chip microcontroller",
+      "releases": [
+        { "version": "1.0", "dateString": "2016", "notes": "" }
+      ]
+    },
+    "micro:bit": {
+      "category": "physical-computing",
+      "description": "Pocket-sized computer for education",
+      "releases": [
+        { "version": "1.0", "dateString": "2016", "notes": "" }
+      ]
+    },
+    "Phidgets": {
+      "category": "physical-computing",
+      "description": "USB sensing and control devices",
+      "releases": [
+        { "version": "1.0", "dateString": "2001", "notes": "" }
+      ]
+    },
+    "ARKit": {
+      "category": "creative-libraries",
+      "description": "Augmented reality development platform for iOS",
+      "releases": [
+        { "version": "1.0", "dateString": "June 2017", "notes": "" }
+      ]
+    },
+    "ARCore": {
+      "category": "creative-libraries",
+      "description": "Augmented reality development platform for Android",
+      "releases": [
+        { "version": "1.0", "dateString": "February 2018", "notes": "" }
+      ]
+    },
+    "OpenCV": {
+      "category": "creative-libraries",
+      "description": "Computer vision and machine learning library",
+      "releases": [
+        { "version": "1.0", "dateString": "June 2000", "notes": "" }
+      ]
+    },
+    "Box2D": {
+      "category": "creative-libraries",
+      "description": "2D physics engine",
+      "releases": [
+        { "version": "1.0", "dateString": "2007", "notes": "" }
+      ]
+    },
+    "GSAP": {
+      "category": "web",
+      "description": "Animation library for the web",
+      "releases": [
+        { "version": "1.0", "dateString": "2011", "notes": "" }
+      ]
+    },
+    "Vega": {
+      "category": "data-visualization",
+      "description": "Visualization grammar for creating interactive visualizations",
+      "releases": [
+        { "version": "1.0", "dateString": "2015", "notes": "" }
+      ]
+    },
+    "Observable": {
+      "category": "data-visualization",
+      "description": "JavaScript notebook for exploring data and creating interactive visualizations",
+      "releases": [
+        { "version": "1.0", "dateString": "2017", "notes": "" }
+      ]
+    },
+    "Tableau": {
+      "category": "data-visualization",
+      "description": "Data visualization software",
+      "releases": [
+        { "version": "1.0", "dateString": "2003", "notes": "" }
+      ]
+    },
+    "SuperCollider": {
+      "category": "audio-visual",
+      "description": "Platform for audio synthesis and algorithmic composition",
+      "releases": [
+        { "version": "1.0", "dateString": "1996", "notes": "" }
+      ]
+    }
+  }
+}
