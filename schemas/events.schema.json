@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Creative Code Timeline — Events",
+  "type": "object",
+  "required": ["layers", "events"],
+  "properties": {
+    "layers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["name", "color"],
+        "properties": {
+          "name": { "type": "string" },
+          "color": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "date", "layer"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "title": { "type": "string", "minLength": 1 },
+          "date": { "type": "string", "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$" },
+          "layer": { "type": "string" },
+          "description": { "type": "string" },
+          "link": { "type": "string", "format": "uri" },
+          "creators": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

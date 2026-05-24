@@ -1,0 +1,52 @@
+name: Add an event
+description: Suggest a landmark event (hardware, web standard, AI/ML, artwork, institution) for the timeline
+title: "[event] "
+labels: ["data", "event"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Event title
+      placeholder: e.g. WebGPU ships in Chrome
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: Date
+      description: YYYY, YYYY-MM, or YYYY-MM-DD
+      placeholder: 2023-04-06
+    validations:
+      required: true
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Layer
+      options:
+        - hardware
+        - web-standards
+        - ai-ml
+        - artworks
+        - institutions
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Why this matters
+      description: 1–2 sentences. What did this shift in creative-coding practice?
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Source / canonical link
+    validations:
+      required: false
+  - type: input
+    id: creators
+    attributes:
+      label: Creators (for artworks)
+      description: Comma-separated names
+    validations:
+      required: false

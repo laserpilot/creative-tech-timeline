@@ -1,0 +1,339 @@
+{
+  "layers": {
+    "hardware": {
+      "name": "Hardware",
+      "color": "#e8833a",
+      "description": "Consumer and creative-tech hardware that shifted what artists could build"
+    },
+    "web-standards": {
+      "name": "Web Standards",
+      "color": "#3a7ae8",
+      "description": "Browser APIs and graphics standards that enabled new web-native creative work"
+    },
+    "ai-ml": {
+      "name": "AI / ML",
+      "color": "#9b5de5",
+      "description": "Machine learning models, releases, and tools that opened new creative territory"
+    },
+    "artworks": {
+      "name": "Landmark Artworks",
+      "color": "#e5476b",
+      "description": "Notable works that defined or expanded what creative coding could be"
+    },
+    "institutions": {
+      "name": "Institutions & Communities",
+      "color": "#2ea36b",
+      "description": "Schools, festivals, and communities that shaped the field"
+    }
+  },
+  "events": [
+    {
+      "id": "iphone-launch",
+      "title": "iPhone launches",
+      "date": "2007-06-29",
+      "layer": "hardware",
+      "description": "First mass-market multitouch device. Reshaped expectations for interactive, gestural interfaces.",
+      "link": "https://en.wikipedia.org/wiki/IPhone_(1st_generation)"
+    },
+    {
+      "id": "ipad-launch",
+      "title": "iPad launches",
+      "date": "2010-04-03",
+      "layer": "hardware",
+      "description": "Brought multitouch to a canvas-sized device; widely adopted for sketching, performance, and installation control surfaces.",
+      "link": "https://en.wikipedia.org/wiki/IPad_(1st_generation)"
+    },
+    {
+      "id": "kinect-xbox",
+      "title": "Microsoft Kinect (Xbox 360)",
+      "date": "2010-11-04",
+      "layer": "hardware",
+      "description": "Consumer depth camera. Hacks within hours; OpenKinect drivers within weeks; an entire era of installation work followed.",
+      "link": "https://en.wikipedia.org/wiki/Kinect"
+    },
+    {
+      "id": "kinect-sdk",
+      "title": "Official Kinect SDK for Windows",
+      "date": "2011-06-16",
+      "layer": "hardware",
+      "description": "Microsoft releases an official SDK after the OpenKinect community led the way.",
+      "link": "https://en.wikipedia.org/wiki/Kinect"
+    },
+    {
+      "id": "leap-motion",
+      "title": "Leap Motion ships",
+      "date": "2013-07-22",
+      "layer": "hardware",
+      "description": "Sub-millimeter hand tracking in a desktop peripheral. Used in countless gestural installations and prototypes.",
+      "link": "https://en.wikipedia.org/wiki/Leap_Motion"
+    },
+    {
+      "id": "oculus-dk1",
+      "title": "Oculus Rift DK1 ships",
+      "date": "2013-03-29",
+      "layer": "hardware",
+      "description": "First widely available developer kit for modern consumer VR. Kickstarted the second VR wave.",
+      "link": "https://en.wikipedia.org/wiki/Oculus_Rift"
+    },
+    {
+      "id": "oculus-cv1",
+      "title": "Oculus Rift CV1 / HTC Vive (consumer VR)",
+      "date": "2016-03-28",
+      "layer": "hardware",
+      "description": "Consumer VR ships. Vive adds room-scale tracking. VR becomes a viable medium for artists.",
+      "link": "https://en.wikipedia.org/wiki/Oculus_Rift"
+    },
+    {
+      "id": "quest-2",
+      "title": "Meta Quest 2",
+      "date": "2020-10-13",
+      "layer": "hardware",
+      "description": "Standalone, untethered VR at a consumer price. Made VR work radically more shippable.",
+      "link": "https://en.wikipedia.org/wiki/Meta_Quest_2"
+    },
+    {
+      "id": "vision-pro",
+      "title": "Apple Vision Pro",
+      "date": "2024-02-02",
+      "layer": "hardware",
+      "description": "Apple's first spatial computing device. Reframes XR around passthrough and eye/hand input.",
+      "link": "https://en.wikipedia.org/wiki/Apple_Vision_Pro"
+    },
+
+    {
+      "id": "webgl-1",
+      "title": "WebGL 1.0 ratified",
+      "date": "2011-03-03",
+      "layer": "web-standards",
+      "description": "Khronos releases WebGL 1.0 spec. GPU-accelerated graphics in the browser becomes a baseline assumption.",
+      "link": "https://www.khronos.org/webgl/"
+    },
+    {
+      "id": "webrtc",
+      "title": "WebRTC enters browsers",
+      "date": "2013-01-01",
+      "layer": "web-standards",
+      "description": "Peer-to-peer audio/video/data in the browser. Enables networked performance and telepresence work.",
+      "link": "https://en.wikipedia.org/wiki/WebRTC"
+    },
+    {
+      "id": "webassembly-1",
+      "title": "WebAssembly 1.0",
+      "date": "2017-11-05",
+      "layer": "web-standards",
+      "description": "Near-native code execution in browsers. Ports of C/C++ creative tooling become feasible.",
+      "link": "https://webassembly.org/"
+    },
+    {
+      "id": "webgl-2",
+      "title": "WebGL 2.0 ships",
+      "date": "2017-01-27",
+      "layer": "web-standards",
+      "description": "OpenGL ES 3.0-equivalent in the browser. Transform feedback, instanced rendering, more.",
+      "link": "https://www.khronos.org/webgl/"
+    },
+    {
+      "id": "webxr",
+      "title": "WebXR Device API",
+      "date": "2019-09-25",
+      "layer": "web-standards",
+      "description": "Standard browser API for VR/AR content. Makes browser-based immersive work portable across headsets.",
+      "link": "https://immersive-web.github.io/webxr/"
+    },
+    {
+      "id": "webgpu",
+      "title": "WebGPU ships in Chrome",
+      "date": "2023-04-06",
+      "layer": "web-standards",
+      "description": "Modern GPU API (compute + graphics) in the browser. Successor to WebGL.",
+      "link": "https://developer.chrome.com/blog/webgpu-io2023/"
+    },
+
+    {
+      "id": "tensorflow",
+      "title": "TensorFlow open-sourced",
+      "date": "2015-11-09",
+      "layer": "ai-ml",
+      "description": "Google releases TensorFlow. ML moves from research papers into reach of practitioners.",
+      "link": "https://en.wikipedia.org/wiki/TensorFlow"
+    },
+    {
+      "id": "pytorch",
+      "title": "PyTorch released",
+      "date": "2016-09-01",
+      "layer": "ai-ml",
+      "description": "Facebook AI Research releases PyTorch. Becomes the de facto ML research framework.",
+      "link": "https://en.wikipedia.org/wiki/PyTorch"
+    },
+    {
+      "id": "stylegan",
+      "title": "StyleGAN released",
+      "date": "2018-12-12",
+      "layer": "ai-ml",
+      "description": "NVIDIA's StyleGAN. Convincing synthetic faces; a flood of generative art followed.",
+      "link": "https://arxiv.org/abs/1812.04948"
+    },
+    {
+      "id": "dalle",
+      "title": "DALL·E announced",
+      "date": "2021-01-05",
+      "layer": "ai-ml",
+      "description": "OpenAI shows text-to-image generation at quality that surprised even ML researchers.",
+      "link": "https://openai.com/index/dall-e/"
+    },
+    {
+      "id": "midjourney",
+      "title": "Midjourney public beta",
+      "date": "2022-07-12",
+      "layer": "ai-ml",
+      "description": "Discord-based text-to-image generator opens publicly. Mainstream creative use of generative AI begins.",
+      "link": "https://en.wikipedia.org/wiki/Midjourney"
+    },
+    {
+      "id": "stable-diffusion",
+      "title": "Stable Diffusion released",
+      "date": "2022-08-22",
+      "layer": "ai-ml",
+      "description": "Open-weights text-to-image model. Generative AI becomes runnable on a laptop GPU.",
+      "link": "https://en.wikipedia.org/wiki/Stable_Diffusion"
+    },
+    {
+      "id": "chatgpt",
+      "title": "ChatGPT released",
+      "date": "2022-11-30",
+      "layer": "ai-ml",
+      "description": "Conversational LLM hits 100M users in two months. Reshapes the entire creative-tech conversation.",
+      "link": "https://openai.com/index/chatgpt/"
+    },
+    {
+      "id": "gpt-4",
+      "title": "GPT-4 released",
+      "date": "2023-03-14",
+      "layer": "ai-ml",
+      "description": "Multimodal model with substantially stronger reasoning. Becomes a building block for creative tools.",
+      "link": "https://openai.com/index/gpt-4/"
+    },
+    {
+      "id": "sora",
+      "title": "OpenAI Sora announced",
+      "date": "2024-02-15",
+      "layer": "ai-ml",
+      "description": "Text-to-video at minute-long durations with surprising temporal coherence.",
+      "link": "https://openai.com/index/sora/"
+    },
+
+    {
+      "id": "text-rain",
+      "title": "Camille Utterback & Romy Achituv — Text Rain",
+      "date": "1999-01-01",
+      "layer": "artworks",
+      "description": "Falling letters interact with the silhouette of viewers via real-time video. A canonical interactive installation.",
+      "link": "https://camilleutterback.com/projects/text-rain/"
+    },
+    {
+      "id": "wooden-mirror",
+      "title": "Daniel Rozin — Wooden Mirror",
+      "date": "1999-01-01",
+      "layer": "artworks",
+      "description": "Hundreds of motorized wooden tiles reflect viewers as a low-resolution image. Defined an aesthetic of physical pixels.",
+      "link": "https://www.smoothware.com/danny/woodenmirror.html"
+    },
+    {
+      "id": "flight-patterns",
+      "title": "Aaron Koblin — Flight Patterns",
+      "date": "2005-01-01",
+      "layer": "artworks",
+      "description": "FAA flight data rendered as luminous lines. An early viral example of creative coding meeting data.",
+      "link": "http://www.aaronkoblin.com/work/flightpatterns/"
+    },
+    {
+      "id": "rain-room",
+      "title": "Random International — Rain Room",
+      "date": "2012-10-04",
+      "layer": "artworks",
+      "description": "Walk through rain that stops where your body is. Installation work goes mainstream museum.",
+      "link": "https://www.random-international.com/rain-room-2012"
+    },
+    {
+      "id": "unnumbered-sparks",
+      "title": "Janet Echelman & Aaron Koblin — Unnumbered Sparks",
+      "date": "2014-03-15",
+      "layer": "artworks",
+      "description": "Massive suspended sculpture painted in real time by audience phones via Chrome and WebGL.",
+      "link": "https://www.echelman.com/project/unnumbered-sparks"
+    },
+    {
+      "id": "memo-learning-to-see",
+      "title": "Memo Akten — Learning to See",
+      "date": "2017-09-01",
+      "layer": "artworks",
+      "description": "Real-time pix2pix translates everyday objects into landscapes/clouds/fire. An early landmark of artistic ML.",
+      "link": "https://www.memo.tv/works/learning-to-see/"
+    },
+    {
+      "id": "teamlab-borderless",
+      "title": "teamLab Borderless opens (Tokyo)",
+      "date": "2018-06-21",
+      "layer": "artworks",
+      "description": "Permanent immersive digital-art museum. Set a global reference point for room-scale generative installations.",
+      "link": "https://www.teamlab.art/e/borderless-tokyo/"
+    },
+    {
+      "id": "anadol-machine-hallucinations",
+      "title": "Refik Anadol — Machine Hallucinations",
+      "date": "2019-09-01",
+      "layer": "artworks",
+      "description": "Large-scale GAN-driven projections on architecture. Brought generative ML art to mainstream institutions.",
+      "link": "https://refikanadol.com/works/machine-hallucinations/"
+    },
+
+    {
+      "id": "itp-nyu",
+      "title": "ITP at NYU founded",
+      "date": "1979-09-01",
+      "layer": "institutions",
+      "description": "NYU's Interactive Telecommunications Program. Long-running incubator for creative technologists.",
+      "link": "https://tisch.nyu.edu/itp"
+    },
+    {
+      "id": "mit-media-lab",
+      "title": "MIT Media Lab opens",
+      "date": "1985-10-01",
+      "layer": "institutions",
+      "description": "Founded by Nicholas Negroponte and Jerome Wiesner. Many creative coding tools and ideas trace through here.",
+      "link": "https://www.media.mit.edu/"
+    },
+    {
+      "id": "gray-area",
+      "title": "Gray Area founded (San Francisco)",
+      "date": "2008-01-01",
+      "layer": "institutions",
+      "description": "Nonprofit fusing art and technology; long-running creative code education and a key US community hub.",
+      "link": "https://grayarea.org/"
+    },
+    {
+      "id": "eyeo-festival",
+      "title": "Eyeo Festival begins",
+      "date": "2011-06-01",
+      "layer": "institutions",
+      "description": "Annual Minneapolis festival convening artists, designers, and technologists. Defined a generation's creative-code conversation.",
+      "link": "https://eyeofestival.com/"
+    },
+    {
+      "id": "resonate",
+      "title": "Resonate Festival begins (Belgrade)",
+      "date": "2012-03-29",
+      "layer": "institutions",
+      "description": "European counterpart to Eyeo; key gathering for digital culture and creative practice.",
+      "link": "https://resonate.io/"
+    },
+    {
+      "id": "sfpc",
+      "title": "School for Poetic Computation",
+      "date": "2013-09-01",
+      "layer": "institutions",
+      "description": "Artist-run school in NYC for code as a creative and critical practice.",
+      "link": "https://sfpc.study/"
+    }
+  ]
+}

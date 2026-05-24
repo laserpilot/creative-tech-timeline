@@ -1,0 +1,54 @@
+name: Add a tool or release
+description: Suggest a creative-coding tool or a new release for an existing tool
+title: "[tool] "
+labels: ["data", "tool"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Tool name
+      placeholder: e.g. p5.js
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - programming
+        - creative-libraries
+        - physical-computing
+        - audio-visual
+        - data-visualization
+        - web
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Short description
+    validations:
+      required: false
+  - type: input
+    id: link
+    attributes:
+      label: Homepage / repo link
+    validations:
+      required: false
+  - type: input
+    id: first_release
+    attributes:
+      label: First release date
+      description: YYYY, YYYY-MM, or YYYY-MM-DD
+    validations:
+      required: false
+  - type: textarea
+    id: releases
+    attributes:
+      label: Notable releases
+      description: |
+        One per line, format: `<version> | <date> | <optional notes>`
+        e.g. `1.0 | 24 Nov 2008 | first stable`
+    validations:
+      required: false
