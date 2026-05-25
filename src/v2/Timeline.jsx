@@ -1,7 +1,9 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { scaleTime } from 'd3-scale';
 import { useTimelineData } from './useTimelineData.js';
 import Controls from './Controls.jsx';
+import ToolStrip from './ToolStrip.jsx';
+import BeforeStrip from './BeforeStrip.jsx';
 import ToolDetail from './ToolDetail.jsx';
 
 const PIXELS_PER_YEAR = 56;
@@ -9,8 +11,10 @@ const AXIS_WIDTH = 64;
 const EVENTS_WIDTH = 380;
 const TOOL_COL_WIDTH = 30;
 const TOOL_BAR_WIDTH = 4;
-const TOP_PAD = 140;
+const TOP_PAD = 40;
 const BOTTOM_PAD = 60;
+const TIMELINE_START_YEAR = 1990;
+const STICKY_HEADER_OFFSET = 150;
 
 export default function Timeline() {
   const { loading, error, data } = useTimelineData();
@@ -18,6 +22,7 @@ export default function Timeline() {
   const [highlightedCategory, setHighlightedCategory] = useState(null);
   const [selectedTool, setSelectedTool] = useState(null);
   const [expandedEvent, setExpandedEvent] = useState(null);
+  const [scrollDate, setScrollDate] = useState(null);
 
   const effectiveLayers = useMemo(() => {
     if (enabledLayers) return enabledLayers;
@@ -33,7 +38,7 @@ export default function Timeline() {
       ...tools.flatMap((t) => [t.firstDate, t.latestDate]),
       ...events.map((e) => e.parsedDate),
     ];
-    const minYear = Math.min(...allDates.map((d) => d.getFullYear())) - 1;
+    const minYear = TIMELINE_START_YEAR;
     const maxYear = Math.max(
       ...allDates.map((d) => d.getFullYear()),
       new Date().getFullYear()
@@ -53,6 +58,16 @@ export default function Timeline() {
     return { y, totalHeight, years };
   }, [data]);
 
+  useEffect(() => {
+    if (!layout) return;
+    const onScroll = () => {
+      setScrollDate(layout.y.invert(window.scrollY + STICKY_HEADER_OFFSET));
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [layout]);
+
   if (loading) return <div className="p-8 text-stone-500 text-sm">Loading timeline…</div>;
   if (error) return <div className="p-8 text-red-600 text-sm">Error loading data: {error}</div>;
   if (!data || !layout) return null;
@@ -60,7 +75,14 @@ export default function Timeline() {
   const { tools, events, layers, categories } = data;
   const { y, totalHeight, years } = layout;
 
-  const visibleEvents = events.filter((e) => effectiveLayers.has(e.layer));
+  const TIMELINE_START = new Date(TIMELINE_START_YEAR, 0, 1);
+  const preTimelineEvents = events.filter(
+    (e) => e.parsedDate < TIMELINE_START && effectiveLayers.has(e.layer)
+  );
+  const inTimelineEvents = events.filter(
+    (e) => e.parsedDate >= TIMELINE_START && effectiveLayers.has(e.layer)
+  );
+  const visibleEvents = inTimelineEvents;
 
   // Greedy collision resolution: ensure event rows are spaced by MIN_GAP.
   const MIN_GAP = 22;
@@ -87,6 +109,13 @@ export default function Timeline() {
 
   const selectedCategoryDef = selectedTool ? categories[selectedTool.category] : null;
 
+  const jumpToTool = (tool) => {
+    window.scrollTo({
+      top: y(tool.firstDate) - STICKY_HEADER_OFFSET,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <>
       <Controls
@@ -97,8 +126,12 @@ export default function Timeline() {
         highlightedCategory={highlightedCategory}
         onHighlightCategory={setHighlightedCategory}
         toolCount={tools.length}
-        eventCount={visibleEvents.length}
+        eventCount={visibleEvents.length + preTimelineEvents.length}
       />
+
+      <ToolStrip tools={tools} scrollDate={scrollDate} onJumpTo={jumpToTool} />
+
+      <BeforeStrip events={preTimelineEvents} layers={layers} />
 
       <div className="w-full overflow-x-auto">
         <div
@@ -255,11 +288,11 @@ export default function Timeline() {
                   onClick={() => setSelectedTool(t)}
                 >
                   <div
-                    className={`absolute text-xs whitespace-nowrap font-medium ${
+                    className={`absolute text-xs whitespace-nowrap font-medium pointer-events-none ${
                       isSelected ? 'text-stone-900' : 'text-stone-600 group-hover:text-stone-900'
                     }`}
                     style={{
-                      top: TOP_PAD - 12,
+                      top: lifelineTop - 8,
                       left: TOOL_COL_WIDTH / 2,
                       transform: 'rotate(-55deg)',
                       transformOrigin: 'left bottom',
