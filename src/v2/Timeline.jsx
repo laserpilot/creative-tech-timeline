@@ -17,8 +17,8 @@ export default function Timeline() {
   const [enabledLayers, setEnabledLayers] = useState(null);
   const [highlightedCategory, setHighlightedCategory] = useState(null);
   const [selectedTool, setSelectedTool] = useState(null);
+  const [expandedEvent, setExpandedEvent] = useState(null);
 
-  // Initialize enabledLayers once data arrives
   const effectiveLayers = useMemo(() => {
     if (enabledLayers) return enabledLayers;
     if (!data) return new Set();
@@ -59,12 +59,24 @@ export default function Timeline() {
 
   const { tools, events, layers, categories } = data;
   const { y, totalHeight, years } = layout;
+
   const visibleEvents = events.filter((e) => effectiveLayers.has(e.layer));
+
+  // Greedy collision resolution: ensure event rows are spaced by MIN_GAP.
+  const MIN_GAP = 22;
+  let lastBottom = -Infinity;
+  const positionedEvents = visibleEvents.map((e) => {
+    const anchorY = y(e.parsedDate);
+    const top = Math.max(anchorY, lastBottom + MIN_GAP);
+    lastBottom = top;
+    return { ...e, anchorY, top, shifted: top !== anchorY };
+  });
 
   const toolsAreaLeft = AXIS_WIDTH + EVENTS_WIDTH;
   const toolsAreaWidth = tools.length * TOOL_COL_WIDTH;
   const totalWidth = toolsAreaLeft + toolsAreaWidth + 40;
   const now = new Date();
+  const nowY = y(now);
 
   const toggleLayer = (key) => {
     const next = new Set(effectiveLayers);
@@ -93,28 +105,52 @@ export default function Timeline() {
           className="relative mx-auto"
           style={{ width: totalWidth, height: totalHeight }}
         >
-          {/* Time axis */}
-          <div className="absolute top-0" style={{ left: 0, width: AXIS_WIDTH, height: totalHeight }}>
+          {/* Full-width gridlines */}
+          {years.map((year) => {
+            const top = y(new Date(year, 0, 1));
+            const isDecade = year % 10 === 0;
+            if (!isDecade && year % 5 !== 0) return null;
+            return (
+              <div
+                key={`grid-${year}`}
+                className={isDecade ? 'border-t border-stone-200' : 'border-t border-stone-100'}
+                style={{ position: 'absolute', top, left: AXIS_WIDTH, right: 0 }}
+              />
+            );
+          })}
+
+          {/* "Now" line */}
+          <div
+            className="absolute border-t border-dashed border-stone-400"
+            style={{ top: nowY, left: AXIS_WIDTH, right: 0 }}
+          />
+          <div
+            className="absolute text-[10px] font-mono text-stone-500 bg-stone-50 px-1"
+            style={{ top: nowY - 7, left: AXIS_WIDTH + 4 }}
+          >
+            today
+          </div>
+
+          {/* Time axis (labels only — lines drawn above) */}
+          <div
+            className="absolute top-0"
+            style={{ left: 0, width: AXIS_WIDTH, height: totalHeight }}
+          >
             {years.map((year) => {
               const top = y(new Date(year, 0, 1));
               const isDecade = year % 10 === 0;
               const isHalf = year % 5 === 0;
+              if (!isDecade && !isHalf) return null;
               return (
-                <div key={year} style={{ position: 'absolute', top, left: 0, right: 0 }}>
-                  <div
-                    className={isDecade ? 'border-t border-stone-300' : 'border-t border-stone-100'}
-                    style={{ position: 'absolute', left: 0, right: 0, top: 0 }}
-                  />
-                  {(isDecade || isHalf) && (
-                    <span
-                      className={`absolute left-2 -translate-y-1/2 text-xs font-mono ${
-                        isDecade ? 'text-stone-900 font-semibold' : 'text-stone-400'
-                      }`}
-                    >
-                      {year}
-                    </span>
-                  )}
-                </div>
+                <span
+                  key={`label-${year}`}
+                  className={`absolute left-2 -translate-y-1/2 text-xs font-mono ${
+                    isDecade ? 'text-stone-900 font-semibold' : 'text-stone-400'
+                  }`}
+                  style={{ top }}
+                >
+                  {year}
+                </span>
               );
             })}
           </div>
@@ -124,42 +160,70 @@ export default function Timeline() {
             className="absolute top-0"
             style={{ left: AXIS_WIDTH, width: EVENTS_WIDTH, height: totalHeight }}
           >
-            {visibleEvents.map((e) => {
-              const top = y(e.parsedDate);
+            {positionedEvents.map((e) => {
+              const isExpanded = expandedEvent === e.id;
               return (
-                <div
-                  key={e.id}
-                  style={{ position: 'absolute', top, left: 16, right: 16 }}
-                  className="-translate-y-2"
-                >
-                  <div className="flex gap-3">
+                <div key={e.id}>
+                  {/* Anchor dot at exact date */}
+                  <div
+                    className="absolute w-2 h-2 rounded-full ring-2 ring-stone-50"
+                    style={{
+                      top: e.anchorY - 4,
+                      left: 14,
+                      background: e.color,
+                    }}
+                  />
+                  {/* Leader line if shifted */}
+                  {e.shifted && (
                     <div
-                      className="mt-2 w-2.5 h-2.5 rounded-full ring-2 ring-stone-50 shrink-0"
-                      style={{ background: e.color }}
+                      className="absolute border-l border-dotted border-stone-300"
+                      style={{
+                        top: e.anchorY,
+                        left: 18,
+                        height: e.top - e.anchorY,
+                      }}
                     />
-                    <div className="min-w-0">
-                      <div className="text-[10px] text-stone-400 font-mono tracking-wide uppercase">
-                        {e.date} · {layers[e.layer]?.name || e.layer}
-                      </div>
-                      <div className="text-sm text-stone-900 font-medium leading-tight">
+                  )}
+                  {/* Card */}
+                  <div
+                    className={`absolute cursor-pointer rounded px-2 -mx-1 hover:bg-stone-100 ${
+                      isExpanded ? 'bg-stone-100' : ''
+                    }`}
+                    style={{ top: e.top - 8, left: 24, right: 16 }}
+                    onClick={() => setExpandedEvent(isExpanded ? null : e.id)}
+                  >
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-[10px] text-stone-400 font-mono whitespace-nowrap">
+                        {e.date}
+                      </span>
+                      <span className="text-sm text-stone-900 font-medium leading-tight">
                         {e.title}
-                      </div>
-                      {e.description && (
-                        <div className="text-xs text-stone-600 mt-0.5 leading-snug">
-                          {e.description}
-                        </div>
-                      )}
-                      {e.link && (
-                        <a
-                          href={e.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[10px] text-stone-400 hover:text-stone-700 mt-0.5 inline-block"
-                        >
-                          source →
-                        </a>
-                      )}
+                      </span>
                     </div>
+                    {isExpanded && (
+                      <div className="mt-1 mb-1 pl-1">
+                        {e.description && (
+                          <p className="text-xs text-stone-600 leading-snug">{e.description}</p>
+                        )}
+                        <div className="text-[10px] text-stone-400 uppercase tracking-wide font-mono mt-1">
+                          {layers[e.layer]?.name || e.layer}
+                          {e.link && (
+                            <>
+                              {' · '}
+                              <a
+                                href={e.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-stone-700"
+                                onClick={(ev) => ev.stopPropagation()}
+                              >
+                                source ↗
+                              </a>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               );
@@ -174,7 +238,7 @@ export default function Timeline() {
             {tools.map((t, i) => {
               const colLeft = i * TOOL_COL_WIDTH;
               const lifelineTop = y(t.firstDate);
-              const lifelineEnd = t.discontinued ? y(t.discontinued) : y(now);
+              const lifelineEnd = t.discontinued ? y(t.discontinued) : nowY;
               const lifelineHeight = Math.max(2, lifelineEnd - lifelineTop);
 
               const dimmed =
@@ -185,12 +249,11 @@ export default function Timeline() {
                 <div
                   key={t.name}
                   className={`group absolute cursor-pointer transition-opacity ${
-                    dimmed ? 'opacity-20 hover:opacity-60' : 'opacity-100'
+                    dimmed ? 'opacity-15 hover:opacity-60' : 'opacity-100'
                   }`}
                   style={{ left: colLeft, top: 0, width: TOOL_COL_WIDTH, height: '100%' }}
                   onClick={() => setSelectedTool(t)}
                 >
-                  {/* Rotated label */}
                   <div
                     className={`absolute text-xs whitespace-nowrap font-medium ${
                       isSelected ? 'text-stone-900' : 'text-stone-600 group-hover:text-stone-900'
@@ -205,7 +268,6 @@ export default function Timeline() {
                     {t.name}
                   </div>
 
-                  {/* Lifeline bar */}
                   <div
                     className={`absolute rounded-sm transition-opacity ${
                       isSelected ? 'opacity-100' : 'opacity-50 group-hover:opacity-100'
@@ -219,7 +281,6 @@ export default function Timeline() {
                     }}
                   />
 
-                  {/* Release ticks */}
                   {t.releases.map((r, idx) => {
                     const isMajor = r.major || idx === 0;
                     const size = isMajor ? 8 : 5;
