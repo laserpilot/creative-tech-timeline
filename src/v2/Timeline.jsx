@@ -1,348 +1,330 @@
-import { useEffect, useMemo, useState } from 'react';
-import { scaleTime } from 'd3-scale';
+import { useMemo, useState } from 'react';
 import { useTimelineData } from './useTimelineData.js';
-import Controls from './Controls.jsx';
-import ToolStrip from './ToolStrip.jsx';
-import BeforeStrip from './BeforeStrip.jsx';
+import Sidebar from './Sidebar.jsx';
 import ToolDetail from './ToolDetail.jsx';
+import {
+  YMIN, YMAX, NOW, GUTTER, ROW, LANE_HEADER, EVH, EVR, TIME_WIDTH,
+  CATEGORY_ORDER, LAYER_ORDER, DECADES, x, xDate, yearFrac, decadeOf,
+} from './timelineConfig.js';
 
-const PIXELS_PER_YEAR = 56;
-const AXIS_WIDTH = 64;
-const EVENTS_WIDTH = 380;
-const TOOL_COL_WIDTH = 30;
-const TOOL_BAR_WIDTH = 4;
-const TOP_PAD = 40;
-const BOTTOM_PAD = 60;
-const TIMELINE_START_YEAR = 1990;
-const STICKY_HEADER_OFFSET = 150;
+const BG = '#f7f6f4';
+const MONO = "'IBM Plex Mono', ui-monospace, monospace";
+
+function toggleIn(set, key) {
+  const next = new Set(set);
+  next.has(key) ? next.delete(key) : next.add(key);
+  return next;
+}
 
 export default function Timeline() {
   const { loading, error, data } = useTimelineData();
-  const [enabledLayers, setEnabledLayers] = useState(null);
-  const [highlightedCategory, setHighlightedCategory] = useState(null);
-  const [selectedTool, setSelectedTool] = useState(null);
-  const [expandedEvent, setExpandedEvent] = useState(null);
-  const [scrollDate, setScrollDate] = useState(null);
 
-  const effectiveLayers = useMemo(() => {
-    if (enabledLayers) return enabledLayers;
-    if (!data) return new Set();
-    return new Set(Object.keys(data.layers));
-  }, [enabledLayers, data]);
+  const [cats, setCats] = useState(null); // null = all on
+  const [layers, setLayers] = useState(null);
+  const [decades, setDecades] = useState(null);
+  const [query, setQuery] = useState('');
+  const [expanded, setExpanded] = useState(() => new Set(['programming', 'audio-visual']));
+  const [selected, setSelected] = useState(null);
+  const [hoverEvent, setHoverEvent] = useState(null);
 
-  const layout = useMemo(() => {
+  // Normalize display tools/events to the config ordering + palette.
+  const prepared = useMemo(() => {
     if (!data) return null;
-    const { tools, events } = data;
-
-    const allDates = [
-      ...tools.flatMap((t) => [t.firstDate, t.latestDate]),
-      ...events.map((e) => e.parsedDate),
-    ];
-    const minYear = TIMELINE_START_YEAR;
-    const maxYear = Math.max(
-      ...allDates.map((d) => d.getFullYear()),
-      new Date().getFullYear()
-    );
-
-    const domainMin = new Date(minYear, 0, 1);
-    const domainMax = new Date(maxYear + 1, 0, 1);
-    const span = maxYear + 1 - minYear;
-    const totalHeight = span * PIXELS_PER_YEAR + TOP_PAD + BOTTOM_PAD;
-
-    const y = scaleTime()
-      .domain([domainMin, domainMax])
-      .range([TOP_PAD, totalHeight - BOTTOM_PAD]);
-
-    const years = [];
-    for (let yr = minYear; yr <= maxYear + 1; yr++) years.push(yr);
-    return { y, totalHeight, years };
+    const catColor = Object.fromEntries(CATEGORY_ORDER.map((c) => [c.key, c.color]));
+    const catName = Object.fromEntries(CATEGORY_ORDER.map((c) => [c.key, c.name]));
+    const layColor = Object.fromEntries(LAYER_ORDER.map((l) => [l.key, l.color]));
+    const layName = Object.fromEntries(LAYER_ORDER.map((l) => [l.key, l.name]));
+    const tools = data.tools
+      .filter((t) => catColor[t.category])
+      .map((t) => ({ ...t, color: catColor[t.category], categoryName: catName[t.category], startYear: t.firstDate.getFullYear() }));
+    const events = data.events
+      .filter((e) => layColor[e.layer])
+      .map((e) => ({ ...e, color: layColor[e.layer], layerName: layName[e.layer] }))
+      .sort((a, b) => a.parsedDate - b.parsedDate);
+    return { tools, events };
   }, [data]);
 
-  useEffect(() => {
-    if (!layout) return;
-    const onScroll = () => {
-      setScrollDate(layout.y.invert(window.scrollY + STICKY_HEADER_OFFSET));
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [layout]);
+  if (loading) return <div style={{ padding: 32, color: '#8a8175', fontSize: 13 }}>Loading timeline…</div>;
+  if (error) return <div style={{ padding: 32, color: '#b23', fontSize: 13 }}>Error loading data: {error}</div>;
+  if (!data || !prepared) return null;
 
-  if (loading) return <div className="p-8 text-stone-500 text-sm">Loading timeline…</div>;
-  if (error) return <div className="p-8 text-red-600 text-sm">Error loading data: {error}</div>;
-  if (!data || !layout) return null;
+  const { tools, events } = prepared;
+  const catsOn = cats || new Set(CATEGORY_ORDER.map((c) => c.key));
+  const layersOn = layers || new Set(LAYER_ORDER.map((l) => l.key));
+  const decadesOn = decades || new Set(DECADES);
+  const q = query.trim().toLowerCase();
 
-  const { tools, events, layers, categories } = data;
-  const { y, totalHeight, years } = layout;
+  const toolDimmed = (t) =>
+    !decadesOn.has(decadeOf(t.startYear)) || (q && !t.name.toLowerCase().includes(q));
 
-  const TIMELINE_START = new Date(TIMELINE_START_YEAR, 0, 1);
-  const preTimelineEvents = events.filter(
-    (e) => e.parsedDate < TIMELINE_START && effectiveLayers.has(e.layer)
+  const catCount = Object.fromEntries(
+    CATEGORY_ORDER.map((c) => [c.key, tools.filter((t) => t.category === c.key).length])
   );
-  const inTimelineEvents = events.filter(
-    (e) => e.parsedDate >= TIMELINE_START && effectiveLayers.has(e.layer)
+  const layCount = Object.fromEntries(
+    LAYER_ORDER.map((l) => [l.key, events.filter((e) => e.layer === l.key).length])
   );
-  const visibleEvents = inTimelineEvents;
+  const shownTools = tools.filter((t) => catsOn.has(t.category) && !toolDimmed(t)).length;
 
-  // Greedy collision resolution: ensure event rows are spaced by MIN_GAP.
-  const MIN_GAP = 22;
-  let lastBottom = -Infinity;
-  const positionedEvents = visibleEvents.map((e) => {
-    const anchorY = y(e.parsedDate);
-    const top = Math.max(anchorY, lastBottom + MIN_GAP);
-    lastBottom = top;
-    return { ...e, anchorY, top, shifted: top !== anchorY };
-  });
+  const activeLayers = LAYER_ORDER.filter((l) => layersOn.has(l.key));
+  const activeRow = Object.fromEntries(activeLayers.map((l, i) => [l.key, i]));
+  const visEvents = events.filter((e) => layersOn.has(e.layer));
+  const eventsExpanded = expanded.has('events');
 
-  const toolsAreaLeft = AXIS_WIDTH + EVENTS_WIDTH;
-  const toolsAreaWidth = tools.length * TOOL_COL_WIDTH;
-  const totalWidth = toolsAreaLeft + toolsAreaWidth + 40;
-  const now = new Date();
-  const nowY = y(now);
+  const innerWidth = GUTTER + TIME_WIDTH;
+  const nowLeft = x(NOW);
 
-  const toggleLayer = (key) => {
-    const next = new Set(effectiveLayers);
-    if (next.has(key)) next.delete(key);
-    else next.add(key);
-    setEnabledLayers(next);
-  };
+  // ---- year axis + gridlines ----
+  const ticks = [];
+  for (let yr = YMIN; yr <= YMAX; yr++) {
+    if (yr % 5 !== 0) continue;
+    ticks.push({ yr, left: x(yr), decade: yr % 10 === 0 });
+  }
 
-  const selectedCategoryDef = selectedTool ? categories[selectedTool.category] : null;
-
-  const jumpToTool = (tool) => {
-    window.scrollTo({
-      top: y(tool.firstDate) - STICKY_HEADER_OFFSET,
-      behavior: 'smooth',
-    });
-  };
+  const gridlines = ticks.map((t) => (
+    <div
+      key={`grid-${t.yr}`}
+      style={{
+        position: 'absolute', top: 0, bottom: 0, width: 1,
+        left: GUTTER + t.left, background: t.decade ? '#e7e2da' : '#f0ece5', zIndex: 0,
+      }}
+    />
+  ));
 
   return (
-    <>
-      <Controls
-        layers={layers}
-        enabledLayers={effectiveLayers}
-        onToggleLayer={toggleLayer}
-        categories={categories}
-        highlightedCategory={highlightedCategory}
-        onHighlightCategory={setHighlightedCategory}
-        toolCount={tools.length}
-        eventCount={visibleEvents.length + preTimelineEvents.length}
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: BG, color: '#3a352e' }}>
+      <header style={{ flex: 'none', display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 16, padding: '14px 20px', borderBottom: '1px solid #e7e3dd', background: BG }}>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
+          <h1 style={{ fontSize: 17, fontWeight: 600, letterSpacing: '-0.01em', color: '#2c2822', margin: 0 }}>Creative Coding Timeline</h1>
+          <p style={{ fontSize: 12.5, color: '#8a8175', margin: 0 }}>Tools, in the context of the hardware, standards, AI, art &amp; communities around them.</p>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, flex: 'none' }}>
+          <span style={{ fontFamily: MONO, fontSize: 11, color: '#a49a8d' }}>{YMIN}</span>
+          <span style={{ width: 60, height: 1, background: '#d8d2ca' }} />
+          <span style={{ fontFamily: MONO, fontSize: 11, color: '#a49a8d' }}>{Math.floor(NOW)}</span>
+        </div>
+      </header>
+      <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
+      <Sidebar
+        query={query}
+        onSearch={setQuery}
+        categories={CATEGORY_ORDER.map((c) => ({
+          ...c, count: catCount[c.key], on: catsOn.has(c.key),
+          toggle: () => setCats(toggleIn(catsOn, c.key)),
+        }))}
+        onResetCats={() => setCats(null)}
+        layers={LAYER_ORDER.map((l) => ({
+          ...l, count: layCount[l.key], on: layersOn.has(l.key),
+          toggle: () => setLayers(toggleIn(layersOn, l.key)),
+        }))}
+        allLayersOn={layersOn.size === LAYER_ORDER.length}
+        onToggleAllLayers={() =>
+          setLayers(layersOn.size === LAYER_ORDER.length ? new Set() : null)}
+        decades={DECADES.map((d) => ({
+          label: d, on: decadesOn.has(d), toggle: () => setDecades(toggleIn(decadesOn, d)),
+        }))}
+        showingLabel={`${shownTools} of ${tools.length} tools`}
+        onReset={() => { setCats(null); setLayers(null); setDecades(null); setQuery(''); setSelected(null); }}
       />
 
-      <ToolStrip tools={tools} scrollDate={scrollDate} onJumpTo={jumpToTool} />
+      {/* Scrollable timeline */}
+      <div style={{ flex: 1, overflow: 'auto', position: 'relative' }}>
+        <div style={{ position: 'relative', minWidth: innerWidth }}>
+          {gridlines}
+          {/* now line */}
+          <div style={{ position: 'absolute', top: 0, bottom: 0, width: 0, left: GUTTER + nowLeft, borderLeft: '1px dashed #c3baac', zIndex: 1 }} />
 
-      <BeforeStrip events={preTimelineEvents} layers={layers} />
+          {/* Year axis (sticky top) */}
+          <div style={{ position: 'sticky', top: 0, zIndex: 5, display: 'flex', height: 40, background: BG, borderBottom: '1px solid #e7e3dd' }}>
+            <div style={{ position: 'sticky', left: 0, zIndex: 6, flex: 'none', width: GUTTER, background: BG, borderRight: '1px solid #e7e3dd' }} />
+            <div style={{ position: 'relative', flex: 'none', width: TIME_WIDTH }}>
+              {ticks.map((t) => (
+                <span key={`tick-${t.yr}`} style={{
+                  position: 'absolute', top: 13, left: t.left, transform: 'translateX(-50%)',
+                  fontFamily: MONO, fontSize: 11, whiteSpace: 'nowrap',
+                  color: t.decade ? '#4a443c' : '#b4a99b', fontWeight: t.decade ? 500 : 400,
+                }}>{t.yr}</span>
+              ))}
+              <span style={{ position: 'absolute', top: 13, left: nowLeft + 5, fontFamily: MONO, fontSize: 10, color: '#a49a8d' }}>now</span>
+            </div>
+          </div>
 
-      <div className="w-full overflow-x-auto">
-        <div
-          className="relative mx-auto"
-          style={{ width: totalWidth, height: totalHeight }}
-        >
-          {/* Full-width gridlines */}
-          {years.map((year) => {
-            const top = y(new Date(year, 0, 1));
-            const isDecade = year % 10 === 0;
-            if (!isDecade && year % 5 !== 0) return null;
+          {/* Context & events lane */}
+          <EventsLane
+            expanded={eventsExpanded}
+            onToggle={() => setExpanded(toggleIn(expanded, 'events'))}
+            count={visEvents.length}
+            activeLayers={activeLayers}
+            activeRow={activeRow}
+            visEvents={visEvents}
+            hoverEvent={hoverEvent}
+            setHoverEvent={setHoverEvent}
+          />
+
+          {/* Category lanes */}
+          {CATEGORY_ORDER.filter((c) => catsOn.has(c.key)).map((c) => {
+            const laneTools = tools
+              .filter((t) => t.category === c.key)
+              .sort((a, b) => a.firstDate - b.firstDate);
             return (
-              <div
-                key={`grid-${year}`}
-                className={isDecade ? 'border-t border-stone-200' : 'border-t border-stone-100'}
-                style={{ position: 'absolute', top, left: AXIS_WIDTH, right: 0 }}
+              <Lane
+                key={c.key}
+                cat={c}
+                tools={laneTools}
+                expanded={expanded.has(c.key)}
+                onToggle={() => setExpanded(toggleIn(expanded, c.key))}
+                toolDimmed={toolDimmed}
+                onSelect={setSelected}
+                selected={selected}
               />
             );
           })}
+        </div>
+      </div>
 
-          {/* "Now" line */}
+      <ToolDetail tool={selected} onClose={() => setSelected(null)} />
+      </div>
+    </div>
+  );
+}
+
+// ---------- Events lane ----------
+function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEvents, hoverEvent, setHoverEvent }) {
+  const height = expanded ? EVH + activeLayers.length * EVR + 10 : 38;
+  const hovered = hoverEvent != null ? visEvents[hoverEvent] : null;
+
+  return (
+    <div style={{ display: 'flex', borderBottom: '1px solid #ece8e1', background: 'rgba(247,246,244,0.4)' }}>
+      <div style={{ position: 'sticky', left: 0, zIndex: 3, flex: 'none', width: GUTTER, background: BG, borderRight: '1px solid #e7e3dd' }}>
+        <div onClick={onToggle} style={{ display: 'flex', alignItems: 'center', gap: 8, height: 38, padding: '0 12px 0 14px', cursor: 'pointer' }}>
+          <span style={{ display: 'inline-block', color: '#b4a99b', fontSize: 14, transform: expanded ? 'rotate(90deg)' : 'none', transition: 'transform 0.15s' }}>›</span>
+          <span style={{ flex: 1, fontSize: 12, fontWeight: 600, color: '#6b6459' }}>Context &amp; events</span>
+          <span style={{ fontFamily: MONO, fontSize: 11, color: '#b4a99b' }}>{count}</span>
+        </div>
+        {expanded && activeLayers.map((l) => (
+          <div key={l.key} style={{ display: 'flex', alignItems: 'center', gap: 8, height: EVR, padding: '0 12px 0 34px' }}>
+            <span style={{ width: 8, height: 8, borderRadius: '50%', flex: 'none', background: l.color }} />
+            <span style={{ fontSize: 11.5, color: '#6b6459', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{l.name}</span>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ position: 'relative', flex: 'none', width: TIME_WIDTH, height }}>
+        {/* ticks (always) */}
+        {visEvents.map((e, i) => (
           <div
-            className="absolute border-t border-dashed border-stone-400"
-            style={{ top: nowY, left: AXIS_WIDTH, right: 0 }}
+            key={`t-${e.id}`}
+            onMouseEnter={() => setHoverEvent(i)}
+            onMouseLeave={() => setHoverEvent(null)}
+            style={{
+              position: 'absolute', top: 9, height: 20, width: 3, left: xDate(e.parsedDate) - 1,
+              background: e.color, borderRadius: 2, opacity: hoverEvent === i ? 1 : 0.68, cursor: 'pointer',
+            }}
           />
-          <div
-            className="absolute text-[10px] font-mono text-stone-500 bg-stone-50 px-1"
-            style={{ top: nowY - 7, left: AXIS_WIDTH + 4 }}
-          >
-            today
+        ))}
+        {/* dots per layer row (expanded) */}
+        {expanded && visEvents.map((e, i) => {
+          const size = hoverEvent === i ? 12 : 9;
+          const top = EVH + activeRow[e.layer] * EVR + (EVR - size) / 2;
+          return (
+            <div
+              key={`d-${e.id}`}
+              onMouseEnter={() => setHoverEvent(i)}
+              onMouseLeave={() => setHoverEvent(null)}
+              style={{
+                position: 'absolute', top, left: xDate(e.parsedDate) - size / 2, width: size, height: size,
+                borderRadius: '50%', background: e.color, boxShadow: '0 0 0 2px #f7f6f4', cursor: 'pointer',
+              }}
+            />
+          );
+        })}
+        {/* hover popover */}
+        {hovered && (
+          <div style={{
+            position: 'absolute',
+            top: expanded ? EVH + activeRow[hovered.layer] * EVR + 22 : 34,
+            left: xDate(hovered.parsedDate) - 10, zIndex: 50, width: 220,
+            background: '#fff', border: '1px solid #e7e3dd', borderLeft: `3px solid ${hovered.color}`,
+            borderRadius: 8, boxShadow: '0 12px 32px -14px rgba(40,34,30,0.4)', padding: '9px 12px', pointerEvents: 'none',
+          }}>
+            <div style={{ fontSize: 13, fontWeight: 600, color: '#2c2822', marginBottom: 3 }}>{hovered.title}</div>
+            <div style={{ fontFamily: MONO, fontSize: 10, color: '#a49a8d', marginBottom: 5 }}>
+              {hovered.layerName} · {Math.floor(yearFrac(hovered.parsedDate))}
+            </div>
+            {hovered.description && <div style={{ fontSize: 11.5, color: '#6b6459', lineHeight: 1.45 }}>{hovered.description}</div>}
           </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
-          {/* Time axis (labels only — lines drawn above) */}
-          <div
-            className="absolute top-0"
-            style={{ left: 0, width: AXIS_WIDTH, height: totalHeight }}
-          >
-            {years.map((year) => {
-              const top = y(new Date(year, 0, 1));
-              const isDecade = year % 10 === 0;
-              const isHalf = year % 5 === 0;
-              if (!isDecade && !isHalf) return null;
-              return (
-                <span
-                  key={`label-${year}`}
-                  className={`absolute left-2 -translate-y-1/2 text-xs font-mono ${
-                    isDecade ? 'text-stone-900 font-semibold' : 'text-stone-400'
-                  }`}
-                  style={{ top }}
-                >
-                  {year}
-                </span>
-              );
-            })}
-          </div>
+// ---------- Category lane ----------
+function Lane({ cat, tools, expanded, onToggle, toolDimmed, onSelect, selected }) {
+  const height = expanded ? LANE_HEADER + tools.length * ROW + 8 : 44;
 
-          {/* Events column */}
-          <div
-            className="absolute top-0"
-            style={{ left: AXIS_WIDTH, width: EVENTS_WIDTH, height: totalHeight }}
-          >
-            {positionedEvents.map((e) => {
-              const isExpanded = expandedEvent === e.id;
-              return (
-                <div key={e.id}>
-                  {/* Anchor dot at exact date */}
-                  <div
-                    className="absolute w-2 h-2 rounded-full ring-2 ring-stone-50"
-                    style={{
-                      top: e.anchorY - 4,
-                      left: 14,
-                      background: e.color,
-                    }}
-                  />
-                  {/* Leader line if shifted */}
-                  {e.shifted && (
-                    <div
-                      className="absolute border-l border-dotted border-stone-300"
-                      style={{
-                        top: e.anchorY,
-                        left: 18,
-                        height: e.top - e.anchorY,
-                      }}
-                    />
-                  )}
-                  {/* Card */}
-                  <div
-                    className={`absolute cursor-pointer rounded px-2 -mx-1 hover:bg-stone-100 ${
-                      isExpanded ? 'bg-stone-100' : ''
-                    }`}
-                    style={{ top: e.top - 8, left: 24, right: 16 }}
-                    onClick={() => setExpandedEvent(isExpanded ? null : e.id)}
-                  >
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-[10px] text-stone-400 font-mono whitespace-nowrap">
-                        {e.date}
-                      </span>
-                      <span className="text-sm text-stone-900 font-medium leading-tight">
-                        {e.title}
-                      </span>
-                    </div>
-                    {isExpanded && (
-                      <div className="mt-1 mb-1 pl-1">
-                        {e.description && (
-                          <p className="text-xs text-stone-600 leading-snug">{e.description}</p>
-                        )}
-                        <div className="text-[10px] text-stone-400 uppercase tracking-wide font-mono mt-1">
-                          {layers[e.layer]?.name || e.layer}
-                          {e.link && (
-                            <>
-                              {' · '}
-                              <a
-                                href={e.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="hover:text-stone-700"
-                                onClick={(ev) => ev.stopPropagation()}
-                              >
-                                source ↗
-                              </a>
-                            </>
-                          )}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+  return (
+    <div style={{ display: 'flex', borderBottom: '1px solid #ece8e1' }}>
+      {/* gutter */}
+      <div style={{ position: 'sticky', left: 0, zIndex: 3, flex: 'none', width: GUTTER, background: '#fbfaf8', borderRight: '1px solid #e7e3dd' }}>
+        <div onClick={onToggle} style={{ display: 'flex', alignItems: 'center', gap: 8, height: LANE_HEADER, padding: '0 12px 0 14px', cursor: 'pointer' }}>
+          <span style={{ display: 'inline-block', color: '#b4a99b', fontSize: 14, transform: expanded ? 'rotate(90deg)' : 'none', transition: 'transform 0.15s' }}>›</span>
+          <span style={{ width: 10, height: 10, borderRadius: 3, flex: 'none', background: cat.color }} />
+          <span style={{ flex: 1, fontSize: 12.5, fontWeight: 600, color: '#3a352e', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{cat.name}</span>
+          <span style={{ fontFamily: MONO, fontSize: 11, color: '#b4a99b' }}>{tools.length}</span>
+        </div>
+        {expanded && tools.map((t) => {
+          const dimmed = toolDimmed(t);
+          return (
+            <div
+              key={t.name}
+              onClick={() => onSelect(t)}
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6,
+                height: ROW, padding: '0 12px 0 34px', cursor: 'pointer', opacity: dimmed ? 0.35 : 1,
+              }}
+            >
+              <span style={{ fontSize: 12.5, color: '#3a352e', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t.name}</span>
+              <span style={{ fontFamily: MONO, fontSize: 10, color: '#b4a99b', flex: 'none' }}>{t.releases.length > 1 ? `${t.releases.length} rel` : '·'}</span>
+            </div>
+          );
+        })}
+      </div>
 
-          {/* Tools area */}
-          <div
-            className="absolute top-0"
-            style={{ left: toolsAreaLeft, width: toolsAreaWidth, height: totalHeight }}
-          >
-            {tools.map((t, i) => {
-              const colLeft = i * TOOL_COL_WIDTH;
-              const lifelineTop = y(t.firstDate);
-              const lifelineEnd = t.discontinued ? y(t.discontinued) : nowY;
-              const lifelineHeight = Math.max(2, lifelineEnd - lifelineTop);
-
-              const dimmed =
-                highlightedCategory !== null && t.category !== highlightedCategory;
-              const isSelected = selectedTool && selectedTool.name === t.name;
-
+      {/* time region */}
+      <div style={{ position: 'relative', flex: 'none', width: TIME_WIDTH, height }}>
+        {expanded
+          ? tools.map((t, i) => {
+              const dimmed = toolDimmed(t);
+              const startX = xDate(t.firstDate);
+              const endX = t.discontinued ? xDate(t.discontinued) : x(NOW);
+              const isSel = selected && selected.name === t.name;
               return (
                 <div
                   key={t.name}
-                  className={`group absolute cursor-pointer transition-opacity ${
-                    dimmed ? 'opacity-15 hover:opacity-60' : 'opacity-100'
-                  }`}
-                  style={{ left: colLeft, top: 0, width: TOOL_COL_WIDTH, height: '100%' }}
-                  onClick={() => setSelectedTool(t)}
+                  onClick={() => onSelect(t)}
+                  style={{ position: 'absolute', left: 0, top: LANE_HEADER + i * ROW, height: ROW, width: TIME_WIDTH, cursor: 'pointer', opacity: dimmed ? 0.22 : 1 }}
                 >
-                  <div
-                    className={`absolute text-xs whitespace-nowrap font-medium pointer-events-none ${
-                      isSelected ? 'text-stone-900' : 'text-stone-600 group-hover:text-stone-900'
-                    }`}
-                    style={{
-                      top: lifelineTop - 8,
-                      left: TOOL_COL_WIDTH / 2,
-                      transform: 'rotate(-55deg)',
-                      transformOrigin: 'left bottom',
-                    }}
-                  >
-                    {t.name}
-                  </div>
-
-                  <div
-                    className={`absolute rounded-sm transition-opacity ${
-                      isSelected ? 'opacity-100' : 'opacity-50 group-hover:opacity-100'
-                    }`}
-                    style={{
-                      top: lifelineTop,
-                      height: lifelineHeight,
-                      left: (TOOL_COL_WIDTH - TOOL_BAR_WIDTH) / 2,
-                      width: isSelected ? TOOL_BAR_WIDTH + 2 : TOOL_BAR_WIDTH,
-                      background: t.color,
-                    }}
-                  />
-
-                  {t.releases.map((r, idx) => {
-                    const isMajor = r.major || idx === 0;
-                    const size = isMajor ? 8 : 5;
+                  <div style={{ position: 'absolute', top: ROW / 2 - 2, left: startX, width: Math.max(6, endX - startX), height: 4, borderRadius: 3, background: cat.color, opacity: isSel ? 0.85 : 0.5 }} />
+                  {t.releases.map((r, di) => {
+                    const size = di === 0 ? 9 : 6;
                     return (
-                      <div
-                        key={idx}
-                        className="absolute rounded-full ring-1 ring-stone-50 pointer-events-none"
-                        style={{
-                          top: y(r.date) - size / 2,
-                          left: TOOL_COL_WIDTH / 2 - size / 2,
-                          width: size,
-                          height: size,
-                          background: t.color,
-                        }}
-                      />
+                      <div key={di} style={{ position: 'absolute', top: ROW / 2 - size / 2, left: xDate(r.date) - size / 2, width: size, height: size, borderRadius: '50%', background: cat.color, boxShadow: '0 0 0 2px #f7f6f4' }} />
                     );
                   })}
                 </div>
               );
+            })
+          : tools.map((t) => {
+              const dimmed = toolDimmed(t);
+              return (
+                <div
+                  key={t.name}
+                  title={`${t.name} · ${t.startYear}`}
+                  style={{ position: 'absolute', top: 19, left: xDate(t.firstDate) - 3, width: 6, height: 6, borderRadius: '50%', background: cat.color, opacity: dimmed ? 0.2 : 0.62 }}
+                />
+              );
             })}
-          </div>
-        </div>
       </div>
-
-      <ToolDetail
-        tool={selectedTool}
-        category={selectedCategoryDef}
-        onClose={() => setSelectedTool(null)}
-      />
-    </>
+    </div>
   );
 }

@@ -1,70 +1,54 @@
-import { X } from 'lucide-react';
+const MONO = "'IBM Plex Mono', ui-monospace, monospace";
 
-const fmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+const fmt = (d) =>
+  d instanceof Date && !isNaN(d)
+    ? d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+    : '';
 
-export default function ToolDetail({ tool, category, onClose }) {
+export default function ToolDetail({ tool, onClose }) {
   if (!tool) return null;
+
+  const releases = [...tool.releases].sort((a, b) => a.date - b.date);
+  const first = releases[0]?.date;
+  const rangeStart = first ? first.getFullYear() : tool.startYear;
+  const end = tool.discontinued ? tool.discontinued.getFullYear() : 'present';
+
   return (
-    <div className="fixed top-0 right-0 bottom-0 w-full sm:w-[420px] bg-white border-l border-stone-200 shadow-2xl z-50 flex flex-col">
-      <div className="p-4 border-b border-stone-200 flex items-start justify-between">
-        <div>
-          <div className="flex items-center gap-2 text-[10px] uppercase tracking-wide text-stone-500 font-mono">
-            <span className="w-2 h-2 rounded-full" style={{ background: tool.color }} />
-            {category?.name || tool.category}
-          </div>
-          <h2 className="text-xl font-semibold mt-1">{tool.name}</h2>
-          {tool.description && (
-            <p className="text-sm text-stone-600 mt-1 leading-snug">{tool.description}</p>
-          )}
-          <div className="text-xs text-stone-400 mt-2 font-mono">
-            {fmt.format(tool.firstDate)} → {tool.discontinued ? fmt.format(tool.discontinued) : 'present'}
-            <span className="mx-2">·</span>
-            {tool.releases.length} release{tool.releases.length === 1 ? '' : 's'}
-          </div>
+    <aside style={{ flex: 'none', width: 320, height: '100%', overflowY: 'auto', background: '#fff', borderLeft: '1px solid #e7e3dd', boxSizing: 'border-box', boxShadow: '-12px 0 32px -20px rgba(40,34,30,0.25)' }}>
+      <div style={{ padding: '16px 18px', borderBottom: '1px solid #ece8e1', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, background: '#fff' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{ width: 9, height: 9, borderRadius: 2, background: tool.color }} />
+          <span style={{ fontFamily: MONO, fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#a49a8d' }}>{tool.categoryName}</span>
         </div>
-        <button
-          onClick={onClose}
-          className="text-stone-400 hover:text-stone-900 p-1 -mr-1 -mt-1"
-          aria-label="Close"
-        >
-          <X size={18} />
-        </button>
+        <button onClick={onClose} aria-label="Close" style={{ border: 'none', background: 'none', cursor: 'pointer', color: '#a49a8d', fontSize: 18, lineHeight: 1 }}>×</button>
       </div>
 
-      <div className="overflow-y-auto flex-1">
-        <table className="w-full text-sm">
-          <thead className="sticky top-0 bg-stone-50 text-[10px] uppercase tracking-wide text-stone-500 font-mono">
-            <tr>
-              <th className="text-left px-4 py-2 font-normal">Date</th>
-              <th className="text-left px-4 py-2 font-normal">Version</th>
-              <th className="text-left px-4 py-2 font-normal">Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[...tool.releases].reverse().map((r, i) => (
-              <tr key={i} className="border-t border-stone-100 hover:bg-stone-50">
-                <td className="px-4 py-2 text-stone-700 font-mono text-xs whitespace-nowrap">
-                  {r.dateString}
-                </td>
-                <td className="px-4 py-2 text-stone-900 whitespace-nowrap">{r.version || '—'}</td>
-                <td className="px-4 py-2 text-stone-600 text-xs">
-                  {r.notes || ''}
+      <div style={{ padding: '16px 18px' }}>
+        <h2 style={{ fontSize: 20, fontWeight: 600, color: '#2c2822', margin: '0 0 6px' }}>{tool.name}</h2>
+        {tool.description && <p style={{ fontSize: 13.5, color: '#6b6459', lineHeight: 1.5, margin: '0 0 12px' }}>{tool.description}</p>}
+        <div style={{ fontFamily: MONO, fontSize: 11, color: '#8a8175', paddingBottom: 14, borderBottom: '1px solid #ece8e1' }}>
+          {rangeStart} – {end} · {releases.length} tracked release{releases.length === 1 ? '' : 's'}
+        </div>
+
+        <div style={{ marginTop: 14 }}>
+          <div style={{ fontFamily: MONO, fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#a49a8d', marginBottom: 8 }}>Releases</div>
+          {releases.map((r, i) => (
+            <div key={i} style={{ display: 'flex', gap: 10, marginBottom: 10 }}>
+              <span style={{ width: 7, height: 7, borderRadius: '50%', flex: 'none', background: tool.color, marginTop: 5 }} />
+              <div style={{ minWidth: 0 }}>
+                <div style={{ fontSize: 12.5, color: '#3a352e' }}>
+                  {r.version || `Release ${i + 1}`}{' '}
+                  <span style={{ fontFamily: MONO, fontSize: 10.5, color: '#b4a99b' }}>{fmt(r.date)}</span>
                   {r.link && (
-                    <a
-                      href={r.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-stone-400 hover:text-stone-900 ml-1"
-                    >
-                      ↗
-                    </a>
+                    <a href={r.link} target="_blank" rel="noopener noreferrer" style={{ color: '#b4a99b', marginLeft: 5, textDecoration: 'none' }}>↗</a>
                   )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                </div>
+                {r.notes && <div style={{ fontSize: 11.5, color: '#8a8175', lineHeight: 1.4 }}>{r.notes}</div>}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </aside>
   );
 }
