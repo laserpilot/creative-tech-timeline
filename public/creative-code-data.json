@@ -34,6 +34,11 @@
       "name": "Other",
       "color": "#7f7f7f",
       "description": "Uncategorized tools"
+    },
+    "multimedia-authoring": {
+      "name": "Multimedia Authoring",
+      "color": "#e377c2",
+      "description": "Interactive-media and live-performance authoring environments \u2014 visual, timeline, or patch-based tools for making interactive media, often with their own scripting languages."
     }
   },
   "tools": {
@@ -508,6 +513,93 @@
       "description": "Platform for audio synthesis and algorithmic composition",
       "releases": [
         { "version": "1.0", "dateString": "1996", "notes": "" }
+      ]
+    },
+    "Director": {
+      "category": "multimedia-authoring",
+      "description": "Macromedia (later Adobe) Director — a multimedia authoring application scripted with the Lingo language, descended from MacroMind VideoWorks; the dominant tool for CD-ROM and interactive-kiosk media through the 1990s.",
+      "link": "https://en.wikipedia.org/wiki/Adobe_Director",
+      "discontinued": "2017",
+      "releases": [
+        {"version": "MacroMind Director 1.0", "dateString": "1988", "link": "https://en.wikipedia.org/wiki/Adobe_Director", "notes": "First release under the Director name, descended from MacroMind VideoWorks. Ship year commonly cited as 1988 (sources vary 1987–1989). Confidence: approximate.", "major": true},
+        {"version": "Director 2.0", "dateString": "1990", "link": "https://en.wikipedia.org/wiki/Adobe_Director", "notes": "Introduced the Lingo scripting language."}
+      ]
+    },
+    "Flash / Animate": {
+      "category": "multimedia-authoring",
+      "description": "The vector animation and interactivity authoring tool that began as FutureSplash Animator, became Macromedia Flash (with the ActionScript language), and was renamed Adobe Animate in 2016.",
+      "link": "https://en.wikipedia.org/wiki/Adobe_Animate",
+      "releases": [
+        {"version": "FutureSplash Animator", "dateString": "1996-05", "link": "https://www.webdesignmuseum.org/software/futuresplash-animator-in-1996", "notes": "Original release by FutureWave Software, before the Macromedia acquisition.", "major": true},
+        {"version": "Macromedia Flash 1.0", "dateString": "1997", "link": "https://en.wikipedia.org/wiki/Adobe_Animate", "notes": "FutureWave acquired by Macromedia Dec 1996; product rebranded Macromedia Flash."},
+        {"version": "Adobe Animate", "dateString": "2016-02", "link": "https://en.wikipedia.org/wiki/Adobe_Animate", "notes": "Renamed from Flash Professional (Feb 8 2016). The Flash Player runtime reached end-of-life Dec 31 2020, but the authoring tool continues as Animate.", "major": true}
+      ]
+    },
+    "Quartz Composer": {
+      "category": "multimedia-authoring",
+      "description": "Apple's node-based visual programming environment for processing and rendering graphical data, shipped with the Mac OS X developer tools and widely used for VJ and motion-graphics prototyping.",
+      "link": "https://en.wikipedia.org/wiki/Quartz_Composer",
+      "discontinued": "2019",
+      "releases": [
+        {"version": "1.0 (Mac OS X 10.4 Tiger)", "dateString": "2005", "link": "https://en.wikipedia.org/wiki/Quartz_Composer", "notes": "First shipped in the Mac OS X 10.4 developer tools, based on Pierre-Olivier Latour's PixelShox (acquired by Apple 2002).", "major": true}
+      ]
+    },
+    "Isadora": {
+      "category": "multimedia-authoring",
+      "description": "TroikaTronix Isadora — a node-based graphic programming environment by Mark Coniglio for real-time manipulation of video and interactive media in live performance.",
+      "link": "https://troikatronix.com/",
+      "releases": [
+        {"version": "1.0", "dateString": "2000", "link": "https://en.wikipedia.org/wiki/Isadora_(software)", "notes": "By Mark Coniglio / Troika Ranch; some secondary sources cite 2002. Confidence: year.", "major": true}
+      ]
+    },
+    "Scratch": {
+      "category": "multimedia-authoring",
+      "description": "MIT Media Lab's block-based visual programming language and online community, designed to teach coding by snapping graphical command blocks together.",
+      "link": "https://scratch.mit.edu/",
+      "releases": [
+        {"version": "1.0", "dateString": "2007-05-15", "link": "https://en.wikipedia.org/wiki/Scratch_(programming_language)", "notes": "Public launch by the Lifelong Kindergarten group (Mitchel Resnick et al.).", "major": true}
+      ]
+    },
+    "Nodebox": {
+      "category": "creative-libraries",
+      "description": "A Mac OS X application that generates 2D visuals and generative designs from Python code (built on Quartz via PyObjC), by Frederik De Bleser and Tom De Smedt.",
+      "link": "https://www.nodebox.net/",
+      "releases": [
+        {"version": "NodeBox 1", "dateString": "2002", "link": "https://www.nodebox.net/code/index.php/About", "notes": "Original Mac NodeBox, based on DrawBot; 'online since 2002' per the project. Confidence: approximate.", "major": true}
+      ]
+    },
+    "Scriptographer": {
+      "category": "creative-libraries",
+      "description": "Jürg Lehni's scripting plugin that let users extend and automate Adobe Illustrator with JavaScript to build tools and generative drawings; direct predecessor to Paper.js.",
+      "link": "https://scriptographer.org/",
+      "discontinued": "2012",
+      "releases": [
+        {"version": "1.0", "dateString": "2001", "link": "https://scriptographer.org/", "notes": "Developed for Adobe Illustrator 9/10; exact first-release date not precisely documented. Discontinued when Illustrator CS6 (2012) removed the ADM API it relied on; succeeded by Paper.js (2011). Confidence: approximate.", "major": true}
+      ]
+    },
+    "Basil.js": {
+      "category": "creative-libraries",
+      "description": "An open-source scripting library that brings Processing-style computational and generative design to Adobe InDesign, from the Basel School of Design (HGK FHNW).",
+      "link": "https://basiljs.ch/",
+      "releases": [
+        {"version": "1.0", "dateString": "2013-02-28", "link": "https://basiljs.ch/about/", "notes": "Released under an MIT license; initiated by Benedikt Groß with Ludwig Zeller, Ted Davis, and others.", "major": true}
+      ]
+    },
+    "StructureSynth": {
+      "category": "programming",
+      "description": "Mikael Hvidtfeldt Christensen's application that generates 3D structures from a rule-based 'eisenscript' grammar, inspired by Structured Vector Graphics and Context Free Art.",
+      "link": "https://structuresynth.sourceforge.net/",
+      "releases": [
+        {"version": "First release", "dateString": "2007-09", "link": "https://structuresynth.sourceforge.net/", "notes": "Initially released as Windows binaries; open source (GPL/LGPL).", "major": true}
+      ]
+    },
+    "Papervision3D": {
+      "category": "web",
+      "description": "An open-source real-time 3D engine for Adobe Flash Player, written in ActionScript, that brought interactive 3D to the Flash web platform.",
+      "link": "https://en.wikipedia.org/wiki/Papervision3D",
+      "discontinued": "2009",
+      "releases": [
+        {"version": "Initial release", "dateString": "2005-12", "link": "https://en.wikipedia.org/wiki/Papervision3D", "notes": "By Carlos Ulloa; open-sourced by end of 2006. Final release 2.1.932 (Dec 2009); superseded by Away3D as Flash declined.", "major": true}
       ]
     }
   }
