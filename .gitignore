@@ -22,3 +22,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Full release-history archive from scripts/fetch-releases.mjs (canonical merged set lives in public/)
+scripts/.release-staging.json
