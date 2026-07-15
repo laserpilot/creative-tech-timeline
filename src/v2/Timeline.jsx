@@ -1,10 +1,11 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { useTimelineData } from './useTimelineData.js';
 import Sidebar from './Sidebar.jsx';
 import ToolDetail from './ToolDetail.jsx';
 import {
-  YMIN, YMAX, NOW, GUTTER, ROW, LANE_HEADER, EVH, EVR, TIME_WIDTH,
-  CATEGORY_ORDER, LAYER_ORDER, DECADES, x, xDate, yearFrac, decadeOf,
+  YMIN, YMAX, NOW, GUTTER, ROW, LANE_HEADER, EVH, EVR,
+  CATEGORY_ORDER, LAYER_ORDER, DECADES, yearFrac, decadeOf,
+  createScale, clampZoom, DEFAULT_PXY, ZOOM_MIN, ZOOM_MAX, ZOOM_STEP,
 } from './timelineConfig.js';
 
 const BG = '#f7f6f4';
@@ -26,6 +27,24 @@ export default function Timeline() {
   const [expanded, setExpanded] = useState(() => new Set(['programming', 'audio-visual']));
   const [selected, setSelected] = useState(null);
   const [hoverEvent, setHoverEvent] = useState(null);
+  const [pxy, setPxy] = useState(DEFAULT_PXY);
+  const scrollRef = useRef(null);
+
+  const scale = useMemo(() => createScale(pxy), [pxy]);
+
+  // Zoom about the horizontal centre of the viewport so the year under the
+  // middle of the screen stays put.
+  const zoomBy = (factor) => {
+    const next = clampZoom(pxy * factor);
+    if (next === pxy) return;
+    const el = scrollRef.current;
+    if (!el) { setPxy(next); return; }
+    const centerYear = YMIN + (el.scrollLeft + el.clientWidth / 2 - GUTTER) / pxy;
+    setPxy(next);
+    requestAnimationFrame(() => {
+      el.scrollLeft = (centerYear - YMIN) * next - el.clientWidth / 2 + GUTTER;
+    });
+  };
 
   // Normalize display tools/events to the config ordering + palette.
   const prepared = useMemo(() => {
@@ -70,14 +89,16 @@ export default function Timeline() {
   const visEvents = events.filter((e) => layersOn.has(e.layer));
   const eventsExpanded = expanded.has('events');
 
-  const innerWidth = GUTTER + TIME_WIDTH;
-  const nowLeft = x(NOW);
+  const innerWidth = GUTTER + scale.timeWidth;
+  const nowLeft = scale.x(NOW);
 
   // ---- year axis + gridlines ----
+  // At low zoom the 5-year labels crowd, so fall back to decades only.
+  const tickStep = pxy < 22 ? 10 : 5;
   const ticks = [];
   for (let yr = YMIN; yr <= YMAX; yr++) {
-    if (yr % 5 !== 0) continue;
-    ticks.push({ yr, left: x(yr), decade: yr % 10 === 0 });
+    if (yr % tickStep !== 0) continue;
+    ticks.push({ yr, left: scale.x(yr), decade: yr % 10 === 0 });
   }
 
   const gridlines = ticks.map((t) => (
@@ -97,10 +118,21 @@ export default function Timeline() {
           <h1 style={{ fontSize: 17, fontWeight: 600, letterSpacing: '-0.01em', color: '#2c2822', margin: 0 }}>Creative Coding Timeline</h1>
           <p style={{ fontSize: 12.5, color: '#8a8175', margin: 0 }}>Tools, in the context of the hardware, standards, AI, art &amp; communities around them.</p>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, flex: 'none' }}>
-          <span style={{ fontFamily: MONO, fontSize: 11, color: '#a49a8d' }}>{YMIN}</span>
-          <span style={{ width: 60, height: 1, background: '#d8d2ca' }} />
-          <span style={{ fontFamily: MONO, fontSize: 11, color: '#a49a8d' }}>{Math.floor(NOW)}</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14, flex: 'none' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span style={{ fontFamily: MONO, fontSize: 11, color: '#a49a8d' }}>{YMIN}</span>
+            <span style={{ width: 60, height: 1, background: '#d8d2ca' }} />
+            <span style={{ fontFamily: MONO, fontSize: 11, color: '#a49a8d' }}>{Math.floor(NOW)}</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+            <ZoomButton label="−" title="Zoom out" disabled={pxy <= ZOOM_MIN} onClick={() => zoomBy(1 / ZOOM_STEP)} />
+            <ZoomButton label="+" title="Zoom in" disabled={pxy >= ZOOM_MAX} onClick={() => zoomBy(ZOOM_STEP)} />
+            <button
+              onClick={() => { setPxy(DEFAULT_PXY); requestAnimationFrame(() => { if (scrollRef.current) scrollRef.current.scrollLeft = 0; }); }}
+              title="Reset zoom"
+              style={{ fontFamily: MONO, fontSize: 10.5, color: '#a49a8d', background: 'none', border: 'none', cursor: 'pointer', padding: '0 2px' }}
+            >reset</button>
+          </div>
         </div>
       </header>
       <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
@@ -127,7 +159,7 @@ export default function Timeline() {
       />
 
       {/* Scrollable timeline */}
-      <div style={{ flex: 1, overflow: 'auto', position: 'relative' }}>
+      <div ref={scrollRef} style={{ flex: 1, overflow: 'auto', position: 'relative' }}>
         <div style={{ position: 'relative', minWidth: innerWidth }}>
           {gridlines}
           {/* now line */}
@@ -136,7 +168,7 @@ export default function Timeline() {
           {/* Year axis (sticky top) */}
           <div style={{ position: 'sticky', top: 0, zIndex: 5, display: 'flex', height: 40, background: BG, borderBottom: '1px solid #e7e3dd' }}>
             <div style={{ position: 'sticky', left: 0, zIndex: 6, flex: 'none', width: GUTTER, background: BG, borderRight: '1px solid #e7e3dd' }} />
-            <div style={{ position: 'relative', flex: 'none', width: TIME_WIDTH }}>
+            <div style={{ position: 'relative', flex: 'none', width: scale.timeWidth }}>
               {ticks.map((t) => (
                 <span key={`tick-${t.yr}`} style={{
                   position: 'absolute', top: 13, left: t.left, transform: 'translateX(-50%)',
@@ -158,6 +190,7 @@ export default function Timeline() {
             visEvents={visEvents}
             hoverEvent={hoverEvent}
             setHoverEvent={setHoverEvent}
+            scale={scale}
           />
 
           {/* Category lanes */}
@@ -175,6 +208,7 @@ export default function Timeline() {
                 toolDimmed={toolDimmed}
                 onSelect={setSelected}
                 selected={selected}
+                scale={scale}
               />
             );
           })}
@@ -187,8 +221,27 @@ export default function Timeline() {
   );
 }
 
+// ---------- Zoom button ----------
+function ZoomButton({ label, title, onClick, disabled }) {
+  return (
+    <button
+      onClick={onClick}
+      title={title}
+      aria-label={title}
+      disabled={disabled}
+      style={{
+        width: 22, height: 22, display: 'flex', alignItems: 'center', justifyContent: 'center',
+        border: '1px solid #e0dbd3', borderRadius: 6, background: '#fff',
+        color: disabled ? '#d8d2ca' : '#6b6459', cursor: disabled ? 'default' : 'pointer',
+        fontSize: 13, lineHeight: 1, padding: 0,
+      }}
+    >{label}</button>
+  );
+}
+
 // ---------- Events lane ----------
-function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEvents, hoverEvent, setHoverEvent }) {
+function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEvents, hoverEvent, setHoverEvent, scale }) {
+  const { xDate } = scale;
   const height = expanded ? EVH + activeLayers.length * EVR + 10 : 38;
   const hovered = hoverEvent != null ? visEvents[hoverEvent] : null;
 
@@ -208,7 +261,7 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
         ))}
       </div>
 
-      <div style={{ position: 'relative', flex: 'none', width: TIME_WIDTH, height }}>
+      <div style={{ position: 'relative', flex: 'none', width: scale.timeWidth, height }}>
         {/* ticks (always) */}
         {visEvents.map((e, i) => (
           <div
@@ -259,7 +312,8 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
 }
 
 // ---------- Category lane ----------
-function Lane({ cat, tools, expanded, onToggle, toolDimmed, onSelect, selected }) {
+function Lane({ cat, tools, expanded, onToggle, toolDimmed, onSelect, selected, scale }) {
+  const { x, xDate } = scale;
   const height = expanded ? LANE_HEADER + tools.length * ROW + 8 : 44;
 
   return (
@@ -291,7 +345,7 @@ function Lane({ cat, tools, expanded, onToggle, toolDimmed, onSelect, selected }
       </div>
 
       {/* time region */}
-      <div style={{ position: 'relative', flex: 'none', width: TIME_WIDTH, height }}>
+      <div style={{ position: 'relative', flex: 'none', width: scale.timeWidth, height }}>
         {expanded
           ? tools.map((t, i) => {
               const dimmed = toolDimmed(t);
@@ -302,7 +356,7 @@ function Lane({ cat, tools, expanded, onToggle, toolDimmed, onSelect, selected }
                 <div
                   key={t.name}
                   onClick={() => onSelect(t)}
-                  style={{ position: 'absolute', left: 0, top: LANE_HEADER + i * ROW, height: ROW, width: TIME_WIDTH, cursor: 'pointer', opacity: dimmed ? 0.22 : 1 }}
+                  style={{ position: 'absolute', left: 0, top: LANE_HEADER + i * ROW, height: ROW, width: scale.timeWidth, cursor: 'pointer', opacity: dimmed ? 0.22 : 1 }}
                 >
                   <div style={{ position: 'absolute', top: ROW / 2 - 2, left: startX, width: Math.max(6, endX - startX), height: 4, borderRadius: 3, background: cat.color, opacity: isSel ? 0.85 : 0.5 }} />
                   {t.releases.map((r, di) => {

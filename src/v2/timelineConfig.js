@@ -3,17 +3,24 @@
 // and category/layer ordering live here so the look is stable regardless of the
 // colors stored in the source JSON.
 
-export const YMIN = 1990;
+export const YMIN = 1980;
 export const YMAX = 2027;
 export const NOW = 2026.5;
-export const PXY = 32; // pixels per year
+
+// Horizontal zoom: pixels per year. The scale is built at render time from the
+// current zoom level (see createScale), so PXY is not a fixed constant.
+export const DEFAULT_PXY = 32;
+export const ZOOM_MIN = 14;
+export const ZOOM_MAX = 72;
+export const ZOOM_STEP = 1.3; // multiplicative per click
+
 export const GUTTER = 176; // left label gutter width
 export const ROW = 28; // tool row height
 export const LANE_HEADER = 44; // header height inside the time region
 export const EVH = 38; // events-lane header height
 export const EVR = 24; // events-lane layer-row height
 
-export const TIME_WIDTH = (YMAX - YMIN) * PXY;
+export const clampZoom = (pxy) => Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, pxy));
 
 // Category display order + palette (keys match creative-code-data.json categories).
 export const CATEGORY_ORDER = [
@@ -35,7 +42,7 @@ export const LAYER_ORDER = [
   { key: 'institutions', name: 'Institutions', color: '#2ea36b' },
 ];
 
-export const DECADES = ['1990s', '2000s', '2010s', '2020s'];
+export const DECADES = ['1980s', '1990s', '2000s', '2010s', '2020s'];
 
 // Fractional-year position of a Date, e.g. 2007-07-01 -> ~2007.5.
 export function yearFrac(date) {
@@ -46,14 +53,18 @@ export function yearFrac(date) {
   return y + (date.getTime() - start) / (end - start);
 }
 
-// Year (fractional or integer) -> x pixels within the time region.
-export function x(year) {
-  return (year - YMIN) * PXY;
-}
-
-// Convenience: Date -> x pixels.
-export function xDate(date) {
-  return x(yearFrac(date));
+// Build the horizontal scale for a given zoom level (pixels per year).
+// Returns the mapping helpers plus the total width of the time region.
+export function createScale(pxy) {
+  const x = (year) => (year - YMIN) * pxy;
+  return {
+    pxy,
+    timeWidth: (YMAX - YMIN) * pxy,
+    x,
+    xDate: (date) => x(yearFrac(date)),
+    // Inverse: x pixels within the time region -> fractional year.
+    yearAt: (px) => YMIN + px / pxy,
+  };
 }
 
 export function decadeOf(year) {
