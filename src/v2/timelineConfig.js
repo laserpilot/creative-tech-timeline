@@ -20,6 +20,7 @@ export const CATEGORY_ORDER = [
   { key: 'programming', name: 'Programming Tools', color: 'oklch(0.52 0.13 265)' },
   { key: 'web', name: 'Web-Based Tools', color: 'oklch(0.58 0.09 215)' },
   { key: 'audio-visual', name: 'Audio-Visual', color: 'oklch(0.63 0.14 30)' },
+  { key: 'multimedia-authoring', name: 'Multimedia Authoring', color: 'oklch(0.63 0.16 358)' },
   { key: 'creative-libraries', name: 'Creative Libraries', color: 'oklch(0.72 0.13 75)' },
   { key: 'physical-computing', name: 'Physical Computing', color: 'oklch(0.60 0.11 150)' },
   { key: 'data-visualization', name: 'Data Visualization', color: 'oklch(0.55 0.14 305)' },
