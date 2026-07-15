@@ -3,9 +3,13 @@
 // and category/layer ordering live here so the look is stable regardless of the
 // colors stored in the source JSON.
 
-export const YMIN = 1980;
+export const YMIN = 1970;
 export const YMAX = 2027;
 export const NOW = 2026.5;
+
+// The domain reaches back to 1970 for early/seminal context, but most of the
+// activity starts around 1990 — so the view opens scrolled to here.
+export const VIEW_START = 1990;
 
 // Horizontal zoom: pixels per year. The scale is built at render time from the
 // current zoom level (see createScale), so PXY is not a fixed constant.
@@ -42,7 +46,7 @@ export const LAYER_ORDER = [
   { key: 'institutions', name: 'Institutions', color: '#2ea36b' },
 ];
 
-export const DECADES = ['1980s', '1990s', '2000s', '2010s', '2020s'];
+export const DECADES = ['1970s', '1980s', '1990s', '2000s', '2010s', '2020s'];
 
 // Fractional-year position of a Date, e.g. 2007-07-01 -> ~2007.5.
 export function yearFrac(date) {

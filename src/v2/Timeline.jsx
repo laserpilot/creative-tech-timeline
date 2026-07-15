@@ -1,9 +1,10 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTimelineData } from './useTimelineData.js';
 import Sidebar from './Sidebar.jsx';
 import ToolDetail from './ToolDetail.jsx';
+import Disclaimer from './Disclaimer.jsx';
 import {
-  YMIN, YMAX, NOW, GUTTER, ROW, LANE_HEADER, EVH, EVR,
+  YMIN, YMAX, NOW, VIEW_START, GUTTER, ROW, LANE_HEADER, EVH, EVR,
   CATEGORY_ORDER, LAYER_ORDER, DECADES, yearFrac, decadeOf,
   createScale, clampZoom, DEFAULT_PXY, ZOOM_MIN, ZOOM_MAX, ZOOM_STEP,
 } from './timelineConfig.js';
@@ -31,6 +32,15 @@ export default function Timeline() {
   const scrollRef = useRef(null);
 
   const scale = useMemo(() => createScale(pxy), [pxy]);
+
+  // Open scrolled to VIEW_START rather than the far-left edge of the domain:
+  // the 1970s–80s are context, but the story really starts around 1990.
+  const didInitScroll = useRef(false);
+  useEffect(() => {
+    if (didInitScroll.current || !scrollRef.current) return;
+    scrollRef.current.scrollLeft = (VIEW_START - YMIN) * pxy;
+    didInitScroll.current = true;
+  });
 
   // Zoom about the horizontal centre of the viewport so the year under the
   // middle of the screen stays put.
@@ -113,6 +123,7 @@ export default function Timeline() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: BG, color: '#3a352e' }}>
+      <Disclaimer />
       <header style={{ flex: 'none', display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 16, padding: '14px 20px', borderBottom: '1px solid #e7e3dd', background: BG }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
           <h1 style={{ fontSize: 17, fontWeight: 600, letterSpacing: '-0.01em', color: '#2c2822', margin: 0 }}>Creative Coding Timeline</h1>
@@ -128,8 +139,13 @@ export default function Timeline() {
             <ZoomButton label="−" title="Zoom out" disabled={pxy <= ZOOM_MIN} onClick={() => zoomBy(1 / ZOOM_STEP)} />
             <ZoomButton label="+" title="Zoom in" disabled={pxy >= ZOOM_MAX} onClick={() => zoomBy(ZOOM_STEP)} />
             <button
-              onClick={() => { setPxy(DEFAULT_PXY); requestAnimationFrame(() => { if (scrollRef.current) scrollRef.current.scrollLeft = 0; }); }}
-              title="Reset zoom"
+              onClick={() => {
+                setPxy(DEFAULT_PXY);
+                requestAnimationFrame(() => {
+                  if (scrollRef.current) scrollRef.current.scrollLeft = (VIEW_START - YMIN) * DEFAULT_PXY;
+                });
+              }}
+              title="Reset zoom and view"
               style={{ fontFamily: MONO, fontSize: 10.5, color: '#a49a8d', background: 'none', border: 'none', cursor: 'pointer', padding: '0 2px' }}
             >reset</button>
           </div>
