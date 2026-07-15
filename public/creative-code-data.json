@@ -34,6 +34,11 @@
       "name": "Other",
       "color": "#7f7f7f",
       "description": "Uncategorized tools"
+    },
+    "multimedia-authoring": {
+      "name": "Multimedia Authoring",
+      "color": "#e377c2",
+      "description": "Interactive-media and live-performance authoring environments — visual, timeline, or patch-based tools for making interactive media, often with their own scripting languages."
     }
   },
   "tools": {
@@ -64,13 +69,17 @@
         { "version": "Rev 0186", "dateString": "26 June 2010", "notes": "" },
         { "version": "Rev 0187", "dateString": "12 July 2010", "notes": "" },
         { "version": "1.2 - Rev 188", "dateString": "13 July 2010", "notes": "" },
-        { "version": "1.2.1 - Rev 0189", "dateString": "14 July 2010", "notes": "" }
+        { "version": "1.2.1 - Rev 0189", "dateString": "14 July 2010", "notes": "" },
+        { "version": "processing-1295-4.3.2", "dateString": "2024-12-12", "link": "https://github.com/processing/processing4/releases/tag/processing-1295-4.3.2", "notes": "", "auto": true },
+        { "version": "processing-1310-4.4.10", "dateString": "2025-10-14", "link": "https://github.com/processing/processing4/releases/tag/processing-1310-4.4.10", "notes": "", "auto": true },
+        { "version": "processing-1433-4.5.5", "dateString": "2026-06-24", "link": "https://github.com/processing/processing4/releases/tag/processing-1433-4.5.5", "notes": "", "auto": true }
       ]
     },
     "P5.js": {
       "category": "web",
       "description": "JavaScript library for creative coding on the web",
       "releases": [
+        { "version": "1.0", "dateString": "2014", "notes": "Initial release" },
         { "version": "0.2.22", "dateString": "21 July 2014", "link": "https://github.com/processing/p5.js/releases?after=0.3.4", "notes": "Preliminary Alpha Release" },
         { "version": "0.2.23", "dateString": "31 July 2014", "notes": "" },
         { "version": "0.3.0", "dateString": "06 August 2014", "notes": "First Public Beta" },
@@ -135,7 +144,16 @@
         { "version": "0.7.0", "dateString": "09 August 2018", "notes": "Major Release, core file restructure, developer_docs refactor" },
         { "version": "0.7.1", "dateString": "10 August 2018", "notes": "" },
         { "version": "0.7.2", "dateString": "02 September 2018", "notes": "" },
-        { "version": "1.0", "dateString": "2014", "notes": "Initial release" }
+        { "version": "0.10.0", "dateString": "2019-10-14", "link": "https://github.com/processing/p5.js/releases/tag/0.10.0", "notes": "", "auto": true },
+        { "version": "1.0.0", "dateString": "2020-02-29", "link": "https://github.com/processing/p5.js/releases/tag/1.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "1.2.0", "dateString": "2020-12-20", "link": "https://github.com/processing/p5.js/releases/tag/1.2.0", "notes": "", "auto": true },
+        { "version": "1.4.0", "dateString": "2021-06-29", "link": "https://github.com/processing/p5.js/releases/tag/v1.4.0", "notes": "", "auto": true },
+        { "version": "1.5.0", "dateString": "2022-10-18", "link": "https://github.com/processing/p5.js/releases/tag/v1.5.0", "notes": "", "auto": true },
+        { "version": "1.9.0", "dateString": "2023-11-28", "link": "https://github.com/processing/p5.js/releases/tag/v1.9.0", "notes": "", "auto": true },
+        { "version": "1.11.2", "dateString": "2024-11-28", "link": "https://github.com/processing/p5.js/releases/tag/v1.11.2", "notes": "", "auto": true },
+        { "version": "2.0.0", "dateString": "2025-04-17", "link": "https://github.com/processing/p5.js/releases/tag/v2.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "2.1.2", "dateString": "2025-12-16", "link": "https://github.com/processing/p5.js/releases/tag/v2.1.2", "notes": "", "auto": true },
+        { "version": "1.11.14-rc.2", "dateString": "2026-06-29", "link": "https://github.com/processing/p5.js/releases/tag/v1.11.14-rc.2", "notes": "", "auto": true }
       ]
     },
     "Max/MSP": {
@@ -157,15 +175,16 @@
       "category": "audio-visual",
       "description": "Open source visual programming language for multimedia",
       "releases": [
+        { "version": "1.0", "dateString": "1996", "notes": "" },
         { "version": "0.15", "dateString": "16 September 1997", "link": "http://msp.ucsd.edu/Pd_documentation/x5.htm", "notes": "" },
-        { "version": "0.18", "dateString": "07 December 1997", "link": "http://msp.ucsd.edu/Software/", "notes": "Binary file creation dates" },
-        { "version": "1.0", "dateString": "1996", "notes": "" }
+        { "version": "0.18", "dateString": "07 December 1997", "link": "http://msp.ucsd.edu/Software/", "notes": "Binary file creation dates" }
       ]
     },
     "Cinder": {
       "category": "programming",
       "description": "C++ creative coding framework",
       "releases": [
+        { "version": "1.0", "dateString": "April 2010", "notes": "" },
         { "version": "0.8", "dateString": "27 April 2010", "link": "https://github.com/cinder/Cinder/releases", "notes": "First release?" },
         { "version": "0.8.1", "dateString": "21 May 2010", "notes": "" },
         { "version": "0.8.2", "dateString": "14 October 2010", "notes": "" },
@@ -175,19 +194,21 @@
         { "version": "0.8.6", "dateString": "07 August 2014", "notes": "" },
         { "version": "0.9.0", "dateString": "2 October 2015", "notes": "" },
         { "version": "0.9.1", "dateString": "31 March 2017", "notes": "" },
-        { "version": "1.0", "dateString": "April 2010", "notes": "" }
+        { "version": "0.9.2", "dateString": "2020-04-12", "link": "https://github.com/cinder/Cinder/releases/tag/v0.9.2", "notes": "", "auto": true },
+        { "version": "0.9.3", "dateString": "2025-11-02", "link": "https://github.com/cinder/Cinder/releases/tag/v0.9.3", "notes": "", "auto": true }
       ]
     },
     "openFrameworks": {
       "category": "programming",
       "description": "C++ creative coding toolkit",
       "releases": [
-        { "version": "preRelease_v0.01", "dateString": "March 2007", "link": "https://openframeworks.cc/versions/", "notes": "" },
         { "version": "preRelease_v0.02", "dateString": "", "link": "https://github.com/openframeworks/openFrameworks/releases?after=0.8.0", "notes": "" },
         { "version": "preRelease_v0.03", "dateString": "", "notes": "" },
         { "version": "preRelease_v0.04", "dateString": "", "notes": "" },
         { "version": "preRelease_v0.05", "dateString": "", "notes": "" },
         { "version": "preRelease_v0.06", "dateString": "", "notes": "" },
+        { "version": "1.0", "dateString": "2005", "notes": "" },
+        { "version": "preRelease_v0.01", "dateString": "March 2007", "link": "https://openframeworks.cc/versions/", "notes": "" },
         { "version": "preRelease_v0.061", "dateString": "11 February 2010", "notes": "" },
         { "version": "preRelease_v0.062", "dateString": "17 November 2010", "notes": "" },
         { "version": "preRelease_v0.07", "dateString": "21 July 2011", "notes": "" },
@@ -197,6 +218,7 @@
         { "version": "v0.7.4", "dateString": "15 February 2013", "notes": "" },
         { "version": "v0.8.0", "dateString": "11 August 2013", "notes": "" },
         { "version": "v0.8.1", "dateString": "28 March 2014", "notes": "" },
+        { "version": "ofBook - alpha", "dateString": "01 April 2014", "notes": "Related documentation" },
         { "version": "v0.8.2", "dateString": "29 June 2014", "notes": "" },
         { "version": "v0.8.3", "dateString": "2 July 2014", "notes": "" },
         { "version": "v0.8.4", "dateString": "9 September 2014", "notes": "" },
@@ -204,15 +226,16 @@
         { "version": "v0.9.1", "dateString": "31 January 2016", "notes": "" },
         { "version": "v0.9.2", "dateString": "8 February 2016", "notes": "" },
         { "version": "v0.9.3", "dateString": "9 March 2016", "notes": "" },
+        { "version": "ofBook - 0.4.0", "dateString": "09 September 2016", "notes": "" },
         { "version": "v0.9.4", "dateString": "4 October 2016", "notes": "" },
         { "version": "v0.9.5", "dateString": "21 October 2016", "notes": "" },
         { "version": "v0.9.6", "dateString": "24 October 2016", "notes": "" },
         { "version": "v0.9.7", "dateString": "31 October 2016", "notes": "" },
         { "version": "v0.9.8", "dateString": "22 November 2016", "notes": "" },
         { "version": "v0.10.0", "dateString": "07 May 2018", "notes": "" },
-        { "version": "ofBook - alpha", "dateString": "01 April 2014", "notes": "Related documentation" },
-        { "version": "ofBook - 0.4.0", "dateString": "09 September 2016", "notes": "" },
-        { "version": "1.0", "dateString": "2005", "notes": "" }
+        { "version": "0.11.2", "dateString": "2022-03-01", "link": "https://github.com/openframeworks/openFrameworks/releases/tag/0.11.2", "notes": "", "auto": true },
+        { "version": "0.12.0", "dateString": "2023-08-30", "link": "https://github.com/openframeworks/openFrameworks/releases/tag/0.12.0", "notes": "", "auto": true },
+        { "version": "0.12.1", "dateString": "2025-05-02", "link": "https://github.com/openframeworks/openFrameworks/releases/tag/0.12.1", "notes": "", "auto": true }
       ]
     },
     "VDMX": {
@@ -262,14 +285,36 @@
       "category": "web",
       "description": "JavaScript 3D library",
       "releases": [
-        { "version": "1.0", "dateString": "April 2010", "notes": "" }
+        { "version": "1.0", "dateString": "April 2010", "notes": "" },
+        { "version": "r64", "dateString": "2013-12-14", "link": "https://github.com/mrdoob/three.js/releases/tag/r64", "notes": "", "auto": true },
+        { "version": "r69", "dateString": "2014-10-28", "link": "https://github.com/mrdoob/three.js/releases/tag/r69", "notes": "", "auto": true },
+        { "version": "r73", "dateString": "2015-10-16", "link": "https://github.com/mrdoob/three.js/releases/tag/r73", "notes": "", "auto": true },
+        { "version": "r83", "dateString": "2016-12-16", "link": "https://github.com/mrdoob/three.js/releases/tag/r83", "notes": "", "auto": true },
+        { "version": "r89", "dateString": "2017-12-18", "link": "https://github.com/mrdoob/three.js/releases/tag/r89", "notes": "", "auto": true },
+        { "version": "r100", "dateString": "2018-12-31", "link": "https://github.com/mrdoob/three.js/releases/tag/r100", "notes": "", "auto": true },
+        { "version": "r112", "dateString": "2019-12-27", "link": "https://github.com/mrdoob/three.js/releases/tag/r112", "notes": "", "auto": true },
+        { "version": "r124", "dateString": "2020-12-24", "link": "https://github.com/mrdoob/three.js/releases/tag/r124", "notes": "", "auto": true },
+        { "version": "r136", "dateString": "2021-12-24", "link": "https://github.com/mrdoob/three.js/releases/tag/r136", "notes": "", "auto": true },
+        { "version": "r148", "dateString": "2022-12-22", "link": "https://github.com/mrdoob/three.js/releases/tag/r148", "notes": "", "auto": true },
+        { "version": "r160", "dateString": "2023-12-22", "link": "https://github.com/mrdoob/three.js/releases/tag/r160", "notes": "", "auto": true },
+        { "version": "r172", "dateString": "2024-12-31", "link": "https://github.com/mrdoob/three.js/releases/tag/r172", "notes": "", "auto": true },
+        { "version": "r182", "dateString": "2025-12-10", "link": "https://github.com/mrdoob/three.js/releases/tag/r182", "notes": "", "auto": true },
+        { "version": "r185", "dateString": "2026-07-01", "link": "https://github.com/mrdoob/three.js/releases/tag/r185", "notes": "", "auto": true }
       ]
     },
     "Arduino": {
       "category": "physical-computing",
       "description": "Open-source electronics platform",
       "releases": [
-        { "version": "1.0", "dateString": "2005", "notes": "" }
+        { "version": "1.0", "dateString": "2005", "notes": "" },
+        { "version": "1.5.5", "dateString": "2013-11-28", "link": "https://github.com/arduino/Arduino/releases/tag/1.5.5", "notes": "", "auto": true },
+        { "version": "1.5.8", "dateString": "2014-10-07", "link": "https://github.com/arduino/Arduino/releases/tag/1.5.8", "notes": "", "auto": true },
+        { "version": "1.6.6", "dateString": "2015-11-04", "link": "https://github.com/arduino/Arduino/releases/tag/1.6.6", "notes": "", "auto": true },
+        { "version": "1.8.5", "dateString": "2017-10-02", "link": "https://github.com/arduino/Arduino/releases/tag/1.8.5", "notes": "", "auto": true },
+        { "version": "1.8.8", "dateString": "2018-12-06", "link": "https://github.com/arduino/Arduino/releases/tag/1.8.8", "notes": "", "auto": true },
+        { "version": "1.8.10", "dateString": "2019-09-13", "link": "https://github.com/arduino/Arduino/releases/tag/1.8.10", "notes": "", "auto": true },
+        { "version": "1.8.13", "dateString": "2020-06-16", "link": "https://github.com/arduino/Arduino/releases/tag/1.8.13", "notes": "", "auto": true },
+        { "version": "1.8.19", "dateString": "2021-12-21", "link": "https://github.com/arduino/Arduino/releases/tag/1.8.19", "notes": "", "auto": true }
       ]
     },
     "Raspberry Pi": {
@@ -297,7 +342,25 @@
       "category": "data-visualization",
       "description": "JavaScript library for data visualization",
       "releases": [
-        { "version": "1.0", "dateString": "February 2011", "notes": "" }
+        { "version": "1.0", "dateString": "February 2011", "notes": "" },
+        { "version": "3.0.0", "dateString": "2013-07-02", "link": "https://github.com/d3/d3/releases/tag/v3.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "2.0.0", "dateString": "2013-07-17", "link": "https://github.com/d3/d3/releases/tag/v2.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "3.3.13", "dateString": "2013-12-16", "link": "https://github.com/d3/d3/releases/tag/v3.3.13", "notes": "", "auto": true },
+        { "version": "3.5.3", "dateString": "2014-12-30", "link": "https://github.com/d3/d3/releases/tag/v3.5.3", "notes": "", "auto": true },
+        { "version": "3.5.12", "dateString": "2015-12-17", "link": "https://github.com/d3/d3/releases/tag/v3.5.12", "notes": "", "auto": true },
+        { "version": "4.0.0", "dateString": "2016-06-28", "link": "https://github.com/d3/d3/releases/tag/v4.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "4.4.0", "dateString": "2016-11-23", "link": "https://github.com/d3/d3/releases/tag/v4.4.0", "notes": "", "auto": true },
+        { "version": "4.12.1", "dateString": "2017-12-26", "link": "https://github.com/d3/d3/releases/tag/v4.12.1", "notes": "", "auto": true },
+        { "version": "5.0.0", "dateString": "2018-01-28", "link": "https://github.com/d3/d3/releases/tag/v5.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "5.7.0", "dateString": "2018-08-24", "link": "https://github.com/d3/d3/releases/tag/v5.7.0", "notes": "", "auto": true },
+        { "version": "5.15.0", "dateString": "2019-12-29", "link": "https://github.com/d3/d3/releases/tag/v5.15.0", "notes": "", "auto": true },
+        { "version": "6.0.0", "dateString": "2020-08-26", "link": "https://github.com/d3/d3/releases/tag/v6.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "6.3.1", "dateString": "2020-12-08", "link": "https://github.com/d3/d3/releases/tag/v6.3.1", "notes": "", "auto": true },
+        { "version": "7.0.0", "dateString": "2021-06-11", "link": "https://github.com/d3/d3/releases/tag/v7.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "7.2.1", "dateString": "2021-12-10", "link": "https://github.com/d3/d3/releases/tag/v7.2.1", "notes": "", "auto": true },
+        { "version": "7.8.0", "dateString": "2022-12-21", "link": "https://github.com/d3/d3/releases/tag/v7.8.0", "notes": "", "auto": true },
+        { "version": "7.8.5", "dateString": "2023-06-03", "link": "https://github.com/d3/d3/releases/tag/v7.8.5", "notes": "", "auto": true },
+        { "version": "7.9.0", "dateString": "2024-03-12", "link": "https://github.com/d3/d3/releases/tag/v7.9.0", "notes": "", "auto": true }
       ]
     },
     "Ableton Live": {
@@ -325,56 +388,117 @@
       "category": "web",
       "description": "Vector graphics scripting framework",
       "releases": [
-        { "version": "1.0", "dateString": "December 2011", "notes": "" }
+        { "version": "1.0", "dateString": "December 2011", "notes": "" },
+        { "version": "0.11.4", "dateString": "2017-10-08", "link": "https://github.com/paperjs/paper.js/releases/tag/v0.11.4", "notes": "", "auto": true },
+        { "version": "0.12.0", "dateString": "2018-12-03", "link": "https://github.com/paperjs/paper.js/releases/tag/v0.12.0", "notes": "", "auto": true },
+        { "version": "0.12.4", "dateString": "2019-12-15", "link": "https://github.com/paperjs/paper.js/releases/tag/v0.12.4", "notes": "", "auto": true },
+        { "version": "0.12.9", "dateString": "2020-06-19", "link": "https://github.com/paperjs/paper.js/releases/tag/v0.12.9", "notes": "", "auto": true },
+        { "version": "0.12.15", "dateString": "2021-03-17", "link": "https://github.com/paperjs/paper.js/releases/tag/v0.12.15", "notes": "", "auto": true }
       ]
     },
     "A-Frame": {
       "category": "web",
       "description": "Web framework for building VR experiences",
       "releases": [
-        { "version": "1.0", "dateString": "December 2015", "notes": "" }
+        { "version": "1.0", "dateString": "December 2015", "notes": "" },
+        { "version": "0.4.0", "dateString": "2016-12-17", "link": "https://github.com/aframevr/aframe/releases/tag/v0.4.0", "notes": "", "auto": true },
+        { "version": "0.7.0", "dateString": "2017-09-21", "link": "https://github.com/aframevr/aframe/releases/tag/v0.7.0", "notes": "", "auto": true },
+        { "version": "0.8.0", "dateString": "2018-03-09", "link": "https://github.com/aframevr/aframe/releases/tag/v0.8.0", "notes": "", "auto": true },
+        { "version": "1.0.3", "dateString": "2019-12-29", "link": "https://github.com/aframevr/aframe/releases/tag/v1.0.3", "notes": "", "auto": true },
+        { "version": "1.1.0", "dateString": "2020-12-03", "link": "https://github.com/aframevr/aframe/releases/tag/v1.1.0", "notes": "", "auto": true },
+        { "version": "1.2.0", "dateString": "2021-02-05", "link": "https://github.com/aframevr/aframe/releases/tag/v1.2.0", "notes": "", "auto": true },
+        { "version": "1.4.0", "dateString": "2022-12-26", "link": "https://github.com/aframevr/aframe/releases/tag/v1.4.0", "notes": "", "auto": true },
+        { "version": "1.0.0", "dateString": "2023-11-17", "link": "https://github.com/aframevr/aframe/releases/tag/v1.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "1.6.0", "dateString": "2024-05-23", "link": "https://github.com/aframevr/aframe/releases/tag/v1.6.0", "notes": "", "auto": true },
+        { "version": "1.7.1", "dateString": "2025-04-01", "link": "https://github.com/aframevr/aframe/releases/tag/v1.7.1", "notes": "", "auto": true },
+        { "version": "1.8.0", "dateString": "2026-06-24", "link": "https://github.com/aframevr/aframe/releases/tag/v1.8.0", "notes": "", "auto": true }
       ]
     },
     "TensorFlow": {
       "category": "creative-libraries",
       "description": "Machine learning framework",
       "releases": [
-        { "version": "1.0", "dateString": "November 2015", "notes": "" }
+        { "version": "1.0", "dateString": "November 2015", "notes": "" },
+        { "version": "0.12.1", "dateString": "2016-12-29", "link": "https://github.com/tensorflow/tensorflow/releases/tag/0.12.1", "notes": "", "auto": true },
+        { "version": "1.0.0", "dateString": "2017-02-15", "link": "https://github.com/tensorflow/tensorflow/releases/tag/v1.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "1.4.1", "dateString": "2017-12-08", "link": "https://github.com/tensorflow/tensorflow/releases/tag/v1.4.1", "notes": "", "auto": true },
+        { "version": "1.12.0", "dateString": "2018-11-05", "link": "https://github.com/tensorflow/tensorflow/releases/tag/v1.12.0", "notes": "", "auto": true },
+        { "version": "2.0.0", "dateString": "2019-09-30", "link": "https://github.com/tensorflow/tensorflow/releases/tag/v2.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "1.15.0", "dateString": "2019-10-16", "link": "https://github.com/tensorflow/tensorflow/releases/tag/v1.15.0", "notes": "", "auto": true },
+        { "version": "2.4.0", "dateString": "2020-12-14", "link": "https://github.com/tensorflow/tensorflow/releases/tag/v2.4.0", "notes": "", "auto": true },
+        { "version": "2.7.0", "dateString": "2021-11-04", "link": "https://github.com/tensorflow/tensorflow/releases/tag/v2.7.0", "notes": "", "auto": true },
+        { "version": "2.11.0", "dateString": "2022-11-18", "link": "https://github.com/tensorflow/tensorflow/releases/tag/v2.11.0", "notes": "", "auto": true },
+        { "version": "2.14.1", "dateString": "2023-11-14", "link": "https://github.com/tensorflow/tensorflow/releases/tag/v2.14.1", "notes": "", "auto": true },
+        { "version": "2.17.1", "dateString": "2024-10-24", "link": "https://github.com/tensorflow/tensorflow/releases/tag/v2.17.1", "notes": "", "auto": true },
+        { "version": "2.20.0", "dateString": "2025-08-13", "link": "https://github.com/tensorflow/tensorflow/releases/tag/v2.20.0", "notes": "", "auto": true },
+        { "version": "2.21.0", "dateString": "2026-03-06", "link": "https://github.com/tensorflow/tensorflow/releases/tag/v2.21.0", "notes": "", "auto": true }
       ]
     },
     "ML5.js": {
       "category": "creative-libraries",
       "description": "Friendly machine learning for the web",
       "releases": [
-        { "version": "1.0", "dateString": "2018", "notes": "" }
+        { "version": "1.0", "dateString": "2018", "notes": "" },
+        { "version": "0.4.3", "dateString": "2019-11-14", "link": "https://github.com/ml5js/ml5-library/releases/tag/v0.4.3", "notes": "", "auto": true },
+        { "version": "0.6.0", "dateString": "2020-11-05", "link": "https://github.com/ml5js/ml5-library/releases/tag/v0.6.0", "notes": "", "auto": true },
+        { "version": "0.6.1", "dateString": "2021-03-05", "link": "https://github.com/ml5js/ml5-library/releases/tag/v0.6.1", "notes": "", "auto": true },
+        { "version": "0.12.2", "dateString": "2022-04-25", "link": "https://github.com/ml5js/ml5-library/releases/tag/0.12.2", "notes": "", "auto": true }
       ]
     },
     "Flutter": {
       "category": "programming",
       "description": "UI toolkit for building natively compiled applications",
       "releases": [
-        { "version": "1.0", "dateString": "December 2018", "notes": "" }
+        { "version": "1.0", "dateString": "December 2018", "notes": "" },
+        { "version": "3.18.0-0.1.pre", "dateString": "2023-12-12", "link": "https://github.com/flutter/flutter/releases/tag/3.18.0-0.1.pre", "notes": "", "auto": true },
+        { "version": "3.19.0-0.1.pre", "dateString": "2024-01-11", "link": "https://github.com/flutter/flutter/releases/tag/3.19.0-0.1.pre", "notes": "", "auto": true }
       ]
     },
     "Nannou": {
       "category": "programming",
       "description": "Creative coding framework for Rust",
       "releases": [
-        { "version": "1.0", "dateString": "2017", "notes": "" }
+        { "version": "1.0", "dateString": "2017", "notes": "" },
+        { "version": "0.20.0", "dateString": "2026-06-22", "link": "https://github.com/nannou-org/nannou/releases/tag/v0.20.0", "notes": "", "auto": true }
       ]
     },
     "Svelte": {
       "category": "web",
       "description": "Component framework that runs at build time",
       "releases": [
-        { "version": "1.0", "dateString": "November 2016", "notes": "" }
+        { "version": "1.0", "dateString": "November 2016", "notes": "" },
+        { "version": "svelte@4.2.8", "dateString": "2023-11-30", "link": "https://github.com/sveltejs/svelte/releases/tag/svelte%404.2.8", "notes": "", "auto": true },
+        { "version": "svelte@5.16.0", "dateString": "2024-12-24", "link": "https://github.com/sveltejs/svelte/releases/tag/svelte%405.16.0", "notes": "", "auto": true },
+        { "version": "svelte@5.46.1", "dateString": "2025-12-24", "link": "https://github.com/sveltejs/svelte/releases/tag/svelte%405.46.1", "notes": "", "auto": true },
+        { "version": "svelte@5.56.5", "dateString": "2026-07-14", "link": "https://github.com/sveltejs/svelte/releases/tag/svelte%405.56.5", "notes": "", "auto": true }
       ]
     },
     "Babylon.js": {
       "category": "web",
       "description": "3D engine for web applications",
       "releases": [
-        { "version": "1.0", "dateString": "2013", "notes": "" }
+        { "version": "1.0", "dateString": "2013", "notes": "" },
+        { "version": "1.8.0", "dateString": "2013-12-18", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/v1.8.0", "notes": "", "auto": true },
+        { "version": "1.14", "dateString": "2014-10-23", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/v1.14", "notes": "", "auto": true },
+        { "version": "2.0.0", "dateString": "2015-02-11", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/v2.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "2.2.0", "dateString": "2015-09-22", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/v2.2.0", "notes": "", "auto": true },
+        { "version": "2.5.0", "dateString": "2016-12-06", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/v2.5.0", "notes": "", "auto": true },
+        { "version": "3.1.0", "dateString": "2017-12-13", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/v3.1.0", "notes": "", "auto": true },
+        { "version": "4.0.0-alpha.12", "dateString": "2018-12-11", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/4.0.0-alpha.12", "notes": "", "auto": true },
+        { "version": "4.0.0", "dateString": "2019-04-30", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/v4.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "4.1.0-beta.11", "dateString": "2019-12-11", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/4.1.0-beta.11", "notes": "", "auto": true },
+        { "version": "5.0.0-alpha.5", "dateString": "2020-12-18", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/5.0.0-alpha.5", "notes": "", "auto": true },
+        { "version": "5.0.0-alpha.65", "dateString": "2021-12-17", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/5.0.0-alpha.65", "notes": "", "auto": true },
+        { "version": "5.0.0", "dateString": "2022-03-31", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/5.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "5.40.0", "dateString": "2022-12-29", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/5.40.0", "notes": "", "auto": true },
+        { "version": "6.0.0", "dateString": "2023-04-20", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/6.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "6.36.1", "dateString": "2023-12-30", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/6.36.1", "notes": "", "auto": true },
+        { "version": "7.0.0", "dateString": "2024-03-28", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/7.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "7.42.0", "dateString": "2024-12-26", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/7.42.0", "notes": "", "auto": true },
+        { "version": "8.0.0", "dateString": "2025-03-27", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/8.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "8.43.0", "dateString": "2025-12-25", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/8.43.0", "notes": "", "auto": true },
+        { "version": "9.0.0", "dateString": "2026-03-26", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/9.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "9.16.2", "dateString": "2026-07-14", "link": "https://github.com/BabylonJS/Babylon.js/releases/tag/9.16.2", "notes": "", "auto": true }
       ]
     },
     "Vuo": {
@@ -388,7 +512,14 @@
       "category": "programming",
       "description": "Creative coding framework for Kotlin",
       "releases": [
-        { "version": "1.0", "dateString": "2017", "notes": "" }
+        { "version": "1.0", "dateString": "2017", "notes": "" },
+        { "version": "0.3.30", "dateString": "2018-11-27", "link": "https://github.com/openrndr/openrndr/releases/tag/v0.3.30", "notes": "", "auto": true },
+        { "version": "0.3.37", "dateString": "2019-12-17", "link": "https://github.com/openrndr/openrndr/releases/tag/v0.3.37", "notes": "", "auto": true },
+        { "version": "0.3.44", "dateString": "2020-10-16", "link": "https://github.com/openrndr/openrndr/releases/tag/v0.3.44", "notes": "", "auto": true },
+        { "version": "0.3.45", "dateString": "2021-03-01", "link": "https://github.com/openrndr/openrndr/releases/tag/v0.3.45", "notes": "", "auto": true },
+        { "version": "0.4.1", "dateString": "2022-08-18", "link": "https://github.com/openrndr/openrndr/releases/tag/v0.4.1", "notes": "", "auto": true },
+        { "version": "0.4.3", "dateString": "2023-06-08", "link": "https://github.com/openrndr/openrndr/releases/tag/v0.4.3", "notes": "", "auto": true },
+        { "version": "0.4.5", "dateString": "2025-09-06", "link": "https://github.com/openrndr/openrndr/releases/tag/v0.4.5", "notes": "", "auto": true }
       ]
     },
     "MadMapper": {
@@ -409,7 +540,18 @@
       "category": "audio-visual",
       "description": "Code-based music creation and performance tool",
       "releases": [
-        { "version": "1.0", "dateString": "September 2013", "notes": "" }
+        { "version": "1.0", "dateString": "September 2013", "notes": "" },
+        { "version": "2.0.0", "dateString": "2015-02-08", "link": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v2.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "2.1.0", "dateString": "2016-12-20", "link": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v2.1.0", "notes": "", "auto": true },
+        { "version": "2.2.0", "dateString": "2018-02-21", "link": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v2.2.0", "notes": "", "auto": true },
+        { "version": "3.0", "dateString": "2018-02-21", "link": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v3.0", "notes": "", "major": true, "auto": true },
+        { "version": "3.2.2", "dateString": "2020-04-06", "link": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v3.2.2", "notes": "", "auto": true },
+        { "version": "3.3.1", "dateString": "2021-02-01", "link": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v3.3.1", "notes": "", "auto": true },
+        { "version": "4.0.0", "dateString": "2022-07-06", "link": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v4.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "4.3.0", "dateString": "2022-09-30", "link": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v4.3.0", "notes": "", "auto": true },
+        { "version": "4.5.0", "dateString": "2023-11-01", "link": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v4.5.0", "notes": "", "auto": true },
+        { "version": "4.5.1", "dateString": "2024-04-28", "link": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v4.5.1", "notes": "", "auto": true },
+        { "version": "4.6.0", "dateString": "2025-06-26", "link": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v4.6.0", "notes": "", "auto": true }
       ]
     },
     "Resolume": {
@@ -465,14 +607,33 @@
       "category": "creative-libraries",
       "description": "Computer vision and machine learning library",
       "releases": [
-        { "version": "1.0", "dateString": "June 2000", "notes": "" }
+        { "version": "1.0", "dateString": "June 2000", "notes": "" },
+        { "version": "2.4.8", "dateString": "2013-12-31", "link": "https://github.com/opencv/opencv/releases/tag/2.4.8", "notes": "", "auto": true },
+        { "version": "2.4.9", "dateString": "2014-04-24", "link": "https://github.com/opencv/opencv/releases/tag/2.4.9", "notes": "", "auto": true },
+        { "version": "3.0.0", "dateString": "2015-06-24", "link": "https://github.com/opencv/opencv/releases/tag/3.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "3.1.0", "dateString": "2015-12-21", "link": "https://github.com/opencv/opencv/releases/tag/3.1.0", "notes": "", "auto": true },
+        { "version": "3.2.0", "dateString": "2016-12-23", "link": "https://github.com/opencv/opencv/releases/tag/3.2.0", "notes": "", "auto": true },
+        { "version": "3.4.0", "dateString": "2017-12-24", "link": "https://github.com/opencv/opencv/releases/tag/3.4.0", "notes": "", "auto": true },
+        { "version": "4.0.0", "dateString": "2018-11-18", "link": "https://github.com/opencv/opencv/releases/tag/4.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "3.4.5", "dateString": "2018-12-22", "link": "https://github.com/opencv/opencv/releases/tag/3.4.5", "notes": "", "auto": true },
+        { "version": "3.4.9", "dateString": "2019-12-20", "link": "https://github.com/opencv/opencv/releases/tag/3.4.9", "notes": "", "auto": true },
+        { "version": "3.4.13", "dateString": "2020-12-22", "link": "https://github.com/opencv/opencv/releases/tag/3.4.13", "notes": "", "auto": true },
+        { "version": "4.5.5", "dateString": "2021-12-25", "link": "https://github.com/opencv/opencv/releases/tag/4.5.5", "notes": "", "auto": true },
+        { "version": "4.7.0", "dateString": "2022-12-28", "link": "https://github.com/opencv/opencv/releases/tag/4.7.0", "notes": "", "auto": true },
+        { "version": "4.9.0", "dateString": "2023-12-28", "link": "https://github.com/opencv/opencv/releases/tag/4.9.0", "notes": "", "auto": true },
+        { "version": "4.10.0", "dateString": "2024-06-03", "link": "https://github.com/opencv/opencv/releases/tag/4.10.0", "notes": "", "auto": true },
+        { "version": "4.13.0", "dateString": "2025-12-31", "link": "https://github.com/opencv/opencv/releases/tag/4.13.0", "notes": "", "auto": true },
+        { "version": "5.0.0", "dateString": "2026-06-06", "link": "https://github.com/opencv/opencv/releases/tag/5.0.0", "notes": "", "major": true, "auto": true }
       ]
     },
     "Box2D": {
       "category": "creative-libraries",
       "description": "2D physics engine",
       "releases": [
-        { "version": "1.0", "dateString": "2007", "notes": "" }
+        { "version": "1.0", "dateString": "2007", "notes": "" },
+        { "version": "2.4.1", "dateString": "2020-10-18", "link": "https://github.com/erincatto/box2d/releases/tag/v2.4.1", "notes": "", "auto": true },
+        { "version": "3.0.0", "dateString": "2024-08-12", "link": "https://github.com/erincatto/box2d/releases/tag/v3.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "3.1.1", "dateString": "2025-06-04", "link": "https://github.com/erincatto/box2d/releases/tag/v3.1.1", "notes": "", "auto": true }
       ]
     },
     "GSAP": {
@@ -486,7 +647,23 @@
       "category": "data-visualization",
       "description": "Visualization grammar for creating interactive visualizations",
       "releases": [
-        { "version": "1.0", "dateString": "2015", "notes": "" }
+        { "version": "1.0", "dateString": "2015", "notes": "" },
+        { "version": "2.0.0", "dateString": "2015-07-14", "link": "https://github.com/vega/vega/releases/tag/v2.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "2.4.0", "dateString": "2015-11-30", "link": "https://github.com/vega/vega/releases/tag/v2.4.0", "notes": "", "auto": true },
+        { "version": "2.6.0", "dateString": "2016-06-22", "link": "https://github.com/vega/vega/releases/tag/v2.6.0", "notes": "", "auto": true },
+        { "version": "3.0.0", "dateString": "2017-08-10", "link": "https://github.com/vega/vega/releases/tag/v3.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "3.0.8", "dateString": "2017-12-01", "link": "https://github.com/vega/vega/releases/tag/v3.0.8", "notes": "", "auto": true },
+        { "version": "4.0.0", "dateString": "2018-07-03", "link": "https://github.com/vega/vega/releases/tag/v4.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "4.4.0", "dateString": "2018-12-05", "link": "https://github.com/vega/vega/releases/tag/v4.4.0", "notes": "", "auto": true },
+        { "version": "5.0.0", "dateString": "2019-03-05", "link": "https://github.com/vega/vega/releases/tag/v5.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "5.9.0", "dateString": "2019-12-05", "link": "https://github.com/vega/vega/releases/tag/v5.9.0", "notes": "", "auto": true },
+        { "version": "5.17.2", "dateString": "2020-12-23", "link": "https://github.com/vega/vega/releases/tag/v5.17.2", "notes": "", "auto": true },
+        { "version": "5.21.0", "dateString": "2021-09-21", "link": "https://github.com/vega/vega/releases/tag/v5.21.0", "notes": "", "auto": true },
+        { "version": "5.22.1", "dateString": "2022-03-25", "link": "https://github.com/vega/vega/releases/tag/v5.22.1", "notes": "", "auto": true },
+        { "version": "5.26.1", "dateString": "2023-11-09", "link": "https://github.com/vega/vega/releases/tag/v5.26.1", "notes": "", "auto": true },
+        { "version": "5.30.0", "dateString": "2024-06-14", "link": "https://github.com/vega/vega/releases/tag/v5.30.0", "notes": "", "auto": true },
+        { "version": "6.0.0", "dateString": "2025-03-27", "link": "https://github.com/vega/vega/releases/tag/v6.0.0", "notes": "", "major": true, "auto": true },
+        { "version": "5.33.1", "dateString": "2026-01-06", "link": "https://github.com/vega/vega/releases/tag/v5.33.1", "notes": "", "auto": true }
       ]
     },
     "Observable": {
@@ -507,7 +684,109 @@
       "category": "audio-visual",
       "description": "Platform for audio synthesis and algorithmic composition",
       "releases": [
-        { "version": "1.0", "dateString": "1996", "notes": "" }
+        { "version": "1.0", "dateString": "1996", "notes": "" },
+        { "version": "ersion-3.6.4", "dateString": "2015-06-03", "link": "https://github.com/supercollider/supercollider/releases/tag/Version-3.6.4", "notes": "", "auto": true },
+        { "version": "ersion-3.8.0", "dateString": "2016-11-04", "link": "https://github.com/supercollider/supercollider/releases/tag/Version-3.8.0", "notes": "", "auto": true },
+        { "version": "ersion-3.10.0", "dateString": "2018-11-25", "link": "https://github.com/supercollider/supercollider/releases/tag/Version-3.10.0", "notes": "", "auto": true },
+        { "version": "ersion-3.10.3", "dateString": "2019-08-30", "link": "https://github.com/supercollider/supercollider/releases/tag/Version-3.10.3", "notes": "", "auto": true },
+        { "version": "ersion-3.11.2", "dateString": "2020-11-15", "link": "https://github.com/supercollider/supercollider/releases/tag/Version-3.11.2", "notes": "", "auto": true },
+        { "version": "ersion-3.12.1", "dateString": "2021-09-05", "link": "https://github.com/supercollider/supercollider/releases/tag/Version-3.12.1", "notes": "", "auto": true },
+        { "version": "ersion-3.12.2", "dateString": "2022-01-09", "link": "https://github.com/supercollider/supercollider/releases/tag/Version-3.12.2", "notes": "", "auto": true },
+        { "version": "ersion-3.13.0", "dateString": "2023-02-20", "link": "https://github.com/supercollider/supercollider/releases/tag/Version-3.13.0", "notes": "", "auto": true },
+        { "version": "ersion-3.14.1", "dateString": "2025-11-24", "link": "https://github.com/supercollider/supercollider/releases/tag/Version-3.14.1", "notes": "", "auto": true }
+      ]
+    },
+    "Director": {
+      "category": "multimedia-authoring",
+      "description": "Macromedia (later Adobe) Director — a multimedia authoring application scripted with the Lingo language, descended from MacroMind VideoWorks; the dominant tool for CD-ROM and interactive-kiosk media through the 1990s.",
+      "link": "https://en.wikipedia.org/wiki/Adobe_Director",
+      "discontinued": "2017",
+      "releases": [
+        { "version": "MacroMind Director 1.0", "dateString": "1988", "link": "https://en.wikipedia.org/wiki/Adobe_Director", "notes": "First release under the Director name, descended from MacroMind VideoWorks. Ship year commonly cited as 1988 (sources vary 1987–1989). Confidence: approximate.", "major": true },
+        { "version": "Director 2.0", "dateString": "1990", "link": "https://en.wikipedia.org/wiki/Adobe_Director", "notes": "Introduced the Lingo scripting language." }
+      ]
+    },
+    "Flash / Animate": {
+      "category": "multimedia-authoring",
+      "description": "The vector animation and interactivity authoring tool that began as FutureSplash Animator, became Macromedia Flash (with the ActionScript language), and was renamed Adobe Animate in 2016.",
+      "link": "https://en.wikipedia.org/wiki/Adobe_Animate",
+      "releases": [
+        { "version": "FutureSplash Animator", "dateString": "1996-05", "link": "https://www.webdesignmuseum.org/software/futuresplash-animator-in-1996", "notes": "Original release by FutureWave Software, before the Macromedia acquisition.", "major": true },
+        { "version": "Macromedia Flash 1.0", "dateString": "1997", "link": "https://en.wikipedia.org/wiki/Adobe_Animate", "notes": "FutureWave acquired by Macromedia Dec 1996; product rebranded Macromedia Flash." },
+        { "version": "Adobe Animate", "dateString": "2016-02", "link": "https://en.wikipedia.org/wiki/Adobe_Animate", "notes": "Renamed from Flash Professional (Feb 8 2016). The Flash Player runtime reached end-of-life Dec 31 2020, but the authoring tool continues as Animate.", "major": true }
+      ]
+    },
+    "Quartz Composer": {
+      "category": "multimedia-authoring",
+      "description": "Apple's node-based visual programming environment for processing and rendering graphical data, shipped with the Mac OS X developer tools and widely used for VJ and motion-graphics prototyping.",
+      "link": "https://en.wikipedia.org/wiki/Quartz_Composer",
+      "discontinued": "2019",
+      "releases": [
+        { "version": "1.0 (Mac OS X 10.4 Tiger)", "dateString": "2005", "link": "https://en.wikipedia.org/wiki/Quartz_Composer", "notes": "First shipped in the Mac OS X 10.4 developer tools, based on Pierre-Olivier Latour's PixelShox (acquired by Apple 2002).", "major": true }
+      ]
+    },
+    "Isadora": {
+      "category": "multimedia-authoring",
+      "description": "TroikaTronix Isadora — a node-based graphic programming environment by Mark Coniglio for real-time manipulation of video and interactive media in live performance.",
+      "link": "https://troikatronix.com/",
+      "releases": [
+        { "version": "1.0", "dateString": "2000", "link": "https://en.wikipedia.org/wiki/Isadora_(software)", "notes": "By Mark Coniglio / Troika Ranch; some secondary sources cite 2002. Confidence: year.", "major": true }
+      ]
+    },
+    "Scratch": {
+      "category": "multimedia-authoring",
+      "description": "MIT Media Lab's block-based visual programming language and online community, designed to teach coding by snapping graphical command blocks together.",
+      "link": "https://scratch.mit.edu/",
+      "releases": [
+        { "version": "1.0", "dateString": "2007-05-15", "link": "https://en.wikipedia.org/wiki/Scratch_(programming_language)", "notes": "Public launch by the Lifelong Kindergarten group (Mitchel Resnick et al.).", "major": true }
+      ]
+    },
+    "Nodebox": {
+      "category": "creative-libraries",
+      "description": "A Mac OS X application that generates 2D visuals and generative designs from Python code (built on Quartz via PyObjC), by Frederik De Bleser and Tom De Smedt.",
+      "link": "https://www.nodebox.net/",
+      "releases": [
+        { "version": "NodeBox 1", "dateString": "2002", "link": "https://www.nodebox.net/code/index.php/About", "notes": "Original Mac NodeBox, based on DrawBot; 'online since 2002' per the project. Confidence: approximate.", "major": true },
+        { "version": "3.0.50", "dateString": "2017-11-13", "link": "https://github.com/nodebox/nodebox/releases/tag/v3.0.50", "notes": "", "auto": true },
+        { "version": "3.0.51", "dateString": "2018-01-08", "link": "https://github.com/nodebox/nodebox/releases/tag/v3.0.51", "notes": "", "auto": true },
+        { "version": "3.0.52", "dateString": "2021-01-15", "link": "https://github.com/nodebox/nodebox/releases/tag/v3.0.52", "notes": "", "auto": true },
+        { "version": "3.0.53", "dateString": "2022-02-18", "link": "https://github.com/nodebox/nodebox/releases/tag/v3.0.53", "notes": "", "auto": true },
+        { "version": "3.1.0", "dateString": "2026-06-14", "link": "https://github.com/nodebox/nodebox/releases/tag/v3.1.0", "notes": "", "auto": true }
+      ]
+    },
+    "Scriptographer": {
+      "category": "creative-libraries",
+      "description": "Jürg Lehni's scripting plugin that let users extend and automate Adobe Illustrator with JavaScript to build tools and generative drawings; direct predecessor to Paper.js.",
+      "link": "https://scriptographer.org/",
+      "discontinued": "2012",
+      "releases": [
+        { "version": "1.0", "dateString": "2001", "link": "https://scriptographer.org/", "notes": "Developed for Adobe Illustrator 9/10; exact first-release date not precisely documented. Discontinued when Illustrator CS6 (2012) removed the ADM API it relied on; succeeded by Paper.js (2011). Confidence: approximate.", "major": true }
+      ]
+    },
+    "Basil.js": {
+      "category": "creative-libraries",
+      "description": "An open-source scripting library that brings Processing-style computational and generative design to Adobe InDesign, from the Basel School of Design (HGK FHNW).",
+      "link": "https://basiljs.ch/",
+      "releases": [
+        { "version": "1.0", "dateString": "2013-02-28", "link": "https://basiljs.ch/about/", "notes": "Released under an MIT license; initiated by Benedikt Groß with Ludwig Zeller, Ted Davis, and others.", "major": true },
+        { "version": "1.0.10", "dateString": "2016-04-29", "link": "https://github.com/basiljs/basil.js/releases/tag/1.0.10", "notes": "", "auto": true }
+      ]
+    },
+    "StructureSynth": {
+      "category": "programming",
+      "description": "Mikael Hvidtfeldt Christensen's application that generates 3D structures from a rule-based 'eisenscript' grammar, inspired by Structured Vector Graphics and Context Free Art.",
+      "link": "https://structuresynth.sourceforge.net/",
+      "releases": [
+        { "version": "First release", "dateString": "2007-09", "link": "https://structuresynth.sourceforge.net/", "notes": "Initially released as Windows binaries; open source (GPL/LGPL).", "major": true }
+      ]
+    },
+    "Papervision3D": {
+      "category": "web",
+      "description": "An open-source real-time 3D engine for Adobe Flash Player, written in ActionScript, that brought interactive 3D to the Flash web platform.",
+      "link": "https://en.wikipedia.org/wiki/Papervision3D",
+      "discontinued": "2009",
+      "releases": [
+        { "version": "Initial release", "dateString": "2005-12", "link": "https://en.wikipedia.org/wiki/Papervision3D", "notes": "By Carlos Ulloa; open-sourced by end of 2006. Final release 2.1.932 (Dec 2009); superseded by Away3D as Flash declined.", "major": true }
       ]
     }
   }

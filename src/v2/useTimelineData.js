@@ -6,9 +6,12 @@ export function useTimelineData() {
 
   useEffect(() => {
     let cancelled = false;
+    // Base-relative so the app works both at the dev root and under the
+    // GitHub Pages project subpath (/creative-tech-timeline/).
+    const base = import.meta.env.BASE_URL;
     Promise.all([
-      fetch('/creative-code-data.json').then((r) => r.json()),
-      fetch('/events.json').then((r) => r.json()),
+      fetch(`${base}creative-code-data.json`).then((r) => r.json()),
+      fetch(`${base}events.json`).then((r) => r.json()),
     ])
       .then(([toolsFile, eventsFile]) => {
         if (cancelled) return;

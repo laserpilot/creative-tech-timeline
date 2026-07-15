@@ -1,0 +1,30 @@
+{
+  "_comment": "Maps tool keys in public/creative-code-data.json to upstream release sources for scripts/fetch-releases.mjs. Only living, open-source, repo-backed tools belong here. Proprietary/discontinued tools (Max/MSP, TouchDesigner, Director, Flash, etc.) are intentionally omitted and stay hand-curated. `github` is owner/repo; `npm` is a package name (secondary date source). `skipPrerelease` defaults true.",
+  "sources": {
+    "Processing":     { "github": "processing/processing4" },
+    "P5.js":          { "github": "processing/p5.js", "npm": "p5" },
+    "openFrameworks": { "github": "openframeworks/openFrameworks" },
+    "Cinder":         { "github": "cinder/Cinder" },
+    "Three.js":       { "github": "mrdoob/three.js", "npm": "three" },
+    "D3.js":          { "github": "d3/d3", "npm": "d3" },
+    "Paper.js":       { "github": "paperjs/paper.js", "npm": "paper" },
+    "A-Frame":        { "github": "aframevr/aframe", "npm": "aframe" },
+    "ML5.js":         { "github": "ml5js/ml5-library", "npm": "ml5" },
+    "Babylon.js":     { "github": "BabylonJS/Babylon.js", "npm": "babylonjs" },
+    "Svelte":         { "github": "sveltejs/svelte", "npm": "svelte" },
+    "GSAP":           { "github": "greensock/GSAP", "npm": "gsap" },
+    "Vega":           { "github": "vega/vega", "npm": "vega" },
+    "Flutter":        { "github": "flutter/flutter" },
+    "Nannou":         { "github": "nannou-org/nannou" },
+    "OpenRNDR":       { "github": "openrndr/openrndr" },
+    "Sonic Pi":       { "github": "sonic-pi-net/sonic-pi" },
+    "SuperCollider":  { "github": "supercollider/supercollider" },
+    "Box2D":          { "github": "erincatto/box2d" },
+    "OpenCV":         { "github": "opencv/opencv" },
+    "Pure Data":      { "github": "pure-data/pure-data" },
+    "Arduino":        { "github": "arduino/Arduino" },
+    "TensorFlow":     { "github": "tensorflow/tensorflow" },
+    "Nodebox":        { "github": "nodebox/nodebox" },
+    "Basil.js":       { "github": "basiljs/basil.js" }
+  }
+}
