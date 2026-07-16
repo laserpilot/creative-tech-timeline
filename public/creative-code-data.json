@@ -172,9 +172,9 @@
     },
     "Pure Data": {
       "category": "audio-visual",
-      "description": "Open source visual programming language for multimedia",
+      "description": "Open-source visual programming language for real-time audio and multimedia, created by Miller Puckette as an open alternative to Max/MSP. Pd is versioned 0.x and has never reached 1.0.",
       "releases": [
-        { "version": "1.0", "dateString": "1996", "notes": "" },
+        { "version": "First release", "dateString": "1996", "notes": "Miller Puckette; presented at ICMC 1996" },
         { "version": "0.15", "dateString": "16 September 1997", "link": "http://msp.ucsd.edu/Pd_documentation/x5.htm", "notes": "" },
         { "version": "0.18", "dateString": "07 December 1997", "link": "http://msp.ucsd.edu/Software/", "notes": "Binary file creation dates" }
       ]
@@ -183,7 +183,7 @@
       "category": "programming",
       "description": "C++ creative coding framework",
       "releases": [
-        { "version": "1.0", "dateString": "April 2010", "notes": "" },
+        { "version": "First release", "dateString": "April 2010", "notes": "" },
         { "version": "0.8", "dateString": "27 April 2010", "link": "https://github.com/cinder/Cinder/releases", "notes": "First release?" },
         { "version": "0.8.1", "dateString": "21 May 2010", "notes": "" },
         { "version": "0.8.2", "dateString": "14 October 2010", "notes": "" },
@@ -263,28 +263,45 @@
       "category": "programming",
       "description": "Game development platform",
       "releases": [
-        { "version": "1.0", "dateString": "June 2005", "notes": "" }
+        { "version": "1.0", "dateString": "2005-06-08", "link": "https://en.wikipedia.org/wiki/Unity_(game_engine)", "notes": "Mac-only debut at Apple WWDC" },
+        { "version": "2.0", "dateString": "2007", "link": "https://en.wikipedia.org/wiki/Unity_(game_engine)", "notes": "Terrain engine, dynamic shadows, DirectX; iPhone support in 2008" },
+        { "version": "3.0", "dateString": "2010-09-27", "link": "https://en.wikipedia.org/wiki/Unity_(game_engine)", "notes": "Android support, deferred rendering; Asset Store era" },
+        { "version": "4.0", "dateString": "2012-11-13", "link": "https://en.wikipedia.org/wiki/Unity_(game_engine)", "notes": "Mecanim animation system, DirectX 11" },
+        { "version": "5.0", "dateString": "2015-03-03", "link": "https://unity.com/news/unity-5-here", "notes": "Real-time global illumination, WebGL, free Personal tier", "major": true },
+        { "version": "2017.1", "dateString": "2017-07-11", "link": "https://unity.com/news/unity-2017-1-now-available", "notes": "Date-based versioning; Timeline and Cinemachine" },
+        { "version": "2018.1", "dateString": "2018-05-02", "link": "https://unity.com/blog/engine-platform/2018-1-now-available", "notes": "Scriptable Render Pipeline; HDRP/URP preview, Shader Graph" },
+        { "version": "2019.1", "dateString": "2019-04-16", "link": "https://unity.com/blog/engine-platform/introducing-unity-2019-1", "notes": "Burst Compiler; URP out of preview" },
+        { "version": "2021 LTS", "dateString": "April 2021", "link": "https://en.wikipedia.org/wiki/Unity_(game_engine)", "notes": "URP/HDRP matured; long-term-support baseline" },
+        { "version": "6", "dateString": "2024-10-17", "link": "https://en.wikipedia.org/wiki/Unity_(game_engine)", "notes": "Return to major versioning; Muse and Sentis AI tools", "major": true }
       ]
     },
     "Unreal Engine": {
       "category": "programming",
       "description": "Game development platform",
       "releases": [
-        { "version": "1.0", "dateString": "May 1998", "notes": "" }
+        { "version": "UE1", "dateString": "May 1998", "link": "https://en.wikipedia.org/wiki/Unreal_Engine_1", "notes": "Debuted in the game Unreal; licensed to studios, not sold standalone" },
+        { "version": "UE2", "dateString": "2002", "link": "https://en.wikipedia.org/wiki/Unreal_Engine", "notes": "Hardware rendering; PS2/Xbox/GameCube support" },
+        { "version": "UE3", "dateString": "2006", "link": "https://en.wikipedia.org/wiki/Unreal_Engine", "notes": "HDR, multithreading, DirectX 9; widely licensed" },
+        { "version": "UDK", "dateString": "November 2009", "link": "https://en.wikipedia.org/wiki/Unreal_Engine", "notes": "Free UE3 SDK opened the engine to indie developers" },
+        { "version": "UE4", "dateString": "2014-03-19", "link": "https://en.wikipedia.org/wiki/Unreal_Engine_4", "notes": "$19/mo full-source subscription; Blueprint visual scripting", "major": true },
+        { "version": "UE4 (free)", "dateString": "2015-03-02", "link": "https://www.unrealengine.com/blog/ue4-is-free", "notes": "Engine made free with a 5% royalty model" },
+        { "version": "MetaHuman Creator", "dateString": "2021-04-14", "link": "https://www.epicgames.com/site/en-US/news/metahuman-creator-is-now-available-in-early-access", "notes": "Cloud tool for photoreal, fully-rigged digital humans" },
+        { "version": "UE5 (Early Access)", "dateString": "2021-05-26", "link": "https://www.unrealengine.com/blog/unreal-engine-5-is-now-available-in-early-access", "notes": "First public Nanite geometry and Lumen global illumination" },
+        { "version": "UE5.0", "dateString": "2022-04-05", "link": "https://en.wikipedia.org/wiki/Unreal_Engine_5", "notes": "Full release; Nanite, Lumen, MetaHuman production-ready", "major": true }
       ]
     },
     "TouchDesigner": {
       "category": "programming",
       "description": "Visual development platform for real-time media",
       "releases": [
-        { "version": "1.0", "dateString": "2008", "notes": "" }
+        { "version": "First release", "dateString": "2008", "notes": "" }
       ]
     },
     "Three.js": {
       "category": "web",
       "description": "JavaScript 3D library",
       "releases": [
-        { "version": "1.0", "dateString": "April 2010", "notes": "" },
+        { "version": "r1", "dateString": "April 2010", "notes": "" },
         { "version": "r64", "dateString": "2013-12-14", "link": "https://github.com/mrdoob/three.js/releases/tag/r64", "notes": "", "auto": true },
         { "version": "r69", "dateString": "2014-10-28", "link": "https://github.com/mrdoob/three.js/releases/tag/r69", "notes": "", "auto": true },
         { "version": "r73", "dateString": "2015-10-16", "link": "https://github.com/mrdoob/three.js/releases/tag/r73", "notes": "", "auto": true },
@@ -305,7 +322,7 @@
       "category": "physical-computing",
       "description": "Open-source electronics platform",
       "releases": [
-        { "version": "1.0", "dateString": "2005", "notes": "" },
+        { "version": "First release", "dateString": "2005", "notes": "First Arduino boards; the Arduino IDE 1.0 came later, in 2011" },
         { "version": "1.5.5", "dateString": "2013-11-28", "link": "https://github.com/arduino/Arduino/releases/tag/1.5.5", "notes": "", "auto": true },
         { "version": "1.5.8", "dateString": "2014-10-07", "link": "https://github.com/arduino/Arduino/releases/tag/1.5.8", "notes": "", "auto": true },
         { "version": "1.6.6", "dateString": "2015-11-04", "link": "https://github.com/arduino/Arduino/releases/tag/1.6.6", "notes": "", "auto": true },
@@ -334,7 +351,14 @@
       "category": "programming",
       "description": "Visual programming environment for multimedia",
       "releases": [
-        { "version": "1.0", "dateString": "December 2002", "notes": "" }
+        { "version": "beta1 (33)", "dateString": "2002-12-24", "link": "https://beta.vvvv.org/roadmap.html", "notes": "First public release, by the MESO group" },
+        { "version": "beta5 (33)", "dateString": "2003", "link": "https://beta.vvvv.org/roadmap.html", "notes": "Switched rendering to DirectX 9; shown at transmediale" },
+        { "version": "beta16 (40)", "dateString": "2008-04-08", "link": "https://beta.vvvv.org/roadmap.html", "notes": "C# plugin interface opens node development to third parties" },
+        { "version": "45 beta24", "dateString": "2010-09-16", "link": "https://www.kvraudio.com/news/vvvv_group_releases_vvvv_45_beta_24_1_15132", "notes": "New CodeEditor, PluginInterfaces V2" },
+        { "version": "45 beta29", "dateString": "2012", "link": "https://vvvv.org/blog/2013/vvvv45beta29.2/", "notes": "10-year anniversary release; adds 64-bit builds" },
+        { "version": "50 beta35", "dateString": "2016-12-20", "link": "https://beta.vvvv.org/roadmap.html", "notes": "Ships the VL visual-programming editor; groundwork for gamma" },
+        { "version": "gamma 2020.1", "dateString": "2020-04-01", "link": "https://thegraybook.vvvv.org/changelog/2020.1.html", "notes": "First stable release of the from-scratch VL-based rewrite", "major": true },
+        { "version": "50 beta42", "dateString": "2021-06-17", "link": "https://vvvv.org/categories/vvvv-beta-releases/", "notes": "Among the last releases of the classic beta line" }
       ]
     },
     "D3.js": {
@@ -387,7 +411,7 @@
       "category": "web",
       "description": "Vector graphics scripting framework",
       "releases": [
-        { "version": "1.0", "dateString": "December 2011", "notes": "" },
+        { "version": "First release", "dateString": "December 2011", "notes": "" },
         { "version": "0.11.4", "dateString": "2017-10-08", "link": "https://github.com/paperjs/paper.js/releases/tag/v0.11.4", "notes": "", "auto": true },
         { "version": "0.12.0", "dateString": "2018-12-03", "link": "https://github.com/paperjs/paper.js/releases/tag/v0.12.0", "notes": "", "auto": true },
         { "version": "0.12.4", "dateString": "2019-12-15", "link": "https://github.com/paperjs/paper.js/releases/tag/v0.12.4", "notes": "", "auto": true },
@@ -399,7 +423,7 @@
       "category": "web",
       "description": "Web framework for building VR experiences",
       "releases": [
-        { "version": "1.0", "dateString": "December 2015", "notes": "" },
+        { "version": "First release", "dateString": "December 2015", "notes": "" },
         { "version": "0.4.0", "dateString": "2016-12-17", "link": "https://github.com/aframevr/aframe/releases/tag/v0.4.0", "notes": "", "auto": true },
         { "version": "0.7.0", "dateString": "2017-09-21", "link": "https://github.com/aframevr/aframe/releases/tag/v0.7.0", "notes": "", "auto": true },
         { "version": "0.8.0", "dateString": "2018-03-09", "link": "https://github.com/aframevr/aframe/releases/tag/v0.8.0", "notes": "", "auto": true },
@@ -448,7 +472,7 @@
       "category": "programming",
       "description": "Creative coding framework for Rust",
       "releases": [
-        { "version": "1.0", "dateString": "2017", "notes": "" },
+        { "version": "First release", "dateString": "2017", "notes": "" },
         { "version": "0.20.0", "dateString": "2026-06-22", "link": "https://github.com/nannou-org/nannou/releases/tag/v0.20.0", "notes": "", "auto": true }
       ]
     },
@@ -491,7 +515,7 @@
       "category": "programming",
       "description": "Creative coding framework for Kotlin",
       "releases": [
-        { "version": "1.0", "dateString": "2017", "notes": "" },
+        { "version": "First release", "dateString": "2017", "notes": "" },
         { "version": "0.3.30", "dateString": "2018-11-27", "link": "https://github.com/openrndr/openrndr/releases/tag/v0.3.30", "notes": "", "auto": true },
         { "version": "0.3.37", "dateString": "2019-12-17", "link": "https://github.com/openrndr/openrndr/releases/tag/v0.3.37", "notes": "", "auto": true },
         { "version": "0.3.44", "dateString": "2020-10-16", "link": "https://github.com/openrndr/openrndr/releases/tag/v0.3.44", "notes": "", "auto": true },
@@ -512,7 +536,7 @@
       "category": "audio-visual",
       "description": "Real-time visual creation tool",
       "releases": [
-        { "version": "1.0", "dateString": "2016", "notes": "" }
+        { "version": "First release", "dateString": "2016", "notes": "" }
       ]
     },
     "Sonic Pi": {
@@ -919,6 +943,20 @@
       "releases": [
         { "version": "Initial", "dateString": "2006", "link": "https://github.com/postspectacular/toxiclibs", "notes": "Date is approximate: source copyright headers run 2006-2011 and no first-release announcement survives. Ported outward to JavaScript (toxiclibs.js) and Ruby. Note toxiclibs.org is DEAD - the domain lapsed and now serves an unrelated gambling site, so the GitHub repo is the canonical link.", "major": true },
         { "version": "0020", "dateString": "2012", "link": "https://github.com/postspectacular/toxiclibs", "notes": "Last substantive release; a promised final release never shipped and the repo has been dormant since ~2013. Dan Shiffman has published a Processing 3.0+ compatible build." }
+      ]
+    },
+    "Pixera": {
+      "category": "audio-visual",
+      "description": "Real-time media server by Austrian manufacturer AV Stumpfl for driving projection and LED shows, with content management, timeline playback, and projection/pixel mapping.",
+      "releases": [
+        { "version": "1.0", "dateString": "January 2019", "link": "https://avstumpfl.com/us/news-events/news/av-news-single/av-stumpflr-to-present-pixera-media-server-software-version-10-and-to-show-innovative-projection-sc/", "notes": "v1.0 announced Jan 2019 (first shown at InfoComm 2018)" }
+      ]
+    },
+    "disguise": {
+      "category": "audio-visual",
+      "description": "Show-production platform (formerly d3) combining a real-time 3D media server with software and hardware, used for large-scale concert tours, projection mapping, and xR/LED-volume virtual production. Lineage traces to United Visual Artists.",
+      "releases": [
+        { "version": "d3 (first commercial release)", "dateString": "2010", "link": "https://plsn.com/archives/december-2017/ash-nehru-co-founder-and-cto-of-disguise/", "notes": "d3 Technologies founded 2010 (Ash Nehru / UVA lineage); renamed 'disguise' in 2017" }
       ]
     }
   }
