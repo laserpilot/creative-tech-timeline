@@ -187,6 +187,8 @@ Considered and left out, so we don't re-litigate:
 | **acJava**, **acWorlds** | Internal ACG lab infrastructure, never released. Dates unverifiable (diagrams disagree; no independent source dates them *at all*). dribnet himself: their "influence [is] mainly as a counterexample" — acu was a reaction *against* them. |
 | **Processing.py**, **Processing for Android** | Modes/ports of Processing, not distinct tools. Same API, same IDE. Arguably attributes of Processing. |
 | **Nodewerk** | Not Processing lineage (see above). Tenuous connection. |
+| **Flutter** | Removed. General cross-platform app/UI framework; not predominantly used for art-making. Fails the inclusion rule — only niche generative crossover, unlike the creative-first `web` entries (Three.js, p5, Pixi, GSAP). |
+| **Svelte** | Removed. General web component framework, same reasoning as Flutter. |
 | General-purpose languages (C, Java, JS), OSes, web frameworks | Out of scope — see the inclusion rule below. |
 
 ### Inclusion rule
@@ -291,6 +293,12 @@ being the entry's canonical `link`. Primary sources are marked **P**.
 | Rhizome | https://en.wikipedia.org/wiki/Rhizome_(organization) |
 | Eyebeam | **P** https://eyebeam.org/about-us/ · https://en.wikipedia.org/wiki/Eyebeam_(organization) |
 | F.A.T. Lab | https://en.wikipedia.org/wiki/Free_Art_and_Technology_Lab |
+| Radical Networks | **P** https://radicalnetworks.org/archives/2015/ (first edition Oct 24–25 2015, MAGNET/NYU Poly, Brooklyn; founded by Sarah Grant) · https://technical.ly/diversity-equity-inclusion/radical-networks-conference/ |
+
+### Events — artworks
+| Entry | Sources |
+|---|---|
+| قلب (Qalb) — Ramsey Nasser | **P** https://nas.sr/%D9%82%D9%84%D8%A8/ (creator's page; created 2013, debuted at Eyebeam's Annual Artist Showcase). Dated year-only (`2013-01-01`); no exact showcase date sourced. A functional language in Arabic script made as a critical artwork, not a production tool. |
 
 ### Events — publications
 | Entry | Sources |

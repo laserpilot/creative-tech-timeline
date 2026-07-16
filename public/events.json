@@ -547,6 +547,30 @@
         "Muriel Cooper",
         "Ron MacNeil"
       ]
+    },
+
+    {
+      "id": "qalb",
+      "title": "قلب (Qalb) — Ramsey Nasser",
+      "date": "2013-01-01",
+      "layer": "artworks",
+      "description": "A functional programming language written entirely in Arabic script, made as a critical artwork rather than a production tool. Qalb (Arabic for 'heart'/'core') exposes how deeply programming assumes English, the Latin alphabet, and left-to-right ASCII — Nasser found that even rendering his own right-to-left code was broken by that assumption. Debuted at Eyebeam's Annual Artist Showcase and accompanied by a calligraphy series treating classic computer-science algorithms as visual art.",
+      "link": "https://nas.sr/%D9%82%D9%84%D8%A8/",
+      "creators": [
+        "Ramsey Nasser"
+      ]
+    },
+
+    {
+      "id": "radical-networks",
+      "title": "Radical Networks begins",
+      "date": "2015-10-24",
+      "layer": "institutions",
+      "description": "A community event and conference for critical, artistic, and grassroots work in telecommunications and networking, founded by Sarah Grant. The first edition ran October 24–25, 2015 at MAGNET (NYU Poly) in Brooklyn; later editions were also held in Berlin. Foregrounds DIY, feminist, and activist approaches to the internet and network infrastructure outside corporate and academic mainstreams.",
+      "link": "https://radicalnetworks.org/archives/2015/",
+      "creators": [
+        "Sarah Grant"
+      ]
     }
   ]
 }
