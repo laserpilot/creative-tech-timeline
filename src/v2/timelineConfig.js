@@ -44,6 +44,8 @@ export const LAYER_ORDER = [
   { key: 'ai-ml', name: 'AI / ML', color: '#9b5de5' },
   { key: 'artworks', name: 'Landmark Artworks', color: '#e5476b' },
   { key: 'institutions', name: 'Institutions', color: '#2ea36b' },
+  { key: 'publications', name: 'Publications', color: '#d4a017' },
+  { key: 'platforms', name: 'Platforms', color: '#17a2b8' },
 ];
 
 export const DECADES = ['1960s', '1970s', '1980s', '1990s', '2000s', '2010s', '2020s'];

@@ -80,6 +80,8 @@ export function processEvents(rawEvents, layers) {
     .map((e) => ({
       ...e,
       parsedDate: parseLooseDate(e.date),
+      // Optional: events that ran for a period rather than happening at a point.
+      endDate: e.end ? parseLooseDate(e.end) : null,
       color: layers?.[e.layer]?.color || '#7f7f7f',
     }))
     .filter((e) => e.parsedDate)

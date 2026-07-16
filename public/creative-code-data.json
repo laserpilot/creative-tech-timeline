@@ -788,6 +788,35 @@
       "releases": [
         { "version": "Initial release", "dateString": "2005-12", "link": "https://en.wikipedia.org/wiki/Papervision3D", "notes": "By Carlos Ulloa; open-sourced by end of 2006. Final release 2.1.932 (Dec 2009); superseded by Away3D as Flash declined.", "major": true }
       ]
+    },
+    "Logo": {
+      "category": "programming",
+      "description": "Educational programming language created at Bolt, Beranek and Newman (BBN) to make programming concepts tangible to children. Its turtle graphics - drawing by commanding a relative-motion agent rather than plotting absolute coordinates - became the founding metaphor for learning to code by drawing, and the ancestor of Design By Numbers, Processing, and Scratch.",
+      "link": "https://en.wikipedia.org/wiki/Logo_(programming_language)",
+      "releases": [
+        { "version": "Logo", "dateString": "1967", "link": "https://en.wikipedia.org/wiki/Logo_(programming_language)", "notes": "Designed by Wally Feurzeig, Seymour Papert, and Cynthia Solomon. Created at BBN in Cambridge, Massachusetts - not at MIT, despite Papert's MIT association; the work later migrated to the MIT Logo Laboratory. Papert is the famous name but is one of three co-designers.", "major": true },
+        { "version": "Turtle graphics", "dateString": "1969", "link": "https://en.wikipedia.org/wiki/Logo_(programming_language)", "notes": "Added by Papert in the late 1960s; 1969 is approximate, as sources date it only to 'the late 1960s'. Mike Paterson wrote the first Turtle Specification in August 1969, and both a floor turtle and a display turtle were in use by the 1970-71 school year." }
+      ]
+    },
+    "Design By Numbers": {
+      "category": "programming",
+      "description": "John Maeda's deliberately minimal programming environment from the MIT Media Lab's Aesthetics + Computation Group, built to teach computational design to visual designers with no programming background. Its severe constraints - a fixed 101x101 pixel canvas (coordinates 0-100) and grayscale only - made it the direct precursor to Processing, which Maeda's students Casey Reas and Ben Fry built after concluding those limits were the essence of the platform and shouldn't simply be extended.",
+      "link": "https://medium.com/processing-foundation/a-modern-prometheus-59aed94abe85",
+      "discontinued": "2003",
+      "releases": [
+        { "version": "1.0", "dateString": "1999", "link": "https://medium.com/processing-foundation/a-modern-prometheus-59aed94abe85", "notes": "Software and the MIT Press book were both released in 1999; the 2001 date cited in some sources is the paperback reissue, not the first edition. Canvas fixed at 101x101 pixels (x and y run 0-100 inclusive) with gray values 0-100 and no color. First workshop taught 25 August 1999 at AIGA headquarters.", "major": true },
+        { "version": "3.0.1", "dateString": "2003", "link": "https://medium.com/processing-foundation/a-modern-prometheus-59aed94abe85", "notes": "Final version; the third version was written by Ben Fry, with Casey Reas designing the courseware and Tom White also contributing. The Aesthetics + Computation Group closed the same year. Reimplemented in JavaScript by Lingdong Huang as 'Design By Numbers Again' (https://www.media.mit.edu/projects/design-by-numbers-again/overview/)." }
+      ]
+    },
+    "ACU": {
+      "category": "programming",
+      "description": "An internal, never publicly released C++ graphics and media toolkit built inside the MIT Media Lab's Aesthetics + Computation Group, and the group's everyday production tool for computational art - running on SGI Octane and O2 workstations in the late 1990s, then on commodity PCs by 2000. A direct precursor to both Processing, which took its 'high ceiling' ambition from ACU, and openFrameworks: Zachary Lieberman began oF after using ACU and finding he could not give it to his students because it was neither open source nor well maintained.",
+      "link": "https://github.com/dribnet/acu",
+      "discontinued": "2003",
+      "releases": [
+        { "version": "Earliest documented activity", "dateString": "1999-01", "link": "https://github.com/dribnet/acu", "notes": "Date is APPROXIMATE. Started by Ben Fry, with significant contributions from Tom White and Jared Schiffman; used across the group, with Casey Reas appearing as a user and documenter rather than an author. The archived repo is explicitly a 'partial history': git commits run Jul 1999 - Nov 2001, but its README changelog reaches back to 25 Jan 1999 and already describes additions to an existing library - so ACU predates Jan 1999 and most likely began in 1998. No founding date is documented anywhere.", "major": true },
+        { "version": "Last archived commit", "dateString": "2001-11-02", "link": "https://github.com/dribnet/acu", "notes": "End of the partial git history, not necessarily the end of use: Zachary Lieberman reports still using ACU in 2002 ('an older library that I was using in 2002... I didn't have the ability to give this library to my students'). Effectively ended with the Aesthetics + Computation Group, which ran 1996-2003. openFrameworks 0.01 followed in August 2005." }
+      ]
     }
   }
 }
