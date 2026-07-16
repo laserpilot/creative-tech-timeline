@@ -445,32 +445,12 @@
         { "version": "0.12.2", "dateString": "2022-04-25", "link": "https://github.com/ml5js/ml5-library/releases/tag/0.12.2", "notes": "", "auto": true }
       ]
     },
-    "Flutter": {
-      "category": "programming",
-      "description": "UI toolkit for building natively compiled applications",
-      "releases": [
-        { "version": "1.0", "dateString": "December 2018", "notes": "" },
-        { "version": "3.18.0-0.1.pre", "dateString": "2023-12-12", "link": "https://github.com/flutter/flutter/releases/tag/3.18.0-0.1.pre", "notes": "", "auto": true },
-        { "version": "3.19.0-0.1.pre", "dateString": "2024-01-11", "link": "https://github.com/flutter/flutter/releases/tag/3.19.0-0.1.pre", "notes": "", "auto": true }
-      ]
-    },
     "Nannou": {
       "category": "programming",
       "description": "Creative coding framework for Rust",
       "releases": [
         { "version": "1.0", "dateString": "2017", "notes": "" },
         { "version": "0.20.0", "dateString": "2026-06-22", "link": "https://github.com/nannou-org/nannou/releases/tag/v0.20.0", "notes": "", "auto": true }
-      ]
-    },
-    "Svelte": {
-      "category": "web",
-      "description": "Component framework that runs at build time",
-      "releases": [
-        { "version": "1.0", "dateString": "November 2016", "notes": "" },
-        { "version": "svelte@4.2.8", "dateString": "2023-11-30", "link": "https://github.com/sveltejs/svelte/releases/tag/svelte%404.2.8", "notes": "", "auto": true },
-        { "version": "svelte@5.16.0", "dateString": "2024-12-24", "link": "https://github.com/sveltejs/svelte/releases/tag/svelte%405.16.0", "notes": "", "auto": true },
-        { "version": "svelte@5.46.1", "dateString": "2025-12-24", "link": "https://github.com/sveltejs/svelte/releases/tag/svelte%405.46.1", "notes": "", "auto": true },
-        { "version": "svelte@5.56.5", "dateString": "2026-07-14", "link": "https://github.com/sveltejs/svelte/releases/tag/svelte%405.56.5", "notes": "", "auto": true }
       ]
     },
     "Babylon.js": {
