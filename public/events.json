@@ -1068,6 +1068,69 @@
       "creators": [
         "Kelani Nichole"
       ]
+    },
+
+    {
+      "id": "sony-eyetoy",
+      "title": "Sony EyeToy ships",
+      "date": "2003-07-04",
+      "layer": "hardware",
+      "description": "PlayStation 2 color camera that used computer vision and motion/gesture detection for camera-based play, a widely cited precursor to depth-camera interaction.",
+      "link": "https://en.wikipedia.org/wiki/EyeToy"
+    },
+
+    {
+      "id": "wii-remote",
+      "title": "Nintendo Wii Remote ships",
+      "date": "2006-11-19",
+      "layer": "hardware",
+      "description": "Motion controller with accelerometer and IR pointer, extensively repurposed by creative technologists for interactive and installation work (notably Johnny Chung Lee's 2007-08 Wii hacks).",
+      "link": "https://en.wikipedia.org/wiki/Wii_Remote"
+    },
+
+    {
+      "id": "makerbot-cupcake",
+      "title": "MakerBot Cupcake CNC ships",
+      "date": "2009",
+      "layer": "hardware",
+      "description": "MakerBot's first mass-market DIY desktop 3D-printer kit, which helped bring rapid prototyping and fabrication within reach of individual artists and makers.",
+      "link": "https://en.wikipedia.org/wiki/MakerBot"
+    },
+
+    {
+      "id": "kinect-v2",
+      "title": "Kinect for Xbox One (Kinect v2) ships",
+      "date": "2013-11-22",
+      "layer": "hardware",
+      "description": "Second-generation depth sensor using a time-of-flight camera with higher fidelity, wider field of view, and 25-joint skeletal tracking.",
+      "link": "https://en.wikipedia.org/wiki/Kinect"
+    },
+
+    {
+      "id": "google-cardboard",
+      "title": "Google Cardboard unveiled",
+      "date": "2014-06-25",
+      "layer": "hardware",
+      "description": "Low-cost cardboard viewer turning a smartphone into a VR headset, dramatically lowering the barrier to entry for VR experimentation.",
+      "link": "https://en.wikipedia.org/wiki/Google_Cardboard"
+    },
+
+    {
+      "id": "myo-armband",
+      "title": "Myo gesture armband ships",
+      "date": "2015-03",
+      "layer": "hardware",
+      "description": "Thalmic Labs forearm band reading muscle (EMG) activity and motion for wireless gesture control, adopted in interactive performance and prototyping.",
+      "link": "https://www.engadget.com/2015-01-19-myo-armband-amazon.html"
+    },
+
+    {
+      "id": "hololens-dev",
+      "title": "Microsoft HoloLens Development Edition ships",
+      "date": "2016-03-30",
+      "layer": "hardware",
+      "description": "First self-contained (untethered) holographic AR headset with spatial mapping, opening room-scale mixed-reality work to developers and artists.",
+      "link": "https://blogs.windows.com/devices/2016/02/29/announcing-microsoft-hololens-development-edition-open-for-pre-order-shipping-march-30/"
     }
   ]
 }

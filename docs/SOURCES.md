@@ -246,6 +246,48 @@ ml5.js's "1.0 (2018)" seed was relabeled to its true first beta, 0.1.0 (2018-06-
 
 ---
 
+## Release histories, placeholder cleanup & media servers
+
+### The "1.0" placeholder problem (holdover from the original CSV)
+Many tools carried a generic `"1.0"` first-release label from the hand-collected CSV. It is a
+mix: some are correct (**Ableton Live** 1.0 = Oct 2001, **Unity** 1.0 = June 2005,
+**SuperCollider** SC1 = 1996), but many tools **never shipped a 1.0** at that date. Fixed the
+clearly-wrong ones (the date, which drives the lifeline, was kept; only the false version label
+changed):
+- **Pure Data** → "First release" (Pd is versioned 0.x, currently ~0.56; never 1.0).
+- **Three.js** → `r1` (Three.js used r-numbering; r1 = April 2010).
+- **Paper.js, A-Frame, Cinder, Nannou, OpenRNDR, Notch, TouchDesigner** → "First release"
+  (all use 0.x / beta / 077-088-099 schemes; none had a 1.0 at the listed date).
+- **Arduino** → "First release" with a note: 2005 = the first boards; the Arduino **IDE** 1.0
+  was 2011. The old "1.0 (2005)" conflated hardware and software.
+- Verified-correct 1.0s left untouched. ~20 other unreviewed placeholders remain (date likely
+  right, version label generic) — deferred, not yet individually checked.
+
+### Engine release histories (Unity, Unreal, VVVV)
+Replaced single placeholders with real version timelines, cross-checked against Wikipedia
+version tables + official announcements. Dates are public-availability.
+- **Unity** — 1.0 (2005-06-08, Mac-only, WWDC) → 6 (2024-10-17). Sources: https://en.wikipedia.org/wiki/Unity_(game_engine) · https://unity.com/news/unity-5-here · Unity blog release notes. ⚠️ Unity switched to date-based versions in 2017, back to majors with Unity 6.
+- **Unreal Engine** — UE1 (May 1998, shipped inside the game *Unreal*; licensed, not sold standalone) → UE5.0 (2022-04-05). Sources: https://en.wikipedia.org/wiki/Unreal_Engine · UE4/UE5 articles · Epic announcements. ⚠️ UE4 public launch is 2014-03-19 (GDC subscription) per UE4-specific sources, vs a looser "April 2014" in Wikipedia's overview.
+- **VVVV** — beta1 (2002-12-24, MESO group) → vvvv gamma 2020.1 (2020-04-01). Sources: https://beta.vvvv.org/roadmap.html · https://thegraybook.vvvv.org/changelog/2020.1.html. The "45"/"50" prefixes are DX9/DX11 generation numbers, not the beta counter; classic beta and gamma ran in parallel from ~2016.
+
+### Media servers (new tools, audio-visual)
+- **Pixera** (AV Stumpfl, Austria) — v1.0 announced 25 Jan 2019, first shown at InfoComm 2018.
+  **P** https://avstumpfl.com/us/news-events/news/av-news-single/av-stumpflr-to-present-pixera-media-server-software-version-10-and-to-show-innovative-projection-sc/ · https://www.avinteractive.com/news/products/av-stumpfl-shows-new-pixera-media-server-software-infocomm-07-06-2018/
+- **disguise** (formerly **d3**) — plotted 2010 (d3 Technologies founded; media-server lineage from United Visual Artists / Ash Nehru, ~2005 U2 Vertigo tour); renamed "disguise" in 2017. ⚠️ medium confidence on the year (some sources cite a 2013 milestone). https://plsn.com/archives/december-2017/ash-nehru-co-founder-and-cto-of-disguise/ · https://www.avinteractive.com/news/business/d3-technologies-debuts-new-name-disguise-21-11-2017/
+
+### Events — hardware (additions)
+| Entry | Sources |
+|---|---|
+| Sony EyeToy (2003-07-04) | https://en.wikipedia.org/wiki/EyeToy (EU 2003-07-04, earliest; NA Nov 2003, JP Feb 2004) |
+| Nintendo Wii Remote (2006-11-19) | https://en.wikipedia.org/wiki/Wii_Remote (NA launch, earliest; JP/EU Dec 2006). Repurposed for interactive art via Johnny Chung Lee's 2007-08 hacks. |
+| MakerBot Cupcake CNC (2009) | https://en.wikipedia.org/wiki/MakerBot (first product; year precision — March announce vs April production) |
+| Kinect for Xbox One / v2 (2013-11-22) | https://en.wikipedia.org/wiki/Kinect (time-of-flight, 25-joint tracking) |
+| Google Cardboard (2014-06-25) | https://en.wikipedia.org/wiki/Google_Cardboard (Google I/O unveiling) |
+| Myo armband (2015-03) | https://www.engadget.com/2015-01-19-myo-armband-amazon.html (broad retail early 2015; dev units from mid-2014 — medium confidence) |
+| Microsoft HoloLens Dev Edition (2016-03-30) | **P** https://blogs.windows.com/devices/2016/02/29/announcing-microsoft-hololens-development-edition-open-for-pre-order-shipping-march-30/ |
+
+---
+
 ## Deliberately excluded
 
 Considered and left out, so we don't re-litigate:
@@ -260,6 +302,8 @@ Considered and left out, so we don't re-litigate:
 | **Donna Haraway — A Cyborg Manifesto (1985)** | The acknowledged theoretical wellspring of cyberfeminism, but it originated as socialist-feminist critical theory in a general-left journal, not from creative-tech/new-media practice — the "general theory" side of the inclusion boundary. Add later only if theoretical precursors are wanted (plot 1985 *Socialist Review*, not the 1991 book). |
 | **Demoscene** | Real and influential, but has no defensible single founding date — a diffuse mid-1980s emergence from cracker/crack-intro culture with no founding moment or organization. Fabricating a date would violate the accuracy rule. |
 | **Stephanie Dinkins — Not The Only One** | Wanted, but sources conflict on 2017 vs 2018 and no single first-exhibition date/venue could be pinned. Excluded rather than guess; revisit if a firm date surfaces. |
+| **RepRap "Darwin" (2007)** | Desktop-3D-printing milestone, but only pins to year and overlaps thematically with MakerBot Cupcake (2009), the more consumer-facing entry that was kept. Reasonable future add. |
+| **Intel RealSense (2015)** | Depth-camera line, but the 2015 developer-kit ship dates were the fuzziest to pin to a specific two-source date; Myo already anchors 2015. Add later if a firm date surfaces. |
 | General-purpose languages (C, Java, JS), OSes, web frameworks | Out of scope — see the inclusion rule below. |
 
 ### Inclusion rule
