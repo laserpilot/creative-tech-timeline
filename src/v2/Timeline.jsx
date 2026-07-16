@@ -367,10 +367,20 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
   );
 }
 
+const fmtDate = (d) =>
+  d instanceof Date && !isNaN(d)
+    ? d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+    : '';
+
 // ---------- Category lane ----------
 function Lane({ cat, tools, expanded, onToggle, toolDimmed, onSelect, selected, scale }) {
   const { x, xDate } = scale;
+  // Hovering a release dot describes that release; hovering the rest of the row
+  // describes the tool. The dot wins while the pointer is actually over it.
+  const [hoverTool, setHoverTool] = useState(null);
+  const [hoverRel, setHoverRel] = useState(null);
   const height = expanded ? LANE_HEADER + tools.length * ROW + 8 : 44;
+  const hovered = hoverRel || hoverTool;
 
   return (
     <div style={{ display: 'flex', borderBottom: '1px solid #ece8e1' }}>
@@ -412,13 +422,21 @@ function Lane({ cat, tools, expanded, onToggle, toolDimmed, onSelect, selected, 
                 <div
                   key={t.name}
                   onClick={() => onSelect(t)}
+                  onMouseEnter={() => setHoverTool({ t, i })}
+                  onMouseLeave={() => { setHoverTool(null); setHoverRel(null); }}
                   style={{ position: 'absolute', left: 0, top: LANE_HEADER + i * ROW, height: ROW, width: scale.timeWidth, cursor: 'pointer', opacity: dimmed ? 0.22 : 1 }}
                 >
-                  <div style={{ position: 'absolute', top: ROW / 2 - 2, left: startX, width: Math.max(6, endX - startX), height: 4, borderRadius: 3, background: cat.color, opacity: isSel ? 0.85 : 0.5 }} />
+                  <div style={{ position: 'absolute', top: ROW / 2 - 2, left: startX, width: Math.max(6, endX - startX), height: 4, borderRadius: 3, background: cat.color, opacity: isSel || hoverTool?.t === t ? 0.85 : 0.5 }} />
                   {t.releases.map((r, di) => {
-                    const size = di === 0 ? 9 : 6;
+                    const hot = hoverRel?.t === t && hoverRel?.di === di;
+                    const size = hot ? 11 : di === 0 ? 9 : 6;
                     return (
-                      <div key={di} style={{ position: 'absolute', top: ROW / 2 - size / 2, left: xDate(r.date) - size / 2, width: size, height: size, borderRadius: '50%', background: cat.color, boxShadow: '0 0 0 2px #f7f6f4' }} />
+                      <div
+                        key={di}
+                        onMouseEnter={() => setHoverRel({ t, i, r, di })}
+                        onMouseLeave={() => setHoverRel(null)}
+                        style={{ position: 'absolute', top: ROW / 2 - size / 2, left: xDate(r.date) - size / 2, width: size, height: size, borderRadius: '50%', background: cat.color, boxShadow: '0 0 0 2px #f7f6f4' }}
+                      />
                     );
                   })}
                 </div>
@@ -434,6 +452,37 @@ function Lane({ cat, tools, expanded, onToggle, toolDimmed, onSelect, selected, 
                 />
               );
             })}
+
+        {/* Hover card. Sits outside the tool rows so it doesn't inherit their
+            dimmed opacity. */}
+        {expanded && hovered && (
+          <div style={{
+            position: 'absolute',
+            top: LANE_HEADER + hovered.i * ROW + ROW + 2,
+            left: Math.max(0, (hoverRel ? xDate(hovered.r.date) : xDate(hovered.t.firstDate)) - 10),
+            zIndex: 50, width: 220, background: '#fff', border: '1px solid #e7e3dd',
+            borderLeft: `3px solid ${cat.color}`, borderRadius: 8,
+            boxShadow: '0 12px 32px -14px rgba(40,34,30,0.4)', padding: '9px 12px', pointerEvents: 'none',
+          }}>
+            <div style={{ fontSize: 13, fontWeight: 600, color: '#2c2822', marginBottom: 3 }}>{hovered.t.name}</div>
+            {hoverRel ? (
+              <>
+                <div style={{ fontFamily: MONO, fontSize: 10, color: '#a49a8d', marginBottom: hovered.r.notes ? 5 : 0 }}>
+                  {hovered.r.version || `Release ${hovered.di + 1}`} · {fmtDate(hovered.r.date)}
+                </div>
+                {hovered.r.notes && <div style={{ fontSize: 11.5, color: '#6b6459', lineHeight: 1.45 }}>{hovered.r.notes}</div>}
+              </>
+            ) : (
+              <>
+                <div style={{ fontFamily: MONO, fontSize: 10, color: '#a49a8d', marginBottom: hovered.t.description ? 5 : 0 }}>
+                  {hovered.t.startYear}–{hovered.t.discontinued ? hovered.t.discontinued.getFullYear() : 'present'}
+                  {' · '}{hovered.t.releases.length} release{hovered.t.releases.length === 1 ? '' : 's'}
+                </div>
+                {hovered.t.description && <div style={{ fontSize: 11.5, color: '#6b6459', lineHeight: 1.45 }}>{hovered.t.description}</div>}
+              </>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
