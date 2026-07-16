@@ -362,8 +362,16 @@ being the entry's canonical `link`. Primary sources are marked **P**.
 | Fritzing | **P** https://fritzing.org/releases/0-1b · https://fritzing.org/download/0.1b/ · https://github.com/fritzing/fritzing-app · TEI '09 paper: doi 10.1145/1517664.1517735 |
 
 ### Tools — authoring / multimedia
+> **Categorization note:** `multimedia-authoring` holds timeline/stage/stack-based authoring
+> environments (Director, Flash, HyperCard, Isadora). **Quartz Composer** and **Scratch** were
+> moved to `programming` (both are visual/block programming environments, consistent with
+> VVVV/Vuo/TouchDesigner). **Isadora** stays here — TroikaTronix frames it as a live-performance
+> media *authoring* environment. (Display order: `audio-visual` sits second, above `web`, in
+> `src/v2/timelineConfig.js`.)
+
 | Entry | Sources |
 |---|---|
+| HyperCard | **P** https://en.wikipedia.org/wiki/HyperCard (v1.0 released 11 Aug 1987 at MacWorld Boston, Bill Atkinson/Apple; HyperTalk scripting; pulled from sale 2004 → `discontinued: 2004`) |
 | Director | https://en.wikipedia.org/wiki/Adobe_Director |
 | Flash / Animate | https://www.webdesignmuseum.org/software/futuresplash-animator-in-1996 · https://en.wikipedia.org/wiki/Adobe_Animate |
 | Quartz Composer | https://en.wikipedia.org/wiki/Quartz_Composer · **P** https://developer.apple.com/documentation/quartz/quartz-composer |

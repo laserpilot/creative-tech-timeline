@@ -720,7 +720,7 @@
       ]
     },
     "Quartz Composer": {
-      "category": "multimedia-authoring",
+      "category": "programming",
       "description": "Apple's node-based visual programming environment for processing and rendering graphical data, shipped with the Mac OS X developer tools and widely used for VJ and motion-graphics prototyping.",
       "link": "https://en.wikipedia.org/wiki/Quartz_Composer",
       "discontinued": "2019",
@@ -737,7 +737,7 @@
       ]
     },
     "Scratch": {
-      "category": "multimedia-authoring",
+      "category": "programming",
       "description": "MIT Media Lab's block-based visual programming language and online community, designed to teach coding by snapping graphical command blocks together.",
       "link": "https://scratch.mit.edu/",
       "releases": [
@@ -957,6 +957,15 @@
       "description": "Show-production platform (formerly d3) combining a real-time 3D media server with software and hardware, used for large-scale concert tours, projection mapping, and xR/LED-volume virtual production. Lineage traces to United Visual Artists.",
       "releases": [
         { "version": "d3 (first commercial release)", "dateString": "2010", "link": "https://plsn.com/archives/december-2017/ash-nehru-co-founder-and-cto-of-disguise/", "notes": "d3 Technologies founded 2010 (Ash Nehru / UVA lineage); renamed 'disguise' in 2017" }
+      ]
+    },
+    "HyperCard": {
+      "category": "multimedia-authoring",
+      "description": "Stack-based multimedia authoring environment ('software erector set') by Bill Atkinson at Apple, scripted with the HyperTalk language. It let non-programmers build interactive 'stacks' of cards linking text, graphics, and sound, and was a foundational influence on multimedia authoring and hypertext.",
+      "link": "https://en.wikipedia.org/wiki/HyperCard",
+      "discontinued": "2004",
+      "releases": [
+        { "version": "1.0", "dateString": "11 August 1987", "link": "https://en.wikipedia.org/wiki/HyperCard", "notes": "Released at MacWorld Boston; later bundled free with Macs" }
       ]
     }
   }
