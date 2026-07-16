@@ -107,11 +107,10 @@ settle this from memory better than any source.
 26; Reas's own history says so). Tom White owns the *GitHub archive*, which likely caused the
 confusion. **Jared Schiffman** (14 commits) is well-sourced and usually omitted. Casey Reas
 appears in the changelog as a **user/documenter**, not an author. No evidence links Golan Levin
-to authorship. End 2003 = when ACG closed; Lieberman reports still using ACU in **2002**.
+to authorship. End 2003 = when ACG closed; ACU was reportedly still in use in **2002**.
 
-**oF lineage, in Lieberman's own words:** "There was a library of code developed at MIT called
-ACU, it was an older library that I was using in 2002… I didn't have the ability to give this
-library to my students because it wasn't open source and it wasn't really well maintained."
+**oF lineage:** openFrameworks began because ACU was not open source and not well maintained
+enough to share with or teach students — the gap oF was created to fill.
 
 ### Logo — dated 1967
 Created at **BBN, not MIT** (despite Papert's MIT association; the work later migrated to the
@@ -358,7 +357,7 @@ being the entry's canonical `link`. Primary sources are marked **P**.
 |---|---|
 | Logo | https://en.wikipedia.org/wiki/Logo_(programming_language) |
 | Design By Numbers | **P** https://medium.com/processing-foundation/a-modern-prometheus-59aed94abe85 (Reas) · https://www.media.mit.edu/projects/design-by-numbers-again/overview/ · https://github.com/LingDong-/dbn.js/ · **P** https://www.benfry.com/phd/dissertation/6.html |
-| ACU | **P** https://github.com/dribnet/acu · **P** https://openframeworks.cc/development/ · **P** https://www.vice.com/en/article/qa-with-zach-lieberman-founder-of-openframeworks-pt-i/ (Lieberman) · https://medium.com/processing-foundation/a-modern-prometheus-59aed94abe85 |
+| ACU | **P** https://github.com/dribnet/acu · **P** https://openframeworks.cc/development/ · **P** https://www.vice.com/en/article/qa-with-zach-lieberman-founder-of-openframeworks-pt-i/ · https://medium.com/processing-foundation/a-modern-prometheus-59aed94abe85 |
 | Wiring | **P** https://www.wiring.org.co/updates.html · **P** https://arduinohistory.github.io/ (Barragán) · https://en.wikipedia.org/wiki/Wiring_(software) ⚠️ infobox date wrong |
 | Fritzing | **P** https://fritzing.org/releases/0-1b · https://fritzing.org/download/0.1b/ · https://github.com/fritzing/fritzing-app · TEI '09 paper: doi 10.1145/1517664.1517735 |
 
