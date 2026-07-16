@@ -77,9 +77,8 @@
     },
     "P5.js": {
       "category": "web",
-      "description": "JavaScript library for creative coding on the web",
+      "description": "JavaScript library for creative coding on the web, created by Lauren McCarthy (with Evelyn Eastmond) beginning in 2013 as a reimagining of Processing for the browser, with access and inclusion held as core design goals. First public beta 2014; version 1.0 in 2020.",
       "releases": [
-        { "version": "1.0", "dateString": "2014", "notes": "Initial release" },
         { "version": "0.2.22", "dateString": "21 July 2014", "link": "https://github.com/processing/p5.js/releases?after=0.3.4", "notes": "Preliminary Alpha Release" },
         { "version": "0.2.23", "dateString": "31 July 2014", "notes": "" },
         { "version": "0.3.0", "dateString": "06 August 2014", "notes": "First Public Beta" },
@@ -436,9 +435,9 @@
     },
     "ML5.js": {
       "category": "creative-libraries",
-      "description": "Friendly machine learning for the web",
+      "description": "Friendly machine learning for the web. Community-driven library begun at NYU's ITP (from Cristóbal Valenzuela's p5deeplearn, developed under Daniel Shiffman), inspired by the Processing Foundation's accessibility mission. First beta (0.1.0) 2018.",
       "releases": [
-        { "version": "1.0", "dateString": "2018", "notes": "" },
+        { "version": "0.1.0", "dateString": "2018-06-11", "notes": "First beta" },
         { "version": "0.4.3", "dateString": "2019-11-14", "link": "https://github.com/ml5js/ml5-library/releases/tag/v0.4.3", "notes": "", "auto": true },
         { "version": "0.6.0", "dateString": "2020-11-05", "link": "https://github.com/ml5js/ml5-library/releases/tag/v0.6.0", "notes": "", "auto": true },
         { "version": "0.6.1", "dateString": "2021-03-05", "link": "https://github.com/ml5js/ml5-library/releases/tag/v0.6.1", "notes": "", "auto": true },
@@ -518,7 +517,7 @@
     },
     "Sonic Pi": {
       "category": "audio-visual",
-      "description": "Code-based music creation and performance tool",
+      "description": "Code-based music creation and performance tool created by Sam Aaron at the University of Cambridge with the Raspberry Pi Foundation, originally to support computing and music teaching in schools; built on the SuperCollider engine and also used for algorave live coding.",
       "releases": [
         { "version": "1.0", "dateString": "September 2013", "notes": "" },
         { "version": "2.0.0", "dateString": "2015-02-08", "link": "https://github.com/sonic-pi-net/sonic-pi/releases/tag/v2.0.0", "notes": "", "major": true, "auto": true },
@@ -662,7 +661,7 @@
     },
     "SuperCollider": {
       "category": "audio-visual",
-      "description": "Platform for audio synthesis and algorithmic composition",
+      "description": "Platform for audio synthesis and algorithmic composition, released in 1996 by James McCartney and open-sourced under the GPL in 2002. Widely used for live coding and algorave, and the synthesis engine behind Sonic Pi and TidalCycles.",
       "releases": [
         { "version": "1.0", "dateString": "1996", "notes": "" },
         { "version": "ersion-3.6.4", "dateString": "2015-06-03", "link": "https://github.com/supercollider/supercollider/releases/tag/Version-3.6.4", "notes": "", "auto": true },
@@ -828,7 +827,7 @@
     },
     "TidalCycles": {
       "category": "audio-visual",
-      "description": "Haskell-embedded language for live-coding algorithmic patterns, built on a functional representation of cyclic time rather than a timeline or step sequencer. The canonical algorave instrument and the origin of the 'pattern as a pure function of time' model that most later live-coding languages copied; makes no sound itself, driving SuperCollider via SuperDirt.",
+      "description": "Haskell-embedded language for live-coding algorithmic patterns, built on a functional representation of cyclic time rather than a timeline or step sequencer. The canonical algorave instrument and the origin of the 'pattern as a pure function of time' model that most later live-coding languages copied; makes no sound itself, driving SuperCollider via SuperDirt. Initiated by Alex McLean around 2009; McLean co-founded TOPLAP and co-coined the term 'algorave'.",
       "link": "https://tidalcycles.org/",
       "releases": [
         { "version": "First public release", "dateString": "2009", "link": "https://tidalcycles.org/docs/around_tidal/tidal_history/", "notes": "Per the official history, McLean shared the code under a free licence and gave his first talk on it in 2009. Origins trace to a 2006 pattern-rotation DSL, sometimes miscited as the release date.", "major": true },
@@ -837,7 +836,7 @@
     },
     "Hydra": {
       "category": "audio-visual",
-      "description": "Browser-based live-coding video synthesizer whose JavaScript API mimics analog modular video synthesis - oscillators, kaleidoscopes and webcam feeds chained and fed back into each other, compiled to WebGL. It made live-coded visuals frictionless (a URL, no install) and became the default visual counterpart to TidalCycles at algoraves.",
+      "description": "Browser-based live-coding video synthesizer whose JavaScript API mimics analog modular video synthesis - oscillators, kaleidoscopes and webcam feeds chained and fed back into each other, compiled to WebGL. It made live-coded visuals frictionless (a URL, no install) and became the default visual counterpart to TidalCycles at algoraves. Created by Olivia Jack; it originated in a December 2017 workshop she gave at the International Conference on Live Coding, with roots in the Bogotá live-coding scene.",
       "link": "https://hydra.ojack.xyz/",
       "releases": [
         { "version": "hydra-synth 1.0.0", "dateString": "2018-03-21", "link": "https://registry.npmjs.org/hydra-synth", "notes": "First public release. The repo dates from Nov 2017, which is why both '2017' and '2018' are cited - they are right about different things (project start vs release). Descended conceptually from analog video synthesis and from Charlie Roberts' Gibber.", "major": true }
