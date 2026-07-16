@@ -383,6 +383,8 @@ being the entry's canonical `link`. Primary sources are marked **P**.
 | TOPLAP | **P** https://toplap.org/wiki/Read_me_paper (founded ~1am Sun 15 Feb 2004 Hamburg; ⚠️ secondary sources say 14 Feb) · https://en.wikipedia.org/wiki/TOPLAP · https://www.researchgate.net/publication/261134966 (the "Read Me" manifesto in *Read_Me: Software Art and Cultures*, Aarhus Univ. Press, 2004). **One combined entry** — the org founding and its manifesto are folded into a single institutions node, not split. |
 | First Algorave | https://en.wikipedia.org/wiki/Algorave (term coined 2011; first named event 17 Mar 2012 London) · https://www.soniare.net/blog/history-of-livecoding |
 | Processing Foundation | **P** https://processingfoundation.org/ · **P** https://medium.com/processing-foundation/a-modern-prometheus-59aed94abe85 (501(c)(3) 2012; Reas, Fry, Shiffman) |
+| bitforms gallery | **P** https://www.bitforms.art/about (founded Nov 2001, NYC) · https://en.wikipedia.org/wiki/Bitforms_gallery · https://www.niio.com/blog/steven-sacks-20-years/ (founder Steven Sacks) |
+| TRANSFER gallery | **P** https://transfergallery.com/about/ (founded 2013, Brooklyn, by Kelani Nichole) |
 
 ### Events — artworks
 | Entry | Sources |

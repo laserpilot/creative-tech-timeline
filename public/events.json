@@ -1044,6 +1044,30 @@
       "creators": [
         "Addie Wagenknecht"
       ]
+    },
+
+    {
+      "id": "bitforms",
+      "title": "bitforms gallery opens (New York)",
+      "date": "2001-11",
+      "layer": "institutions",
+      "description": "One of the first commercial galleries devoted to new media and digital art, founded by Steven Sacks in New York (originally Chelsea, later the Lower East Side). Represents artists critically engaged with new technology, from Manfred Mohr and Rafael Lozano-Hemmer to Casey Reas and Refik Anadol.",
+      "link": "https://www.bitforms.art/about",
+      "creators": [
+        "Steven Sacks"
+      ]
+    },
+
+    {
+      "id": "transfer-gallery",
+      "title": "TRANSFER gallery opens (Brooklyn)",
+      "date": "2013",
+      "layer": "institutions",
+      "description": "Experimental gallery for computer-based and internet art founded by Kelani Nichole in Brooklyn, showing digital work that extends beyond the screen into physical space and foregrounding women artists refiguring technology.",
+      "link": "https://transfergallery.com/about/",
+      "creators": [
+        "Kelani Nichole"
+      ]
     }
   ]
 }
