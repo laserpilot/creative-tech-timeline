@@ -3,6 +3,7 @@ import { useTimelineData } from './useTimelineData.js';
 import Sidebar from './Sidebar.jsx';
 import ToolDetail from './ToolDetail.jsx';
 import Disclaimer from './Disclaimer.jsx';
+import About from './About.jsx';
 import {
   YMIN, YMAX, NOW, VIEW_START, GUTTER, ROW, LANE_HEADER, EVH, EVR,
   CATEGORY_ORDER, LAYER_ORDER, DECADES, yearFrac, decadeOf,
@@ -29,6 +30,7 @@ export default function Timeline() {
   const [selected, setSelected] = useState(null);
   const [hoverEvent, setHoverEvent] = useState(null);
   const [pxy, setPxy] = useState(DEFAULT_PXY);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const scrollRef = useRef(null);
 
   const scale = useMemo(() => createScale(pxy), [pxy]);
@@ -143,6 +145,12 @@ export default function Timeline() {
           <p style={{ fontSize: 12.5, color: '#8a8175', margin: 0 }}>Tools, in the context of the hardware, standards, AI, art &amp; communities around them.</p>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, flex: 'none' }}>
+          <button
+            onClick={() => setAboutOpen(true)}
+            style={{ fontSize: 12.5, color: '#6b6459', background: 'none', border: '1px solid #e0dbd3', borderRadius: 6, padding: '3px 11px', cursor: 'pointer' }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = '#f1ede5'; e.currentTarget.style.color = '#2c2822'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'none'; e.currentTarget.style.color = '#6b6459'; }}
+          >About</button>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <span style={{ fontFamily: MONO, fontSize: 11, color: '#a49a8d' }}>{YMIN}</span>
             <span style={{ width: 60, height: 1, background: '#d8d2ca' }} />
@@ -246,6 +254,7 @@ export default function Timeline() {
 
       <ToolDetail tool={selected} onClose={() => setSelected(null)} />
       </div>
+      {aboutOpen && <About onClose={() => setAboutOpen(false)} />}
     </div>
   );
 }
