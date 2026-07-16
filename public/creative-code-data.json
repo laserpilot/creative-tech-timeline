@@ -813,12 +813,12 @@
     },
     "ACU": {
       "category": "programming",
-      "description": "An internal, never publicly released C++ graphics and media toolkit built inside the MIT Media Lab's Aesthetics + Computation Group, and the group's everyday production tool for computational art - running on SGI Octane and O2 workstations in the late 1990s, then on commodity PCs by 2000. A direct precursor to both Processing, which took its 'high ceiling' ambition from ACU, and openFrameworks: Zachary Lieberman began oF after using ACU and finding he could not give it to his students because it was neither open source nor well maintained.",
+      "description": "An internal, never publicly released C++ graphics and media toolkit built inside the MIT Media Lab's Aesthetics + Computation Group, and the group's everyday production tool for computational art - running on SGI Octane and O2 workstations in the late 1990s, then on commodity PCs by 2000. A direct precursor to both Processing, which took its 'high ceiling' ambition from ACU, and openFrameworks, which was created in response to ACU being neither open source nor well maintained enough to share and teach with.",
       "link": "https://github.com/dribnet/acu",
       "discontinued": "2003",
       "releases": [
         { "version": "Started", "dateString": "1998", "link": "https://github.com/dribnet/acu", "notes": "Date is APPROXIMATE and set by project-participant testimony rather than a document: no founding date is recorded anywhere. The archived repo is explicitly a 'partial history' - git commits run Jul 1999 to Nov 2001, but its README changelog reaches back to 25 Jan 1999 and already describes additions to an existing library, so ACU demonstrably predates Jan 1999. Started by Ben Fry, with significant contributions from Tom White and Jared Schiffman; used across the group, with Casey Reas appearing as a user and documenter rather than an author.", "major": true },
-        { "version": "Last archived commit", "dateString": "2001-11-02", "link": "https://github.com/dribnet/acu", "notes": "End of the partial git history, not necessarily the end of use: Zachary Lieberman reports still using ACU in 2002 ('an older library that I was using in 2002... I didn't have the ability to give this library to my students'). Effectively ended with the Aesthetics + Computation Group, which ran 1996-2003. openFrameworks 0.01 followed in August 2005." }
+        { "version": "Last archived commit", "dateString": "2001-11-02", "link": "https://github.com/dribnet/acu", "notes": "End of the partial git history, not necessarily the end of use: ACU was reportedly still in use as late as 2002. Effectively ended with the Aesthetics + Computation Group, which ran 1996-2003. openFrameworks 0.01 followed in August 2005." }
       ]
     },
     "Wiring": {
