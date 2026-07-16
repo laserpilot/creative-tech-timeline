@@ -1,0 +1,10 @@
+{
+  // The compact one-release-per-line style in public/creative-code-data.json and
+  // public/events.json is intentional: it keeps release diffs readable and lets
+  // scripts/fetch-releases.mjs merge cleanly. VSCode's default JSON formatter
+  // expands it into a huge, unreviewable diff, so format-on-save is disabled for
+  // JSON here. You can hand-edit and save these files freely; the style is kept.
+  // (To add a release, copy an existing one-line entry and edit it in place.)
+  "[json]": { "editor.formatOnSave": false },
+  "[jsonc]": { "editor.formatOnSave": false }
+}
