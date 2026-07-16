@@ -15,8 +15,8 @@ function A({ href, children }) {
   );
 }
 
-// About / context modal. Explains what the timeline is and — drawing on the
-// 2018 writeup — that it is deliberately partial: a starting point, not an
+// About / context modal. Explains what the timeline is and, drawing on the
+// 2018 writeup, that it is deliberately partial: a starting point, not an
 // authority.
 export default function About({ onClose }) {
   useEffect(() => {
@@ -56,8 +56,8 @@ export default function About({ onClose }) {
         </div>
 
         <P>
-          A timeline of the tools of creative coding and creative technology — languages, frameworks,
-          libraries, and authoring environments — set against the hardware, web standards, AI, landmark
+          A timeline of the tools of creative coding and creative technology: languages, frameworks,
+          libraries, and authoring environments, set against the hardware, web standards, AI, landmark
           artworks, publications, and communities that shaped how they were used.
         </P>
 
@@ -66,14 +66,24 @@ export default function About({ onClose }) {
         </div>
         <P>
           This is deliberately partial, and that is part of the point. Any single account of this field is
-          shaped by who assembles it — its author works primarily from one perspective, and plenty of
-          important work is missing, mis-dated, or not yet here. Much of this history is also actively
-          disappearing: artist sites go dark, software goes obsolete, documentation vanishes.
+          shaped by who assembles it. It reflects one primary perspective, and plenty of important work is
+          missing, mis-dated, or not yet here. Much of this history is also actively disappearing: artist
+          sites go dark, software goes obsolete, documentation vanishes.
         </P>
         <P>
-          The aim isn&apos;t to be the authoritative record. It&apos;s to be concrete enough to argue with — a
-          starting point for a conversation, where the more perspectives that get added, the better it gets.
-          Corrections and additions are welcome.
+          The aim isn&apos;t to be the authoritative record. It&apos;s to be concrete enough to argue with:
+          a starting point for a conversation, where the more perspectives that get added, the better it
+          gets. Corrections and additions are welcome.
+        </P>
+
+        <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#a49a8d', margin: '4px 0 12px' }}>
+          How this was made
+        </div>
+        <P>
+          Much of this site was coded with the help of AI, and a lot of the underlying research was gathered
+          using AI tools. That makes community validation essential. Dates, attributions, and what&apos;s
+          included or left out all need checking by people who know this history firsthand. If something
+          looks wrong, it may well be, so please help correct it.
         </P>
 
         <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#a49a8d', margin: '4px 0 12px' }}>
@@ -82,11 +92,11 @@ export default function About({ onClose }) {
         <ul style={{ margin: '0 0 6px', padding: 0, listStyle: 'none' }}>
           <li style={{ marginBottom: 10 }}>
             <A href="https://laserpilot.github.io/Creative_Tech_Taxonomy/">Creative Tech Taxonomy</A>
-            <span style={{ fontSize: 13, color: '#6b6459' }}> — an interactive map of the fields, tools, and disciplines within creative technology.</span>
+            <span style={{ fontSize: 13, color: '#6b6459' }}>. An interactive map of the fields, tools, and disciplines within creative technology.</span>
           </li>
           <li>
             <A href="https://laserpilot.medium.com/a-history-of-creative-coding-8771524b9775">“A History of Creative Coding” (2018)</A>
-            <span style={{ fontSize: 13, color: '#6b6459' }}> — the original writeup on why a shared history of this field is worth preserving.</span>
+            <span style={{ fontSize: 13, color: '#6b6459' }}>. The original writeup on why a shared history of this field is worth preserving.</span>
           </li>
         </ul>
       </div>

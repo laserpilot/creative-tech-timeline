@@ -22,7 +22,7 @@ export default function Disclaimer() {
     >
       <span style={{ flex: 1, minWidth: 0 }}>
         <strong style={{ color: '#8a4b2f', fontWeight: 600 }}>⚠ Work in progress</strong>
-        {' — dates and details are provisional and still being checked for accuracy. Please verify before citing.'}
+        {'. Dates and details are provisional and still being checked for accuracy. Please verify before citing.'}
       </span>
       <button
         onClick={() => {
