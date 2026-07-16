@@ -202,20 +202,110 @@ projection, VJ work), not on their nature as game engines.
 
 ---
 
+## Resolved calls
+
+- **ACU's start → 1998.** Settled by project-participant testimony, not a document. The
+  evidence supports it (the Jan 1999 changelog already describes additions to an existing
+  library) but nothing records a founding date, so it stays marked approximate.
+- **DBN → 1999.** Reas's own history ("both the MIT Press book and software … were released in
+  1999") wins over Ben Fry's dissertation, which says 2000.
+- **Logo → lifeline left open (1967 → present).** Capping it would assert a death that never
+  happened — Logo implementations (Terrapin, MicroWorlds, UCBLogo) are still in use. Same
+  principle applied to E.A.T. and ETC: we don't invent end dates to tidy the picture. The
+  ~60-year bar is *true*, and is itself the point — Logo is the longest-lived thing in the
+  dataset. If it visually dominates, that's a rendering decision, not a data one.
+- **Nodebox → one entry, not split.** NodeBox 1 (2002, Mac/Python/Quartz) and NodeBox 3
+  (2017→, cross-platform Java node graph) are a genuine continuous lineage by the same team,
+  like Processing across its rewrites. Splitting would invent a discontinuity. The description
+  now makes the rewrite explicit so the 2002→now bar isn't misread as one unchanging product.
+
 ## Open questions
 
-1. **ACU's true start** — 1998? The mentor may know firsthand.
-2. **DBN 1999 vs 2000** — Reas says 1999, Ben Fry's dissertation says 2000.
-3. **Logo's lifeline** runs 1967 → now (implementations persist). Accurate, but draws a
-   ~60-year bar. Cap it to Papert's era, or leave it honest?
-4. **Nodebox 1 vs 3** — the `nodebox/nodebox` GitHub repo is **NodeBox 3** (a Java rewrite,
-   2017→). It's currently merged onto the original 2002 Mac NodeBox entry, so one lifeline
-   spans two arguably distinct products. Split, or keep as one lineage?
-5. **Grasshopper's September 2007** — the *Explicit History* name is confirmed in Rutten's own
+1. **Grasshopper's September 2007** — the *Explicit History* name is confirmed in Rutten's own
    words, but no McNeel primary source fixes the month.
-6. **BadWindows** (Bob Sabiston, MIT Visible Language Workshop) — named in Ben Fry's
+2. **BadWindows** (Bob Sabiston, MIT Visible Language Workshop) — named in Ben Fry's
    dissertation as "the earliest known" project of this kind in the lab. A plausible pre-ACG
    root node if the tree ever extends earlier.
+3. **Wiring's exact release semantics** — we plot 2004 (boards built and taught with); the
+   official log's first entry is 2005-05-04. Defensible either way; see the note above.
+
+---
+
+## Source index
+
+Every reference gathered during research, including sources that informed a decision without
+being the entry's canonical `link`. Primary sources are marked **P**.
+
+### Tools — MIT / Processing lineage
+| Entry | Sources |
+|---|---|
+| Logo | https://en.wikipedia.org/wiki/Logo_(programming_language) |
+| Design By Numbers | **P** https://medium.com/processing-foundation/a-modern-prometheus-59aed94abe85 (Reas) · https://www.media.mit.edu/projects/design-by-numbers-again/overview/ · https://github.com/LingDong-/dbn.js/ · **P** https://www.benfry.com/phd/dissertation/6.html |
+| ACU | **P** https://github.com/dribnet/acu · **P** https://openframeworks.cc/development/ · **P** https://www.vice.com/en/article/qa-with-zach-lieberman-founder-of-openframeworks-pt-i/ (Lieberman) · https://medium.com/processing-foundation/a-modern-prometheus-59aed94abe85 |
+| Wiring | **P** https://www.wiring.org.co/updates.html · **P** https://arduinohistory.github.io/ (Barragán) · https://en.wikipedia.org/wiki/Wiring_(software) ⚠️ infobox date wrong |
+| Fritzing | **P** https://fritzing.org/releases/0-1b · https://fritzing.org/download/0.1b/ · https://github.com/fritzing/fritzing-app · TEI '09 paper: doi 10.1145/1517664.1517735 |
+
+### Tools — authoring / multimedia
+| Entry | Sources |
+|---|---|
+| Director | https://en.wikipedia.org/wiki/Adobe_Director |
+| Flash / Animate | https://www.webdesignmuseum.org/software/futuresplash-animator-in-1996 · https://en.wikipedia.org/wiki/Adobe_Animate |
+| Quartz Composer | https://en.wikipedia.org/wiki/Quartz_Composer · **P** https://developer.apple.com/documentation/quartz/quartz-composer |
+| Isadora | https://en.wikipedia.org/wiki/Isadora_(software) · **P** https://troikatronix.com/ |
+| Scratch | https://en.wikipedia.org/wiki/Scratch_(programming_language) · **P** https://scratch.mit.edu/ |
+| Godot | https://en.wikipedia.org/wiki/Godot_(game_engine) · **P** https://github.com/godotengine/godot · **P** https://godotengine.org/license/ |
+
+### Tools — libraries / generative
+| Entry | Sources |
+|---|---|
+| Nodebox | **P** https://www.nodebox.net/code/index.php/About · https://github.com/nodebox/nodebox |
+| Scriptographer | **P** https://scriptographer.org/ · **P** https://scriptographer.org/news/the-future-of-scriptographer-is-paper-js/ |
+| Basil.js | **P** https://basiljs.ch/about/ |
+| StructureSynth | **P** https://structuresynth.sourceforge.net/ |
+| Papervision3D | https://en.wikipedia.org/wiki/Papervision3D |
+| toxiclibs | **P** https://github.com/postspectacular/toxiclibs ⚠️ toxiclibs.org is dead (gambling site) |
+| Context Free Art | **P** https://github.com/MtnViewJohn/context-free · **P** https://contextfreeart.org/downloads.html |
+| Grasshopper | https://en.wikipedia.org/wiki/Grasshopper_3D · **P** https://nono.ma/rutten-david-rutten-on-explicit-history (Rutten) · https://architosh.com/2018/02/mcneel-ships-new-rhino-6-grasshopper-now-built-in/ |
+| Pixi.js | **P** https://medium.com/goodboy-digital/pixi-js-released-ecfdf7610ecd · **P** https://github.com/pixijs/pixijs ⚠️ tags unreliable |
+| Tone.js | **P** https://github.com/Tonejs/Tone.js · **P** Mann, Web Audio Conference 2014 paper |
+| Two.js | **P** https://github.com/jonobr1/two.js ⚠️ release dates backdated |
+
+### Tools — audio / live coding
+| Entry | Sources |
+|---|---|
+| ChucK | **P** https://chuck.stanford.edu/ · **P** https://raw.githubusercontent.com/ccrma/chuck/main/VERSIONS · https://web.archive.org/web/20031118220911/http://chuck.cs.princeton.edu:80/ · https://en.wikipedia.org/wiki/ChucK |
+| TidalCycles | **P** https://tidalcycles.org/docs/around_tidal/tidal_history/ · **P** https://hackage.haskell.org/package/tidal-0.1 |
+| Hydra | **P** https://registry.npmjs.org/hydra-synth · **P** https://hydra.ojack.xyz/ |
+| Fluxus | https://en.wikipedia.org/wiki/Fluxus_(programming_environment) · https://github.com/nebogeo/fluxus · https://github.com/zzkt/fluxus |
+| Wekinator | **P** https://doc.gold.ac.uk/~mas01rf/Wekinator/ · **P** https://soundlab.cs.princeton.edu/publications/FiebrinkTruemanCook_NIME2009.pdf · **P** https://github.com/fiebrink1/wekinator · https://opensoundcontrol.stanford.edu/implementations/Wekinator.html |
+
+### Events — institutions
+| Entry | Sources |
+|---|---|
+| E.A.T. | https://en.wikipedia.org/wiki/Experiments_in_Art_and_Technology |
+| Experimental Television Center | https://en.wikipedia.org/wiki/Experimental_Television_Center |
+| Visible Language Workshop | https://en.wikipedia.org/wiki/Muriel_Cooper · http://museum.mit.edu/150/115 (MIT 150 Exhibition) · https://mitmuseum.mit.edu/collections/subject/visible-language-workshop-292 · https://archivesspace.mit.edu/repositories/2/resources/1356 (authoritative finding aid; 403s to automated fetch — worth a manual look) · https://eyeondesign.aiga.org/muriel-coopers-visions-of-a-future/ |
+| First SIGGRAPH conference | **P** https://www.siggraph.org/about/history/ · https://en.wikipedia.org/wiki/ACM_SIGGRAPH |
+| Ars Electronica | **P** https://ars.electronica.art/about/en/history/ · https://en.wikipedia.org/wiki/Ars_Electronica |
+| transmediale | https://en.wikipedia.org/wiki/Transmediale · **P** https://archive.transmediale.de/content/history |
+| Rhizome | https://en.wikipedia.org/wiki/Rhizome_(organization) |
+| Eyebeam | **P** https://eyebeam.org/about-us/ · https://en.wikipedia.org/wiki/Eyebeam_(organization) |
+| F.A.T. Lab | https://en.wikipedia.org/wiki/Free_Art_and_Technology_Lab |
+
+### Events — publications
+| Entry | Sources |
+|---|---|
+| CreativeApplications.Net | **P** https://www.creativeapplications.net/about/ (states only "Since 2008"; a NODE13 festival bio narrows it to Oct 2008, unconfirmed by the site — hence year precision) |
+| Prosthetic Knowledge | **P** https://www.tumblr.com/prostheticknowledge · **P** https://x.com/prostheticknowl/status/1201250093690707980 (10-year anniversary tweet → Dec 2009 start) · last post 5 Sept 2018 confirmed by project owner |
+| The Creators Project | **P** https://www.intc.com/news-events/press-releases/detail/754/the-creators-project-debuts-worldwide-an-unprecedented (Intel press release, 2010-05-17) ⚠️ Wikipedia's Vice article implies 2007 — wrong |
+
+### Events — platforms
+| Entry | Sources |
+|---|---|
+| Twitter | https://en.wikipedia.org/wiki/Twitter (public launch 2006-07-15; founding/first tweet 2006-03-21) |
+| Vimeo | https://en.wikipedia.org/wiki/Vimeo (founded 2004-11-14; public launch 2004-12-15) |
+| YouTube | https://en.wikipedia.org/wiki/History_of_YouTube (domain 2005-02-14; public beta 2005-04-23; out of beta 2005-12-15) |
+| GitHub | https://en.wikipedia.org/wiki/GitHub (dev began 2007-10-19; company founded 2008-02-08; public launch 2008-04-10) |
 
 ---
 
