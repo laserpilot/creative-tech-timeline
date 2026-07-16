@@ -443,6 +443,96 @@
         "Biz Stone",
         "Evan Williams"
       ]
+    },
+
+    {
+      "id": "siggraph-first-conference",
+      "title": "First SIGGRAPH conference",
+      "date": "1974",
+      "layer": "institutions",
+      "description": "First SIGGRAPH conference, held in Boulder, Colorado, drawing roughly 600 attendees. The ACM special interest group behind it formed in 1969; the conference became the venue where foundational rendering, animation, and interaction techniques were first published.",
+      "link": "https://www.siggraph.org/about/history/",
+      "creators": [
+        "Jon Meads",
+        "Bob Schiffman"
+      ]
+    },
+    {
+      "id": "ars-electronica",
+      "title": "First Ars Electronica festival",
+      "date": "1979-09-18",
+      "layer": "institutions",
+      "description": "First festival in Linz, Austria, establishing the template for the art/technology/society festival and giving electronic art a serious public venue decades before museums took it up. The Prix Ars Electronica followed in 1987; the Ars Electronica Center opened in 1996.",
+      "link": "https://ars.electronica.art/about/en/history/",
+      "creators": [
+        "Hannes Leopoldseder",
+        "Herbert W. Franke",
+        "Hubert Bognermayr",
+        "Ulrich A. Rutzel"
+      ]
+    },
+    {
+      "id": "transmediale",
+      "title": "transmediale begins (as VideoFilmFest)",
+      "date": "1988",
+      "layer": "institutions",
+      "description": "Began as VideoFilmFest, a video-art side programme of the Berlinale, and grew into Europe's key festival for critical discourse on digital culture. Renamed VideoFest in 1989, transmedia in 1997, and transmediale in 1998.",
+      "link": "https://en.wikipedia.org/wiki/Transmediale",
+      "creators": [
+        "Micky Kwella",
+        "Hartmut Horst"
+      ]
+    },
+    {
+      "id": "rhizome",
+      "title": "Rhizome founded",
+      "date": "1996",
+      "layer": "institutions",
+      "description": "Founded as an email list for net.art discussion and incorporated as a nonprofit in 1998; affiliated with the New Museum since 2003. Its ArtBase archive preserves born-digital work that would otherwise have rotted away.",
+      "link": "https://en.wikipedia.org/wiki/Rhizome_(organization)",
+      "creators": [
+        "Mark Tribe"
+      ]
+    },
+
+    {
+      "id": "vimeo-launch",
+      "title": "Vimeo launches",
+      "date": "2004-12-15",
+      "layer": "platforms",
+      "description": "Public launch of the video platform built as a side project inside CollegeHumor's parent company. Its early move to HD (2007) and Staff Picks curation (2008) made it the default home for motion design, experimental film, and creative-coding documentation. Founded 14 November 2004.",
+      "link": "https://en.wikipedia.org/wiki/Vimeo",
+      "creators": [
+        "Jake Lodwick",
+        "Zach Klein"
+      ]
+    },
+    {
+      "id": "youtube-launch",
+      "title": "YouTube opens in public beta",
+      "date": "2005-04-23",
+      "layer": "platforms",
+      "description": "Site opened to the public; Jawed Karim's 'Me at the zoo' was uploaded the same day. Made publishing video to a global audience free and frictionless, collapsing the distribution barrier for moving-image work. Domain registered 14 February 2005; exited beta 15 December 2005.",
+      "link": "https://en.wikipedia.org/wiki/History_of_YouTube",
+      "creators": [
+        "Chad Hurley",
+        "Steve Chen",
+        "Jawed Karim"
+      ]
+    },
+    {
+      "id": "github-launch",
+      "title": "GitHub launches publicly",
+      "date": "2008-04-10",
+      "layer": "platforms",
+      "description": "Made version control a social, public act, letting the open-source creative-coding ecosystem - openFrameworks, Processing libraries, three.js, shader collections - become forkable and cumulative rather than scattered across personal sites. Company founded 8 February 2008.",
+      "link": "https://en.wikipedia.org/wiki/GitHub",
+      "creators": [
+        "Tom Preston-Werner",
+        "Chris Wanstrath",
+        "P. J. Hyett",
+        "Scott Chacon"
+      ]
     }
   ]
 }
