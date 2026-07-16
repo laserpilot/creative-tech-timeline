@@ -70,6 +70,19 @@ export default function Timeline() {
       .filter((e) => layColor[e.layer])
       .map((e) => ({ ...e, color: layColor[e.layer], layerName: layName[e.layer] }))
       .sort((a, b) => a.parsedDate - b.parsedDate);
+
+    // A category/layer the config doesn't know is dropped from the view. That
+    // has bitten twice, so complain rather than quietly rendering less data.
+    const badTools = data.tools.filter((t) => !catColor[t.category]);
+    const badEvents = data.events.filter((e) => !layColor[e.layer]);
+    if (badTools.length || badEvents.length) {
+      console.warn(
+        `[timeline] ${badTools.length} tool(s) and ${badEvents.length} event(s) are not rendered ` +
+        `because their category/layer is missing from timelineConfig.js:`,
+        { tools: badTools.map((t) => `${t.name} (${t.category})`), events: badEvents.map((e) => `${e.title} (${e.layer})`) }
+      );
+    }
+
     return { tools, events };
   }, [data]);
 
@@ -290,6 +303,32 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
             }}
           />
         ))}
+        {/* lifespan bars for events with an end date (behind the dots) */}
+        {expanded && visEvents.map((e, i) => {
+          if (!e.endDate) return null;
+          const startX = xDate(e.parsedDate);
+          const endX = xDate(e.endDate);
+          const top = EVH + activeRow[e.layer] * EVR;
+          return (
+            <div key={`s-${e.id}`}>
+              <div
+                onMouseEnter={() => setHoverEvent(i)}
+                onMouseLeave={() => setHoverEvent(null)}
+                style={{
+                  position: 'absolute', top: top + (EVR - 6) / 2, left: startX,
+                  width: Math.max(4, endX - startX), height: 6, borderRadius: 3,
+                  background: e.color, opacity: hoverEvent === i ? 0.45 : 0.26, cursor: 'pointer',
+                }}
+              />
+              {/* end cap: this one actually stopped */}
+              <div style={{
+                position: 'absolute', top: top + (EVR - 12) / 2, left: endX - 1,
+                width: 2, height: 12, background: e.color, opacity: 0.55,
+              }} />
+            </div>
+          );
+        })}
+
         {/* dots per layer row (expanded) */}
         {expanded && visEvents.map((e, i) => {
           const size = hoverEvent === i ? 12 : 9;
@@ -318,6 +357,7 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
             <div style={{ fontSize: 13, fontWeight: 600, color: '#2c2822', marginBottom: 3 }}>{hovered.title}</div>
             <div style={{ fontFamily: MONO, fontSize: 10, color: '#a49a8d', marginBottom: 5 }}>
               {hovered.layerName} · {Math.floor(yearFrac(hovered.parsedDate))}
+              {hovered.endDate ? ` – ${Math.floor(yearFrac(hovered.endDate))}` : ''}
             </div>
             {hovered.description && <div style={{ fontSize: 11.5, color: '#6b6459', lineHeight: 1.45 }}>{hovered.description}</div>}
           </div>
