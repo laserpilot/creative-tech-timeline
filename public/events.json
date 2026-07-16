@@ -571,6 +571,479 @@
       "creators": [
         "Sarah Grant"
       ]
+    },
+
+    {
+      "id": "molnar-interruptions",
+      "title": "Vera Molnár — Interruptions",
+      "date": "1969",
+      "layer": "artworks",
+      "description": "Plotter-drawn generative series: a regular grid of short line segments randomly rotated, with programmed 'interruptions' leaving blank gaps. Among the earliest and most influential works of computer-plotter generative art. Molnár began her computer/plotter work in 1968; collected drawings are dated 1969.",
+      "link": "https://www.vam.ac.uk/blog/museum-life/vera-molnar-machine-imaginaire-the-dance-of-hands-and-machine-thinking",
+      "creators": [
+        "Vera Molnár"
+      ]
+    },
+
+    {
+      "id": "cordeiro-m3x3",
+      "title": "Analívia Cordeiro — M3x3",
+      "date": "1973",
+      "layer": "artworks",
+      "description": "A computer-choreographed dance for television: a FORTRAN program on a UNICAMP mainframe generated positions and timings for nine dancers on a 3×3 m grid, synced to camera moves. Widely credited as the first Brazilian video art and a landmark of early algorithmic choreography.",
+      "link": "https://www.isea-archives.org/isea2022-art-events-artist_statement_cordeiro",
+      "creators": [
+        "Analívia Cordeiro"
+      ]
+    },
+
+    {
+      "id": "schwartz-pixillation",
+      "title": "Lillian Schwartz — Pixillation",
+      "date": "1970",
+      "layer": "artworks",
+      "description": "A four-minute computer-assisted animation made during Schwartz's Bell Labs residency, combining machine-generated pixel patterns (via Ken Knowlton's EXPLOR language) with hand-colored abstraction and a Moog score. An early landmark of computer film.",
+      "link": "https://www.thehenryford.org/collections/explore/artifact/519817",
+      "creators": [
+        "Lillian Schwartz",
+        "Ken Knowlton"
+      ]
+    },
+
+    {
+      "id": "art1-nash-williams",
+      "title": "Katherine Nash & Richard Williams — ART1",
+      "date": "1970-10",
+      "layer": "artworks",
+      "description": "One of the earliest art-making software tools designed for artists without programming skills: ~350 FORTRAN statements invoked by a single command. Developed at the University of New Mexico ~1968 and published in Leonardo (Oct 1970), the publication that popularized accessible computer art.",
+      "link": "https://muse.jhu.edu/article/597864/summary",
+      "creators": [
+        "Katherine Nash",
+        "Richard H. Williams"
+      ]
+    },
+
+    {
+      "id": "truckenbrod-entropic-tangle",
+      "title": "Joan Truckenbrod — Entropic Tangle",
+      "date": "1975",
+      "layer": "artworks",
+      "description": "An early algorithmic plotter drawing coded in FORTRAN, using variables and mathematical modulation to simulate invisible natural forces. Part of Truckenbrod's Coded Algorithmic Drawings, among the first artist uses of programming for algorithmic drawing. Date is the coding date; first-exhibition date is undocumented.",
+      "link": "https://joantruckenbrod.com/joan-truckenbrod-biography.pdf",
+      "creators": [
+        "Joan Truckenbrod"
+      ]
+    },
+
+    {
+      "id": "allen-catherine-wheel",
+      "title": "Rebecca Allen — The Catherine Wheel",
+      "date": "1982",
+      "layer": "artworks",
+      "description": "3D computer-animated character (St. Catherine) created for Twyla Tharp's dance film with music by David Byrne — cited as one of the first and most intricate examples of 3D computer-generated human motion, and the first aired on television.",
+      "link": "https://history.siggraph.org/artwork/rebecca-allen-catherine-wheel/",
+      "creators": [
+        "Rebecca Allen"
+      ]
+    },
+
+    {
+      "id": "paik-tv-garden",
+      "title": "Nam June Paik — TV Garden",
+      "date": "1974",
+      "layer": "artworks",
+      "description": "Immersive installation of dozens of televisions nestled face-up among live tropical plants, playing Paik's 'Global Groove.' A foundational work of video-art environment by the Korean-American pioneer of the medium. First realized 1974 at Galeria Bonino, New York.",
+      "link": "https://www.guggenheim.org/artwork/9537",
+      "creators": [
+        "Nam June Paik"
+      ]
+    },
+
+    {
+      "id": "lozano-hemmer-body-movies",
+      "title": "Rafael Lozano-Hemmer — Body Movies",
+      "date": "2001-08-31",
+      "layer": "artworks",
+      "description": "Large-scale interactive urban projection in which xenon-lit passersby cast giant shadows that reveal thousands of street portraits on a building façade. A landmark of participatory 'relational architecture' by the Mexican-Canadian artist; premiered in Rotterdam.",
+      "link": "https://www.lozano-hemmer.com/body_movies.php",
+      "creators": [
+        "Rafael Lozano-Hemmer"
+      ]
+    },
+
+    {
+      "id": "blas-facial-weaponization",
+      "title": "Zach Blas — Facial Weaponization Suite",
+      "date": "2012",
+      "layer": "artworks",
+      "description": "A series of amorphous masks generated from the aggregate facial data of participants, designed to defeat biometric facial recognition. A defining work of queer, anti-surveillance media art; first mask/video 2012, public scanning deployments 2013.",
+      "link": "https://zachblas.info/works/facial-weaponization-suite/",
+      "creators": [
+        "Zach Blas"
+      ]
+    },
+
+    {
+      "id": "chung-drawing-operations",
+      "title": "Sougwen Chung — Drawing Operations",
+      "date": "2015",
+      "layer": "artworks",
+      "description": "Live drawing performance in which the artist collaborates with a robotic arm ('D.O.U.G.') that mimics her gestures in real time via computer vision. A foundational work of human–robot artistic co-creation; first performed 2015 at NEW INC, New York.",
+      "link": "https://sougwen.com/work/drawing-operations",
+      "creators": [
+        "Sougwen Chung"
+      ]
+    },
+
+    {
+      "id": "onuoha-missing-datasets",
+      "title": "Mimi Onuoha — The Library of Missing Datasets",
+      "date": "2016",
+      "layer": "artworks",
+      "description": "A filing cabinet whose labeled folders are all empty, cataloguing 'missing datasets' — information deliberately or negligently uncollected. A key critical-data artwork on absence and bias; exists in several versions from 2016.",
+      "link": "https://zkm.de/en/artwork/the-library-of-missing-datasets",
+      "creators": [
+        "Mimi Onuoha"
+      ]
+    },
+
+    {
+      "id": "mccarthy-lauren",
+      "title": "Lauren Lee McCarthy — LAUREN",
+      "date": "2017",
+      "layer": "artworks",
+      "description": "Participatory performance in which the artist becomes a live, human version of a smart-home AI assistant, watching over volunteers' homes 24/7 via installed devices — a critique of surveillance, care, and automation. By the creator of p5.js.",
+      "link": "https://get-lauren.net/LAUREN",
+      "creators": [
+        "Lauren Lee McCarthy"
+      ]
+    },
+
+    {
+      "id": "allahyari-material-speculation",
+      "title": "Morehshin Allahyari — Material Speculation: ISIS",
+      "date": "2016-02-11",
+      "layer": "artworks",
+      "description": "Series of 3D-printed reconstructions of ancient artifacts destroyed by ISIS, each embedding a memory card of research files — reclamation as resistance and a critique of 'digital colonialism' by the Iranian-American artist. Full-series debut Toronto, Feb 2016 (research from 2015).",
+      "link": "https://morehshin.com/material-speculation-isis/",
+      "creators": [
+        "Morehshin Allahyari"
+      ]
+    },
+
+    {
+      "id": "american-artist-black-gooey",
+      "title": "American Artist — Black Gooey Universe",
+      "date": "2018-01-26",
+      "layer": "artworks",
+      "description": "Exhibition and body of work interrogating the anti-Blackness embedded in the white default of the graphical user interface ('gooey'), including tarred workstations and shattered-screen grids. Developed during an Eyebeam residency; first shown at HOUSING, Brooklyn.",
+      "link": "https://hyperallergic.com/425881/american-artist-black-gooey-universe-housing/",
+      "creators": [
+        "American Artist"
+      ]
+    },
+
+    {
+      "id": "perry-typhoon-coming-on",
+      "title": "Sondra Perry — Typhoon coming on",
+      "date": "2018-03-06",
+      "layer": "artworks",
+      "description": "Immersive installation built around a glitch-animated reworking of Turner's 'Slave Ship' rendered in Blender's default error-warning purple, linking the transatlantic slave trade to digital error and Black identity. Premiered at the Serpentine, London.",
+      "link": "https://www.serpentinegalleries.org/whats-on/sondra-perry-typhoon-coming-on/",
+      "creators": [
+        "Sondra Perry"
+      ]
+    },
+
+    {
+      "id": "vns-matrix-cyberfeminist-manifesto",
+      "title": "VNS Matrix — A Cyberfeminist Manifesto for the 21st Century",
+      "date": "1991",
+      "layer": "publications",
+      "description": "The founding text of cyberfeminism, in which the term first appeared; a short, deliberately provocative manifesto claiming women's place in digital and networked space. Distributed across billboard, print, radio and early net from Adelaide/Sydney, Australia.",
+      "link": "https://vnsmatrix.net/projects/the-cyberfeminist-manifesto-for-the-21st-century",
+      "creators": [
+        "Virginia Barratt",
+        "Francesca da Rimini",
+        "Julianne Pierce",
+        "Josephine Starrs"
+      ]
+    },
+
+    {
+      "id": "glitch-studies-manifesto",
+      "title": "Rosa Menkman — Glitch Studies Manifesto",
+      "date": "2010",
+      "layer": "publications",
+      "description": "A short manifesto reframing digital glitches, compression artifacts and noise as legitimate aesthetic and critical material rather than error. Foundational to glitch studies as an artistic and academic field. Self-published PDF 2010; first print 2011 (Video Vortex Reader II).",
+      "link": "https://amodern.net/wp-content/uploads/2016/05/2010_Original_Rosa-Menkman-Glitch-Studies-Manifesto.pdf",
+      "creators": [
+        "Rosa Menkman"
+      ]
+    },
+
+    {
+      "id": "glitch-feminism-manifesto",
+      "title": "Legacy Russell — Glitch Feminism Manifesto",
+      "date": "2012-12-10",
+      "layer": "publications",
+      "description": "The originating essay of 'glitch feminism,' arguing the digital glitch is a site of refusal and liberation for raced, gendered and queer bodies. First published on the Cyborgology blog; later expanded into the book Glitch Feminism (Verso, 2020).",
+      "link": "https://thesocietypages.org/cyborgology/2012/12/10/digital-dualism-and-the-glitch-feminism-manifesto/",
+      "creators": [
+        "Legacy Russell"
+      ]
+    },
+
+    {
+      "id": "cyberfeminism-index",
+      "title": "Mindy Seu — Cyberfeminism Index",
+      "date": "2020-10-22",
+      "layer": "publications",
+      "description": "A crowdsourced index of 700+ entries documenting radical techno-critical and cyberfeminist activism across net art, hackerspaces, activism and theory. Launched as a Rhizome-commissioned website (2020); print edition Inventory Press (2023).",
+      "link": "https://cyberfeminismindex.com",
+      "creators": [
+        "Mindy Seu"
+      ]
+    },
+
+    {
+      "id": "steim",
+      "title": "STEIM founded (Amsterdam)",
+      "date": "1969-02-27",
+      "end": "2020",
+      "layer": "institutions",
+      "description": "Amsterdam research and development center for electronic musical instruments and live-electronic performance (home of the Cracklebox and Michel Waisvisz's 'The Hands'), founded 1969 by seven Dutch composers. Ceased operating as an organization at the end of 2020 after national funding cuts.",
+      "link": "https://en.wikipedia.org/wiki/STEIM",
+      "creators": [
+        "Misha Mengelberg",
+        "Louis Andriessen",
+        "Peter Schat",
+        "Dick Raaijmakers",
+        "Jan van Vlijmen",
+        "Reinbert de Leeuw",
+        "Konrad Boehmer"
+      ]
+    },
+
+    {
+      "id": "v2-lab",
+      "title": "V2_ Lab for the Unstable Media founded",
+      "date": "1981",
+      "layer": "institutions",
+      "description": "Interdisciplinary center for art and media technology, founded 1981 in 's-Hertogenbosch and based in Rotterdam since 1994; originator of the 'Manifesto for the Unstable Media' (1987) and organizer of the Dutch Electronic Art Festival (DEAF).",
+      "link": "https://v2.nl/organization/history",
+      "creators": []
+    },
+
+    {
+      "id": "videobrasil",
+      "title": "Festival Videobrasil begins (São Paulo)",
+      "date": "1983",
+      "layer": "institutions",
+      "description": "Pioneering video- and electronic-art festival founded 1983 in São Paulo by Solange Farkas, created to platform video and electronic art across Brazil and the global South; later the Contemporary Art Biennial Sesc_Videobrasil.",
+      "link": "https://enciclopedia.itaucultural.org.br/pessoas/5478-solange-farkas",
+      "creators": [
+        "Solange Farkas"
+      ]
+    },
+
+    {
+      "id": "isea-fisea",
+      "title": "First International Symposium on Electronic Art (FISEA)",
+      "date": "1988-09-27",
+      "layer": "institutions",
+      "description": "The founding edition of the roaming International Symposium on Electronic Art, held in Utrecht, Netherlands; initiated by Theo Hesper and Wim van der Plas. ISEA became the leading international gathering for electronic and digital art. (The standing Inter-Society was formed 1990.)",
+      "link": "https://www.isea-archives.org/symposia/fisea-1988/",
+      "creators": [
+        "Wim van der Plas",
+        "Theo Hesper"
+      ]
+    },
+
+    {
+      "id": "zkm",
+      "title": "ZKM | Center for Art and Media founded (Karlsruhe)",
+      "date": "1989-08-12",
+      "layer": "institutions",
+      "description": "Media-art center in Karlsruhe, Germany, combining museums, research institutes and production studios; founding director Heinrich Klotz. Legally founded 1989; opened its permanent home in a former munitions factory in 1997.",
+      "link": "https://zkm.de/en/founding-history",
+      "creators": [
+        "Heinrich Klotz"
+      ]
+    },
+
+    {
+      "id": "wro-biennale",
+      "title": "WRO Media Art Biennale begins (Wrocław)",
+      "date": "1989-12",
+      "layer": "institutions",
+      "description": "The first review of video and new-media art in Poland and Central/Eastern Europe, launched December 1989 in Wrocław as the 'Sound Basis Visual Art Festival,' weeks after the fall of the Berlin Wall; biennial since 1993.",
+      "link": "https://wrocenter.pl/en/biennale-wro/",
+      "creators": [
+        "Piotr Krajewski",
+        "Violetta Kutlubasis-Krajewska",
+        "Zbigniew Kupisz"
+      ]
+    },
+
+    {
+      "id": "ntt-icc",
+      "title": "NTT InterCommunication Center (ICC) opens (Tokyo)",
+      "date": "1997-04-19",
+      "layer": "institutions",
+      "description": "Media-art museum and research center in Nishi-Shinjuku, Tokyo, established by telecom NTT to mark the centenary of telephone service in Japan; opened 1997 with a focus on VR, interactive and network art.",
+      "link": "https://www.ntticc.or.jp/en/about/",
+      "creators": []
+    },
+
+    {
+      "id": "ycam",
+      "title": "Yamaguchi Center for Arts and Media (YCAM) opens",
+      "date": "2003-11-01",
+      "layer": "institutions",
+      "description": "Municipal arts and media center in Yamaguchi, Japan (building by Arata Isozaki), opened 2003; known for commissioning and producing new interactive media artworks, performance, and R&D (YCAM InterLab) rather than holding a collection.",
+      "link": "https://www.ycam.jp/en/aboutus/",
+      "creators": []
+    },
+
+    {
+      "id": "file-festival",
+      "title": "FILE — Electronic Language International Festival begins",
+      "date": "2000",
+      "layer": "institutions",
+      "description": "New-media/electronic-art festival founded 2000 in São Paulo by Ricardo Barreto and Paula Perissinotto; grew into the largest electronic-art event in Latin America.",
+      "link": "https://en.wikipedia.org/wiki/Electronic_Language_International_Festival",
+      "creators": [
+        "Ricardo Barreto",
+        "Paula Perissinotto"
+      ]
+    },
+
+    {
+      "id": "mutek",
+      "title": "MUTEK begins (Montreal)",
+      "date": "2000",
+      "layer": "institutions",
+      "description": "Festival of electronic music and digital creativity founded 2000 in Montreal by Alain Mongeau; a long-running international platform for audiovisual performance with editions across several countries.",
+      "link": "https://en.wikipedia.org/wiki/Mutek",
+      "creators": [
+        "Alain Mongeau"
+      ]
+    },
+
+    {
+      "id": "dorkbot",
+      "title": "Dorkbot founded (New York)",
+      "date": "2000",
+      "layer": "institutions",
+      "description": "Grassroots, globally-franchised series of informal meetings for 'people doing strange things with electricity' — artists, engineers and hackers presenting electronic and computational art. Begun at Columbia University by Douglas Repetto; spread to 100+ cities.",
+      "link": "http://sites.music.columbia.edu/dorkbot/",
+      "creators": [
+        "Douglas Irving Repetto"
+      ]
+    },
+
+    {
+      "id": "old-boys-network",
+      "title": "Old Boys Network founded (Berlin)",
+      "date": "1997",
+      "layer": "institutions",
+      "description": "The first international cyberfeminist alliance, based in Berlin; organized the First (1997), Next (1999) and Very (2001) Cyberfeminist Internationals and produced the '100 Anti-Theses' of cyberfeminism.",
+      "link": "https://en.wikipedia.org/wiki/Old_Boys_Network",
+      "creators": [
+        "Susanne Ackers",
+        "Julianne Pierce",
+        "Valentina Djordjevic",
+        "Ellen Nonnenmacher",
+        "Cornelia Sollfrank"
+      ]
+    },
+
+    {
+      "id": "subrosa",
+      "title": "subRosa formed",
+      "date": "1998",
+      "layer": "institutions",
+      "description": "A U.S.-based 'reproducible cyberfeminist cell' combining art, activism and politics to critique the effects of information and biotechnologies on women's bodies, labor and reproduction, largely through participatory performance.",
+      "link": "http://refugia.net/subrosa/cv.html",
+      "creators": [
+        "Faith Wilding",
+        "Hyla Willis",
+        "María Fernández",
+        "Michelle M. Wright"
+      ]
+    },
+
+    {
+      "id": "glitch-festival",
+      "title": "GLI.TC/H festival begins (Chicago)",
+      "date": "2010",
+      "layer": "institutions",
+      "description": "International glitch-art festival and conference founded in Chicago in 2010 (workshops, screenings, performances, gallery shows); the 2011 edition traveled Chicago–Amsterdam–Birmingham. Three editions ran, 2010–2012.",
+      "link": "https://beyondresolution.info/GLI-TC-H",
+      "creators": [
+        "Nick Briz",
+        "Rosa Menkman",
+        "Jon Satrom",
+        "Evan Meaney"
+      ]
+    },
+
+    {
+      "id": "toplap-founded",
+      "title": "TOPLAP founded (Hamburg)",
+      "date": "2004-02-15",
+      "layer": "institutions",
+      "description": "The informal international organization founded to link and promote live-coding communities, as an offshoot of the Changing Grammars symposium in Hamburg. Its 'Read Me' manifesto (published 2004 in the Read_Me: Software Art and Cultures anthology) set the movement's central tenet — that performers' code be projected and shown to the audience ('show us your screens').",
+      "link": "https://toplap.org/wiki/Read_me_paper",
+      "creators": [
+        "Adrian Ward",
+        "Julian Rohrhuber",
+        "Alex McLean",
+        "Nick Collins",
+        "Dave Griffiths",
+        "Fredrik Olofsson",
+        "Amy Alexander"
+      ]
+    },
+
+    {
+      "id": "first-algorave",
+      "title": "First Algorave (London)",
+      "date": "2012-03-17",
+      "layer": "institutions",
+      "description": "The first event named 'algorave,' where music is generated from algorithms written and modified live (often with projected code), held in London as a warm-up for the SuperCollider Symposium 2012. It seeded a global network of algorave events.",
+      "link": "https://en.wikipedia.org/wiki/Algorave",
+      "creators": [
+        "Alex McLean",
+        "Nick Collins"
+      ]
+    },
+
+    {
+      "id": "processing-foundation",
+      "title": "Processing Foundation established",
+      "date": "2012",
+      "layer": "institutions",
+      "description": "Nonprofit founded in 2012 by Casey Reas, Ben Fry and Daniel Shiffman to promote software literacy in the visual arts and visual literacy in technology, and to widen access for communities historically without it. Fiscal and organizational home of Processing, p5.js and ml5.js.",
+      "link": "https://processingfoundation.org/",
+      "creators": [
+        "Casey Reas",
+        "Ben Fry",
+        "Daniel Shiffman"
+      ]
+    },
+
+    {
+      "id": "deep-lab",
+      "title": "Deep Lab founded",
+      "date": "2014",
+      "layer": "institutions",
+      "description": "A congress and collective of cyberfeminist researchers, artists, engineers and journalists examining privacy, surveillance, anonymity and data aggregation, founded by Addie Wagenknecht at Carnegie Mellon's Frank-Ratchye STUDIO for Creative Inquiry; produced a collaboratively written book and lecture series.",
+      "link": "https://www.deeplab.net/cmu/",
+      "creators": [
+        "Addie Wagenknecht"
+      ]
     }
   ]
 }
