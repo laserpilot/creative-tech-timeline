@@ -24,6 +24,16 @@
       "name": "Institutions & Communities",
       "color": "#2ea36b",
       "description": "Schools, festivals, and communities that shaped the field"
+    },
+    "publications": {
+      "name": "Publications",
+      "color": "#d4a017",
+      "description": "Blogs, magazines, and platforms that documented and circulated the field's work"
+    },
+    "platforms": {
+      "name": "Platforms",
+      "color": "#17a2b8",
+      "description": "Networks and services that changed how creative-tech work was shared and found"
     }
   },
   "events": [
@@ -334,6 +344,105 @@
       "layer": "institutions",
       "description": "Artist-run school in NYC for code as a creative and critical practice.",
       "link": "https://sfpc.study/"
+    },
+
+    {
+      "id": "eat-founded",
+      "title": "E.A.T. (Experiments in Art and Technology) founded",
+      "date": "1967-10-10",
+      "layer": "institutions",
+      "description": "Nonprofit founded by engineers and artists to broker collaborations between them, growing out of the 1966 '9 Evenings: Theatre and Engineering' performances. Never formally dissolved; Kluver led it until his death in 2004.",
+      "link": "https://en.wikipedia.org/wiki/Experiments_in_Art_and_Technology",
+      "creators": [
+        "Billy Kluver",
+        "Fred Waldhauer",
+        "Robert Rauschenberg",
+        "Robert Whitman"
+      ]
+    },
+    {
+      "id": "experimental-television-center",
+      "title": "Experimental Television Center founded",
+      "date": "1971",
+      "layer": "institutions",
+      "description": "New York State center that gave video artists open access to experimental image-processing tools through a long-running residency program. The residency and grants program was paused in 2011 to focus on preservation; the archive later moved to Atlanta (2021).",
+      "link": "https://en.wikipedia.org/wiki/Experimental_Television_Center",
+      "creators": [
+        "Ralph Hocking"
+      ]
+    },
+    {
+      "id": "eyebeam-founded",
+      "title": "Eyebeam founded",
+      "date": "1998",
+      "layer": "institutions",
+      "description": "New York nonprofit art and technology center supporting artists working experimentally with technology through residencies, fellowships, and open-source production. Its Chelsea space opened in 2001.",
+      "link": "https://eyebeam.org/about-us/",
+      "creators": [
+        "John S. Johnson"
+      ]
+    },
+    {
+      "id": "fat-lab",
+      "title": "F.A.T. Lab (Free Art and Technology)",
+      "date": "2007",
+      "end": "2015-08-01",
+      "layer": "institutions",
+      "description": "Online collective devoted to enriching the public domain through open-source pop culture hacks, blending art, technology activism, and internet humor. Dissolved 1 August 2015.",
+      "link": "https://en.wikipedia.org/wiki/Free_Art_and_Technology_Lab",
+      "creators": [
+        "Evan Roth",
+        "James Powderly"
+      ]
+    },
+
+    {
+      "id": "creative-applications-net",
+      "title": "CreativeApplications.Net launches",
+      "date": "2008",
+      "layer": "publications",
+      "description": "Publication reporting on creative coding, digital art, and critical making that became a defining record of the field's projects and tools.",
+      "link": "https://www.creativeapplications.net/about/",
+      "creators": [
+        "Filip Visnjic"
+      ]
+    },
+    {
+      "id": "prosthetic-knowledge",
+      "title": "Prosthetic Knowledge",
+      "date": "2009-12",
+      "end": "2018-09-05",
+      "layer": "publications",
+      "description": "Anonymously run Tumblr that curated and popularized art, technology, and computing projects. Last post 5 September 2018; the archive remains online. Start date is derived rather than stated: a 2019 anniversary tweet from the operator places it at December 2009.",
+      "link": "https://www.tumblr.com/prostheticknowledge"
+    },
+    {
+      "id": "the-creators-project",
+      "title": "The Creators Project launches",
+      "date": "2010-05-17",
+      "end": "2019",
+      "layer": "publications",
+      "description": "VICE and Intel partnership that funded, documented, and exhibited artists working at the intersection of creativity and technology. Rebranded 'Creators' c. 2016 and wound down as VICE consolidated its channels; the end date is approximate.",
+      "link": "https://www.intc.com/news-events/press-releases/detail/754/the-creators-project-debuts-worldwide-an-unprecedented",
+      "creators": [
+        "VICE Media",
+        "Intel"
+      ]
+    },
+
+    {
+      "id": "twitter-launch",
+      "title": "Twitter launches publicly",
+      "date": "2006-07-15",
+      "layer": "platforms",
+      "description": "Microblogging service whose short-message, real-time public feed became core infrastructure for how the creative coding and digital art communities shared work and found each other. Rebranded to X in 2023.",
+      "link": "https://en.wikipedia.org/wiki/Twitter",
+      "creators": [
+        "Jack Dorsey",
+        "Noah Glass",
+        "Biz Stone",
+        "Evan Williams"
+      ]
     }
   ]
 }
