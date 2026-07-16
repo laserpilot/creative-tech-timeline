@@ -29,3 +29,6 @@ yarn-error.log*
 
 # Full release-history archive from scripts/fetch-releases.mjs (canonical merged set lives in public/)
 scripts/.release-staging.json
+
+# Local working notes — never committed (docs/SOURCES.md is the repo-facing provenance doc)
+docs/notes/
