@@ -533,6 +533,20 @@
         "P. J. Hyett",
         "Scott Chacon"
       ]
+    },
+
+    {
+      "id": "visible-language-workshop",
+      "title": "Visible Language Workshop founded",
+      "date": "1974",
+      "end": "1994",
+      "layer": "institutions",
+      "description": "Muriel Cooper's Bauhaus-style research atelier at MIT, founded with designer Ron MacNeil after she left the MIT Press, which became one of the MIT Media Lab's founding research groups in 1985 and pioneered dynamic three-dimensional information display. It is the institutional origin of the MIT design-computation lineage that runs VLW to the Aesthetics + Computation Group to Design By Numbers to Processing. Founding is variously dated 1973 (the 'Messages and Means' course), 1974, or 1975 (the MIT 150 Exhibition label); the end date is Cooper's death in May 1994, as there was no formal dissolution.",
+      "link": "https://en.wikipedia.org/wiki/Muriel_Cooper",
+      "creators": [
+        "Muriel Cooper",
+        "Ron MacNeil"
+      ]
     }
   ]
 }

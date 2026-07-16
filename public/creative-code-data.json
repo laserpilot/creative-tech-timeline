@@ -817,6 +817,130 @@
         { "version": "Earliest documented activity", "dateString": "1999-01", "link": "https://github.com/dribnet/acu", "notes": "Date is APPROXIMATE. Started by Ben Fry, with significant contributions from Tom White and Jared Schiffman; used across the group, with Casey Reas appearing as a user and documenter rather than an author. The archived repo is explicitly a 'partial history': git commits run Jul 1999 - Nov 2001, but its README changelog reaches back to 25 Jan 1999 and already describes additions to an existing library - so ACU predates Jan 1999 and most likely began in 1998. No founding date is documented anywhere.", "major": true },
         { "version": "Last archived commit", "dateString": "2001-11-02", "link": "https://github.com/dribnet/acu", "notes": "End of the partial git history, not necessarily the end of use: Zachary Lieberman reports still using ACU in 2002 ('an older library that I was using in 2002... I didn't have the ability to give this library to my students'). Effectively ended with the Aesthetics + Computation Group, which ran 1996-2003. openFrameworks 0.01 followed in August 2005." }
       ]
+    },
+    "Wiring": {
+      "category": "physical-computing",
+      "description": "Open-source electronics prototyping platform - a language, a Processing-derived IDE, and a microcontroller board - created by Hernando Barragan as his Master's thesis at the Interaction Design Institute Ivrea, supervised by Massimo Banzi and Casey Reas. It is the direct ancestor of Arduino, which forked its source, language and IDE, and the bridge that carried Processing's sketch-and-run model into physical computing: setup()/loop(), digitalWrite() and pinMode() are Barragan's design.",
+      "link": "https://www.wiring.org.co/",
+      "releases": [
+        { "version": "Thesis boards", "dateString": "2004", "link": "https://arduinohistory.github.io/", "notes": "Thesis completed 2004; 25 boards hand-ordered March 2004, ~100 manufactured by IDII late 2004 and used to teach the 'Strangely Familiar' course that autumn. Dated to 2004 because that is when Wiring existed and was taught with. English Wikipedia's 'initial release 2007' is flatly wrong - contradicted by the project's own release log and Barragan's account.", "major": true },
+        { "version": "1.0 (ALPHA) #04", "dateString": "2005-05-04", "link": "https://www.wiring.org.co/updates.html", "notes": "Earliest release on the official update log. Release #05 (2005-09-12) is when Wiring went open source. Arduino forked Wiring in 2005, adding support for the cheaper ATmega8; per Barragan, no one asked him first, and he was never invited onto the Arduino team. In 2013 David Mellis publicly acknowledged the Arduino team 'hadn't done a very good job acknowledging Wiring'. The fork is well documented; Barragan's account of the intent behind it is his own and Arduino has not published a detailed rebuttal." },
+        { "version": "1.0 (0101)", "dateString": "2014-10-28", "link": "https://www.wiring.org.co/updates.html", "notes": "Last release. Maintained at Universidad de Los Andes, Bogota; effectively dormant since, though never formally ended." }
+      ]
+    },
+    "Fritzing": {
+      "category": "physical-computing",
+      "description": "Open-source EDA tool that lets designers document a breadboard prototype and turn it into a real PCB, built around a breadboard-view metaphor rather than an engineer's schematic. Explicitly modelled on Processing and Arduino - the aim was to do for circuit design what they did for code and electronics - and its breadboard diagrams became the visual lingua franca of maker-culture documentation.",
+      "link": "https://fritzing.org/",
+      "releases": [
+        { "version": "0.1b", "dateString": "2008-11-24", "link": "https://fritzing.org/releases/0-1b", "notes": "First public release. The project began August 2007 at the Interaction Design Lab, FH Potsdam, under a Brandenburg state grant. Sources dating it 2009 are citing the TEI '09 paper, not the release; GitHub is a red herring (repo created 2014, migrated from Google Code).", "major": true },
+        { "version": "0.9.1b", "dateString": "2014-12-01", "link": "https://github.com/fritzing/fritzing-app/releases", "notes": "Development stalled 2016-2019 as revenue declined; Aisler assembled a dev team from 2019 and made a donation mandatory for binaries, though the source stayed GPL." }
+      ]
+    },
+    "ChucK": {
+      "category": "audio-visual",
+      "description": "Strongly-timed, concurrent audio programming language built at Princeton's Sound Lab for on-the-fly synthesis, composition and performance. It made live coding of audio legible to the academic computer-music world and seeded the laptop-orchestra practice (PLOrk/SLOrk); it was also the substrate for Wekinator's original implementation.",
+      "link": "https://chuck.stanford.edu/",
+      "releases": [
+        { "version": "alpha 1.0", "dateString": "2003", "link": "https://en.wikipedia.org/wiki/ChucK", "notes": "A public alpha was downloadable in 2003 - the Nov 2003 snapshot of chuck.cs.princeton.edu reads 'version: alpha 1.0' with a live download link. The language itself dates from 2002. Descended from Perry Cook's STK unit generators; conceptually a reaction to Max/MSP and SuperCollider.", "major": true },
+        { "version": "1.1.3.0", "dateString": "2004", "link": "https://raw.githubusercontent.com/ccrma/chuck/main/VERSIONS", "notes": "The project's own VERSIONS log calls this the 'initial release' (Spring 2004) - i.e. the first numbered/stable release, as distinct from the 2003 alpha." }
+      ]
+    },
+    "TidalCycles": {
+      "category": "audio-visual",
+      "description": "Haskell-embedded language for live-coding algorithmic patterns, built on a functional representation of cyclic time rather than a timeline or step sequencer. The canonical algorave instrument and the origin of the 'pattern as a pure function of time' model that most later live-coding languages copied; makes no sound itself, driving SuperCollider via SuperDirt.",
+      "link": "https://tidalcycles.org/",
+      "releases": [
+        { "version": "First public release", "dateString": "2009", "link": "https://tidalcycles.org/docs/around_tidal/tidal_history/", "notes": "Per the official history, McLean shared the code under a free licence and gave his first talk on it in 2009. Origins trace to a 2006 pattern-rotation DSL, sometimes miscited as the release date.", "major": true },
+        { "version": "tidal-0.1", "dateString": "2011-08-23", "link": "https://hackage.haskell.org/package/tidal-0.1", "notes": "First packaged release, and the only exact machine-verifiable timestamp in Tidal's early history." }
+      ]
+    },
+    "Hydra": {
+      "category": "audio-visual",
+      "description": "Browser-based live-coding video synthesizer whose JavaScript API mimics analog modular video synthesis - oscillators, kaleidoscopes and webcam feeds chained and fed back into each other, compiled to WebGL. It made live-coded visuals frictionless (a URL, no install) and became the default visual counterpart to TidalCycles at algoraves.",
+      "link": "https://hydra.ojack.xyz/",
+      "releases": [
+        { "version": "hydra-synth 1.0.0", "dateString": "2018-03-21", "link": "https://registry.npmjs.org/hydra-synth", "notes": "First public release. The repo dates from Nov 2017, which is why both '2017' and '2018' are cited - they are right about different things (project start vs release). Descended conceptually from analog video synthesis and from Charlie Roberts' Gibber.", "major": true }
+      ]
+    },
+    "Fluxus": {
+      "category": "audio-visual",
+      "description": "Live-coding 3D graphics environment scripted in Scheme (later Racket), where the code editor is rendered transparently over the realtime scene it generates so code and output share one screen. The first widely used environment for live-coded 3D visuals, it established the on-screen-code performance aesthetic that Hydra and others inherited.",
+      "link": "https://en.wikipedia.org/wiki/Fluxus_(programming_environment)",
+      "discontinued": "2012",
+      "releases": [
+        { "version": "0.1", "dateString": "2005", "link": "https://en.wikipedia.org/wiki/Fluxus_(programming_environment)", "notes": "Corroborated by the first CVS commit, 25 Jan 2005 by Dave Griffiths. Performed with by slub (Griffiths + Alex McLean), the same circle that produced TidalCycles. Named after, but unrelated to, the 1960s Fluxus art movement.", "major": true },
+        { "version": "0.17rc5", "dateString": "2012-04-18", "link": "https://en.wikipedia.org/wiki/Fluxus_(programming_environment)", "notes": "Last release. Last sign of life anywhere is a commit of 2015-10-07; neither repo is formally archived, so there is no clean end event. Note: Extempore is NOT a Fluxus descendant - a common conflation; it comes from Sorensen's Impromptu lineage." }
+      ]
+    },
+    "Pixi.js": {
+      "category": "creative-libraries",
+      "description": "2D WebGL renderer with a seamless Canvas fallback, built so interactive content could 'build once, play everywhere'. It was the main technical landing pad for Flash refugees after the mobile Flash Player's death: it deliberately reproduced the Flash display list (Stage, Sprite, MovieClip, addChild) in JavaScript, and went on to power Phaser and a large share of HTML5 games and interactive web work.",
+      "link": "https://pixijs.com/",
+      "releases": [
+        { "version": "First public release", "dateString": "2013-03-14", "link": "https://medium.com/goodboy-digital/pixi-js-released-ecfdf7610ecd", "notes": "Announced in 'Pixi.js released!', corroborated by inbound community PRs starting the next day. Do NOT date this from GitHub tags: the v1.0.0 tag was created retroactively in 2021 and would date Pixi 1.0 eight years late. npm publishing only starts in Jan 2014. Claims that Pixi was 'open sourced in 2015' are wrong.", "major": true }
+      ]
+    },
+    "Tone.js": {
+      "category": "audio-visual",
+      "description": "Web Audio framework for making interactive music in the browser, providing DAW-like abstractions - a global transport, tempo-relative time, buses, synths and effects - on top of the raw Web Audio API. It is the library that made Web Audio musically usable, and underpins Chrome Music Lab, A.I. Duet and the Magenta music demos.",
+      "link": "https://tonejs.github.io/",
+      "releases": [
+        { "version": "r1", "dateString": "2014-09-12", "link": "https://github.com/Tonejs/Tone.js", "notes": "First tagged release; npm 'tone' 0.1.0 landed the same day. The project began 2014-03-11 and was not called Tone at first - early commits show a rename from 'WebAudio'/'AudioUnit'. Its lineage is primary-sourced: Mann's own Web Audio Conference paper credits Max/MSP metrical timing, Ableton Live's transport notation, and Max Mathews' MUSIC-N unit-generator/score split.", "major": true }
+      ]
+    },
+    "Two.js": {
+      "category": "creative-libraries",
+      "description": "Renderer-agnostic 2D drawing API exposing one identical API that renders interchangeably to SVG, Canvas2D or WebGL. Effectively the 2D counterpart to three.js - it took three.js's scene-graph and pluggable-renderer architecture and applied it to flat vector graphics; best known as the animation engine behind Patatap.",
+      "link": "https://two.js.org/",
+      "releases": [
+        { "version": "Public repo", "dateString": "2012-09", "link": "https://github.com/jonobr1/two.js", "notes": "Repo pushed public 2012-09-05; first commit 2012-08-11. There is no clean v1.0 launch announcement, hence month precision. Do NOT date from GitHub releases: the earliest three were bulk-created within two minutes of each other on 2014-01-08 and are backdated. Descended directly from three.js - the first alpha was literally built with it.", "major": true }
+      ]
+    },
+    "Context Free Art": {
+      "category": "programming",
+      "description": "Generative art program that renders images from a context-free design grammar (CFDG), where recursive rules over three primitives expand into images of millions of shapes. It popularised the design grammar as a creative-coding paradigm and is the direct model for Structure Synth, which credits it by name.",
+      "link": "https://contextfreeart.org/",
+      "releases": [
+        { "version": "Context Free / CFDG", "dateString": "2005", "link": "https://github.com/MtnViewJohn/context-free", "notes": "No exact release date is published; 2005 is taken from the repo's copyright headers ('CFDG Copyright 2005 Chris Coyne'). Coyne designed the grammar and wrote the original command-line version; Mark Lentczner - usually omitted from summaries - built the Mac GUI, and John Horigan wrote the Windows version and still maintains it. Still actively maintained despite an empty GitHub Releases tab; versions live as git tags.", "major": true }
+      ]
+    },
+    "Grasshopper": {
+      "category": "programming",
+      "description": "Node-based visual programming environment inside Rhinoceros 3D that lets designers build generative algorithms and parametric models by wiring components instead of writing code. It became the defining tool of computational and parametric architecture, and the template later node-based design environments answer to.",
+      "link": "https://www.grasshopper3d.com/",
+      "releases": [
+        { "version": "Explicit History", "dateString": "2007-09", "link": "https://en.wikipedia.org/wiki/Grasshopper_3D", "notes": "First released as a free Rhino 4 plugin under the name Explicit History, chosen to contrast with Rhino's native implicit History feature; later renamed Grasshopper. Weakest date in this batch: Rutten's own account confirms the name but no McNeel primary source fixes the month, so September 2007 rests on secondary sources.", "major": true },
+        { "version": "1.0", "dateString": "2018-02", "link": "https://architosh.com/2018/02/mcneel-ships-new-rhino-6-grasshopper-now-built-in/", "notes": "Rhino 6 shipped with Grasshopper built in, ending its ~10-year run as a separate long-term beta plugin." }
+      ]
+    },
+    "Godot": {
+      "category": "programming",
+      "description": "Free, MIT-licensed 2D/3D game engine with an integrated scene-based editor - the first fully open-source engine to reach genuine parity with commercial incumbents. Its open-sourcing turned a decade-old proprietary Argentine in-house engine into the default non-corporate option for indie and creative-coding game work.",
+      "link": "https://godotengine.org/",
+      "releases": [
+        { "version": "Open-source release", "dateString": "2014-02-14", "link": "https://en.wikipedia.org/wiki/Godot_(game_engine)", "notes": "Released under the MIT licence by OKAM. The engine has a decade of closed pre-history (codenamed Larvotor, begun c.2001 and commercially licensed right up to the open-sourcing), but 2014 is when it began to exist publicly.", "major": true },
+        { "version": "1.0", "dateString": "2014-12-15", "link": "https://en.wikipedia.org/wiki/Godot_(game_engine)", "notes": "First stable public build. Adoption accelerated sharply after Unity's 2023 runtime-fee controversy." }
+      ]
+    },
+    "Wekinator": {
+      "category": "audio-visual",
+      "description": "Software that lets artists and musicians build interactive systems by demonstrating human actions and desired computer responses - training machine-learning models by example rather than writing code. It established interactive machine learning for creative practice as a genre, and its train-by-demonstration model is the conceptual ancestor of ml5.js, Runway ML and Teachable Machine.",
+      "link": "https://doc.gold.ac.uk/~mas01rf/Wekinator/",
+      "releases": [
+        { "version": "1.0", "dateString": "2009", "link": "https://soundlab.cs.princeton.edu/publications/FiebrinkTruemanCook_NIME2009.pdf", "notes": "Built on the Weka toolkit (hence the name), out of Fiebrink's Princeton PhD with Perry Cook and Dan Trueman. Originally two components - one in ChucK, one in Java - talking over OSC, which made it host-agnostic: it drives Max/MSP, Processing, openFrameworks, Ableton, Unity, Quartz Composer and Arduino.", "major": true },
+        { "version": "2.0", "dateString": "2015", "link": "https://github.com/fiebrink1/wekinator", "notes": "Full rewrite that dropped the ChucK dependency for generic OSC. STATUS IS CONTESTED: the project site says it is still gently updated, but the last release is July 2016 and the last commit February 2021. Recorded as active to match the maintainer's own claim; treat as effectively dormant." }
+      ]
+    },
+    "toxiclibs": {
+      "category": "creative-libraries",
+      "description": "Extensive open-source library collection for computational design in Java/Processing - geometry, physics, colour, simulation, volumetrics - written by artist Karsten Schmidt. The canonical example of the Processing ecosystem's second layer, where power users built the advanced toolkits Processing core deliberately omitted.",
+      "link": "https://github.com/postspectacular/toxiclibs",
+      "discontinued": "2012",
+      "releases": [
+        { "version": "Initial", "dateString": "2006", "link": "https://github.com/postspectacular/toxiclibs", "notes": "Date is approximate: source copyright headers run 2006-2011 and no first-release announcement survives. Ported outward to JavaScript (toxiclibs.js) and Ruby. Note toxiclibs.org is DEAD - the domain lapsed and now serves an unrelated gambling site, so the GitHub repo is the canonical link.", "major": true },
+        { "version": "0020", "dateString": "2012", "link": "https://github.com/postspectacular/toxiclibs", "notes": "Last substantive release; a promised final release never shipped and the repo has been dormant since ~2013. Dan Shiffman has published a Processing 3.0+ compatible build." }
+      ]
     }
   }
 }
