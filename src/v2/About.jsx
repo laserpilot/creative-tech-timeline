@@ -15,6 +15,14 @@ function A({ href, children }) {
   );
 }
 
+function Kbd({ children }) {
+  return (
+    <span style={{ fontFamily: MONO, fontSize: 12, background: '#efeae3', border: '1px solid #e0dad1', borderRadius: 4, padding: '1px 5px', color: '#5a5349' }}>
+      {children}
+    </span>
+  );
+}
+
 // About / context modal. Explains what the timeline is and, drawing on the
 // 2018 writeup, that it is deliberately partial: a starting point, not an
 // authority.
@@ -84,6 +92,19 @@ export default function About({ onClose }) {
           using AI tools. That makes community validation essential. Dates, attributions, and what&apos;s
           included or left out all need checking by people who know this history firsthand. If something
           looks wrong, it may well be, so please help correct it.
+        </P>
+
+        <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#a49a8d', margin: '4px 0 12px' }}>
+          Contribute
+        </div>
+        <P>
+          All the data is open on GitHub, and pull requests with additions or corrections are
+          genuinely welcome: <A href="https://github.com/laserpilot/creative-tech-timeline">github.com/laserpilot/creative-tech-timeline</A>.
+        </P>
+        <P>
+          Quickest way in: on the repo page press <Kbd>.</Kbd> to open GitHub&apos;s in-browser editor
+          (github.dev), or press <Kbd>e</Kbd> on any file to edit it, then open a pull request. The
+          timeline lives in <Kbd>public/creative-code-data.json</Kbd> (tools) and <Kbd>public/events.json</Kbd> (events).
         </P>
 
         <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#a49a8d', margin: '4px 0 12px' }}>
