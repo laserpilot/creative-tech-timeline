@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Creative Technology Timeline
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive timeline of the tools of creative coding and creative technology —
+languages, frameworks, libraries, and authoring environments — set against the
+hardware, web standards, AI, landmark artworks, publications, and communities that
+shaped how they were used.
 
-## Available Scripts
+**Live:** https://laserpilot.github.io/creative-tech-timeline/
 
-In the project directory, you can run:
+It is deliberately partial, and that is part of the point: a starting point for a
+conversation rather than an authoritative record. Much of the site was built with the
+help of AI and the research gathered with AI tools, so **community validation matters**
+— corrections and additions are genuinely welcome.
 
-### `npm start`
+## Contributing
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The timeline is only as good as its data, and the data lives in two plain JSON files:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [`public/creative-code-data.json`](public/creative-code-data.json) — tools, grouped by
+  category, each with a list of dated releases.
+- [`public/events.json`](public/events.json) — context events, grouped by layer.
 
-### `npm test`
+To add or fix something:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Edit those files. Quickest path with no local setup: on the GitHub repo page press
+   <kbd>.</kbd> to open the in-browser editor (github.dev), make your change, and open a
+   pull request. Or clone and edit locally.
+2. Keep to the existing shape (see [`schemas/`](schemas/)) and, if working locally, run
+   `npm run validate`.
+3. Open a pull request. Even rough contributions are useful — a wrong date, a missing
+   tool, a better source link.
 
-### `npm run build`
+A few things worth knowing so your data actually shows up:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Categories and layers are a fixed set** defined in
+  [`src/v2/timelineConfig.js`](src/v2/timelineConfig.js) (tool categories like
+  `programming`, `audio-visual`, `multimedia-authoring`; event layers like `hardware`,
+  `ai-ml`, `publications`). Data using a category or layer that isn't listed there is
+  **not rendered** — and `npm run validate` will fail loudly rather than drop it
+  silently. Adding a genuinely new category/layer means a small code change too; flag it
+  in your PR.
+- Every tool needs at least one release with a parseable date. Dates accept ISO
+  (`2008`, `2008-11`, `2008-11-24`), `24 Nov 2008`, `November 2008`, or a bare year.
+- Events may include an optional `end` date to draw a lifespan span.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Development
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # production build to dist/
+npm run validate   # check the data against the schemas + renderability
+```
 
-### `npm run eject`
+Built with Vite + React. The timeline reads the JSON at runtime; there is no database.
+Pushing to `main` builds and deploys to GitHub Pages via the workflow in
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Roadmap / ideas
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **In-browser edit mode.** A gated editing UI (e.g. via `?edit`) to add and correct
+  tools and events in place and export updated JSON, to make contributing easier for
+  non-developers. A lossy version existed in an earlier design; bringing it back means
+  editing the current, richer release schema rather than the old simplified model.
+- Deep-linking to a specific tool or year.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Related
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Creative Tech Taxonomy](https://laserpilot.github.io/Creative_Tech_Taxonomy/) — an
+  interactive map of the fields, tools, and disciplines within creative technology.
+- [“A History of Creative Coding” (2018)](https://laserpilot.medium.com/a-history-of-creative-coding-8771524b9775)
+  — the original writeup on why a shared history of this field is worth preserving.
