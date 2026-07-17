@@ -382,6 +382,7 @@ being the entry's canonical `link`. Primary sources are marked **P**.
 ### Tools — libraries / generative
 | Entry | Sources |
 |---|---|
+| ComfyUI | **P** https://github.com/comfyanonymous/ComfyUI · https://en.wikipedia.org/wiki/ComfyUI (first released Jan 2023 by comfyanonymous; node-based UI for Stable Diffusion). Filed under `programming` for its node-graph nature, alongside VVVV/TouchDesigner/Quartz Composer. Wired into `scripts/release-sources.json` for fetcher backfill. |
 | Nodebox | **P** https://www.nodebox.net/code/index.php/About · https://github.com/nodebox/nodebox |
 | Scriptographer | **P** https://scriptographer.org/ · **P** https://scriptographer.org/news/the-future-of-scriptographer-is-paper-js/ |
 | Basil.js | **P** https://basiljs.ch/about/ |

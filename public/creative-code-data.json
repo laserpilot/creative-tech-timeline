@@ -967,6 +967,14 @@
       "releases": [
         { "version": "1.0", "dateString": "11 August 1987", "link": "https://en.wikipedia.org/wiki/HyperCard", "notes": "Released at MacWorld Boston; later bundled free with Macs" }
       ]
+    },
+    "ComfyUI": {
+      "category": "programming",
+      "description": "Node-based visual programming environment for building generative-AI image and video pipelines, wiring model, prompt, sampler, and post-processing nodes into a graph. One of the most widely used interfaces for Stable Diffusion and later open diffusion models.",
+      "link": "https://github.com/comfyanonymous/ComfyUI",
+      "releases": [
+        { "version": "First release", "dateString": "January 2023", "link": "https://github.com/comfyanonymous/ComfyUI", "notes": "Node-based Stable Diffusion UI by comfyanonymous" }
+      ]
     }
   }
 }
