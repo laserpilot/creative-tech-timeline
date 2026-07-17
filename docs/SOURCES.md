@@ -404,6 +404,11 @@ being the entry's canonical `link`. Primary sources are marked **P**.
 | Fluxus | https://en.wikipedia.org/wiki/Fluxus_(programming_environment) · https://github.com/nebogeo/fluxus · https://github.com/zzkt/fluxus |
 | Wekinator | **P** https://doc.gold.ac.uk/~mas01rf/Wekinator/ · **P** https://soundlab.cs.princeton.edu/publications/FiebrinkTruemanCook_NIME2009.pdf · **P** https://github.com/fiebrink1/wekinator · https://opensoundcontrol.stanford.edu/implementations/Wekinator.html |
 
+### Tools — physical computing
+| Entry | Sources |
+|---|---|
+| BASIC Stamp | https://en.wikipedia.org/wiki/BASIC_Stamp (Parallax; BS1 1992, BS2 1995; PBASIC interpreter in ROM). An early hobbyist/education microcontroller, well before Arduino. Proprietary → hand-curated, not in the fetcher config. |
+
 ### Events — institutions
 | Entry | Sources |
 |---|---|

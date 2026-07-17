@@ -975,6 +975,15 @@
       "releases": [
         { "version": "First release", "dateString": "January 2023", "link": "https://github.com/comfyanonymous/ComfyUI", "notes": "Node-based Stable Diffusion UI by comfyanonymous" }
       ]
+    },
+    "BASIC Stamp": {
+      "category": "physical-computing",
+      "description": "Early microcontroller module from Parallax with a small BASIC interpreter (PBASIC) in ROM, programmed from a PC over a simple connection. A staple of 1990s-2000s electronics hobbyists and education, and a widely used physical-computing platform well before Arduino.",
+      "link": "https://en.wikipedia.org/wiki/BASIC_Stamp",
+      "releases": [
+        { "version": "BASIC Stamp 1 (BS1)", "dateString": "1992", "link": "https://en.wikipedia.org/wiki/BASIC_Stamp", "notes": "Parallax; PBASIC interpreter in ROM" },
+        { "version": "BASIC Stamp 2 (BS2)", "dateString": "1995", "link": "https://en.wikipedia.org/wiki/BASIC_Stamp", "notes": "24-pin DIP form; more memory, faster, more I/O" }
+      ]
     }
   }
 }
