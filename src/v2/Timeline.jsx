@@ -31,6 +31,9 @@ export default function Timeline() {
   const [hoverEvent, setHoverEvent] = useState(null);
   const [pxy, setPxy] = useState(DEFAULT_PXY);
   const [aboutOpen, setAboutOpen] = useState(false);
+  // Playhead: pointer X within the time region (px, gutter-relative), or null
+  // when the cursor is over the label gutter or off the timeline.
+  const [playhead, setPlayhead] = useState(null);
   const scrollRef = useRef(null);
 
   const scale = useMemo(() => createScale(pxy), [pxy]);
@@ -117,6 +120,16 @@ export default function Timeline() {
   const innerWidth = GUTTER + scale.timeWidth;
   const nowLeft = scale.x(NOW);
 
+  // Track the pointer across the time region to drive the year playhead.
+  const onTimelineMove = (e) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const timePx = e.clientX - rect.left + el.scrollLeft - GUTTER;
+    setPlayhead(timePx >= 0 && timePx <= scale.timeWidth ? timePx : null);
+  };
+  const playheadYear = playhead != null ? Math.floor(scale.yearAt(playhead)) : null;
+
   // ---- year axis + gridlines ----
   // At low zoom the 5-year labels crowd, so fall back to decades only.
   const tickStep = pxy < 22 ? 10 : 5;
@@ -196,11 +209,21 @@ export default function Timeline() {
       />
 
       {/* Scrollable timeline */}
-      <div ref={scrollRef} style={{ flex: 1, overflow: 'auto', position: 'relative' }}>
+      <div
+        ref={scrollRef}
+        onMouseMove={onTimelineMove}
+        onMouseLeave={() => setPlayhead(null)}
+        style={{ flex: 1, overflow: 'auto', position: 'relative' }}
+      >
         <div style={{ position: 'relative', minWidth: innerWidth }}>
           {gridlines}
           {/* now line */}
           <div style={{ position: 'absolute', top: 0, bottom: 0, width: 0, left: GUTTER + nowLeft, borderLeft: '1px dashed #c3baac', zIndex: 1 }} />
+          {/* playhead: vertical guide following the cursor. Sits under the sticky
+              axis (which paints over it), so it reads as starting below the axis. */}
+          {playhead != null && (
+            <div style={{ position: 'absolute', top: 0, bottom: 0, width: 1, left: GUTTER + playhead, background: '#3a352e', opacity: 0.3, zIndex: 4, pointerEvents: 'none' }} />
+          )}
 
           {/* Year axis (sticky top) */}
           <div style={{ position: 'sticky', top: 0, zIndex: 5, display: 'flex', height: 40, background: BG, borderBottom: '1px solid #e7e3dd' }}>
@@ -214,6 +237,14 @@ export default function Timeline() {
                 }}>{t.yr}</span>
               ))}
               <span style={{ position: 'absolute', top: 13, left: nowLeft + 5, fontFamily: MONO, fontSize: 10, color: '#a49a8d' }}>now</span>
+              {/* year readout pinned to the cursor, riding along the sticky axis */}
+              {playhead != null && (
+                <span style={{
+                  position: 'absolute', top: 6, left: playhead, transform: 'translateX(-50%)',
+                  fontFamily: MONO, fontSize: 11, fontWeight: 600, color: '#fff', background: '#3a352e',
+                  borderRadius: 4, padding: '2px 6px', whiteSpace: 'nowrap', pointerEvents: 'none', zIndex: 7,
+                }}>{playheadYear}</span>
+              )}
             </div>
           </div>
 

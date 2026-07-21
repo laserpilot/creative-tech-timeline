@@ -708,6 +708,22 @@
     },
 
     {
+      "id": "eyewriter",
+      "title": "The EyeWriter",
+      "date": "2009",
+      "layer": "artworks",
+      "description": "Open-source, low-cost eye-tracking system built so Tony \"Tempt One\" Quan — a graffiti artist paralyzed by ALS — could draw again using only his eyes. Developed collaboratively by Zach Lieberman with Free Art and Technology (FAT), OpenFrameworks, Graffiti Research Lab, and The Ebeling Group; a landmark of openFrameworks-era creative coding and open hardware. Named one of Time's 50 Best Inventions of 2010 and awarded a Prix Ars Electronica Golden Nica.",
+      "link": "https://en.wikipedia.org/wiki/EyeWriter",
+      "creators": [
+        "Zach Lieberman",
+        "Free Art and Technology (FAT)",
+        "Graffiti Research Lab",
+        "The Ebeling Group",
+        "Tony \"Tempt One\" Quan"
+      ]
+    },
+
+    {
       "id": "mccarthy-lauren",
       "title": "Lauren Lee McCarthy — LAUREN",
       "date": "2017",
