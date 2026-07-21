@@ -15,7 +15,7 @@ export default function ToolDetail({ tool, onClose }) {
 
   return (
     <aside style={{ flex: 'none', width: 320, height: '100%', overflowY: 'auto', background: '#fff', borderLeft: '1px solid #e7e3dd', boxSizing: 'border-box', boxShadow: '-12px 0 32px -20px rgba(40,34,30,0.25)' }}>
-      <div style={{ padding: '16px 18px', borderBottom: '1px solid #ece8e1', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, background: '#fff' }}>
+      <div style={{ padding: '16px 18px', borderBottom: '1px solid #ece8e1', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 1, background: '#fff' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <span style={{ width: 9, height: 9, borderRadius: 2, background: tool.color }} />
           <span style={{ fontFamily: MONO, fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#a49a8d' }}>{tool.categoryName}</span>

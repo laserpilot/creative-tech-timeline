@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTimelineData } from './useTimelineData.js';
 import Sidebar from './Sidebar.jsx';
 import ToolDetail from './ToolDetail.jsx';
+import YearDetail from './YearDetail.jsx';
 import Disclaimer from './Disclaimer.jsx';
 import About from './About.jsx';
 import {
@@ -28,6 +29,7 @@ export default function Timeline() {
   const [query, setQuery] = useState('');
   const [expanded, setExpanded] = useState(() => new Set(['programming', 'audio-visual']));
   const [selected, setSelected] = useState(null);
+  const [selectedYear, setSelectedYear] = useState(null);
   const [hoverEvent, setHoverEvent] = useState(null);
   const [pxy, setPxy] = useState(DEFAULT_PXY);
   const [aboutOpen, setAboutOpen] = useState(false);
@@ -130,6 +132,12 @@ export default function Timeline() {
   };
   const playheadYear = playhead != null ? Math.floor(scale.yearAt(playhead)) : null;
 
+  // The right panel shows one thing at a time — a tool OR a year slice.
+  // Opening either clears the other so there's never a fight over the panel.
+  const openTool = (t) => { setSelected(t); setSelectedYear(null); };
+  const openYear = (yr) => { setSelectedYear(yr); setSelected(null); };
+  const closePanel = () => { setSelected(null); setSelectedYear(null); };
+
   // ---- year axis + gridlines ----
   // At low zoom the 5-year labels crowd, so fall back to decades only.
   const tickStep = pxy < 22 ? 10 : 5;
@@ -205,7 +213,7 @@ export default function Timeline() {
           label: d, on: decadesOn.has(d), toggle: () => setDecades(toggleIn(decadesOn, d)),
         }))}
         showingLabel={`${shownTools} of ${tools.length} tools`}
-        onReset={() => { setCats(null); setLayers(null); setDecades(null); setQuery(''); setSelected(null); }}
+        onReset={() => { setCats(null); setLayers(null); setDecades(null); setQuery(''); closePanel(); }}
       />
 
       {/* Scrollable timeline */}
@@ -219,6 +227,13 @@ export default function Timeline() {
           {gridlines}
           {/* now line */}
           <div style={{ position: 'absolute', top: 0, bottom: 0, width: 0, left: GUTTER + nowLeft, borderLeft: '1px dashed #c3baac', zIndex: 1 }} />
+          {/* pinned year slice: a shaded ±1 window + a solid guide at the year */}
+          {selectedYear != null && (
+            <>
+              <div style={{ position: 'absolute', top: 0, bottom: 0, left: GUTTER + scale.x(selectedYear - 1), width: 3 * pxy, background: 'rgba(58,53,46,0.05)', zIndex: 2, pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', top: 0, bottom: 0, width: 2, left: GUTTER + scale.x(selectedYear + 0.5) - 1, background: '#3a352e', opacity: 0.5, zIndex: 4, pointerEvents: 'none' }} />
+            </>
+          )}
           {/* playhead: vertical guide following the cursor. Sits under the sticky
               axis (which paints over it), so it reads as starting below the axis. */}
           {playhead != null && (
@@ -228,7 +243,15 @@ export default function Timeline() {
           {/* Year axis (sticky top) */}
           <div style={{ position: 'sticky', top: 0, zIndex: 5, display: 'flex', height: 40, background: BG, borderBottom: '1px solid #e7e3dd' }}>
             <div style={{ position: 'sticky', left: 0, zIndex: 6, flex: 'none', width: GUTTER, background: BG, borderRight: '1px solid #e7e3dd' }} />
-            <div style={{ position: 'relative', flex: 'none', width: scale.timeWidth }}>
+            <div
+              title="Click to inspect this year"
+              onClick={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const yr = Math.floor(scale.yearAt(e.clientX - rect.left));
+                if (yr >= YMIN && yr <= YMAX) openYear(yr);
+              }}
+              style={{ position: 'relative', flex: 'none', width: scale.timeWidth, height: '100%', cursor: 'pointer' }}
+            >
               {ticks.map((t) => (
                 <span key={`tick-${t.yr}`} style={{
                   position: 'absolute', top: 13, left: t.left, transform: 'translateX(-50%)',
@@ -274,7 +297,7 @@ export default function Timeline() {
                 expanded={expanded.has(c.key)}
                 onToggle={() => setExpanded(toggleIn(expanded, c.key))}
                 toolDimmed={toolDimmed}
-                onSelect={setSelected}
+                onSelect={openTool}
                 selected={selected}
                 scale={scale}
               />
@@ -283,7 +306,11 @@ export default function Timeline() {
         </div>
       </div>
 
-      <ToolDetail tool={selected} onClose={() => setSelected(null)} />
+      {selected
+        ? <ToolDetail tool={selected} onClose={closePanel} />
+        : selectedYear != null
+          ? <YearDetail year={selectedYear} events={events} tools={tools} onClose={closePanel} onSelectTool={openTool} />
+          : null}
       </div>
       {aboutOpen && <About onClose={() => setAboutOpen(false)} />}
     </div>
