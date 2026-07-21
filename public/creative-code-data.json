@@ -46,6 +46,8 @@
       "category": "programming",
       "description": "Java-based creative coding language and environment",
       "releases": [
+        { "version": "Alpha (Proce55ing)", "dateString": "2001", "notes": "Casey Reas and Ben Fry begin Processing at the MIT Media Lab's Aesthetics + Computation Group, extending John Maeda's Design By Numbers. Early alpha releases circulated under the name 'Proce55ing'." },
+        { "version": "Beta", "dateString": "2005", "notes": "Public beta releases (revisions 0090+) circulated from 2005 ahead of the 1.0 launch." },
         { "version": "1.0 - Rev 0162", "dateString": "24 Nov 2008", "link": "https://raw.githubusercontent.com/processing/processing/master/build/shared/revisions.txt", "notes": "" },
         { "version": "1.0.1 - Rev 0163", "dateString": "29 November 2008", "notes": "" },
         { "version": "1.0.2 Rev 0164", "dateString": "21 February 2009", "notes": "" },
@@ -206,7 +208,7 @@
         { "version": "preRelease_v0.04", "dateString": "", "notes": "" },
         { "version": "preRelease_v0.05", "dateString": "", "notes": "" },
         { "version": "preRelease_v0.06", "dateString": "", "notes": "" },
-        { "version": "1.0", "dateString": "2005", "notes": "" },
+        { "version": "First public release", "dateString": "2005", "notes": "First workshop releases by Zach Lieberman, Theo Watson and Arturo Castro. oF has never had a 1.0 — the toolkit is still on the 0.x line; its official versions page dates v0.01 to 2007." },
         { "version": "preRelease_v0.01", "dateString": "March 2007", "link": "https://openframeworks.cc/versions/", "notes": "" },
         { "version": "preRelease_v0.061", "dateString": "11 February 2010", "notes": "" },
         { "version": "preRelease_v0.062", "dateString": "17 November 2010", "notes": "" },
