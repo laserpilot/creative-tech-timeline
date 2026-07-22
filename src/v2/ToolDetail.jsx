@@ -5,7 +5,7 @@ const fmt = (d) =>
     ? d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
     : '';
 
-export default function ToolDetail({ tool, onClose }) {
+export default function ToolDetail({ tool, onClose, mobile }) {
   if (!tool) return null;
 
   const releases = [...tool.releases].sort((a, b) => a.date - b.date);
@@ -13,8 +13,17 @@ export default function ToolDetail({ tool, onClose }) {
   const rangeStart = first ? first.getFullYear() : tool.startYear;
   const end = tool.discontinued ? tool.discontinued.getFullYear() : 'present';
 
+  const asideStyle = mobile
+    ? {
+        position: 'absolute', left: 0, right: 0, bottom: 0, zIndex: 50,
+        maxHeight: '75%', overflowY: 'auto', background: '#fff',
+        borderTop: '1px solid #e7e3dd', borderRadius: '14px 14px 0 0',
+        boxShadow: '0 -14px 34px -18px rgba(40,34,30,0.4)',
+      }
+    : { flex: 'none', width: 320, height: '100%', overflowY: 'auto', background: '#fff', borderLeft: '1px solid #e7e3dd', boxSizing: 'border-box', boxShadow: '-12px 0 32px -20px rgba(40,34,30,0.25)' };
+
   return (
-    <aside style={{ flex: 'none', width: 320, height: '100%', overflowY: 'auto', background: '#fff', borderLeft: '1px solid #e7e3dd', boxSizing: 'border-box', boxShadow: '-12px 0 32px -20px rgba(40,34,30,0.25)' }}>
+    <aside style={asideStyle}>
       <div style={{ padding: '16px 18px', borderBottom: '1px solid #ece8e1', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 1, background: '#fff' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <span style={{ width: 9, height: 9, borderRadius: 2, background: tool.color }} />

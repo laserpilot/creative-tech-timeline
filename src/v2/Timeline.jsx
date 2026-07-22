@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTimelineData } from './useTimelineData.js';
+import { useIsMobile } from './useIsMobile.js';
 import Sidebar from './Sidebar.jsx';
 import ToolDetail from './ToolDetail.jsx';
 import YearDetail from './YearDetail.jsx';
@@ -20,8 +21,19 @@ function toggleIn(set, key) {
   return next;
 }
 
+// On phones the desktop three-column layout collapses: the sidebar and detail
+// panel become overlays, the label gutter narrows, and the timeline opens
+// zoomed into a lively slice (the 2000s) rather than the whole 1960→now span.
+const MOBILE_GUTTER = 118;
+const MOBILE_PXY = 46;
+const MOBILE_START_YEAR = 2003;
+
 export default function Timeline() {
   const { loading, error, data } = useTimelineData();
+  const isMobile = useIsMobile();
+  const gutter = isMobile ? MOBILE_GUTTER : GUTTER;
+  const startYear = isMobile ? MOBILE_START_YEAR : VIEW_START;
+  const defaultPxy = isMobile ? MOBILE_PXY : DEFAULT_PXY;
 
   const [cats, setCats] = useState(null); // null = all on
   const [layers, setLayers] = useState(null);
@@ -31,8 +43,12 @@ export default function Timeline() {
   const [selected, setSelected] = useState(null);
   const [selectedYear, setSelectedYear] = useState(null);
   const [hoverEvent, setHoverEvent] = useState(null);
-  const [pxy, setPxy] = useState(DEFAULT_PXY);
+  const [pxy, setPxy] = useState(defaultPxy);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  // Driven off live `isMobile` (not latched at first render) so the hint still
+  // appears if the mobile breakpoint resolves a beat after mount.
+  const [hintDismissed, setHintDismissed] = useState(false);
   // Playhead: pointer X within the time region (px, gutter-relative), or null
   // when the cursor is over the label gutter or off the timeline.
   const [playhead, setPlayhead] = useState(null);
@@ -45,9 +61,19 @@ export default function Timeline() {
   const didInitScroll = useRef(false);
   useEffect(() => {
     if (didInitScroll.current || !scrollRef.current) return;
-    scrollRef.current.scrollLeft = (VIEW_START - YMIN) * pxy;
+    scrollRef.current.scrollLeft = (startYear - YMIN) * pxy;
     didInitScroll.current = true;
   });
+
+  // The mobile "swipe to explore" hint fades on its own after a few seconds
+  // (it also dismisses on the first touch of the timeline; see onPointerDown).
+  // The mobile "swipe to explore" hint fades on its own after a few seconds
+  // (it also dismisses on the first touch of the timeline; see onPointerDown).
+  useEffect(() => {
+    if (!isMobile || hintDismissed) return;
+    const t = setTimeout(() => setHintDismissed(true), 5000);
+    return () => clearTimeout(t);
+  }, [isMobile, hintDismissed]);
 
   // Zoom about the horizontal centre of the viewport so the year under the
   // middle of the screen stays put.
@@ -56,10 +82,10 @@ export default function Timeline() {
     if (next === pxy) return;
     const el = scrollRef.current;
     if (!el) { setPxy(next); return; }
-    const centerYear = YMIN + (el.scrollLeft + el.clientWidth / 2 - GUTTER) / pxy;
+    const centerYear = YMIN + (el.scrollLeft + el.clientWidth / 2 - gutter) / pxy;
     setPxy(next);
     requestAnimationFrame(() => {
-      el.scrollLeft = (centerYear - YMIN) * next - el.clientWidth / 2 + GUTTER;
+      el.scrollLeft = (centerYear - YMIN) * next - el.clientWidth / 2 + gutter;
     });
   };
 
@@ -119,7 +145,7 @@ export default function Timeline() {
   const visEvents = events.filter((e) => layersOn.has(e.layer));
   const eventsExpanded = expanded.has('events');
 
-  const innerWidth = GUTTER + scale.timeWidth;
+  const innerWidth = gutter + scale.timeWidth;
   const nowLeft = scale.x(NOW);
 
   // Track the pointer across the time region to drive the year playhead.
@@ -127,7 +153,7 @@ export default function Timeline() {
     const el = scrollRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    const timePx = e.clientX - rect.left + el.scrollLeft - GUTTER;
+    const timePx = e.clientX - rect.left + el.scrollLeft - gutter;
     setPlayhead(timePx >= 0 && timePx <= scale.timeWidth ? timePx : null);
   };
   const playheadYear = playhead != null ? Math.floor(scale.yearAt(playhead)) : null;
@@ -152,39 +178,48 @@ export default function Timeline() {
       key={`grid-${t.yr}`}
       style={{
         position: 'absolute', top: 0, bottom: 0, width: 1,
-        left: GUTTER + t.left, background: t.decade ? '#e7e2da' : '#f0ece5', zIndex: 0,
+        left: gutter + t.left, background: t.decade ? '#e7e2da' : '#f0ece5', zIndex: 0,
       }}
     />
   ));
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: BG, color: '#3a352e' }}>
-      <Disclaimer />
-      <header style={{ flex: 'none', display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 16, padding: '14px 20px', borderBottom: '1px solid #e7e3dd', background: BG }}>
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
-          <h1 style={{ fontSize: 17, fontWeight: 600, letterSpacing: '-0.01em', color: '#2c2822', margin: 0 }}>Creative Technology Timeline</h1>
-          <p style={{ fontSize: 12.5, color: '#8a8175', margin: 0 }}>Tools, in the context of the hardware, standards, AI, art &amp; communities around them.</p>
+      <Disclaimer isMobile={isMobile} />
+      <header style={{ flex: 'none', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: isMobile ? 8 : 16, padding: isMobile ? '8px 12px' : '14px 20px', borderBottom: '1px solid #e7e3dd', background: BG }}>
+        <div style={{ display: 'flex', alignItems: isMobile ? 'center' : 'baseline', gap: isMobile ? 8 : 12, flexWrap: 'wrap', minWidth: 0 }}>
+          {isMobile && (
+            <button
+              onClick={() => setFiltersOpen(true)}
+              aria-label="Open filters"
+              style={{ flex: 'none', display: 'flex', alignItems: 'center', gap: 5, fontSize: 12.5, color: '#6b6459', background: 'none', border: '1px solid #e0dbd3', borderRadius: 6, padding: '4px 9px', cursor: 'pointer' }}
+            ><span style={{ fontSize: 13, lineHeight: 1 }}>☰</span> Filters</button>
+          )}
+          <h1 style={{ fontSize: isMobile ? 14 : 17, fontWeight: 600, letterSpacing: '-0.01em', color: '#2c2822', margin: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{isMobile ? 'Creative Tech Timeline' : 'Creative Technology Timeline'}</h1>
+          {!isMobile && <p style={{ fontSize: 12.5, color: '#8a8175', margin: 0 }}>Tools, in the context of the hardware, standards, AI, art &amp; communities around them.</p>}
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 14, flex: 'none' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? 8 : 14, flex: 'none' }}>
           <button
             onClick={() => setAboutOpen(true)}
             style={{ fontSize: 12.5, color: '#6b6459', background: 'none', border: '1px solid #e0dbd3', borderRadius: 6, padding: '3px 11px', cursor: 'pointer' }}
             onMouseEnter={(e) => { e.currentTarget.style.background = '#f1ede5'; e.currentTarget.style.color = '#2c2822'; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = 'none'; e.currentTarget.style.color = '#6b6459'; }}
           >About</button>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ fontFamily: MONO, fontSize: 11, color: '#a49a8d' }}>{YMIN}</span>
-            <span style={{ width: 60, height: 1, background: '#d8d2ca' }} />
-            <span style={{ fontFamily: MONO, fontSize: 11, color: '#a49a8d' }}>{Math.floor(NOW)}</span>
-          </div>
+          {!isMobile && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontFamily: MONO, fontSize: 11, color: '#a49a8d' }}>{YMIN}</span>
+              <span style={{ width: 60, height: 1, background: '#d8d2ca' }} />
+              <span style={{ fontFamily: MONO, fontSize: 11, color: '#a49a8d' }}>{Math.floor(NOW)}</span>
+            </div>
+          )}
           <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
             <ZoomButton label="−" title="Zoom out" disabled={pxy <= ZOOM_MIN} onClick={() => zoomBy(1 / ZOOM_STEP)} />
             <ZoomButton label="+" title="Zoom in" disabled={pxy >= ZOOM_MAX} onClick={() => zoomBy(ZOOM_STEP)} />
             <button
               onClick={() => {
-                setPxy(DEFAULT_PXY);
+                setPxy(defaultPxy);
                 requestAnimationFrame(() => {
-                  if (scrollRef.current) scrollRef.current.scrollLeft = (VIEW_START - YMIN) * DEFAULT_PXY;
+                  if (scrollRef.current) scrollRef.current.scrollLeft = (startYear - YMIN) * defaultPxy;
                 });
               }}
               title="Reset zoom and view"
@@ -193,8 +228,18 @@ export default function Timeline() {
           </div>
         </div>
       </header>
-      <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
+      <div style={{ display: 'flex', flex: 1, minHeight: 0, position: 'relative' }}>
+      {/* Sidebar: an inline column on desktop; a slide-in drawer on mobile. */}
+      {isMobile && filtersOpen && (
+        <div
+          onClick={() => setFiltersOpen(false)}
+          style={{ position: 'absolute', inset: 0, background: 'rgba(40,34,30,0.35)', zIndex: 40 }}
+        />
+      )}
+      {(!isMobile || filtersOpen) && (
       <Sidebar
+        mobile={isMobile}
+        onClose={isMobile ? () => setFiltersOpen(false) : null}
         query={query}
         onSearch={setQuery}
         categories={CATEGORY_ORDER.map((c) => ({
@@ -215,34 +260,36 @@ export default function Timeline() {
         showingLabel={`${shownTools} of ${tools.length} tools`}
         onReset={() => { setCats(null); setLayers(null); setDecades(null); setQuery(''); closePanel(); }}
       />
+      )}
 
       {/* Scrollable timeline */}
       <div
         ref={scrollRef}
         onMouseMove={onTimelineMove}
         onMouseLeave={() => setPlayhead(null)}
+        onPointerDown={() => { if (!hintDismissed) setHintDismissed(true); }}
         style={{ flex: 1, overflow: 'auto', position: 'relative' }}
       >
         <div style={{ position: 'relative', minWidth: innerWidth }}>
           {gridlines}
           {/* now line */}
-          <div style={{ position: 'absolute', top: 0, bottom: 0, width: 0, left: GUTTER + nowLeft, borderLeft: '1px dashed #c3baac', zIndex: 1 }} />
+          <div style={{ position: 'absolute', top: 0, bottom: 0, width: 0, left: gutter + nowLeft, borderLeft: '1px dashed #c3baac', zIndex: 1 }} />
           {/* pinned year slice: a shaded ±1 window + a solid guide at the year */}
           {selectedYear != null && (
             <>
-              <div style={{ position: 'absolute', top: 0, bottom: 0, left: GUTTER + scale.x(selectedYear - 1), width: 3 * pxy, background: 'rgba(58,53,46,0.05)', zIndex: 2, pointerEvents: 'none' }} />
-              <div style={{ position: 'absolute', top: 0, bottom: 0, width: 2, left: GUTTER + scale.x(selectedYear + 0.5) - 1, background: '#3a352e', opacity: 0.5, zIndex: 4, pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', top: 0, bottom: 0, left: gutter + scale.x(selectedYear - 1), width: 3 * pxy, background: 'rgba(58,53,46,0.05)', zIndex: 2, pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', top: 0, bottom: 0, width: 2, left: gutter + scale.x(selectedYear + 0.5) - 1, background: '#3a352e', opacity: 0.5, zIndex: 4, pointerEvents: 'none' }} />
             </>
           )}
           {/* playhead: vertical guide following the cursor. Sits under the sticky
               axis (which paints over it), so it reads as starting below the axis. */}
           {playhead != null && (
-            <div style={{ position: 'absolute', top: 0, bottom: 0, width: 1, left: GUTTER + playhead, background: '#3a352e', opacity: 0.3, zIndex: 4, pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', top: 0, bottom: 0, width: 1, left: gutter + playhead, background: '#3a352e', opacity: 0.3, zIndex: 4, pointerEvents: 'none' }} />
           )}
 
           {/* Year axis (sticky top) */}
           <div style={{ position: 'sticky', top: 0, zIndex: 5, display: 'flex', height: 40, background: BG, borderBottom: '1px solid #e7e3dd' }}>
-            <div style={{ position: 'sticky', left: 0, zIndex: 6, flex: 'none', width: GUTTER, background: BG, borderRight: '1px solid #e7e3dd' }} />
+            <div style={{ position: 'sticky', left: 0, zIndex: 6, flex: 'none', width: gutter, background: BG, borderRight: '1px solid #e7e3dd' }} />
             <div
               title="Click to inspect this year"
               onClick={(e) => {
@@ -282,6 +329,7 @@ export default function Timeline() {
             hoverEvent={hoverEvent}
             setHoverEvent={setHoverEvent}
             scale={scale}
+            gutter={gutter}
           />
 
           {/* Category lanes */}
@@ -300,17 +348,31 @@ export default function Timeline() {
                 onSelect={openTool}
                 selected={selected}
                 scale={scale}
+                gutter={gutter}
               />
             );
           })}
         </div>
       </div>
 
+      {/* Detail panel: an inline column on desktop; a bottom sheet on mobile. */}
+      {isMobile && (selected || selectedYear != null) && (
+        <div onClick={closePanel} style={{ position: 'absolute', inset: 0, background: 'rgba(40,34,30,0.35)', zIndex: 45 }} />
+      )}
       {selected
-        ? <ToolDetail tool={selected} onClose={closePanel} />
+        ? <ToolDetail mobile={isMobile} tool={selected} onClose={closePanel} />
         : selectedYear != null
-          ? <YearDetail year={selectedYear} events={events} tools={tools} onClose={closePanel} onSelectTool={openTool} />
+          ? <YearDetail mobile={isMobile} year={selectedYear} events={events} tools={tools} onClose={closePanel} onSelectTool={openTool} />
           : null}
+
+      {isMobile && !hintDismissed && !filtersOpen && !selected && selectedYear == null && (
+        <div style={{
+          position: 'absolute', bottom: 16, left: '50%', transform: 'translateX(-50%)', zIndex: 30,
+          display: 'flex', alignItems: 'center', gap: 6, pointerEvents: 'none',
+          background: 'rgba(38,34,30,0.9)', color: '#f7f6f4', fontFamily: MONO, fontSize: 11,
+          padding: '6px 13px', borderRadius: 20, boxShadow: '0 6px 20px -8px rgba(40,34,30,0.6)', whiteSpace: 'nowrap',
+        }}>← drag to explore the timeline →</div>
+      )}
       </div>
       {aboutOpen && <About onClose={() => setAboutOpen(false)} />}
     </div>
@@ -336,14 +398,14 @@ function ZoomButton({ label, title, onClick, disabled }) {
 }
 
 // ---------- Events lane ----------
-function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEvents, hoverEvent, setHoverEvent, scale }) {
+function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEvents, hoverEvent, setHoverEvent, scale, gutter }) {
   const { xDate } = scale;
   const height = expanded ? EVH + activeLayers.length * EVR + 10 : 38;
   const hovered = hoverEvent != null ? visEvents[hoverEvent] : null;
 
   return (
     <div style={{ display: 'flex', borderBottom: '1px solid #ece8e1', background: 'rgba(247,246,244,0.4)' }}>
-      <div style={{ position: 'sticky', left: 0, zIndex: 3, flex: 'none', width: GUTTER, background: BG, borderRight: '1px solid #e7e3dd' }}>
+      <div style={{ position: 'sticky', left: 0, zIndex: 3, flex: 'none', width: gutter, background: BG, borderRight: '1px solid #e7e3dd' }}>
         <div onClick={onToggle} style={{ display: 'flex', alignItems: 'center', gap: 8, height: 38, padding: '0 12px 0 14px', cursor: 'pointer' }}>
           <span style={{ display: 'inline-block', color: '#b4a99b', fontSize: 14, transform: expanded ? 'rotate(90deg)' : 'none', transition: 'transform 0.15s' }}>›</span>
           <span style={{ flex: 1, fontSize: 12, fontWeight: 600, color: '#6b6459' }}>Context &amp; events</span>
@@ -440,7 +502,7 @@ const fmtDate = (d) =>
     : '';
 
 // ---------- Category lane ----------
-function Lane({ cat, tools, expanded, onToggle, toolDimmed, onSelect, selected, scale }) {
+function Lane({ cat, tools, expanded, onToggle, toolDimmed, onSelect, selected, scale, gutter }) {
   const { x, xDate } = scale;
   // Hovering a release dot describes that release; hovering the rest of the row
   // describes the tool. The dot wins while the pointer is actually over it.
@@ -452,7 +514,7 @@ function Lane({ cat, tools, expanded, onToggle, toolDimmed, onSelect, selected, 
   return (
     <div style={{ display: 'flex', borderBottom: '1px solid #ece8e1' }}>
       {/* gutter */}
-      <div style={{ position: 'sticky', left: 0, zIndex: 3, flex: 'none', width: GUTTER, background: '#fbfaf8', borderRight: '1px solid #e7e3dd' }}>
+      <div style={{ position: 'sticky', left: 0, zIndex: 3, flex: 'none', width: gutter, background: '#fbfaf8', borderRight: '1px solid #e7e3dd' }}>
         <div onClick={onToggle} style={{ display: 'flex', alignItems: 'center', gap: 8, height: LANE_HEADER, padding: '0 12px 0 14px', cursor: 'pointer' }}>
           <span style={{ display: 'inline-block', color: '#b4a99b', fontSize: 14, transform: expanded ? 'rotate(90deg)' : 'none', transition: 'transform 0.15s' }}>›</span>
           <span style={{ width: 10, height: 10, borderRadius: 3, flex: 'none', background: cat.color }} />
