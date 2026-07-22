@@ -6,9 +6,9 @@
       "description": "Consumer and creative-tech hardware that shifted what artists could build"
     },
     "web-standards": {
-      "name": "Web Standards",
+      "name": "Standards & Formats",
       "color": "#3a7ae8",
-      "description": "Browser APIs and graphics standards that enabled new web-native creative work"
+      "description": "Graphics, audio and video standards and formats — on the web and in native creative-tech apps — that enabled new work and let tools interoperate"
     },
     "ai-ml": {
       "name": "AI / ML",
@@ -1147,6 +1147,257 @@
       "layer": "hardware",
       "description": "First self-contained (untethered) holographic AR headset with spatial mapping, opening room-scale mixed-reality work to developers and artists.",
       "link": "https://blogs.windows.com/devices/2016/02/29/announcing-microsoft-hololens-development-edition-open-for-pre-order-shipping-march-30/"
+    },
+
+    {
+      "id": "amiga-1000",
+      "title": "Commodore Amiga 1000",
+      "date": "1985-07-23",
+      "layer": "hardware",
+      "description": "Multimedia home computer with custom chips for color graphics and audio. Its genlock and video capabilities made it the foundation for desktop video, the demoscene, and a generation of moving-image art.",
+      "link": "https://en.wikipedia.org/wiki/Amiga_1000"
+    },
+    {
+      "id": "power-glove",
+      "title": "Mattel Power Glove",
+      "date": "1989-10",
+      "layer": "hardware",
+      "description": "Wearable NES controller reading hand position and finger bend. A commercial flop but an icon of early consumer gestural input, endlessly hacked by artists and hobbyists.",
+      "link": "https://en.wikipedia.org/wiki/Power_Glove"
+    },
+    {
+      "id": "video-toaster",
+      "title": "NewTek Video Toaster",
+      "date": "1990-12",
+      "layer": "hardware",
+      "description": "Amiga-based video production suite that brought broadcast switching, effects, and 3D rendering (via LightWave) to the desktop — putting TV-grade tools in independent hands.",
+      "link": "https://en.wikipedia.org/wiki/Video_Toaster"
+    },
+    {
+      "id": "voodoo-graphics",
+      "title": "3dfx Voodoo Graphics",
+      "date": "1996",
+      "layer": "hardware",
+      "description": "Add-on 3D accelerator that popularized real-time consumer 3D graphics — the start of the consumer GPU era that every shader-based creative tool would come to depend on.",
+      "link": "https://en.wikipedia.org/wiki/3dfx_Interactive"
+    },
+    {
+      "id": "geforce-256",
+      "title": "NVIDIA GeForce 256",
+      "date": "1999-10-11",
+      "layer": "hardware",
+      "description": "Marketed as 'the world's first GPU,' it moved transform and lighting onto the graphics card — the consumer lineage behind hardware shaders and real-time creative graphics.",
+      "link": "https://en.wikipedia.org/wiki/GeForce_256"
+    },
+    {
+      "id": "intel-realsense",
+      "title": "Intel RealSense",
+      "date": "2015",
+      "layer": "hardware",
+      "description": "Compact depth-sensing cameras that carried the post-Kinect torch for computer vision — widely used in interactive installations, 3D scanning, and gesture work.",
+      "link": "https://en.wikipedia.org/wiki/Intel_RealSense"
+    },
+    {
+      "id": "looking-glass",
+      "title": "Looking Glass holographic display",
+      "date": "2018-07-24",
+      "layer": "hardware",
+      "description": "Light-field desktop display showing glasses-free 3D. Gave digital artists a native way to present volumetric and holographic work.",
+      "link": "https://www.kickstarter.com/projects/lookingglass/the-looking-glass-a-holographic-display-for-3d-cre"
+    },
+    {
+      "id": "jetson-nano",
+      "title": "NVIDIA Jetson Nano",
+      "date": "2019-03-18",
+      "layer": "hardware",
+      "description": "$99 embedded AI computer that put on-device machine learning — vision, generative models, real-time inference — within reach of artists and makers.",
+      "link": "https://nvidianews.nvidia.com/news/nvidia-announces-jetson-nano-99-tiny-yet-mighty-nvidia-cuda-x-ai-computer-that-runs-all-ai-models"
+    },
+    {
+      "id": "azure-kinect",
+      "title": "Microsoft Azure Kinect DK ships",
+      "date": "2019-07-11",
+      "layer": "hardware",
+      "description": "The Kinect lineage returns as a developer depth + RGB + IMU sensor with cloud AI and body tracking — again a workhorse for installation and performance work.",
+      "link": "https://en.wikipedia.org/wiki/Azure_Kinect"
+    },
+    {
+      "id": "ipad-lidar",
+      "title": "iPad Pro LiDAR Scanner",
+      "date": "2020-03-18",
+      "layer": "hardware",
+      "description": "Consumer LiDAR depth sensor built into the iPad Pro, democratizing AR, room scanning, and 3D/photogrammetry capture.",
+      "link": "https://www.apple.com/newsroom/2020/03/apple-unveils-new-ipad-pro-with-lidar-scanner-and-trackpad-support-in-ipados/"
+    },
+    {
+      "id": "quest-3",
+      "title": "Meta Quest 3",
+      "date": "2023-10-10",
+      "layer": "hardware",
+      "description": "Mainstream mixed-reality headset with color passthrough, widely adopted for immersive and interactive creative work.",
+      "link": "https://en.wikipedia.org/wiki/Meta_Quest_3"
+    },
+
+    {
+      "id": "html-canvas",
+      "title": "HTML <canvas> element",
+      "date": "2004",
+      "layer": "web-standards",
+      "description": "Scriptable 2D drawing surface introduced by Apple in WebKit and later adopted into HTML5. The core render target for browser-based generative art, Processing.js, and p5.js — and, via its WebGL/WebGPU contexts, for GPU graphics too.",
+      "link": "https://en.wikipedia.org/wiki/Canvas_element"
+    },
+    {
+      "id": "svg-1-0",
+      "title": "SVG 1.0 (W3C Recommendation)",
+      "date": "2001-09-04",
+      "layer": "web-standards",
+      "description": "XML vector-graphics standard bringing resolution-independent, scriptable graphics to the web — the substrate for d3 and much data-driven and generative work.",
+      "link": "https://www.w3.org/TR/2001/REC-SVG-20010904/"
+    },
+    {
+      "id": "web-audio-api",
+      "title": "Web Audio API",
+      "date": "2011-12-15",
+      "layer": "web-standards",
+      "description": "JavaScript audio routing and synthesis graph that enabled serious in-browser sound, music, and audio-visual work. First public working draft December 2011.",
+      "link": "https://www.w3.org/TR/webaudio/"
+    },
+    {
+      "id": "web-midi-api",
+      "title": "Web MIDI API in browsers",
+      "date": "2015",
+      "layer": "web-standards",
+      "description": "Browser MIDI input/output connecting web apps to instruments and controllers. Drafted in 2012, it reached users when Chrome shipped support in 2015.",
+      "link": "https://www.w3.org/TR/webmidi/"
+    },
+    {
+      "id": "syphon",
+      "title": "Syphon",
+      "date": "2010-11",
+      "layer": "web-standards",
+      "description": "macOS framework for sharing GPU video frames between applications in real time. By Tom Butterworth and Anton Marini (vade), it let openFrameworks, Processing, VDMX, MadMapper, and Quartz Composer feed one another live.",
+      "link": "https://syphon.info/"
+    },
+    {
+      "id": "hap-codec",
+      "title": "HAP video codec",
+      "date": "2012",
+      "layer": "web-standards",
+      "description": "Family of open, GPU-accelerated video codecs by Tom Butterworth for smooth playback of many high-resolution clips at once — a staple of VJ and media-server workflows.",
+      "link": "https://hap.video/"
+    },
+    {
+      "id": "isf",
+      "title": "ISF (Interactive Shader Format)",
+      "date": "2018",
+      "layer": "web-standards",
+      "description": "VIDVOX spec that wraps GLSL shaders with metadata and UI controls, making shaders portable across creative apps like VDMX and MadMapper. Debuted as a VDMX feature in 2013; published as an open, documented spec in 2018.",
+      "link": "https://github.com/Vidvox/isf"
+    },
+    {
+      "id": "midi",
+      "title": "MIDI 1.0",
+      "date": "1983",
+      "layer": "web-standards",
+      "description": "Musical Instrument Digital Interface — the hardware-and-protocol standard letting synthesizers, sequencers, and computers talk. Four decades on, still the backbone of computer music and much interactive and AV control.",
+      "link": "https://en.wikipedia.org/wiki/MIDI"
+    },
+    {
+      "id": "osc",
+      "title": "Open Sound Control (OSC)",
+      "date": "1997",
+      "layer": "web-standards",
+      "description": "Network protocol from CNMAT (Matt Wright and Adrian Freed) for high-resolution control messaging between sound and media tools. Introduced in 1997; spec 1.0 in 2002. The lingua franca linking Max, Processing, TouchDesigner, and countless installations.",
+      "link": "https://en.wikipedia.org/wiki/Open_Sound_Control"
+    },
+    {
+      "id": "spout",
+      "title": "Spout",
+      "date": "2014",
+      "layer": "web-standards",
+      "description": "The Windows counterpart to Syphon, by Lynn Jarvis — real-time GPU frame sharing between applications (Resolume, TouchDesigner, VVVV, openFrameworks, Processing) on Windows.",
+      "link": "https://github.com/leadedge/Spout2"
+    },
+    {
+      "id": "ndi",
+      "title": "NDI (Network Device Interface)",
+      "date": "2015-09",
+      "layer": "web-standards",
+      "description": "NewTek's royalty-free protocol for sending high-quality video between devices and apps over standard networks. Announced at IBC 2015, public in 2016; now ubiquitous in live production, projection, and installation setups.",
+      "link": "https://en.wikipedia.org/wiki/Network_Device_Interface"
+    },
+
+    {
+      "id": "openprocessing",
+      "title": "OpenProcessing",
+      "date": "2008-03",
+      "layer": "platforms",
+      "description": "Community site for sharing and running Processing (and later p5.js) sketches in the browser — a central gathering place and teaching resource for creative coders.",
+      "link": "https://openprocessing.org/"
+    },
+    {
+      "id": "npm-registry",
+      "title": "npm registry",
+      "date": "2010-01-12",
+      "layer": "platforms",
+      "description": "The Node.js package registry that became the dominant way JavaScript creative libraries — three.js, p5.js, d3 — are distributed and installed.",
+      "link": "https://en.wikipedia.org/wiki/Npm"
+    },
+    {
+      "id": "codepen",
+      "title": "CodePen",
+      "date": "2012-06-18",
+      "layer": "platforms",
+      "description": "Browser-based front-end playground for sharing HTML/CSS/JS experiments; home to a huge amount of casual generative and interactive work.",
+      "link": "https://en.wikipedia.org/wiki/CodePen"
+    },
+    {
+      "id": "shadertoy",
+      "title": "Shadertoy",
+      "date": "2013",
+      "layer": "platforms",
+      "description": "WebGL community by Íñigo Quílez and Pol Jeremias for writing and sharing fragment shaders in the browser — effectively its own creative-coding scene.",
+      "link": "https://en.wikipedia.org/wiki/Shadertoy"
+    },
+    {
+      "id": "itch-io",
+      "title": "itch.io",
+      "date": "2013-03-03",
+      "layer": "platforms",
+      "description": "Open, pay-what-you-want marketplace for indie games and experimental creative tools and digital projects.",
+      "link": "https://en.wikipedia.org/wiki/Itch.io"
+    },
+    {
+      "id": "arena",
+      "title": "Are.na",
+      "date": "2014-07",
+      "layer": "platforms",
+      "description": "Minimalist visual-research network for connecting images, links, and ideas into channels. Prototyped in the early 2010s and publicly launched in 2014; beloved among artists.",
+      "link": "https://en.wikipedia.org/wiki/Are.na"
+    },
+    {
+      "id": "glitch-gomix",
+      "title": "Glitch (launched as Gomix)",
+      "date": "2016-12-06",
+      "layer": "platforms",
+      "description": "Browser IDE for instantly building and remixing live web apps. Launched by Fog Creek as Gomix in 2016, renamed Glitch in 2017; lowered the barrier to creative web coding.",
+      "link": "https://en.wikipedia.org/wiki/Glitch,_Inc."
+    },
+    {
+      "id": "observable",
+      "title": "Observable",
+      "date": "2018-01",
+      "layer": "platforms",
+      "description": "Reactive JavaScript notebooks by D3 creator Mike Bostock, built for interactive data visualization and explorable explanations.",
+      "link": "https://en.wikipedia.org/wiki/Mike_Bostock"
+    },
+    {
+      "id": "tumblr",
+      "title": "Tumblr",
+      "date": "2007-02-19",
+      "layer": "platforms",
+      "description": "Visual microblogging platform that became home to a sprawling net-art, GIF, and creative-coding community — where blogs like Prosthetic Knowledge circulated the field's work.",
+      "link": "https://en.wikipedia.org/wiki/Tumblr"
     }
   ]
 }

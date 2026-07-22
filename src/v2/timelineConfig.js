@@ -40,7 +40,7 @@ export const CATEGORY_ORDER = [
 // Context-layer display order + palette (keys match events.json layers).
 export const LAYER_ORDER = [
   { key: 'hardware', name: 'Hardware', color: '#e8833a' },
-  { key: 'web-standards', name: 'Web Standards', color: '#3a7ae8' },
+  { key: 'web-standards', name: 'Standards & Formats', color: '#3a7ae8' },
   { key: 'ai-ml', name: 'AI / ML', color: '#9b5de5' },
   { key: 'artworks', name: 'Landmark Artworks', color: '#e5476b' },
   { key: 'institutions', name: 'Institutions', color: '#2ea36b' },

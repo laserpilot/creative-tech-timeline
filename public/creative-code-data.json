@@ -78,7 +78,7 @@
       ]
     },
     "P5.js": {
-      "category": "web",
+      "category": "programming",
       "description": "JavaScript library for creative coding on the web, created by Lauren McCarthy (with Evelyn Eastmond) beginning in 2013 as a reimagining of Processing for the browser, with access and inclusion held as core design goals. First public beta 2014; version 1.0 in 2020.",
       "releases": [
         { "version": "0.2.22", "dateString": "21 July 2014", "link": "https://github.com/processing/p5.js/releases?after=0.3.4", "notes": "Preliminary Alpha Release" },
