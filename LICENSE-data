@@ -1,0 +1,27 @@
+Data & Content License — CC BY 4.0
+
+The datasets and written content in this repository are licensed under the
+Creative Commons Attribution 4.0 International License (CC BY 4.0). This covers:
+
+  - public/creative-code-data.json   (tools and releases)
+  - public/events.json               (context events)
+  - the timeline descriptions and curation therein
+  - the documentation in docs/
+
+You are free to share (copy and redistribute) and adapt (remix, transform, and
+build upon) this material for any purpose, including commercially, provided you
+give appropriate credit, link to the license, and indicate if changes were made.
+
+  Human-readable summary:  https://creativecommons.org/licenses/by/4.0/
+  Full legal code:         https://creativecommons.org/licenses/by/4.0/legalcode
+
+Suggested attribution:
+
+  "Creative Technology Timeline" by Blair Neal
+  (https://github.com/laserpilot/creative-tech-timeline), licensed under CC BY 4.0.
+
+Scope: This license covers the original data, curation, and descriptions in this
+repository. It does not extend to third-party works that the timeline links to or
+cites — those remain under their own terms and belong to their respective owners.
+The application source code is licensed separately under the MIT License (see
+LICENSE).
