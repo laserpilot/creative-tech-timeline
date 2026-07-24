@@ -42,6 +42,25 @@
     }
   },
   "tools": {
+    "ARToolKit": {
+      "category": "creative-libraries",
+      "description": "Marker-based augmented reality tracking library — the ancestor of consumer AR",
+      "link": "https://en.wikipedia.org/wiki/ARToolKit",
+      "releases": [
+        { "version": "1.0", "dateString": "1999", "notes": "Developed by Hirokazu Kato (Japan) with Mark Billinghurst at the HIT Lab. Square-marker camera tracking made AR possible on ordinary PCs and webcams.", "major": true },
+        { "version": "Open source release", "dateString": "2001", "notes": "Open-sourced via the HIT Lab, becoming the foundation for a decade of AR research and art projects." },
+        { "version": "FLARToolKit", "dateString": "2008", "notes": "Saqoosha's ActionScript 3 port brought marker-based AR into the browser via Flash, powering the late-2000s wave of web AR campaigns — a landmark of the Japanese Flash community." }
+      ]
+    },
+    "VOCALOID": {
+      "category": "audio-visual",
+      "description": "Yamaha's singing-voice synthesizer, catalyst of a massive UGC music culture",
+      "link": "https://en.wikipedia.org/wiki/Vocaloid",
+      "releases": [
+        { "version": "VOCALOID (Leon & Lola)", "dateString": "2004-01", "notes": "First commercial releases of Yamaha's singing synthesis engine.", "major": true },
+        { "version": "Hatsune Miku (VOCALOID2)", "dateString": "2007-08-31", "notes": "Crypton Future Media's character voicebank triggered an unprecedented wave of user-generated music, animation (MikuMikuDance), and live concerts by a virtual performer — arguably the largest collaborative creative-tech phenomenon to emerge from Japan.", "major": true }
+      ]
+    },
     "Processing": {
       "category": "programming",
       "description": "Java-based creative coding language and environment",

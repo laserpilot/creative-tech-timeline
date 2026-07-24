@@ -442,6 +442,14 @@ being the entry's canonical `link`. Primary sources are marked **P**.
 | Processing Foundation | **P** https://processingfoundation.org/ · **P** https://medium.com/processing-foundation/a-modern-prometheus-59aed94abe85 (501(c)(3) 2012; Reas, Fry, Shiffman) |
 | bitforms gallery | **P** https://www.bitforms.art/about (founded Nov 2001, NYC) · https://en.wikipedia.org/wiki/Bitforms_gallery · https://www.niio.com/blog/steven-sacks-20-years/ (founder Steven Sacks) |
 | TRANSFER gallery | **P** https://transfergallery.com/about/ (founded 2013, Brooklyn, by Kelani Nichole) |
+| IAMAS (Ogaki, Gifu) | **P** https://www.iamas.ac.jp/en/ (grad school, opened Apr 1996) — *contributed by Qanta Shimizu (BASSDRUM)* |
+| Japan Media Arts Festival | https://en.wikipedia.org/wiki/Japan_Media_Arts_Festival (Agency for Cultural Affairs; 1997–2022, 25 editions) — *contributed by Qanta Shimizu (BASSDRUM)* |
+| Maywa Denki | **P** https://www.maywadenki.com/ (art unit formed 1993, Novmichi Tosa) — *contributed by Qanta Shimizu (BASSDRUM)* |
+| teamLab founded | **P** https://www.teamlab.art/ (collective founded Mar 2001, Toshiyuki Inoko; distinct from the 2018 Borderless node) — *contributed by Qanta Shimizu (BASSDRUM)* |
+| Rhizomatiks founded | **P** https://rhizomatiks.com/en/ (studio founded 2006; Saito, Manabe, Ishibashi) — *contributed by Qanta Shimizu (BASSDRUM)* |
+| First SIGGRAPH Asia | **P** https://asia.siggraph.org/ (first edition Singapore, Dec 2008) — *contributed by Qanta Shimizu (BASSDRUM)* |
+| Media Ambition Tokyo | **P** https://mediaambitiontokyo.jp/en/ (city-wide showcase, begun Feb 2013) — *contributed by Qanta Shimizu (BASSDRUM)* |
+| openFrameworks Developers Conference at YCAM | https://forum.openframeworks.cc/t/openframeworks-developers-conference-ycam-aug-7-14/12605 (3rd oF devcon, YCAM InterLab, Yamaguchi, Aug 7–14 2012) · **P** https://github.com/YCAMInterlab (Guest Research Projects → ProCamToolkit/mapamok, RAM Dance Toolkit). Distinct from the 2003 YCAM-opens node. |
 
 ### Events — artworks
 | Entry | Sources |
@@ -462,6 +470,9 @@ being the entry's canonical `link`. Primary sources are marked **P**.
 | Morehshin Allahyari — Material Speculation: ISIS | **P** https://morehshin.com/material-speculation-isis/ · https://anthology.rhizome.org/material-speculation-isis · full-series debut Toronto 11 Feb 2016 (research from 2015) |
 | American Artist — Black Gooey Universe | **P** https://housing-art.info/black-gooey-universe/ (HOUSING, Brooklyn, 26 Jan–16 Feb 2018) · https://hyperallergic.com/425881/american-artist-black-gooey-universe-housing/ |
 | Sondra Perry — Typhoon coming on | **P** https://www.serpentinegalleries.org/whats-on/sondra-perry-typhoon-coming-on/ (Serpentine, 6 Mar–20 May 2018) · **P** https://sondraperry.com/Typhoon-coming-on-at-Serpentine-Sackler-Gallery |
+| Dumb Type — S/N | https://en.wikipedia.org/wiki/Dumb_Type (Kyoto collective, S/N 1994; Ryoji Ikeda involvement) — *contributed by Qanta Shimizu (BASSDRUM)* |
+| Daito Manabe — electric stimulus to face | **P** https://daito.ws/en/work/electricstimulustoface.html (2008) — *contributed by Qanta Shimizu (BASSDRUM)* |
+| Perfume Global Site Project — open motion data | https://en.wikipedia.org/wiki/Perfume_(Japanese_band) (Rhizomatiks/Manabe released mocap data for remixing, Mar 2012) — *contributed by Qanta Shimizu (BASSDRUM)* |
 
 ### Events — publications
 | Entry | Sources |
@@ -481,6 +492,14 @@ being the entry's canonical `link`. Primary sources are marked **P**.
 | Vimeo | https://en.wikipedia.org/wiki/Vimeo (founded 2004-11-14; public launch 2004-12-15) |
 | YouTube | https://en.wikipedia.org/wiki/History_of_YouTube (domain 2005-02-14; public beta 2005-04-23; out of beta 2005-12-15) |
 | GitHub | https://en.wikipedia.org/wiki/GitHub (dev began 2007-10-19; company founded 2008-02-08; public launch 2008-04-10) |
+| Niconico (Nico Nico Douga) | https://en.wikipedia.org/wiki/Niconico (launched 2006-12-12; comment-overlay video, VOCALOID/MMD remix culture) — *contributed by Qanta Shimizu (BASSDRUM)* |
+| wonderfl build flash online | https://en.wikipedia.org/wiki/Wonderfl (Kayac browser AS3 community; Dec 2008 – Mar 2017) — *contributed by Qanta Shimizu (BASSDRUM)* |
+
+### Tools — Japan additions (contributed by Qanta Shimizu / BASSDRUM)
+| Entry | Sources |
+|---|---|
+| ARToolKit (`creative-libraries`) | https://en.wikipedia.org/wiki/ARToolKit (Hirokazu Kato + Mark Billinghurst, HIT Lab, 1999; open-sourced 2001; Saqoosha's FLARToolKit AS3 port 2008) |
+| VOCALOID (`audio-visual`) | https://en.wikipedia.org/wiki/Vocaloid (Yamaha singing synth, Leon/Lola 2004; Hatsune Miku / VOCALOID2, Crypton, 2007-08-31) |
 
 ---
 

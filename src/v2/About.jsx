@@ -108,6 +108,16 @@ export default function About({ onClose }) {
         </P>
 
         <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#a49a8d', margin: '4px 0 12px' }}>
+          Contributions
+        </div>
+        <ul style={{ margin: '0 0 6px', padding: 0, listStyle: 'none' }}>
+          <li>
+            <A href="https://bassdrum.org/">Qanta Shimizu (BASSDRUM)</A>
+            <span style={{ fontSize: 13, color: '#6b6459' }}>. A Japan and Tokyo perspective: events, tools, and context including IAMAS, teamLab, Rhizomatiks, Maywa Denki, VOCALOID, and ARToolKit.</span>
+          </li>
+        </ul>
+
+        <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#a49a8d', margin: '4px 0 12px' }}>
           Related
         </div>
         <ul style={{ margin: '0 0 6px', padding: 0, listStyle: 'none' }}>

@@ -1398,6 +1398,117 @@
       "layer": "platforms",
       "description": "Visual microblogging platform that became home to a sprawling net-art, GIF, and creative-coding community — where blogs like Prosthetic Knowledge circulated the field's work.",
       "link": "https://en.wikipedia.org/wiki/Tumblr"
+    },
+    {
+      "id": "iamas-founded",
+      "title": "IAMAS founded (Ogaki, Gifu)",
+      "date": "1996-04",
+      "layer": "institutions",
+      "description": "Institute of Advanced Media Arts and Sciences — Japan's counterpart to ITP. A small graduate school in Gifu prefecture that trained a generation of Japanese media artists, device-art makers, and creative technologists.",
+      "link": "https://www.iamas.ac.jp/en/"
+    },
+    {
+      "id": "japan-media-arts-festival",
+      "title": "Japan Media Arts Festival begins",
+      "date": "1997",
+      "end": "2022",
+      "layer": "institutions",
+      "description": "Annual festival run by Japan's Agency for Cultural Affairs, spanning art, entertainment, animation, and manga. For 25 years it was the main national showcase and archive for Japanese media art, awarding early work by teamLab, Rhizomatiks, and many others. Discontinued after its 25th edition.",
+      "link": "https://en.wikipedia.org/wiki/Japan_Media_Arts_Festival"
+    },
+    {
+      "id": "maywa-denki-formed",
+      "title": "Maywa Denki formed",
+      "date": "1993",
+      "layer": "institutions",
+      "description": "Art unit styled as a small-town electrical company, led by Novmichi Tosa. Their absurdist 'nonsense machines' and mass-produced art products defined the Japanese 'device art' lineage — physical computing as performance and satire, long before the maker movement.",
+      "link": "https://www.maywadenki.com/",
+      "creators": ["Novmichi Tosa", "Masamichi Tosa"]
+    },
+    {
+      "id": "dumb-type-sn",
+      "title": "Dumb Type — S/N",
+      "date": "1994",
+      "layer": "artworks",
+      "description": "Kyoto collective Dumb Type's landmark multimedia performance fusing synchronized video, sound, and staging with themes of sexuality, identity, and HIV/AIDS. A key bridge between performing arts and media technology in Asia, influencing figures like Ryoji Ikeda who worked within the collective.",
+      "link": "https://en.wikipedia.org/wiki/Dumb_Type"
+    },
+    {
+      "id": "teamlab-founded",
+      "title": "teamLab founded (Tokyo)",
+      "date": "2001-03",
+      "layer": "institutions",
+      "description": "Interdisciplinary 'ultratechnologists' collective founded by Toshiyuki Inoko and university friends. Grew from web production into one of the world's largest digital-art operations, culminating in the permanent museums already on this timeline (Borderless, 2018).",
+      "link": "https://www.teamlab.art/",
+      "creators": ["Toshiyuki Inoko"]
+    },
+    {
+      "id": "rhizomatiks-founded",
+      "title": "Rhizomatiks founded (Tokyo)",
+      "date": "2006",
+      "layer": "institutions",
+      "description": "Studio founded by Seiichi Saito, Daito Manabe, and Motoi Ishibashi. Became the reference point for Japanese creative technology in the 2010s — stage tech for Perfume and Björk, drone performances (ELEVENPLAY), and research-grade R&D inside a commercial studio.",
+      "link": "https://rhizomatiks.com/en/",
+      "creators": ["Seiichi Saito", "Daito Manabe", "Motoi Ishibashi"]
+    },
+    {
+      "id": "nicovideo-launches",
+      "title": "Niconico (Nico Nico Douga) launches",
+      "date": "2006-12-12",
+      "layer": "platforms",
+      "description": "Japanese video platform with real-time comments overlaid on the video itself. Its remix culture (VOCALOID songs, MikuMikuDance, 'tried to make ___' maker videos) became a massive engine of collaborative creative-tech output outside the Western web.",
+      "link": "https://en.wikipedia.org/wiki/Niconico"
+    },
+    {
+      "id": "electric-stimulus-to-face",
+      "title": "Daito Manabe — electric stimulus to face",
+      "date": "2008",
+      "layer": "artworks",
+      "description": "Face-hacking experiment using myoelectric sensors and electrical stimulation to make facial muscles twitch in sync with music. The viral video became a defining image of Japanese creative tech's DIY, body-hacking sensibility.",
+      "link": "https://daito.ws/en/work/electricstimulustoface.html",
+      "creators": ["Daito Manabe"]
+    },
+    {
+      "id": "wonderfl",
+      "title": "wonderfl build flash online launches",
+      "date": "2008-12",
+      "end": "2017-03",
+      "layer": "platforms",
+      "description": "Browser-based Flash/ActionScript coding community by Kayac (Kamakura, Japan): write AS3 in the browser, see it compile live, and fork anyone else's code. A hub of the late Flash era's global creative-coding exchange, with a heavily Japanese user base.",
+      "link": "https://en.wikipedia.org/wiki/Wonderfl"
+    },
+    {
+      "id": "siggraph-asia-first",
+      "title": "First SIGGRAPH Asia (Singapore)",
+      "date": "2008-12",
+      "layer": "institutions",
+      "description": "ACM SIGGRAPH's Asian edition, rotating through Singapore, Yokohama, Tokyo, Seoul, and other cities — institutionalizing the Asia-Pacific graphics and interactive-art community.",
+      "link": "https://asia.siggraph.org/"
+    },
+    {
+      "id": "perfume-global-site-project",
+      "title": "Perfume Global Site Project — open motion data",
+      "date": "2012-03",
+      "layer": "artworks",
+      "description": "J-pop trio Perfume (with Rhizomatiks / Daito Manabe) released the group's motion-capture data and a music sample for free remixing, spawning a worldwide wave of fan-made visualizations. A rare case of a major-label pop act open-sourcing itself to the creative-coding community.",
+      "link": "https://en.wikipedia.org/wiki/Perfume_(Japanese_band)",
+      "creators": ["Perfume", "Daito Manabe", "Rhizomatiks"]
+    },
+    {
+      "id": "media-ambition-tokyo",
+      "title": "Media Ambition Tokyo begins",
+      "date": "2013-02",
+      "layer": "institutions",
+      "description": "Annual city-wide showcase of experimental technology art across Tokyo venues (centered on Roppongi Hills), presenting work by teamLab, Rhizomatiks, and emerging Japanese artists.",
+      "link": "https://mediaambitiontokyo.jp/en/"
+    },
+    {
+      "id": "ycam-of-developers-conference",
+      "title": "openFrameworks Developers Conference at YCAM (Yamaguchi)",
+      "date": "2012-08",
+      "layer": "institutions",
+      "description": "The third openFrameworks Developers Conference, hosted by YCAM InterLab in Yamaguchi. YCAM's residencies and Guest Research Projects turned these gatherings into shared open-source tools, including Kyle McDonald's ProCamToolkit / mapamok projection-mapping suite and the RAM Dance Toolkit for movement research.",
+      "link": "https://github.com/YCAMInterlab"
     }
   ]
 }
