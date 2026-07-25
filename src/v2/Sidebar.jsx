@@ -39,11 +39,27 @@ function Row({ swatch, name, count, on, toggle }) {
 }
 
 export default function Sidebar({
+  mobile, onClose,
   query, onSearch, categories, onResetCats,
   layers, allLayersOn, onToggleAllLayers, decades, showingLabel, onReset,
 }) {
+  const asideStyle = mobile
+    ? {
+        position: 'absolute', top: 0, left: 0, bottom: 0, zIndex: 50,
+        width: 'min(300px, 82vw)', overflowY: 'auto', background: '#faf8f5',
+        borderRight: '1px solid #e7e3dd', padding: 16, boxSizing: 'border-box',
+        boxShadow: '6px 0 28px -14px rgba(40,34,30,0.5)',
+      }
+    : { flex: 'none', width: 256, height: '100%', overflowY: 'auto', background: '#faf8f5', borderRight: '1px solid #e7e3dd', padding: 16, boxSizing: 'border-box' };
+
   return (
-    <aside style={{ flex: 'none', width: 256, height: '100%', overflowY: 'auto', background: '#faf8f5', borderRight: '1px solid #e7e3dd', padding: 16, boxSizing: 'border-box' }}>
+    <aside style={asideStyle}>
+      {mobile && (
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+          <span style={{ fontFamily: MONO, fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#a49a8d' }}>Filters</span>
+          <button onClick={onClose} aria-label="Close filters" style={{ border: 'none', background: 'none', cursor: 'pointer', color: '#a49a8d', fontSize: 20, lineHeight: 1, padding: 0 }}>×</button>
+        </div>
+      )}
       {/* Search */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '7px 10px', background: '#fff', border: '1px solid #e4dfd7', borderRadius: 8, marginBottom: 18 }}>
         <span style={{ color: '#b4a99b', fontSize: 13 }}>⌕</span>

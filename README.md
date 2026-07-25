@@ -70,3 +70,17 @@ Pushing to `main` builds and deploys to GitHub Pages via the workflow in
   interactive map of the fields, tools, and disciplines within creative technology.
 - [“A History of Creative Coding” (2018)](https://laserpilot.medium.com/a-history-of-creative-coding-8771524b9775)
   — the original writeup on why a shared history of this field is worth preserving.
+
+## License
+
+Dual-licensed to fit what it contains:
+
+- **Code** — the application in `src/`, build scripts, and config — is under the
+  [MIT License](LICENSE).
+- **Data & content** — `public/creative-code-data.json`, `public/events.json`, the
+  timeline descriptions, and `docs/` — is under
+  [Creative Commons Attribution 4.0 (CC BY 4.0)](LICENSE-data). Reuse freely, including
+  commercially; just credit the project.
+
+Contributions are accepted under these same terms. Material the timeline links to or
+cites remains under its original owners' terms.

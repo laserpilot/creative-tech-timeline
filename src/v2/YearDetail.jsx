@@ -19,7 +19,7 @@ function groupByKey(items, order, keyOf) {
     .map((o) => ({ key: o.key, name: o.name, items: byKey.get(o.key) }));
 }
 
-export default function YearDetail({ year, events, tools, onClose, onSelectTool }) {
+export default function YearDetail({ year, events, tools, onClose, onSelectTool, mobile }) {
   const lo = year - WINDOW;
   const hi = year + WINDOW;
   const inWindow = (y) => y >= lo && y <= hi;
@@ -35,8 +35,17 @@ export default function YearDetail({ year, events, tools, onClose, onSelectTool 
   const toolGroups = groupByKey(toolIn, CATEGORY_ORDER, (t) => t.category);
   const empty = evIn.length === 0 && toolIn.length === 0;
 
+  const asideStyle = mobile
+    ? {
+        position: 'absolute', left: 0, right: 0, bottom: 0, zIndex: 50,
+        maxHeight: '75%', overflowY: 'auto', background: '#fff',
+        borderTop: '1px solid #e7e3dd', borderRadius: '14px 14px 0 0',
+        boxShadow: '0 -14px 34px -18px rgba(40,34,30,0.4)',
+      }
+    : { flex: 'none', width: 320, height: '100%', overflowY: 'auto', background: '#fff', borderLeft: '1px solid #e7e3dd', boxSizing: 'border-box', boxShadow: '-12px 0 32px -20px rgba(40,34,30,0.25)' };
+
   return (
-    <aside style={{ flex: 'none', width: 320, height: '100%', overflowY: 'auto', background: '#fff', borderLeft: '1px solid #e7e3dd', boxSizing: 'border-box', boxShadow: '-12px 0 32px -20px rgba(40,34,30,0.25)' }}>
+    <aside style={asideStyle}>
       <div style={{ padding: '16px 18px', borderBottom: '1px solid #ece8e1', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 1, background: '#fff' }}>
         <div>
           <div style={{ fontFamily: MONO, fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#a49a8d', marginBottom: 2 }}>Year slice</div>
