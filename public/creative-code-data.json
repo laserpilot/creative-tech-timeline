@@ -42,6 +42,33 @@
     }
   },
   "tools": {
+    "Agisoft Metashape": {
+      "category": "other",
+      "description": "Photogrammetry software that reconstructs 3D models and point clouds from ordinary photographs",
+      "link": "https://en.wikipedia.org/wiki/Metashape",
+      "releases": [
+        { "version": "PhotoScan 1.0", "dateString": "2010", "notes": "Agisoft (St. Petersburg) releases PhotoScan, bringing image-based 3D reconstruction to artists and surveyors on ordinary hardware.", "major": true },
+        { "version": "Metashape (rename)", "dateString": "2018-10", "notes": "PhotoScan 1.5 is renamed Agisoft Metashape." }
+      ]
+    },
+    "RealityCapture": {
+      "category": "other",
+      "description": "High-speed photogrammetry and laser-scan reconstruction software",
+      "link": "https://en.wikipedia.org/wiki/RealityCapture",
+      "releases": [
+        { "version": "1.0 (open beta)", "dateString": "2016-02", "notes": "Slovak studio Capturing Reality releases RealityCapture, known for very fast 3D reconstruction from photos and laser scans.", "major": true },
+        { "version": "Free under Epic", "dateString": "2024-04", "notes": "Acquired by Epic Games in 2021; made free for individuals and small studios in 2024, later folded into RealityScan." }
+      ]
+    },
+    "Paulstretch": {
+      "category": "audio-visual",
+      "description": "Extreme time-stretching audio tool for stretching sound many times its original length",
+      "link": "https://hypermammut.sourceforge.net/paulstretch/",
+      "releases": [
+        { "version": "0.0.1", "dateString": "2006-05-27", "notes": "Nasca Octavian Paul releases Paulstretch (GPL) for extreme spectral time-stretching (50x and beyond). A cult favorite for ambient and drone textures.", "major": true },
+        { "version": "PaulXStretch", "dateString": "2022", "notes": "Modern open-source plugin/app fork (Sonosaurus) that brings the algorithm into DAWs." }
+      ]
+    },
     "ARToolKit": {
       "category": "creative-libraries",
       "description": "Marker-based augmented reality tracking library — the ancestor of consumer AR",

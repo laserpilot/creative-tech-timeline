@@ -1527,6 +1527,42 @@
       "description": "UCLA's Department of Design | Media Arts, renamed in 2000 from the Department of Design (which split from the Art department in 1988). An early dedicated West Coast home for media arts education, with founding chair Rebecca Allen and, later, Processing co-creator Casey Reas on the faculty.",
       "link": "https://www.design.ucla.edu/resources/history",
       "creators": ["Rebecca Allen"]
+    },
+    {
+      "id": "paik-abe-video-synthesizer",
+      "title": "Paik/Abe Video Synthesizer",
+      "date": "1969",
+      "layer": "hardware",
+      "description": "Built by Nam June Paik with engineer Shuya Abe during a Rockefeller residency at WGBH Boston. One of the first video synthesizers: it colorized and distorted live video in real time, mixing up to seven sources, and debuted in the 1970 broadcast Video Commune. A founding instrument of video art and an ancestor of real-time image processing.",
+      "link": "http://www.medienkunstnetz.de/works/paik-abe-synthesizer/",
+      "creators": ["Nam June Paik", "Shuya Abe"]
+    },
+    {
+      "id": "rutt-etra-scan-processor",
+      "title": "Rutt/Etra Scan Processor",
+      "date": "1972",
+      "layer": "hardware",
+      "description": "Analog scan processor by Steve Rutt and Bill Etra that reshaped the video raster itself, retiming the scan to bend, extrude, and animate the image in real time. Its signature wireframe-displacement look defined the aesthetic of Steina and Woody Vasulka and has been re-created in software ever since, from Cinder to WebGL 'Rutt-Etra-izer' emulations.",
+      "link": "https://en.wikipedia.org/wiki/Rutt/Etra_Video_Synthesizer",
+      "creators": ["Steve Rutt", "Bill Etra"]
+    },
+    {
+      "id": "the-kitchen-founded",
+      "title": "The Kitchen founded (New York)",
+      "date": "1971",
+      "layer": "institutions",
+      "description": "Experimental art space founded by video artists Steina and Woody Vasulka (with Andres Mannik), originally in the kitchen of the Mercer Arts Center. A launching venue for video art, electronic music, and performance, and a hub for the scan-processor and synthesizer experiments of the 1970s.",
+      "link": "https://en.wikipedia.org/wiki/The_Kitchen_(art_institution)",
+      "creators": ["Steina Vasulka", "Woody Vasulka"]
+    },
+    {
+      "id": "art-blocks",
+      "title": "Art Blocks launches",
+      "date": "2020-11",
+      "layer": "platforms",
+      "description": "On-chain generative art platform founded by Erick 'Snowfro' Calderón. Artists deploy a generative script (often p5.js) whose output is created and stored on the Ethereum blockchain at the moment a collector mints it. Its flagship Chromie Squiggle made curated generative art the defining creative-coding form of the NFT era.",
+      "link": "https://www.artblocks.io/",
+      "creators": ["Erick Calderón"]
     }
   ]
 }
