@@ -1509,6 +1509,24 @@
       "layer": "institutions",
       "description": "The third openFrameworks Developers Conference, hosted by YCAM InterLab in Yamaguchi. YCAM's residencies and Guest Research Projects turned these gatherings into shared open-source tools, including Kyle McDonald's ProCamToolkit / mapamok projection-mapping suite and the RAM Dance Toolkit for movement research.",
       "link": "https://github.com/YCAMInterlab"
+    },
+    {
+      "id": "studio-for-creative-inquiry",
+      "title": "STUDIO for Creative Inquiry founded (CMU)",
+      "date": "1989",
+      "layer": "institutions",
+      "description": "Interdisciplinary art-research lab at Carnegie Mellon University, reimagined in 1989 from the 1985 Center for Art and Technology. A long-running home for hybrid art, science, and technology projects; renamed the Frank-Ratchye STUDIO for Creative Inquiry in 2012, and later host to Deep Lab.",
+      "link": "https://studioforcreativeinquiry.org/about",
+      "creators": ["Lowry Burgess", "Bryan Rogers"]
+    },
+    {
+      "id": "ucla-design-media-arts",
+      "title": "UCLA Design | Media Arts established",
+      "date": "2000",
+      "layer": "institutions",
+      "description": "UCLA's Department of Design | Media Arts, renamed in 2000 from the Department of Design (which split from the Art department in 1988). An early dedicated West Coast home for media arts education, with founding chair Rebecca Allen and, later, Processing co-creator Casey Reas on the faculty.",
+      "link": "https://www.design.ucla.edu/resources/history",
+      "creators": ["Rebecca Allen"]
     }
   ]
 }

@@ -450,6 +450,8 @@ being the entry's canonical `link`. Primary sources are marked **P**.
 | First SIGGRAPH Asia | **P** https://asia.siggraph.org/ (first edition Singapore, Dec 2008) — *contributed by Qanta Shimizu (BASSDRUM)* |
 | Media Ambition Tokyo | **P** https://mediaambitiontokyo.jp/en/ (city-wide showcase, begun Feb 2013) — *contributed by Qanta Shimizu (BASSDRUM)* |
 | openFrameworks Developers Conference at YCAM | https://forum.openframeworks.cc/t/openframeworks-developers-conference-ycam-aug-7-14/12605 (3rd oF devcon, YCAM InterLab, Yamaguchi, Aug 7–14 2012) · **P** https://github.com/YCAMInterlab (Guest Research Projects → ProCamToolkit/mapamok, RAM Dance Toolkit). Distinct from the 2003 YCAM-opens node. |
+| STUDIO for Creative Inquiry (CMU) | **P** https://studioforcreativeinquiry.org/about (reimagined 1989 from the 1985 Center for Art and Technology by Lowry Burgess & Bryan Rogers; Frank-Ratchye renaming 2012). Parent institution of the existing Deep Lab (2014) node. |
+| UCLA Design \| Media Arts | **P** https://www.design.ucla.edu/resources/history (Design dept split from Art 1988; renamed Design \| Media Arts 2000). Founding chair Rebecca Allen; later faculty incl. Casey Reas. Dated to the 2000 DMA naming. |
 
 ### Events — artworks
 | Entry | Sources |
