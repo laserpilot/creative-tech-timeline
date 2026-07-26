@@ -64,24 +64,34 @@ export default function About({ onClose }) {
         </div>
 
         <P>
-          A timeline of the tools of creative coding and creative technology: languages, frameworks,
-          libraries, and authoring environments, set against the hardware, web standards, AI, landmark
-          artworks, publications, and communities that shaped how they were used.
+          A map of where the tools of creative coding and creative technology came from, and why they
+          matter. The main body is a catalog of the languages, frameworks, libraries, and authoring
+          environments artists build with. The context timeline across the top is the argument underneath
+          it: the origins, the turning points, and the moments a new technical approach became available to
+          artists, set against the hardware, standards, landmark artworks, publications, and communities
+          that carried them.
         </P>
 
         <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#a49a8d', margin: '4px 0 12px' }}>
-          On bias &amp; incompleteness
+          Why these, and not everything
         </div>
         <P>
-          This is deliberately partial, and that is part of the point. Any single account of this field is
-          shaped by who assembles it. It reflects one primary perspective, and plenty of important work is
-          missing, mis-dated, or not yet here. Much of this history is also actively disappearing: artist
-          sites go dark, software goes obsolete, documentation vanishes.
+          This is not a census. Creative technology now reaches into almost every corner of the media
+          landscape, and trying to list every institution, platform, and publication that touches it is
+          both impossible and beside the point. So the context timeline is selective on purpose. It favors
+          origins and turning points over completeness: where a tool or idea came from, the moments a
+          technique got pried open for artists to use (OpenCV, a hacked-open Kinect, photogrammetry getting
+          cheap), and the communities that insisted these tools should be shared rather than rented.
         </P>
         <P>
-          The aim isn&apos;t to be the authoritative record. It&apos;s to be concrete enough to argue with:
-          a starting point for a conversation, where the more perspectives that get added, the better it
-          gets. Corrections and additions are welcome.
+          That selection reflects one point of view. I make open resources for this field, and this
+          timeline comes from the same place: a belief that knowing how these tools work, where they came
+          from, and how to keep the things you build with them alive is worth documenting and giving away.
+          A lot of what is here I have never used myself but know to be load-bearing for others. Much of
+          this history is also quietly disappearing, as artist sites go dark, software goes obsolete, and
+          documentation vanishes, which is part of why writing it down matters. If something is missing, it
+          is more likely a question of focus than of worth, and corrections from people who know this
+          history firsthand only make it better.
         </P>
 
         <div style={{ fontFamily: MONO, fontSize: 11, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#a49a8d', margin: '4px 0 12px' }}>
