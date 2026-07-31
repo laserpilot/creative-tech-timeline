@@ -121,9 +121,21 @@ export default function About({ onClose }) {
           Contributions
         </div>
         <ul style={{ margin: '0 0 6px', padding: 0, listStyle: 'none' }}>
-          <li>
+          <li style={{ marginBottom: 10 }}>
             <A href="https://bassdrum.org/">Qanta Shimizu (BASSDRUM)</A>
             <span style={{ fontSize: 13, color: '#6b6459' }}>. A Japan and Tokyo perspective: events, tools, and context including IAMAS, teamLab, Rhizomatiks, Maywa Denki, VOCALOID, and ARToolKit.</span>
+          </li>
+          <li style={{ marginBottom: 10 }}>
+            <A href="https://www.makeitdoathing.com/">Dan Moore</A>
+            <span style={{ fontSize: 13, color: '#6b6459' }}>. Feedback, corrections, and additions.</span>
+          </li>
+          <li style={{ marginBottom: 10 }}>
+            <A href="https://clairesophie.com/">Claire Hentschker</A>
+            <span style={{ fontSize: 13, color: '#6b6459' }}>. Feedback, corrections, and additions.</span>
+          </li>
+          <li>
+            <A href="https://flong.com/">Golan Levin</A>
+            <span style={{ fontSize: 13, color: '#6b6459' }}>. Feedback, corrections, and additions.</span>
           </li>
         </ul>
 
