@@ -35,6 +35,7 @@ export const CATEGORY_ORDER = [
   { key: 'creative-libraries', name: 'Creative Libraries', color: 'oklch(0.72 0.13 75)' },
   { key: 'physical-computing', name: 'Physical Computing', color: 'oklch(0.60 0.11 150)' },
   { key: 'data-visualization', name: 'Data Visualization', color: 'oklch(0.55 0.14 305)' },
+  { key: 'other', name: 'Other', color: 'oklch(0.62 0.012 70)' },
 ];
 
 // Context-layer display order + palette (keys match events.json layers).
