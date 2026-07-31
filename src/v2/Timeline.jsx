@@ -163,6 +163,10 @@ export default function Timeline() {
   const openTool = (t) => { setSelected(t); setSelectedYear(null); };
   const openYear = (yr) => { setSelectedYear(yr); setSelected(null); };
   const closePanel = () => { setSelected(null); setSelectedYear(null); };
+  // Clicking an event opens the year slice it belongs to — the panel already
+  // lists that event (un-dimmed) with its description, source, and neighbours,
+  // and unlike the hover popover its text is selectable.
+  const openEvent = (e) => openYear(Math.floor(yearFrac(e.parsedDate)));
 
   // ---- year axis + gridlines ----
   // At low zoom the 5-year labels crowd, so fall back to decades only.
@@ -328,6 +332,7 @@ export default function Timeline() {
             visEvents={visEvents}
             hoverEvent={hoverEvent}
             setHoverEvent={setHoverEvent}
+            onSelectEvent={openEvent}
             scale={scale}
             gutter={gutter}
           />
@@ -398,7 +403,7 @@ function ZoomButton({ label, title, onClick, disabled }) {
 }
 
 // ---------- Events lane ----------
-function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEvents, hoverEvent, setHoverEvent, scale, gutter }) {
+function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEvents, hoverEvent, setHoverEvent, onSelectEvent, scale, gutter }) {
   const { xDate } = scale;
   const height = expanded ? EVH + activeLayers.length * EVR + 10 : 38;
   const hovered = hoverEvent != null ? visEvents[hoverEvent] : null;
@@ -426,6 +431,7 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
             key={`t-${e.id}`}
             onMouseEnter={() => setHoverEvent(i)}
             onMouseLeave={() => setHoverEvent(null)}
+            onClick={() => onSelectEvent(e)}
             style={{
               position: 'absolute', top: 9, height: 20, width: 3, left: xDate(e.parsedDate) - 1,
               background: e.color, borderRadius: 2, opacity: hoverEvent === i ? 1 : 0.68, cursor: 'pointer',
@@ -443,6 +449,7 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
               <div
                 onMouseEnter={() => setHoverEvent(i)}
                 onMouseLeave={() => setHoverEvent(null)}
+                onClick={() => onSelectEvent(e)}
                 style={{
                   position: 'absolute', top: top + (EVR - 6) / 2, left: startX,
                   width: Math.max(4, endX - startX), height: 6, borderRadius: 3,
@@ -467,6 +474,7 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
               key={`d-${e.id}`}
               onMouseEnter={() => setHoverEvent(i)}
               onMouseLeave={() => setHoverEvent(null)}
+              onClick={() => onSelectEvent(e)}
               style={{
                 position: 'absolute', top, left: xDate(e.parsedDate) - size / 2, width: size, height: size,
                 borderRadius: '50%', background: e.color, boxShadow: '0 0 0 2px #f7f6f4', cursor: 'pointer',

@@ -71,11 +71,14 @@ export default function YearDetail({ year, events, tools, onClose, onSelectTool,
                   <div style={{ fontSize: 12.5, color: '#3a352e' }}>
                     {e.title}{' '}
                     <span style={{ fontFamily: MONO, fontSize: 10.5, color: '#b4a99b' }}>{y}</span>
-                    {e.link && (
-                      <a href={e.link} target="_blank" rel="noopener noreferrer" style={{ color: '#b4a99b', marginLeft: 5, textDecoration: 'none' }}>↗</a>
-                    )}
                   </div>
-                  {e.description && <div style={{ fontSize: 11.5, color: '#8a8175', lineHeight: 1.4, marginTop: 1 }}>{e.description}</div>}
+                  {e.creators?.length > 0 && (
+                    <div style={{ fontSize: 11, color: '#6b6459', marginTop: 2 }}>{e.creators.join(' · ')}</div>
+                  )}
+                  {e.description && <div style={{ fontSize: 11.5, color: '#8a8175', lineHeight: 1.4, marginTop: 2 }}>{e.description}</div>}
+                  {e.link && (
+                    <a href={e.link} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', marginTop: 4, fontFamily: MONO, fontSize: 10.5, color: '#8a4b2f', textDecoration: 'none' }}>Source ↗</a>
+                  )}
                 </Row>
               );
             })}
