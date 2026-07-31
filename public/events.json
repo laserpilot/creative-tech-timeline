@@ -20,10 +20,25 @@
       "color": "#e5476b",
       "description": "Notable works that defined or expanded what creative coding could be"
     },
-    "institutions": {
-      "name": "Institutions & Communities",
+    "inst-festivals": {
+      "name": "Festivals & Exhibitions",
       "color": "#2ea36b",
-      "description": "Schools, festivals, and communities that shaped the field"
+      "description": "Festivals, conferences, symposia, and landmark exhibitions that gathered the field"
+    },
+    "inst-spaces": {
+      "name": "Galleries, Museums & Spaces",
+      "color": "#47b58a",
+      "description": "Galleries, museums, and physical art-and-technology centers"
+    },
+    "inst-schools": {
+      "name": "Schools & Programs",
+      "color": "#1c8a57",
+      "description": "Academic programs and schools that trained the field"
+    },
+    "inst-labs": {
+      "name": "Labs, Collectives & Communities",
+      "color": "#7cc465",
+      "description": "Research labs, artist collectives, networks, and communities"
     },
     "publications": {
       "name": "Publications",
@@ -301,7 +316,7 @@
       "id": "itp-nyu",
       "title": "ITP at NYU founded",
       "date": "1979-09-01",
-      "layer": "institutions",
+      "layer": "inst-schools",
       "description": "NYU's Interactive Telecommunications Program. Long-running incubator for creative technologists.",
       "link": "https://tisch.nyu.edu/itp"
     },
@@ -309,7 +324,7 @@
       "id": "mit-media-lab",
       "title": "MIT Media Lab opens",
       "date": "1985-10-01",
-      "layer": "institutions",
+      "layer": "inst-schools",
       "description": "Founded by Nicholas Negroponte and Jerome Wiesner. Many creative coding tools and ideas trace through here.",
       "link": "https://www.media.mit.edu/"
     },
@@ -317,7 +332,7 @@
       "id": "gray-area",
       "title": "Gray Area founded (San Francisco)",
       "date": "2008-01-01",
-      "layer": "institutions",
+      "layer": "inst-spaces",
       "description": "Nonprofit fusing art and technology; long-running creative code education and a key US community hub.",
       "link": "https://grayarea.org/"
     },
@@ -325,7 +340,7 @@
       "id": "eyeo-festival",
       "title": "Eyeo Festival begins",
       "date": "2011-06-01",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "Annual Minneapolis festival convening artists, designers, and technologists. Defined a generation's creative-code conversation.",
       "link": "https://eyeofestival.com/"
     },
@@ -333,7 +348,7 @@
       "id": "resonate",
       "title": "Resonate Festival begins (Belgrade)",
       "date": "2012-03-29",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "European counterpart to Eyeo; key gathering for digital culture and creative practice.",
       "link": "https://resonate.io/"
     },
@@ -341,7 +356,7 @@
       "id": "sfpc",
       "title": "School for Poetic Computation",
       "date": "2013-09-01",
-      "layer": "institutions",
+      "layer": "inst-schools",
       "description": "Artist-run school in NYC for code as a creative and critical practice.",
       "link": "https://sfpc.study/"
     },
@@ -350,7 +365,7 @@
       "id": "eat-founded",
       "title": "E.A.T. (Experiments in Art and Technology) founded",
       "date": "1967-10-10",
-      "layer": "institutions",
+      "layer": "inst-labs",
       "description": "Nonprofit founded by engineers and artists to broker collaborations between them, growing out of the 1966 '9 Evenings: Theatre and Engineering' performances. Never formally dissolved; Kluver led it until his death in 2004.",
       "link": "https://en.wikipedia.org/wiki/Experiments_in_Art_and_Technology",
       "creators": [
@@ -364,7 +379,7 @@
       "id": "experimental-television-center",
       "title": "Experimental Television Center founded",
       "date": "1971",
-      "layer": "institutions",
+      "layer": "inst-spaces",
       "description": "New York State center that gave video artists open access to experimental image-processing tools through a long-running residency program. The residency and grants program was paused in 2011 to focus on preservation; the archive later moved to Atlanta (2021).",
       "link": "https://en.wikipedia.org/wiki/Experimental_Television_Center",
       "creators": [
@@ -375,7 +390,7 @@
       "id": "eyebeam-founded",
       "title": "Eyebeam founded",
       "date": "1998",
-      "layer": "institutions",
+      "layer": "inst-spaces",
       "description": "New York nonprofit art and technology center supporting artists working experimentally with technology through residencies, fellowships, and open-source production. Its Chelsea space opened in 2001.",
       "link": "https://eyebeam.org/about-us/",
       "creators": [
@@ -387,7 +402,7 @@
       "title": "F.A.T. Lab (Free Art and Technology)",
       "date": "2007",
       "end": "2015-08-01",
-      "layer": "institutions",
+      "layer": "inst-labs",
       "description": "Online collective devoted to enriching the public domain through open-source pop culture hacks, blending art, technology activism, and internet humor. Dissolved 1 August 2015.",
       "link": "https://en.wikipedia.org/wiki/Free_Art_and_Technology_Lab",
       "creators": [
@@ -449,7 +464,7 @@
       "id": "siggraph-first-conference",
       "title": "First SIGGRAPH conference",
       "date": "1974",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "First SIGGRAPH conference, held in Boulder, Colorado, drawing roughly 600 attendees. The ACM special interest group behind it formed in 1969; the conference became the venue where foundational rendering, animation, and interaction techniques were first published.",
       "link": "https://www.siggraph.org/about/history/",
       "creators": [
@@ -461,7 +476,7 @@
       "id": "ars-electronica",
       "title": "First Ars Electronica festival",
       "date": "1979-09-18",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "First festival in Linz, Austria, establishing the template for the art/technology/society festival and giving electronic art a serious public venue decades before museums took it up. The Prix Ars Electronica followed in 1987; the Ars Electronica Center opened in 1996.",
       "link": "https://ars.electronica.art/about/en/history/",
       "creators": [
@@ -475,7 +490,7 @@
       "id": "transmediale",
       "title": "transmediale begins (as VideoFilmFest)",
       "date": "1988",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "Began as VideoFilmFest, a video-art side programme of the Berlinale, and grew into Europe's key festival for critical discourse on digital culture. Renamed VideoFest in 1989, transmedia in 1997, and transmediale in 1998.",
       "link": "https://en.wikipedia.org/wiki/Transmediale",
       "creators": [
@@ -487,7 +502,7 @@
       "id": "rhizome",
       "title": "Rhizome founded",
       "date": "1996",
-      "layer": "institutions",
+      "layer": "inst-labs",
       "description": "Founded as an email list for net.art discussion and incorporated as a nonprofit in 1998; affiliated with the New Museum since 2003. Its ArtBase archive preserves born-digital work that would otherwise have rotted away.",
       "link": "https://en.wikipedia.org/wiki/Rhizome_(organization)",
       "creators": [
@@ -540,7 +555,7 @@
       "title": "Visible Language Workshop founded",
       "date": "1974",
       "end": "1994",
-      "layer": "institutions",
+      "layer": "inst-schools",
       "description": "Muriel Cooper's Bauhaus-style research atelier at MIT, founded with designer Ron MacNeil after she left the MIT Press, which became one of the MIT Media Lab's founding research groups in 1985 and pioneered dynamic three-dimensional information display. It is the institutional origin of the MIT design-computation lineage that runs VLW to the Aesthetics + Computation Group to Design By Numbers to Processing. Founding is variously dated 1973 (the 'Messages and Means' course), 1974, or 1975 (the MIT 150 Exhibition label); the end date is Cooper's death in May 1994, as there was no formal dissolution.",
       "link": "https://en.wikipedia.org/wiki/Muriel_Cooper",
       "creators": [
@@ -565,7 +580,7 @@
       "id": "radical-networks",
       "title": "Radical Networks begins",
       "date": "2015-10-24",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "A community event and conference for critical, artistic, and grassroots work in telecommunications and networking, founded by Sarah Grant. The first edition ran October 24–25, 2015 at MAGNET (NYU Poly) in Brooklyn; later editions were also held in Berlin. Foregrounds DIY, feminist, and activist approaches to the internet and network infrastructure outside corporate and academic mainstreams.",
       "link": "https://radicalnetworks.org/archives/2015/",
       "creators": [
@@ -827,7 +842,7 @@
       "title": "STEIM founded (Amsterdam)",
       "date": "1969-02-27",
       "end": "2020",
-      "layer": "institutions",
+      "layer": "inst-labs",
       "description": "Amsterdam research and development center for electronic musical instruments and live-electronic performance (home of the Cracklebox and Michel Waisvisz's 'The Hands'), founded 1969 by seven Dutch composers. Ceased operating as an organization at the end of 2020 after national funding cuts.",
       "link": "https://en.wikipedia.org/wiki/STEIM",
       "creators": [
@@ -845,7 +860,7 @@
       "id": "v2-lab",
       "title": "V2_ Lab for the Unstable Media founded",
       "date": "1981",
-      "layer": "institutions",
+      "layer": "inst-spaces",
       "description": "Interdisciplinary center for art and media technology, founded 1981 in 's-Hertogenbosch and based in Rotterdam since 1994; originator of the 'Manifesto for the Unstable Media' (1987) and organizer of the Dutch Electronic Art Festival (DEAF).",
       "link": "https://v2.nl/organization/history",
       "creators": []
@@ -855,7 +870,7 @@
       "id": "videobrasil",
       "title": "Festival Videobrasil begins (São Paulo)",
       "date": "1983",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "Pioneering video- and electronic-art festival founded 1983 in São Paulo by Solange Farkas, created to platform video and electronic art across Brazil and the global South; later the Contemporary Art Biennial Sesc_Videobrasil.",
       "link": "https://enciclopedia.itaucultural.org.br/pessoas/5478-solange-farkas",
       "creators": [
@@ -867,7 +882,7 @@
       "id": "isea-fisea",
       "title": "First International Symposium on Electronic Art (FISEA)",
       "date": "1988-09-27",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "The founding edition of the roaming International Symposium on Electronic Art, held in Utrecht, Netherlands; initiated by Theo Hesper and Wim van der Plas. ISEA became the leading international gathering for electronic and digital art. (The standing Inter-Society was formed 1990.)",
       "link": "https://www.isea-archives.org/symposia/fisea-1988/",
       "creators": [
@@ -880,7 +895,7 @@
       "id": "zkm",
       "title": "ZKM | Center for Art and Media founded (Karlsruhe)",
       "date": "1989-08-12",
-      "layer": "institutions",
+      "layer": "inst-spaces",
       "description": "Media-art center in Karlsruhe, Germany, combining museums, research institutes and production studios; founding director Heinrich Klotz. Legally founded 1989; opened its permanent home in a former munitions factory in 1997.",
       "link": "https://zkm.de/en/founding-history",
       "creators": [
@@ -892,7 +907,7 @@
       "id": "wro-biennale",
       "title": "WRO Media Art Biennale begins (Wrocław)",
       "date": "1989-12",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "The first review of video and new-media art in Poland and Central/Eastern Europe, launched December 1989 in Wrocław as the 'Sound Basis Visual Art Festival,' weeks after the fall of the Berlin Wall; biennial since 1993.",
       "link": "https://wrocenter.pl/en/biennale-wro/",
       "creators": [
@@ -906,7 +921,7 @@
       "id": "ntt-icc",
       "title": "NTT InterCommunication Center (ICC) opens (Tokyo)",
       "date": "1997-04-19",
-      "layer": "institutions",
+      "layer": "inst-spaces",
       "description": "Media-art museum and research center in Nishi-Shinjuku, Tokyo, established by telecom NTT to mark the centenary of telephone service in Japan; opened 1997 with a focus on VR, interactive and network art.",
       "link": "https://www.ntticc.or.jp/en/about/",
       "creators": []
@@ -916,7 +931,7 @@
       "id": "ycam",
       "title": "Yamaguchi Center for Arts and Media (YCAM) opens",
       "date": "2003-11-01",
-      "layer": "institutions",
+      "layer": "inst-spaces",
       "description": "Municipal arts and media center in Yamaguchi, Japan (building by Arata Isozaki), opened 2003; known for commissioning and producing new interactive media artworks, performance, and R&D (YCAM InterLab) rather than holding a collection.",
       "link": "https://www.ycam.jp/en/aboutus/",
       "creators": []
@@ -926,7 +941,7 @@
       "id": "file-festival",
       "title": "FILE — Electronic Language International Festival begins",
       "date": "2000",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "New-media/electronic-art festival founded 2000 in São Paulo by Ricardo Barreto and Paula Perissinotto; grew into the largest electronic-art event in Latin America.",
       "link": "https://en.wikipedia.org/wiki/Electronic_Language_International_Festival",
       "creators": [
@@ -939,7 +954,7 @@
       "id": "mutek",
       "title": "MUTEK begins (Montreal)",
       "date": "2000",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "Festival of electronic music and digital creativity founded 2000 in Montreal by Alain Mongeau; a long-running international platform for audiovisual performance with editions across several countries.",
       "link": "https://en.wikipedia.org/wiki/Mutek",
       "creators": [
@@ -951,7 +966,7 @@
       "id": "dorkbot",
       "title": "Dorkbot founded (New York)",
       "date": "2000",
-      "layer": "institutions",
+      "layer": "inst-labs",
       "description": "Grassroots, globally-franchised series of informal meetings for 'people doing strange things with electricity' — artists, engineers and hackers presenting electronic and computational art. Begun at Columbia University by Douglas Repetto; spread to 100+ cities.",
       "link": "http://sites.music.columbia.edu/dorkbot/",
       "creators": [
@@ -963,7 +978,7 @@
       "id": "old-boys-network",
       "title": "Old Boys Network founded (Berlin)",
       "date": "1997",
-      "layer": "institutions",
+      "layer": "inst-labs",
       "description": "The first international cyberfeminist alliance, based in Berlin; organized the First (1997), Next (1999) and Very (2001) Cyberfeminist Internationals and produced the '100 Anti-Theses' of cyberfeminism.",
       "link": "https://en.wikipedia.org/wiki/Old_Boys_Network",
       "creators": [
@@ -979,7 +994,7 @@
       "id": "subrosa",
       "title": "subRosa formed",
       "date": "1998",
-      "layer": "institutions",
+      "layer": "inst-labs",
       "description": "A U.S.-based 'reproducible cyberfeminist cell' combining art, activism and politics to critique the effects of information and biotechnologies on women's bodies, labor and reproduction, largely through participatory performance.",
       "link": "http://refugia.net/subrosa/cv.html",
       "creators": [
@@ -994,7 +1009,7 @@
       "id": "glitch-festival",
       "title": "GLI.TC/H festival begins (Chicago)",
       "date": "2010",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "International glitch-art festival and conference founded in Chicago in 2010 (workshops, screenings, performances, gallery shows); the 2011 edition traveled Chicago–Amsterdam–Birmingham. Three editions ran, 2010–2012.",
       "link": "https://beyondresolution.info/GLI-TC-H",
       "creators": [
@@ -1009,7 +1024,7 @@
       "id": "toplap-founded",
       "title": "TOPLAP founded (Hamburg)",
       "date": "2004-02-15",
-      "layer": "institutions",
+      "layer": "inst-labs",
       "description": "The informal international organization founded to link and promote live-coding communities, as an offshoot of the Changing Grammars symposium in Hamburg. Its 'Read Me' manifesto (published 2004 in the Read_Me: Software Art and Cultures anthology) set the movement's central tenet — that performers' code be projected and shown to the audience ('show us your screens').",
       "link": "https://toplap.org/wiki/Read_me_paper",
       "creators": [
@@ -1027,7 +1042,7 @@
       "id": "first-algorave",
       "title": "First Algorave (London)",
       "date": "2012-03-17",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "The first event named 'algorave,' where music is generated from algorithms written and modified live (often with projected code), held in London as a warm-up for the SuperCollider Symposium 2012. It seeded a global network of algorave events.",
       "link": "https://en.wikipedia.org/wiki/Algorave",
       "creators": [
@@ -1040,7 +1055,7 @@
       "id": "processing-foundation",
       "title": "Processing Foundation established",
       "date": "2012",
-      "layer": "institutions",
+      "layer": "inst-labs",
       "description": "Nonprofit founded in 2012 by Casey Reas, Ben Fry and Daniel Shiffman to promote software literacy in the visual arts and visual literacy in technology, and to widen access for communities historically without it. Fiscal and organizational home of Processing, p5.js and ml5.js.",
       "link": "https://processingfoundation.org/",
       "creators": [
@@ -1054,7 +1069,7 @@
       "id": "deep-lab",
       "title": "Deep Lab founded",
       "date": "2014",
-      "layer": "institutions",
+      "layer": "inst-labs",
       "description": "A congress and collective of cyberfeminist researchers, artists, engineers and journalists examining privacy, surveillance, anonymity and data aggregation, founded by Addie Wagenknecht at Carnegie Mellon's Frank-Ratchye STUDIO for Creative Inquiry; produced a collaboratively written book and lecture series.",
       "link": "https://www.deeplab.net/cmu/",
       "creators": [
@@ -1066,7 +1081,7 @@
       "id": "bitforms",
       "title": "bitforms gallery opens (New York)",
       "date": "2001-11",
-      "layer": "institutions",
+      "layer": "inst-spaces",
       "description": "One of the first commercial galleries devoted to new media and digital art, founded by Steven Sacks in New York (originally Chelsea, later the Lower East Side). Represents artists critically engaged with new technology, from Manfred Mohr and Rafael Lozano-Hemmer to Casey Reas and Refik Anadol.",
       "link": "https://www.bitforms.art/about",
       "creators": [
@@ -1078,7 +1093,7 @@
       "id": "transfer-gallery",
       "title": "TRANSFER gallery opens (Brooklyn)",
       "date": "2013",
-      "layer": "institutions",
+      "layer": "inst-spaces",
       "description": "Experimental gallery for computer-based and internet art founded by Kelani Nichole in Brooklyn, showing digital work that extends beyond the screen into physical space and foregrounding women artists refiguring technology.",
       "link": "https://transfergallery.com/about/",
       "creators": [
@@ -1403,7 +1418,7 @@
       "id": "iamas-founded",
       "title": "IAMAS founded (Ogaki, Gifu)",
       "date": "1996-04",
-      "layer": "institutions",
+      "layer": "inst-schools",
       "description": "Institute of Advanced Media Arts and Sciences — Japan's counterpart to ITP. A small graduate school in Gifu prefecture that trained a generation of Japanese media artists, device-art makers, and creative technologists.",
       "link": "https://www.iamas.ac.jp/en/"
     },
@@ -1412,7 +1427,7 @@
       "title": "Japan Media Arts Festival begins",
       "date": "1997",
       "end": "2022",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "Annual festival run by Japan's Agency for Cultural Affairs, spanning art, entertainment, animation, and manga. For 25 years it was the main national showcase and archive for Japanese media art, awarding early work by teamLab, Rhizomatiks, and many others. Discontinued after its 25th edition.",
       "link": "https://en.wikipedia.org/wiki/Japan_Media_Arts_Festival"
     },
@@ -1420,7 +1435,7 @@
       "id": "maywa-denki-formed",
       "title": "Maywa Denki formed",
       "date": "1993",
-      "layer": "institutions",
+      "layer": "inst-labs",
       "description": "Art unit styled as a small-town electrical company, led by Novmichi Tosa. Their absurdist 'nonsense machines' and mass-produced art products defined the Japanese 'device art' lineage — physical computing as performance and satire, long before the maker movement.",
       "link": "https://www.maywadenki.com/",
       "creators": ["Novmichi Tosa", "Masamichi Tosa"]
@@ -1437,7 +1452,7 @@
       "id": "teamlab-founded",
       "title": "teamLab founded (Tokyo)",
       "date": "2001-03",
-      "layer": "institutions",
+      "layer": "inst-labs",
       "description": "Interdisciplinary 'ultratechnologists' collective founded by Toshiyuki Inoko and university friends. Grew from web production into one of the world's largest digital-art operations, culminating in the permanent museums already on this timeline (Borderless, 2018).",
       "link": "https://www.teamlab.art/",
       "creators": ["Toshiyuki Inoko"]
@@ -1446,7 +1461,7 @@
       "id": "rhizomatiks-founded",
       "title": "Rhizomatiks founded (Tokyo)",
       "date": "2006",
-      "layer": "institutions",
+      "layer": "inst-labs",
       "description": "Studio founded by Seiichi Saito, Daito Manabe, and Motoi Ishibashi. Became the reference point for Japanese creative technology in the 2010s — stage tech for Perfume and Björk, drone performances (ELEVENPLAY), and research-grade R&D inside a commercial studio.",
       "link": "https://rhizomatiks.com/en/",
       "creators": ["Seiichi Saito", "Daito Manabe", "Motoi Ishibashi"]
@@ -1481,7 +1496,7 @@
       "id": "siggraph-asia-first",
       "title": "First SIGGRAPH Asia (Singapore)",
       "date": "2008-12",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "ACM SIGGRAPH's Asian edition, rotating through Singapore, Yokohama, Tokyo, Seoul, and other cities — institutionalizing the Asia-Pacific graphics and interactive-art community.",
       "link": "https://asia.siggraph.org/"
     },
@@ -1498,7 +1513,7 @@
       "id": "media-ambition-tokyo",
       "title": "Media Ambition Tokyo begins",
       "date": "2013-02",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "Annual city-wide showcase of experimental technology art across Tokyo venues (centered on Roppongi Hills), presenting work by teamLab, Rhizomatiks, and emerging Japanese artists.",
       "link": "https://mediaambitiontokyo.jp/en/"
     },
@@ -1506,9 +1521,162 @@
       "id": "ycam-of-developers-conference",
       "title": "openFrameworks Developers Conference at YCAM (Yamaguchi)",
       "date": "2012-08",
-      "layer": "institutions",
+      "layer": "inst-festivals",
       "description": "The third openFrameworks Developers Conference, hosted by YCAM InterLab in Yamaguchi. YCAM's residencies and Guest Research Projects turned these gatherings into shared open-source tools, including Kyle McDonald's ProCamToolkit / mapamok projection-mapping suite and the RAM Dance Toolkit for movement research.",
       "link": "https://github.com/YCAMInterlab"
+    },
+    {
+      "id": "studio-for-creative-inquiry",
+      "title": "STUDIO for Creative Inquiry founded (CMU)",
+      "date": "1989",
+      "layer": "inst-schools",
+      "description": "Interdisciplinary art-research lab at Carnegie Mellon University, reimagined in 1989 from the 1985 Center for Art and Technology. A long-running home for hybrid art, science, and technology projects; renamed the Frank-Ratchye STUDIO for Creative Inquiry in 2012, and later host to Deep Lab.",
+      "link": "https://studioforcreativeinquiry.org/about",
+      "creators": ["Lowry Burgess", "Bryan Rogers"]
+    },
+    {
+      "id": "ucla-design-media-arts",
+      "title": "UCLA Design | Media Arts established",
+      "date": "2000",
+      "layer": "inst-schools",
+      "description": "UCLA's Department of Design | Media Arts, renamed in 2000 from the Department of Design (which split from the Art department in 1988). An early dedicated West Coast home for media arts education, with founding chair Rebecca Allen and, later, Processing co-creator Casey Reas on the faculty.",
+      "link": "https://www.design.ucla.edu/resources/history",
+      "creators": ["Rebecca Allen"]
+    },
+    {
+      "id": "paik-abe-video-synthesizer",
+      "title": "Paik/Abe Video Synthesizer",
+      "date": "1969",
+      "layer": "hardware",
+      "description": "Built by Nam June Paik with engineer Shuya Abe during a Rockefeller residency at WGBH Boston. One of the first video synthesizers: it colorized and distorted live video in real time, mixing up to seven sources, and debuted in the 1970 broadcast Video Commune. A founding instrument of video art and an ancestor of real-time image processing.",
+      "link": "http://www.medienkunstnetz.de/works/paik-abe-synthesizer/",
+      "creators": ["Nam June Paik", "Shuya Abe"]
+    },
+    {
+      "id": "rutt-etra-scan-processor",
+      "title": "Rutt/Etra Scan Processor",
+      "date": "1972",
+      "layer": "hardware",
+      "description": "Analog scan processor by Steve Rutt and Bill Etra that reshaped the video raster itself, retiming the scan to bend, extrude, and animate the image in real time. Its signature wireframe-displacement look defined the aesthetic of Steina and Woody Vasulka and has been re-created in software ever since, from Cinder to WebGL 'Rutt-Etra-izer' emulations.",
+      "link": "https://en.wikipedia.org/wiki/Rutt/Etra_Video_Synthesizer",
+      "creators": ["Steve Rutt", "Bill Etra"]
+    },
+    {
+      "id": "the-kitchen-founded",
+      "title": "The Kitchen founded (New York)",
+      "date": "1971",
+      "layer": "inst-spaces",
+      "description": "Experimental art space founded by video artists Steina and Woody Vasulka (with Andres Mannik), originally in the kitchen of the Mercer Arts Center. A launching venue for video art, electronic music, and performance, and a hub for the scan-processor and synthesizer experiments of the 1970s.",
+      "link": "https://en.wikipedia.org/wiki/The_Kitchen_(art_institution)",
+      "creators": ["Steina Vasulka", "Woody Vasulka"]
+    },
+    {
+      "id": "art-blocks",
+      "title": "Art Blocks launches",
+      "date": "2020-11",
+      "layer": "platforms",
+      "description": "On-chain generative art platform founded by Erick 'Snowfro' Calderón. Artists deploy a generative script (often p5.js) whose output is created and stored on the Ethereum blockchain at the moment a collector mints it. Its flagship Chromie Squiggle made curated generative art the defining creative-coding form of the NFT era.",
+      "link": "https://www.artblocks.io/",
+      "creators": ["Erick Calderón"]
+    },
+    {
+      "id": "kawano-computer-art",
+      "title": "Hiroshi Kawano — Markov-chain computer art",
+      "date": "1964",
+      "layer": "artworks",
+      "description": "Some of the earliest computer art made in Asia. The Japanese philosopher-artist, drawn to Max Bense's information aesthetics, programmed an OKITAC 5090A at the University of Tokyo to generate images from Markov-chain probabilities, publishing examples in the Japanese IBM Review in September 1964. A rare early-1960s counterweight to the field's European and American origin story.",
+      "link": "https://dam.org/museum/artists_ui/artists/kawano-hiroshi/",
+      "creators": ["Hiroshi Kawano"]
+    },
+    {
+      "id": "nees-computergrafik-stuttgart",
+      "title": "Georg Nees — Computer-Grafik (first computer-art exhibition)",
+      "date": "1965-02",
+      "layer": "inst-festivals",
+      "description": "The first public exhibition anywhere of art generated by a digital computer, held Feb 5–19, 1965 (opening the 4th) at Max Bense's Studiengalerie of the TH Stuttgart. Nees's algorithmic drawings were computed at Siemens and plotted on a Zuse Graphomat Z64, launching the Stuttgart school of 'information aesthetics' around Bense, Nees, and Frieder Nake.",
+      "link": "http://dada.compart-bremen.de/item/exhibition/164",
+      "creators": ["Georg Nees", "Max Bense"]
+    },
+    {
+      "id": "noll-julesz-howard-wise",
+      "title": "Computer-Generated Pictures — Noll & Julesz (Howard Wise Gallery)",
+      "date": "1965-04",
+      "layer": "inst-festivals",
+      "description": "The first exhibition of computer art in the United States (April 6–24, 1965), at the Howard Wise Gallery in New York — two months after Nees's Stuttgart show. Bell Labs researchers A. Michael Noll and Béla Julesz showed pictures computed on an IBM 7094 and drawn by a microfilm plotter; the announcement was a deck of punch cards.",
+      "link": "http://noll.uscannenberg.org/ComputerArt.htm",
+      "creators": ["A. Michael Noll", "Béla Julesz"]
+    },
+    {
+      "id": "nake-hommage-klee",
+      "title": "Frieder Nake — Hommage à Paul Klee",
+      "date": "1965-09-13",
+      "layer": "artworks",
+      "description": "One of the most iconic early algorithmic drawings, generated on Sept 13, 1965 (the '13/9/65' of its title) from a program on a Standard Elektrik Lorenz ER56 computer and plotted on a Zuse Graphomat Z64. Nake seeded controlled randomness into an algorithm derived from Klee's painting 'Highroads and Byroads' — an early argument that chance could be an artistic method.",
+      "link": "https://collections.vam.ac.uk/item/O211685/hommage-a-paul-klee-13965-print-nake-frieder/",
+      "creators": ["Frieder Nake"]
+    },
+    {
+      "id": "csuri-hummingbird",
+      "title": "Charles Csuri — Hummingbird",
+      "date": "1967",
+      "layer": "artworks",
+      "description": "An early computer-animated film by Csuri — often called a father of digital art — made at Ohio State with FORTRAN on an IBM 7094 and a CalComp microfilm plotter, decomposing a hummingbird drawing into more than 30,000 sequenced frames. Acquired soon after by MoMA, among the first computer-generated works to enter its collection.",
+      "link": "https://www.charlescsuri.com/historic/hummingbird",
+      "creators": ["Charles Csuri"]
+    },
+    {
+      "id": "cybernetic-serendipity",
+      "title": "Cybernetic Serendipity (ICA London)",
+      "date": "1968-08",
+      "layer": "inst-festivals",
+      "description": "The landmark exhibition (Aug 2 – Oct 20, 1968) that brought computer art to a wide public, curated by Jasia Reichardt at London's ICA. It gathered hundreds of artists, engineers, and scientists — Nees, Nake, Noll, and many others — and did more than any single event to define the field's early public image.",
+      "link": "https://archive.ica.art/whats-on/cybernetic-serendipity-documentation/index.html",
+      "creators": ["Jasia Reichardt"]
+    },
+    {
+      "id": "nees-schotter",
+      "title": "Georg Nees — Schotter (Gravel)",
+      "date": "1968",
+      "layer": "artworks",
+      "description": "Perhaps the single most-reproduced early generative image: a grid of squares whose position and rotation grow steadily more random down the page, plotted on a Zuse Graphomat Z64. Nees's study of order dissolving into disorder became a canonical teaching example of generative art. (The V&A dates its print 1968–70.)",
+      "link": "https://collections.vam.ac.uk/item/O221321/schotter-print-nees-georg/",
+      "creators": ["Georg Nees"]
+    },
+    {
+      "id": "mohr-first-solo",
+      "title": "Manfred Mohr — Une Esthétique Programmée (first computer-art solo museum show)",
+      "date": "1971",
+      "layer": "inst-festivals",
+      "description": "Widely cited as the first solo museum exhibition of works entirely calculated and drawn by a digital computer, at ARC / Musée d'Art Moderne de la Ville de Paris. Mohr showed his algorithmic plotter drawings and ran a live Benson plotter demonstration, publicly modeling code as an artist's medium.",
+      "link": "https://www.bitforms.art/artist/manfred-mohr",
+      "creators": ["Manfred Mohr"]
+    },
+    {
+      "id": "waldemar-cordeiro-arteonica",
+      "title": "Waldemar Cordeiro — A Mulher que não é B.B.",
+      "date": "1971",
+      "layer": "artworks",
+      "description": "A pioneering work of Latin American computer art by the Brazilian concrete-art leader, who coined 'arteônica' (arte + eletrônica). Rendered on a line printer, it turns a news photograph of a napalm-burned Vietnamese girl into a field of numeric characters — early computer art as political protest. Shown at his 1971 Arteônica exhibition in São Paulo; Cordeiro was the father of Analívia Cordeiro, also in this timeline.",
+      "link": "https://en.wikipedia.org/wiki/Waldemar_Cordeiro",
+      "creators": ["Waldemar Cordeiro"]
+    },
+    {
+      "id": "sims-evolved-virtual-creatures",
+      "title": "Karl Sims — Evolved Virtual Creatures",
+      "date": "1994",
+      "layer": "artworks",
+      "description": "Using genetic algorithms on a Connection Machine CM-5, Sims co-evolved the bodies and neural controllers of block creatures that learned to swim, walk, jump, and compete, presented at SIGGRAPH '94. A touchstone of artificial-life and evolutionary art that shaped a generation of generative and simulation-based work.",
+      "link": "https://www.karlsims.com/evolved-virtual-creatures.html",
+      "creators": ["Karl Sims"]
+    },
+    {
+      "id": "latham-mutator",
+      "title": "William Latham — Mutator",
+      "date": "1990",
+      "layer": "artworks",
+      "description": "Evolutionary sculpture software Latham built with mathematician Stephen Todd at the IBM UK Scientific Centre across the late 1980s and early 1990s, 'breeding' intricate organic 3D forms by selecting and mutating them across generations. An influential early realization of evolution as an artmaking process, contemporary with Karl Sims's work.",
+      "link": "https://en.wikipedia.org/wiki/William_Latham_(computer_scientist)",
+      "creators": ["William Latham", "Stephen Todd"]
     }
   ]
 }

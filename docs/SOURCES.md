@@ -284,6 +284,8 @@ version tables + official announcements. Dates are public-availability.
 | Google Cardboard (2014-06-25) | https://en.wikipedia.org/wiki/Google_Cardboard (Google I/O unveiling) |
 | Myo armband (2015-03) | https://www.engadget.com/2015-01-19-myo-armband-amazon.html (broad retail early 2015; dev units from mid-2014 — medium confidence) |
 | Microsoft HoloLens Dev Edition (2016-03-30) | **P** https://blogs.windows.com/devices/2016/02/29/announcing-microsoft-hololens-development-edition-open-for-pre-order-shipping-march-30/ |
+| Paik/Abe Video Synthesizer (1969) | http://www.medienkunstnetz.de/works/paik-abe-synthesizer/ · https://en.wikipedia.org/wiki/Nam_June_Paik (built with Shuya Abe at WGBH, 1969; debuted in the 1970 broadcast *Video Commune*). Technique-origin node for real-time video synthesis. |
+| Rutt/Etra Scan Processor (1972) | https://en.wikipedia.org/wiki/Rutt/Etra_Video_Synthesizer · **P** https://www.fondation-langlois.org/html/e/page.php?NumPage=456 (Steve Rutt & Bill Etra, 1972; raster-reshaping scan processor central to the Vasulkas' aesthetic; software "Rutt-Etra-izer" descendants). |
 
 ---
 
@@ -403,6 +405,13 @@ being the entry's canonical `link`. Primary sources are marked **P**.
 | Hydra | **P** https://registry.npmjs.org/hydra-synth · **P** https://hydra.ojack.xyz/ |
 | Fluxus | https://en.wikipedia.org/wiki/Fluxus_(programming_environment) · https://github.com/nebogeo/fluxus · https://github.com/zzkt/fluxus |
 | Wekinator | **P** https://doc.gold.ac.uk/~mas01rf/Wekinator/ · **P** https://soundlab.cs.princeton.edu/publications/FiebrinkTruemanCook_NIME2009.pdf · **P** https://github.com/fiebrink1/wekinator · https://opensoundcontrol.stanford.edu/implementations/Wekinator.html |
+| Paulstretch (`audio-visual`) | **P** https://hypermammut.sourceforge.net/paulstretch/ · **P** https://github.com/paulnasca/paulstretch_cpp (Nasca Octavian Paul, GPL, first release 0.0.1 on 2006-05-27; extreme spectral time-stretch) · https://sonosaurus.com/paulxstretch/ (PaulXStretch fork, 2022) |
+
+### Tools — 3D / photogrammetry (`other`)
+| Entry | Sources |
+|---|---|
+| Agisoft Metashape | https://en.wikipedia.org/wiki/Metashape (PhotoScan first released 2010; renamed Metashape with 1.5, Oct 2018) · https://www.cgchannel.com/2019/01/agisoft-releases-metashape/ |
+| RealityCapture | https://en.wikipedia.org/wiki/RealityCapture · https://www.cgchannel.com/2016/02/capturing-reality-releases-realitycapture-in-open-beta/ (Capturing Reality, open beta 2016-02-02; acquired by Epic 2021; free 2024; rebranded RealityScan 2.0 in 2025) |
 
 ### Tools — physical computing
 | Entry | Sources |
@@ -450,6 +459,9 @@ being the entry's canonical `link`. Primary sources are marked **P**.
 | First SIGGRAPH Asia | **P** https://asia.siggraph.org/ (first edition Singapore, Dec 2008) — *contributed by Qanta Shimizu (BASSDRUM)* |
 | Media Ambition Tokyo | **P** https://mediaambitiontokyo.jp/en/ (city-wide showcase, begun Feb 2013) — *contributed by Qanta Shimizu (BASSDRUM)* |
 | openFrameworks Developers Conference at YCAM | https://forum.openframeworks.cc/t/openframeworks-developers-conference-ycam-aug-7-14/12605 (3rd oF devcon, YCAM InterLab, Yamaguchi, Aug 7–14 2012) · **P** https://github.com/YCAMInterlab (Guest Research Projects → ProCamToolkit/mapamok, RAM Dance Toolkit). Distinct from the 2003 YCAM-opens node. |
+| STUDIO for Creative Inquiry (CMU) | **P** https://studioforcreativeinquiry.org/about (reimagined 1989 from the 1985 Center for Art and Technology by Lowry Burgess & Bryan Rogers; Frank-Ratchye renaming 2012). Parent institution of the existing Deep Lab (2014) node. |
+| UCLA Design \| Media Arts | **P** https://www.design.ucla.edu/resources/history (Design dept split from Art 1988; renamed Design \| Media Arts 2000). Founding chair Rebecca Allen; later faculty incl. Casey Reas. Dated to the 2000 DMA naming. |
+| The Kitchen (New York) | https://en.wikipedia.org/wiki/The_Kitchen_(art_institution) (founded 1971 by Steina & Woody Vasulka with Andres Mannik, in the Mercer Arts Center kitchen). Anchor node for the Vasulkas and the 1970s video-synthesis scene. |
 
 ### Events — artworks
 | Entry | Sources |
@@ -494,6 +506,7 @@ being the entry's canonical `link`. Primary sources are marked **P**.
 | GitHub | https://en.wikipedia.org/wiki/GitHub (dev began 2007-10-19; company founded 2008-02-08; public launch 2008-04-10) |
 | Niconico (Nico Nico Douga) | https://en.wikipedia.org/wiki/Niconico (launched 2006-12-12; comment-overlay video, VOCALOID/MMD remix culture) — *contributed by Qanta Shimizu (BASSDRUM)* |
 | wonderfl build flash online | https://en.wikipedia.org/wiki/Wonderfl (Kayac browser AS3 community; Dec 2008 – Mar 2017) — *contributed by Qanta Shimizu (BASSDRUM)* |
+| Art Blocks | https://www.artblocks.io/ · https://en.wikipedia.org/wiki/Art_Blocks (launched Nov 2020 by Erick "Snowfro" Calderón; on-chain generative art, flagship Chromie Squiggle). The creative-coding-relevant node for the NFT era; web3 broadly left out as too diffuse. |
 
 ### Tools — Japan additions (contributed by Qanta Shimizu / BASSDRUM)
 | Entry | Sources |

@@ -52,7 +52,14 @@ export default function Timeline() {
   // Playhead: pointer X within the time region (px, gutter-relative), or null
   // when the cursor is over the label gutter or off the timeline.
   const [playhead, setPlayhead] = useState(null);
-  const scrollRef = useRef(null);
+  // Desktop only: the events pane's height before the tool lanes. null = auto,
+  // fitting the events content (so it grows when you expand the events lane);
+  // dragging the divider pins it to a fixed pixel height.
+  const [eventsPaneH, setEventsPaneH] = useState(null);
+  const scrollRef = useRef(null); // events pane (also the sole scroller on mobile)
+  const botRef = useRef(null);    // tools pane (desktop split)
+  const splitRef = useRef(null);  // the two-pane column, for clamping the drag
+  const syncingScroll = useRef(false);
 
   const scale = useMemo(() => createScale(pxy), [pxy]);
 
@@ -61,7 +68,9 @@ export default function Timeline() {
   const didInitScroll = useRef(false);
   useEffect(() => {
     if (didInitScroll.current || !scrollRef.current) return;
-    scrollRef.current.scrollLeft = (startYear - YMIN) * pxy;
+    const x = (startYear - YMIN) * pxy;
+    scrollRef.current.scrollLeft = x;
+    if (botRef.current) botRef.current.scrollLeft = x;
     didInitScroll.current = true;
   });
 
@@ -158,11 +167,46 @@ export default function Timeline() {
   };
   const playheadYear = playhead != null ? Math.floor(scale.yearAt(playhead)) : null;
 
+  // Desktop split: the events and tools panes scroll vertically on their own but
+  // must stay horizontally locked. Mirror scrollLeft between them; the guard (only
+  // armed when we actually change a value) keeps the echo from looping.
+  const mirrorScroll = (from, to) => {
+    const a = from.current, b = to.current;
+    if (syncingScroll.current) { syncingScroll.current = false; return; }
+    if (!a || !b || a.scrollLeft === b.scrollLeft) return;
+    syncingScroll.current = true;
+    b.scrollLeft = a.scrollLeft;
+  };
+  const onTopScroll = () => mirrorScroll(scrollRef, botRef);
+  const onBotScroll = () => mirrorScroll(botRef, scrollRef);
+
+  // Drag the divider to trade height between the events pane and the tools below.
+  const onDividerDown = (e) => {
+    e.preventDefault();
+    const startY = e.clientY;
+    // From auto height, start the drag at whatever the events pane renders now.
+    const startH = eventsPaneH ?? scrollRef.current?.clientHeight ?? 248;
+    const move = (ev) => {
+      const max = (splitRef.current?.clientHeight ?? 800) - 140;
+      setEventsPaneH(Math.max(96, Math.min(max, startH + (ev.clientY - startY))));
+    };
+    const up = () => {
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  };
+
   // The right panel shows one thing at a time — a tool OR a year slice.
   // Opening either clears the other so there's never a fight over the panel.
   const openTool = (t) => { setSelected(t); setSelectedYear(null); };
   const openYear = (yr) => { setSelectedYear(yr); setSelected(null); };
   const closePanel = () => { setSelected(null); setSelectedYear(null); };
+  // Clicking an event opens the year slice it belongs to — the panel already
+  // lists that event (un-dimmed) with its description, source, and neighbours,
+  // and unlike the hover popover its text is selectable.
+  const openEvent = (e) => openYear(Math.floor(yearFrac(e.parsedDate)));
 
   // ---- year axis + gridlines ----
   // At low zoom the 5-year labels crowd, so fall back to decades only.
@@ -182,6 +226,93 @@ export default function Timeline() {
       }}
     />
   ));
+
+  // Full-height vertical guides (now-line, pinned year slice, cursor playhead).
+  // Rendered inside each scroll pane so they stay continuous across the split.
+  const guides = (
+    <>
+      <div style={{ position: 'absolute', top: 0, bottom: 0, width: 0, left: gutter + nowLeft, borderLeft: '1px dashed #c3baac', zIndex: 1 }} />
+      {selectedYear != null && (
+        <>
+          <div style={{ position: 'absolute', top: 0, bottom: 0, left: gutter + scale.x(selectedYear - 1), width: 3 * pxy, background: 'rgba(58,53,46,0.05)', zIndex: 2, pointerEvents: 'none' }} />
+          <div style={{ position: 'absolute', top: 0, bottom: 0, width: 2, left: gutter + scale.x(selectedYear + 0.5) - 1, background: '#3a352e', opacity: 0.5, zIndex: 4, pointerEvents: 'none' }} />
+        </>
+      )}
+      {playhead != null && (
+        <div style={{ position: 'absolute', top: 0, bottom: 0, width: 1, left: gutter + playhead, background: '#3a352e', opacity: 0.3, zIndex: 4, pointerEvents: 'none' }} />
+      )}
+    </>
+  );
+
+  const yearAxis = (
+    <div style={{ position: 'sticky', top: 0, zIndex: 5, display: 'flex', height: 40, background: BG, borderBottom: '1px solid #e7e3dd' }}>
+      <div style={{ position: 'sticky', left: 0, zIndex: 6, flex: 'none', width: gutter, background: BG, borderRight: '1px solid #e7e3dd' }} />
+      <div
+        title="Click to inspect this year"
+        onClick={(e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const yr = Math.floor(scale.yearAt(e.clientX - rect.left));
+          if (yr >= YMIN && yr <= YMAX) openYear(yr);
+        }}
+        style={{ position: 'relative', flex: 'none', width: scale.timeWidth, height: '100%', cursor: 'pointer' }}
+      >
+        {ticks.map((t) => (
+          <span key={`tick-${t.yr}`} style={{
+            position: 'absolute', top: 13, left: t.left, transform: 'translateX(-50%)',
+            fontFamily: MONO, fontSize: 11, whiteSpace: 'nowrap',
+            color: t.decade ? '#4a443c' : '#b4a99b', fontWeight: t.decade ? 500 : 400,
+          }}>{t.yr}</span>
+        ))}
+        <span style={{ position: 'absolute', top: 13, left: nowLeft + 5, fontFamily: MONO, fontSize: 10, color: '#a49a8d' }}>now</span>
+        {playhead != null && (
+          <span style={{
+            position: 'absolute', top: 6, left: playhead, transform: 'translateX(-50%)',
+            fontFamily: MONO, fontSize: 11, fontWeight: 600, color: '#fff', background: '#3a352e',
+            borderRadius: 4, padding: '2px 6px', whiteSpace: 'nowrap', pointerEvents: 'none', zIndex: 7,
+          }}>{playheadYear}</span>
+        )}
+      </div>
+    </div>
+  );
+
+  const eventsLaneEl = (
+    <EventsLane
+      expanded={eventsExpanded}
+      // Twirling the lane open/closed releases any dragged height back to
+      // auto-fit, so the divider snaps to the new content instead of leaving a
+      // pinned pane stranded with empty space.
+      onToggle={() => { setExpanded(toggleIn(expanded, 'events')); setEventsPaneH(null); }}
+      count={visEvents.length}
+      activeLayers={activeLayers}
+      activeRow={activeRow}
+      visEvents={visEvents}
+      hoverEvent={hoverEvent}
+      setHoverEvent={setHoverEvent}
+      onSelectEvent={openEvent}
+      scale={scale}
+      gutter={gutter}
+    />
+  );
+
+  const toolLanesEl = CATEGORY_ORDER.filter((c) => catsOn.has(c.key)).map((c) => {
+    const laneTools = tools
+      .filter((t) => t.category === c.key)
+      .sort((a, b) => a.firstDate - b.firstDate);
+    return (
+      <Lane
+        key={c.key}
+        cat={c}
+        tools={laneTools}
+        expanded={expanded.has(c.key)}
+        onToggle={() => setExpanded(toggleIn(expanded, c.key))}
+        toolDimmed={toolDimmed}
+        onSelect={openTool}
+        selected={selected}
+        scale={scale}
+        gutter={gutter}
+      />
+    );
+  });
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: BG, color: '#3a352e' }}>
@@ -262,98 +393,71 @@ export default function Timeline() {
       />
       )}
 
-      {/* Scrollable timeline */}
-      <div
-        ref={scrollRef}
-        onMouseMove={onTimelineMove}
-        onMouseLeave={() => setPlayhead(null)}
-        onPointerDown={() => { if (!hintDismissed) setHintDismissed(true); }}
-        style={{ flex: 1, overflow: 'auto', position: 'relative' }}
-      >
-        <div style={{ position: 'relative', minWidth: innerWidth }}>
-          {gridlines}
-          {/* now line */}
-          <div style={{ position: 'absolute', top: 0, bottom: 0, width: 0, left: gutter + nowLeft, borderLeft: '1px dashed #c3baac', zIndex: 1 }} />
-          {/* pinned year slice: a shaded ±1 window + a solid guide at the year */}
-          {selectedYear != null && (
-            <>
-              <div style={{ position: 'absolute', top: 0, bottom: 0, left: gutter + scale.x(selectedYear - 1), width: 3 * pxy, background: 'rgba(58,53,46,0.05)', zIndex: 2, pointerEvents: 'none' }} />
-              <div style={{ position: 'absolute', top: 0, bottom: 0, width: 2, left: gutter + scale.x(selectedYear + 0.5) - 1, background: '#3a352e', opacity: 0.5, zIndex: 4, pointerEvents: 'none' }} />
-            </>
-          )}
-          {/* playhead: vertical guide following the cursor. Sits under the sticky
-              axis (which paints over it), so it reads as starting below the axis. */}
-          {playhead != null && (
-            <div style={{ position: 'absolute', top: 0, bottom: 0, width: 1, left: gutter + playhead, background: '#3a352e', opacity: 0.3, zIndex: 4, pointerEvents: 'none' }} />
-          )}
-
-          {/* Year axis (sticky top) */}
-          <div style={{ position: 'sticky', top: 0, zIndex: 5, display: 'flex', height: 40, background: BG, borderBottom: '1px solid #e7e3dd' }}>
-            <div style={{ position: 'sticky', left: 0, zIndex: 6, flex: 'none', width: gutter, background: BG, borderRight: '1px solid #e7e3dd' }} />
-            <div
-              title="Click to inspect this year"
-              onClick={(e) => {
-                const rect = e.currentTarget.getBoundingClientRect();
-                const yr = Math.floor(scale.yearAt(e.clientX - rect.left));
-                if (yr >= YMIN && yr <= YMAX) openYear(yr);
-              }}
-              style={{ position: 'relative', flex: 'none', width: scale.timeWidth, height: '100%', cursor: 'pointer' }}
-            >
-              {ticks.map((t) => (
-                <span key={`tick-${t.yr}`} style={{
-                  position: 'absolute', top: 13, left: t.left, transform: 'translateX(-50%)',
-                  fontFamily: MONO, fontSize: 11, whiteSpace: 'nowrap',
-                  color: t.decade ? '#4a443c' : '#b4a99b', fontWeight: t.decade ? 500 : 400,
-                }}>{t.yr}</span>
-              ))}
-              <span style={{ position: 'absolute', top: 13, left: nowLeft + 5, fontFamily: MONO, fontSize: 10, color: '#a49a8d' }}>now</span>
-              {/* year readout pinned to the cursor, riding along the sticky axis */}
-              {playhead != null && (
-                <span style={{
-                  position: 'absolute', top: 6, left: playhead, transform: 'translateX(-50%)',
-                  fontFamily: MONO, fontSize: 11, fontWeight: 600, color: '#fff', background: '#3a352e',
-                  borderRadius: 4, padding: '2px 6px', whiteSpace: 'nowrap', pointerEvents: 'none', zIndex: 7,
-                }}>{playheadYear}</span>
-              )}
+      {/* Scrollable timeline. Mobile: one scroller. Desktop: two horizontally
+          locked panes (events / tools) with a draggable divider so you can trade
+          vertical space between them. */}
+      {isMobile ? (
+        <div
+          ref={scrollRef}
+          onMouseMove={onTimelineMove}
+          onMouseLeave={() => setPlayhead(null)}
+          onPointerDown={() => { if (!hintDismissed) setHintDismissed(true); }}
+          style={{ flex: 1, overflow: 'auto', position: 'relative' }}
+        >
+          <div style={{ position: 'relative', minWidth: innerWidth }}>
+            {gridlines}
+            {guides}
+            {yearAxis}
+            {eventsLaneEl}
+            {toolLanesEl}
+          </div>
+        </div>
+      ) : (
+        <div ref={splitRef} style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
+          {/* Events pane */}
+          <div
+            ref={scrollRef}
+            onScroll={onTopScroll}
+            onMouseMove={onTimelineMove}
+            onMouseLeave={() => setPlayhead(null)}
+            style={{ flex: 'none', height: eventsPaneH ?? 'auto', maxHeight: eventsPaneH == null ? '58%' : undefined, overflow: 'auto', position: 'relative' }}
+          >
+            <div style={{ position: 'relative', minWidth: innerWidth }}>
+              {gridlines}
+              {guides}
+              {yearAxis}
+              {eventsLaneEl}
             </div>
           </div>
 
-          {/* Context & events lane */}
-          <EventsLane
-            expanded={eventsExpanded}
-            onToggle={() => setExpanded(toggleIn(expanded, 'events'))}
-            count={visEvents.length}
-            activeLayers={activeLayers}
-            activeRow={activeRow}
-            visEvents={visEvents}
-            hoverEvent={hoverEvent}
-            setHoverEvent={setHoverEvent}
-            scale={scale}
-            gutter={gutter}
-          />
+          {/* Draggable divider */}
+          <div
+            onPointerDown={onDividerDown}
+            title="Drag to give the events or the tools more room"
+            style={{
+              flex: 'none', height: 9, cursor: 'ns-resize', display: 'flex', alignItems: 'center',
+              justifyContent: 'center', background: '#efeae3', borderTop: '1px solid #e0dbd3', borderBottom: '1px solid #e0dbd3',
+            }}
+          >
+            <div style={{ width: 38, height: 3, borderRadius: 2, background: '#cfc7bb' }} />
+          </div>
 
-          {/* Category lanes */}
-          {CATEGORY_ORDER.filter((c) => catsOn.has(c.key)).map((c) => {
-            const laneTools = tools
-              .filter((t) => t.category === c.key)
-              .sort((a, b) => a.firstDate - b.firstDate);
-            return (
-              <Lane
-                key={c.key}
-                cat={c}
-                tools={laneTools}
-                expanded={expanded.has(c.key)}
-                onToggle={() => setExpanded(toggleIn(expanded, c.key))}
-                toolDimmed={toolDimmed}
-                onSelect={openTool}
-                selected={selected}
-                scale={scale}
-                gutter={gutter}
-              />
-            );
-          })}
+          {/* Tools pane */}
+          <div
+            ref={botRef}
+            onScroll={onBotScroll}
+            onMouseMove={onTimelineMove}
+            onMouseLeave={() => setPlayhead(null)}
+            style={{ flex: 1, minHeight: 80, overflow: 'auto', position: 'relative' }}
+          >
+            <div style={{ position: 'relative', minWidth: innerWidth }}>
+              {gridlines}
+              {guides}
+              {toolLanesEl}
+            </div>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Detail panel: an inline column on desktop; a bottom sheet on mobile. */}
       {isMobile && (selected || selectedYear != null) && (
@@ -398,7 +502,7 @@ function ZoomButton({ label, title, onClick, disabled }) {
 }
 
 // ---------- Events lane ----------
-function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEvents, hoverEvent, setHoverEvent, scale, gutter }) {
+function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEvents, hoverEvent, setHoverEvent, onSelectEvent, scale, gutter }) {
   const { xDate } = scale;
   const height = expanded ? EVH + activeLayers.length * EVR + 10 : 38;
   const hovered = hoverEvent != null ? visEvents[hoverEvent] : null;
@@ -426,6 +530,7 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
             key={`t-${e.id}`}
             onMouseEnter={() => setHoverEvent(i)}
             onMouseLeave={() => setHoverEvent(null)}
+            onClick={() => onSelectEvent(e)}
             style={{
               position: 'absolute', top: 9, height: 20, width: 3, left: xDate(e.parsedDate) - 1,
               background: e.color, borderRadius: 2, opacity: hoverEvent === i ? 1 : 0.68, cursor: 'pointer',
@@ -443,16 +548,17 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
               <div
                 onMouseEnter={() => setHoverEvent(i)}
                 onMouseLeave={() => setHoverEvent(null)}
+                onClick={() => onSelectEvent(e)}
                 style={{
-                  position: 'absolute', top: top + (EVR - 6) / 2, left: startX,
-                  width: Math.max(4, endX - startX), height: 6, borderRadius: 3,
-                  background: e.color, opacity: hoverEvent === i ? 0.45 : 0.26, cursor: 'pointer',
+                  position: 'absolute', top: top + EVR - 5, left: startX,
+                  width: Math.max(4, endX - startX), height: 3, borderRadius: 2,
+                  background: e.color, opacity: hoverEvent === i ? 0.6 : 0.34, cursor: 'pointer',
                 }}
               />
               {/* end cap: this one actually stopped */}
               <div style={{
-                position: 'absolute', top: top + (EVR - 12) / 2, left: endX - 1,
-                width: 2, height: 12, background: e.color, opacity: 0.55,
+                position: 'absolute', top: top + EVR - 8, left: endX - 1,
+                width: 2, height: 6, background: e.color, opacity: 0.6,
               }} />
             </div>
           );
@@ -467,6 +573,7 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
               key={`d-${e.id}`}
               onMouseEnter={() => setHoverEvent(i)}
               onMouseLeave={() => setHoverEvent(null)}
+              onClick={() => onSelectEvent(e)}
               style={{
                 position: 'absolute', top, left: xDate(e.parsedDate) - size / 2, width: size, height: size,
                 borderRadius: '50%', background: e.color, boxShadow: '0 0 0 2px #f7f6f4', cursor: 'pointer',
