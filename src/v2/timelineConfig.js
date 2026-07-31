@@ -43,7 +43,10 @@ export const LAYER_ORDER = [
   { key: 'web-standards', name: 'Standards & Formats', color: '#3a7ae8' },
   { key: 'ai-ml', name: 'AI / ML', color: '#9b5de5' },
   { key: 'artworks', name: 'Landmark Artworks', color: '#e5476b' },
-  { key: 'institutions', name: 'Institutions', color: '#2ea36b' },
+  { key: 'inst-festivals', name: 'Festivals & Exhibitions', color: '#2ea36b' },
+  { key: 'inst-spaces', name: 'Galleries, Museums & Spaces', color: '#47b58a' },
+  { key: 'inst-schools', name: 'Schools & Programs', color: '#1c8a57' },
+  { key: 'inst-labs', name: 'Labs, Collectives & Communities', color: '#7cc465' },
   { key: 'publications', name: 'Publications', color: '#d4a017' },
   { key: 'platforms', name: 'Platforms', color: '#17a2b8' },
 ];

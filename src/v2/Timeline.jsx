@@ -451,15 +451,15 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
                 onMouseLeave={() => setHoverEvent(null)}
                 onClick={() => onSelectEvent(e)}
                 style={{
-                  position: 'absolute', top: top + (EVR - 6) / 2, left: startX,
-                  width: Math.max(4, endX - startX), height: 6, borderRadius: 3,
-                  background: e.color, opacity: hoverEvent === i ? 0.45 : 0.26, cursor: 'pointer',
+                  position: 'absolute', top: top + EVR - 5, left: startX,
+                  width: Math.max(4, endX - startX), height: 3, borderRadius: 2,
+                  background: e.color, opacity: hoverEvent === i ? 0.6 : 0.34, cursor: 'pointer',
                 }}
               />
               {/* end cap: this one actually stopped */}
               <div style={{
-                position: 'absolute', top: top + (EVR - 12) / 2, left: endX - 1,
-                width: 2, height: 12, background: e.color, opacity: 0.55,
+                position: 'absolute', top: top + EVR - 8, left: endX - 1,
+                width: 2, height: 6, background: e.color, opacity: 0.6,
               }} />
             </div>
           );
