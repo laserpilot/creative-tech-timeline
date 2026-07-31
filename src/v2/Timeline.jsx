@@ -278,7 +278,10 @@ export default function Timeline() {
   const eventsLaneEl = (
     <EventsLane
       expanded={eventsExpanded}
-      onToggle={() => setExpanded(toggleIn(expanded, 'events'))}
+      // Twirling the lane open/closed releases any dragged height back to
+      // auto-fit, so the divider snaps to the new content instead of leaving a
+      // pinned pane stranded with empty space.
+      onToggle={() => { setExpanded(toggleIn(expanded, 'events')); setEventsPaneH(null); }}
       count={visEvents.length}
       activeLayers={activeLayers}
       activeRow={activeRow}
