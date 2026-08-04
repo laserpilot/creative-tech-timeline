@@ -635,12 +635,11 @@ function Lane({ cat, tools, expanded, onToggle, toolDimmed, onSelect, selected, 
               key={t.name}
               onClick={() => onSelect(t)}
               style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6,
+                display: 'flex', alignItems: 'center', gap: 6,
                 height: ROW, padding: '0 12px 0 34px', cursor: 'pointer', opacity: dimmed ? 0.35 : 1,
               }}
             >
-              <span style={{ fontSize: 12.5, color: '#3a352e', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t.name}</span>
-              <span style={{ fontFamily: MONO, fontSize: 10, color: '#b4a99b', flex: 'none' }}>{t.releases.length > 1 ? `${t.releases.length} rel` : '·'}</span>
+              <span style={{ fontSize: 11.5, color: '#3a352e', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t.name}</span>
             </div>
           );
         })}

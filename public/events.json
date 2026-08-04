@@ -412,6 +412,17 @@
     },
 
     {
+      "id": "cdm-create-digital-music",
+      "title": "CDM — Create Digital Music launches",
+      "date": "2004-10-27",
+      "layer": "publications",
+      "description": "Daily site covering music-and-visual technology, the tools behind it, and the artists using them. Sister site Create Digital Motion followed on 28 June 2006, aimed at 'visualists' — VJs, real-time video and interactive artists; the two merged into a single site at cdm.link in 2016.",
+      "link": "https://cdm.link/20-years-of-cdm-posts/",
+      "creators": [
+        "Peter Kirn"
+      ]
+    },
+    {
       "id": "creative-applications-net",
       "title": "CreativeApplications.Net launches",
       "date": "2008",
