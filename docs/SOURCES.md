@@ -489,6 +489,7 @@ being the entry's canonical `link`. Primary sources are marked **P**.
 ### Events — publications
 | Entry | Sources |
 |---|---|
+| CDM — Create Digital Music | **P** https://cdm.link/20-years-of-cdm-posts/ (Kirn: "October 27, 2004 is the beginning of the CDM story archive", two posts that day) · **P** http://cdm.link/2006/06/welcome-to-create-digital-motion/ (Create Digital Motion announced 28 June 2006) · **P** https://cdm.link/2016/08/cdm-cdm-music-motion/ (music + motion merged under cdm.link, 2016) · ⚠️ the About page says "publishing since 2005" — the archive and anniversary post both say Oct 2004 |
 | CreativeApplications.Net | **P** https://www.creativeapplications.net/about/ (states only "Since 2008"; a NODE13 festival bio narrows it to Oct 2008, unconfirmed by the site — hence year precision) |
 | Prosthetic Knowledge | **P** https://www.tumblr.com/prostheticknowledge · **P** https://x.com/prostheticknowl/status/1201250093690707980 (10-year anniversary tweet → Dec 2009 start) · last post 5 Sept 2018 confirmed by project owner |
 | The Creators Project | **P** https://www.intc.com/news-events/press-releases/detail/754/the-creators-project-debuts-worldwide-an-unprecedented (Intel press release, 2010-05-17) ⚠️ Wikipedia's Vice article implies 2007 — wrong |
