@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
-import { CATEGORY_ORDER, LAYER_ORDER } from '../src/v2/timelineConfig.js';
+import { CATEGORY_ORDER, LAYER_ORDER } from '../src/timelineConfig.js';
 
 const ajv = new Ajv2020({ allErrors: true });
 addFormats(ajv);
@@ -37,7 +37,7 @@ function checkRenderable(label, used, known, configName) {
     return false;
   }
   console.error(`FAIL unrendered ${label}(s): ${unknown.join(', ')}`);
-  console.error(`  Nothing using them will appear. Add them to ${configName} in src/v2/timelineConfig.js.`);
+  console.error(`  Nothing using them will appear. Add them to ${configName} in src/timelineConfig.js.`);
   for (const key of unknown) {
     const names = used.get(key);
     console.error(`  - ${key}: ${names.slice(0, 4).join(', ')}${names.length > 4 ? ` (+${names.length - 4} more)` : ''}`);
