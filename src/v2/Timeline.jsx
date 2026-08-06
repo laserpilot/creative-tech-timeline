@@ -39,7 +39,10 @@ export default function Timeline() {
   const [layers, setLayers] = useState(null);
   const [decades, setDecades] = useState(null);
   const [query, setQuery] = useState('');
-  const [expanded, setExpanded] = useState(() => new Set(['programming', 'audio-visual']));
+  // 'events' opens twirled out: the context layers are the point of the piece,
+  // not an optional extra. The desktop events pane is capped at 58% height so
+  // the tool lanes stay on screen alongside it.
+  const [expanded, setExpanded] = useState(() => new Set(['events', 'programming', 'audio-visual']));
   const [selected, setSelected] = useState(null);
   const [selectedYear, setSelectedYear] = useState(null);
   const [hoverEvent, setHoverEvent] = useState(null);
