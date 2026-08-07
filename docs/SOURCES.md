@@ -369,7 +369,7 @@ being the entry's canonical `link`. Primary sources are marked **P**.
 > moved to `programming` (both are visual/block programming environments, consistent with
 > VVVV/Vuo/TouchDesigner). **Isadora** stays here — TroikaTronix frames it as a live-performance
 > media *authoring* environment. (Display order: `audio-visual` sits second, above `web`, in
-> `src/v2/timelineConfig.js`.)
+> `src/timelineConfig.js`.)
 
 | Entry | Sources |
 |---|---|

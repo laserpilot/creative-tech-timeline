@@ -33,7 +33,7 @@ To add or fix something:
 A few things worth knowing so your data actually shows up:
 
 - **Categories and layers are a fixed set** defined in
-  [`src/v2/timelineConfig.js`](src/v2/timelineConfig.js) (tool categories like
+  [`src/timelineConfig.js`](src/timelineConfig.js) (tool categories like
   `programming`, `audio-visual`, `multimedia-authoring`; event layers like `hardware`,
   `ai-ml`, `publications`). Data using a category or layer that isn't listed there is
   **not rendered** — and `npm run validate` will fail loudly rather than drop it
