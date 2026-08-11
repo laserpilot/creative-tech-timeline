@@ -840,6 +840,29 @@
         { "version": "Initial release", "dateString": "2005-12", "link": "https://en.wikipedia.org/wiki/Papervision3D", "notes": "By Carlos Ulloa; open-sourced by end of 2006. Final release 2.1.932 (Dec 2009); superseded by Away3D as Flash declined.", "major": true }
       ]
     },
+    "BASIC": {
+      "category": "programming",
+      "description": "Beginner's All-Purpose Symbolic Instruction Code, designed at Dartmouth so that students outside maths and engineering could write programs themselves rather than hand punched cards to an operator. When microcomputers arrived it shipped in ROM on nearly all of them, so for roughly fifteen years switching on a home computer dropped you directly into a programming environment. That accident of packaging, plus type-in program listings in magazines and books, made BASIC the first language a generation of artists and musicians used to put graphics and sound on a screen - the popular counterpart to Logo's classroom route into the same idea.",
+      "link": "https://en.wikipedia.org/wiki/BASIC",
+      "releases": [
+        { "version": "Dartmouth BASIC", "dateString": "1964-05-01", "link": "https://www.dartmouth.edu/basicfifty/basic.html", "notes": "John Kemeny and Thomas Kurtz, Dartmouth College. First programs run at 4am on 1 May 1964 on the college's GE time-sharing system; BASIC and general-purpose time-sharing arrived together, and the language was deliberately given away rather than licensed.", "major": true },
+        { "version": "Altair BASIC", "dateString": "1975", "link": "https://en.wikipedia.org/wiki/Altair_BASIC", "notes": "Gates and Allen's interpreter for the Altair 8800 - the first Microsoft product, and the moment BASIC moved from timeshared terminals to personal machines." },
+        { "version": "Home-computer BASICs in ROM", "dateString": "1977", "link": "https://en.wikipedia.org/wiki/Microsoft_BASIC", "notes": "Apple II, Commodore PET and TRS-80 all ship in 1977 with a BASIC prompt on boot. This is the era of type-in listings and of one-line graphics experiments like 10 PRINT CHR$(205.5+RND(1));, later the subject of a book-length study of a single line of code.", "major": true },
+        { "version": "QBasic", "dateString": "1991", "link": "https://en.wikipedia.org/wiki/QBasic", "notes": "Bundled with MS-DOS 5.0 and Windows through the 90s; the last BASIC to reach a mass audience by default before the boot-to-a-prompt convention disappeared." }
+      ]
+    },
+    "PostScript": {
+      "category": "programming",
+      "description": "Adobe's page-description language, and a full stack-based programming language in its own right - programs that draw. Its imaging model, in which shapes are built from moveTo/lineTo/curveTo paths and then filled or stroked in a transformable coordinate space, was so well chosen that it became the drawing API almost everything since has inherited: PDF and SVG directly, and Cairo, Quartz, Java2D, HTML Canvas, Processing, NodeBox, DrawBot, basil.js and Paper.js by descent. Artists also wrote it by hand as a generative medium, since a PostScript file is a program the printer executes rather than a picture it copies.",
+      "link": "https://en.wikipedia.org/wiki/PostScript",
+      "releases": [
+        { "version": "PostScript", "dateString": "1984", "link": "https://computerhistory.org/blog/postscript-a-digital-printing-press/", "notes": "Developed by John Warnock and Chuck Geschke, who left Xerox PARC in December 1982 to found Adobe after failing to get Xerox to commercialise its in-house Interpress language.", "major": true },
+        { "version": "Apple LaserWriter", "dateString": "1985-03", "link": "https://en.wikipedia.org/wiki/LaserWriter", "notes": "First mass-market PostScript device. Together with the Macintosh and PageMaker it created desktop publishing, and put a programmable renderer on ordinary desks.", "major": true },
+        { "version": "Display PostScript", "dateString": "1987", "link": "https://en.wikipedia.org/wiki/Display_PostScript", "notes": "Screen implementation co-developed with NeXT, making the same imaging model the basis of the display as well as the printer - the line that leads to macOS's Quartz." },
+        { "version": "PostScript Level 2", "dateString": "1991", "link": "https://www.prepressure.com/postscript/basics/history", "notes": "Adds colour separation, composite fonts, and image compression." },
+        { "version": "PostScript 3", "dateString": "1997", "link": "https://www.prepressure.com/postscript/basics/history", "notes": "Smooth shading and gradient support; the last major revision before PDF, its own descendant, largely displaced it as an interchange format." }
+      ]
+    },
     "Logo": {
       "category": "programming",
       "description": "Educational programming language created at Bolt, Beranek and Newman (BBN) to make programming concepts tangible to children. Its turtle graphics - drawing by commanding a relative-motion agent rather than plotting absolute coordinates - became the founding metaphor for learning to code by drawing, and the ancestor of Design By Numbers, Processing, and Scratch.",
