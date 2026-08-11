@@ -43,7 +43,7 @@
     "publications": {
       "name": "Publications",
       "color": "#d4a017",
-      "description": "Blogs, magazines, and platforms that documented and circulated the field's work"
+      "description": "Blogs, magazines, and platforms that documented and circulated the field's work, and the essays and manifestos that gave it a critical vocabulary"
     },
     "platforms": {
       "name": "Platforms",
@@ -839,6 +839,17 @@
       ]
     },
 
+    {
+      "id": "cyborg-manifesto",
+      "title": "Donna Haraway — A Cyborg Manifesto",
+      "date": "1985",
+      "layer": "publications",
+      "description": "Essay first published in Socialist Review no. 80 as 'A Manifesto for Cyborgs', arguing the cyborg — a hybrid of organism and machine, with no origin story to return to — as a figure for identity that refuses the boundaries between human and animal, organism and machine, physical and non-physical. It gave a generation of artists working with technology a way to treat the human/machine boundary as political rather than merely technical, and is the text cyberfeminism and its successors argue from: VNS Matrix in 1991 and Legacy Russell's Glitch Feminism both write in its wake.",
+      "link": "https://en.wikipedia.org/wiki/A_Cyborg_Manifesto",
+      "creators": [
+        "Donna Haraway"
+      ]
+    },
     {
       "id": "vns-matrix-cyberfeminist-manifesto",
       "title": "VNS Matrix — A Cyberfeminist Manifesto for the 21st Century",
