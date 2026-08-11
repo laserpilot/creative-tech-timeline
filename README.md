@@ -43,6 +43,17 @@ A few things worth knowing so your data actually shows up:
   (`2008`, `2008-11`, `2008-11-24`), `24 Nov 2008`, `November 2008`, or a bare year.
 - Events may include an optional `end` date to draw a lifespan span.
 
+## Thanks
+
+People who have sent in corrections, additions, and suggestions to the data:
+
+- Lauren Lee McCarthy
+- Casey Reas
+
+Some contributions have come from people who aren't listed here. If you've sent
+something in and would like to be credited — or would rather not be — open an issue and
+I'll fix it.
+
 ## Development
 
 ```sh

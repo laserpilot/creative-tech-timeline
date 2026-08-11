@@ -1002,8 +1002,9 @@
     },
     "disguise": {
       "category": "audio-visual",
-      "description": "Show-production platform (formerly d3) combining a real-time 3D media server with software and hardware, used for large-scale concert tours, projection mapping, and xR/LED-volume virtual production. Lineage traces to United Visual Artists.",
+      "description": "Show-production platform (formerly d3) combining a real-time 3D media server with software and hardware, used for large-scale concert tours, projection mapping, and xR/LED-volume virtual production. It began as an in-house tool at United Visual Artists rather than as a product: the system was built to run UVA's own shows and only spun out commercially five years later.",
       "releases": [
+        { "version": "UVA in-house media server (U2 Vertigo tour)", "dateString": "2005", "link": "https://www.wired.com/2005/08/u2-2/", "notes": "First major deployment of the real-time media server UVA built for its own work, on U2's Vertigo tour — the direct ancestor of d3. Never a public release; dated here from first use. Origin reported first-hand by an early UVA employee." },
         { "version": "d3 (first commercial release)", "dateString": "2010", "link": "https://plsn.com/archives/december-2017/ash-nehru-co-founder-and-cto-of-disguise/", "notes": "d3 Technologies founded 2010 (Ash Nehru / UVA lineage); renamed 'disguise' in 2017" }
       ]
     },
