@@ -16,6 +16,25 @@ Open `public/creative-code-data.json` and either:
 - **New tool** — add an entry under `tools` keyed by the tool's display name. Required: `category` (must match one of the keys under `categories`). Optional: `description`, `link`, `discontinued`, `releases`.
 - **New release** — append to the `releases` array of an existing tool. Required: `dateString` (any human-readable date the existing parser accepts, e.g. `"24 Nov 2008"`, `"November 2008"`, `"2008"`). Optional: `version`, `link`, `notes`, `major` (boolean — set true if this should be highlighted on the tool's lifeline).
 
+## What makes a good tool
+
+Mostly this is obvious — if people use it to make work, it belongs. The one recurring
+grey area is **general-purpose languages**, which the timeline includes only when they
+meet one of two tests:
+
+- Creative coding inherited its **drawing or interaction model**. PostScript qualifies
+  because `moveTo`/`lineTo`/`fill`/`stroke` is still the drawing API of Canvas,
+  Processing, and Paper.js.
+- It was the **first programming contact for a generation of artists**. Logo and BASIC
+  qualify on this one.
+
+C, Fortran, and Lisp fail both: the field used them heavily but inherited no idiom from
+them. If you're proposing a language, say in the PR which test it meets.
+
+Tools that were never publicly released can still be included when their influence is
+documented — `ACU` and disguise's pre-2010 UVA origins are both in on those terms. Date
+them from first use and say so in the release `notes`.
+
 ## Adding an event
 
 Open `public/events.json` and append to the `events` array. Required fields:
