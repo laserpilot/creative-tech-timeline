@@ -1688,6 +1688,81 @@
       "description": "Evolutionary sculpture software Latham built with mathematician Stephen Todd at the IBM UK Scientific Centre across the late 1980s and early 1990s, 'breeding' intricate organic 3D forms by selecting and mutating them across generations. An influential early realization of evolution as an artmaking process, contemporary with Karl Sims's work.",
       "link": "https://en.wikipedia.org/wiki/William_Latham_(computer_scientist)",
       "creators": ["William Latham", "Stephen Todd"]
+    },
+    {
+      "id": "dmx512",
+      "title": "DMX512",
+      "date": "1986",
+      "layer": "web-standards",
+      "description": "USITT publishes DMX512, a serial protocol for dimmer and fixture control that became the universal language between lighting desks and everything they drive. Maintenance moved to ESTA in 1998 and the protocol was approved as ANSI E1.11-2004; it is still the layer creative-coding and media tools speak when they address lights.",
+      "link": "https://support.enttec.com/dmx/dmx-basics/a-short-history-of-dmx512"
+    },
+    {
+      "id": "art-net",
+      "title": "Art-Net",
+      "date": "1998",
+      "layer": "web-standards",
+      "description": "Artistic Licence releases Art-Net, carrying DMX512 over ordinary Ethernet and IP. It let media servers, visualizers, and creative-coding frameworks address lighting rigs from software alone, with no dedicated DMX hardware. Art-Net II followed in 2006, Art-Net III in 2011, and Art-Net 4 in 2016.",
+      "link": "https://art-net.org.uk/background/"
+    },
+    {
+      "id": "sacn-e131",
+      "title": "sACN (ANSI E1.31)",
+      "date": "2009",
+      "layer": "web-standards",
+      "description": "ESTA's streaming ACN standard, approved as ANSI E1.31-2009, carrying DMX512 over IP on top of the ACN root layer and packet format. It became the common alternative to Art-Net and the way most software rigs reach lighting networks. Revised as E1.31-2016.",
+      "link": "https://tsp.esta.org/tsp/documents/docs/E1-31-2016.pdf"
     }
+,
+    {
+      "id": "smpte-timecode",
+      "title": "SMPTE timecode (ANSI/SMPTE 12M)",
+      "date": "1975-04-02",
+      "layer": "web-standards",
+      "description": "ANSI approves SMPTE 12M, standardizing the hours:minutes:seconds:frames count that EECO had devised in 1967 from a method NASA used to sync Apollo telemetry tapes. Linear timecode became the spine that every cue-based and timeline-based tool still locks to, and the reason picture, sound, lighting and video can run as one show.",
+      "link": "https://www.provideocoalition.com/timecode-virtually-unchanged-after-almost-50-years/"
+    },
+    {
+      "id": "posistagenet",
+      "title": "PosiStageNet (PSN)",
+      "date": "2013",
+      "layer": "web-standards",
+      "description": "Open protocol from VYV and MA Lighting for streaming live position data, which began inside VYV's Photon media server as a way to track freely moving projection surfaces. It let media servers, consoles and automation agree on where performers and scenery actually are, making tracked projection and performer-following practical. The earliest published spec is v1.7, dated September 2013.",
+      "link": "https://posistage.net/"
+    },
+    {
+      "id": "gdtf-mvr",
+      "title": "GDTF and MVR",
+      "date": "2018-03",
+      "layer": "web-standards",
+      "description": "MA Lighting, Robe and Vectorworks announce the General Device Type Format and My Virtual Rig: royalty-free formats describing fixtures and entire rigs so consoles, visualizers and CAD tools can hand a show to each other instead of rebuilding it three times. Version 1.0 followed in March 2019; GDTF became DIN SPEC 15800 in 2020 and MVR became DIN SPEC 15801 in 2023.",
+      "link": "https://www.gdtf.eu/gdtf/history/"
+    }
+,
+    {
+      "id": "dante-audio-networking",
+      "title": "Dante audio networking",
+      "date": "2006",
+      "layer": "web-standards",
+      "description": "Audinate spins out of Australia's NICTA to commercialize Dante, carrying many channels of low-latency, clock-synced audio over ordinary switched Ethernet. It made a network cable the default audio infrastructure for live sound and installation, displacing analogue multicore. The first Dante product, the Dolby Lake Processor, went out on a Barbra Streisand show in 2008.",
+      "link": "https://en.wikipedia.org/wiki/Dante_(networking)"
+    },
+    {
+      "id": "aes67",
+      "title": "AES67",
+      "date": "2013-09-11",
+      "layer": "web-standards",
+      "description": "The Audio Engineering Society publishes AES67, an interoperability mode for high-performance audio over IP. By the early 2010s the field had fragmented into ecosystems that could not talk to each other; AES67 forced a common baseline that Dante, Ravenna, Q-LAN and Livewire all implemented, and it later became the audio layer of SMPTE ST 2110.",
+      "link": "https://en.wikipedia.org/wiki/AES67"
+    },
+    {
+      "id": "smpte-st-2110",
+      "title": "SMPTE ST 2110",
+      "date": "2017-12-08",
+      "layer": "web-standards",
+      "description": "SMPTE publishes the first parts of ST 2110, carrying video, audio and data as separate synchronized streams over managed IP networks rather than as a single multiplexed SDI signal. Separating the essences let productions route picture and sound independently, and moved live video infrastructure onto the same networks everything else already used.",
+      "link": "https://www.tvtechnology.com/news/smpte-publishes-first-parts-of-smpte-st-2110"
+    }
+
   ]
 }
