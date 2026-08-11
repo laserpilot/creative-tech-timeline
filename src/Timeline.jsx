@@ -28,6 +28,41 @@ const MOBILE_GUTTER = 118;
 const MOBILE_PXY = 46;
 const MOBILE_START_YEAR = 2003;
 
+// Does `needle` appear in `hay` in order, allowing gaps? Catches abbreviations
+// and dropped letters that a plain substring test misses. Order-sensitive, so
+// transposed letters ("touchdesginer") still miss.
+function isSubsequence(needle, hay) {
+  let i = 0;
+  for (let j = 0; j < hay.length && i < needle.length; j++) if (hay[j] === needle[i]) i++;
+  return i === needle.length;
+}
+
+// Punctuation-insensitive matching, so "artnet" finds "Art-Net", "p5js" finds
+// "P5.js" and "maxmsp" finds "Max/MSP". Names in this field are full of
+// hyphens, dots and slashes that nobody types in a search box.
+const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '');
+
+// Search looks at the description and category label as well as the name, so a
+// query lands on neighbours too: "vj" reaches Resolume and Modul8, "media
+// server" reaches disguise and Pixera.
+function matchesQuery(t, q) {
+  if (!q) return true;
+  const hay = `${t.name} ${t.description || ''} ${t.categoryName || ''}`;
+  if (norm(hay).includes(norm(q))) return true;
+  // Typo tolerance on the name only ("tuchdesigner" -> TouchDesigner). Gated to
+  // longer queries, since short ones subsequence-match almost anything.
+  return q.length >= 5 && isSubsequence(norm(q), norm(t.name));
+}
+
+// Events use the same normalized substring rule, but deliberately WITHOUT the
+// subsequence fallback: event titles are long enough that scattered-letter
+// matching drags in unrelated entries ("dante" pulling in "Radical Networks").
+function eventMatches(e, q) {
+  if (!q) return true;
+  const hay = `${e.title} ${e.description || ''} ${e.layerName || ''}`;
+  return norm(hay).includes(norm(q));
+}
+
 export default function Timeline() {
   const { loading, error, data } = useTimelineData();
   const isMobile = useIsMobile();
@@ -131,6 +166,33 @@ export default function Timeline() {
     return { tools, events };
   }, [data]);
 
+  // Filtering the lanes solves the vertical half of "find my match"; this solves
+  // the horizontal half. A surviving tool can still sit far off the current
+  // viewport along the time axis, so scroll the matched span into view. Held
+  // back while the query still matches everything, and debounced so the
+  // viewport settles rather than lurching on every keystroke.
+  useEffect(() => {
+    const q = query.trim().toLowerCase();
+    if (!q || !prepared) return;
+    const toolHits = prepared.tools.filter((t) => matchesQuery(t, q));
+    const eventHits = prepared.events.filter((e) => eventMatches(e, q));
+    const xs = toolHits.map((t) => scale.xDate(t.firstDate))
+      .concat(eventHits.map((e) => scale.xDate(e.parsedDate)));
+    if (!xs.length) return;
+    if (toolHits.length === prepared.tools.length && eventHits.length === prepared.events.length) return;
+    const timer = setTimeout(() => {
+      const el = scrollRef.current;
+      if (!el) return;
+      const earliest = Math.min(...xs);
+      // Leave a quarter-viewport of lead-in so the match reads in context
+      // instead of pinned against the left edge.
+      const target = Math.max(0, earliest - el.clientWidth * 0.25);
+      el.scrollLeft = target;
+      if (botRef.current) botRef.current.scrollLeft = target;
+    }, 200);
+    return () => clearTimeout(timer);
+  }, [query, prepared, scale]);
+
   if (loading) return <div style={{ padding: 32, color: '#8a8175', fontSize: 13 }}>Loading timeline…</div>;
   if (error) return <div style={{ padding: 32, color: '#b23', fontSize: 13 }}>Error loading data: {error}</div>;
   if (!data || !prepared) return null;
@@ -141,8 +203,11 @@ export default function Timeline() {
   const decadesOn = decades || new Set(DECADES);
   const q = query.trim().toLowerCase();
 
-  const toolDimmed = (t) =>
-    !decadesOn.has(decadeOf(t.startYear)) || (q && !t.name.toLowerCase().includes(q));
+  // Search removes non-matching rows rather than fading them: with 80+ tools a
+  // dimmed hit is still buried in a wall of faded neighbours. Decade filtering
+  // keeps dimming, which reads correctly as "outside the window you picked".
+  const toolMatches = (t) => matchesQuery(t, q);
+  const toolDimmed = (t) => !decadesOn.has(decadeOf(t.startYear));
 
   const catCount = Object.fromEntries(
     CATEGORY_ORDER.map((c) => [c.key, tools.filter((t) => t.category === c.key).length])
@@ -150,12 +215,18 @@ export default function Timeline() {
   const layCount = Object.fromEntries(
     LAYER_ORDER.map((l) => [l.key, events.filter((e) => e.layer === l.key).length])
   );
-  const shownTools = tools.filter((t) => catsOn.has(t.category) && !toolDimmed(t)).length;
+  const shownTools = tools.filter((t) => catsOn.has(t.category) && toolMatches(t) && !toolDimmed(t)).length;
 
   const activeLayers = LAYER_ORDER.filter((l) => layersOn.has(l.key));
   const activeRow = Object.fromEntries(activeLayers.map((l, i) => [l.key, i]));
+  // The context layers stay whole while searching. They are the backdrop the
+  // tools are read against, so filtering them away defeats the point of the
+  // piece. A query highlights and names the events it hits and fades the rest,
+  // rather than removing them.
   const visEvents = events.filter((e) => layersOn.has(e.layer));
+  const matchedEvents = q ? new Set(visEvents.filter((e) => eventMatches(e, q)).map((e) => e.id)) : null;
   const eventsExpanded = expanded.has('events');
+  const noMatches = q && !matchedEvents.size && !tools.some((t) => catsOn.has(t.category) && toolMatches(t));
 
   const innerWidth = gutter + scale.timeWidth;
   const nowLeft = scale.x(NOW);
@@ -294,19 +365,24 @@ export default function Timeline() {
       onSelectEvent={openEvent}
       scale={scale}
       gutter={gutter}
+      matched={matchedEvents}
     />
   );
 
   const toolLanesEl = CATEGORY_ORDER.filter((c) => catsOn.has(c.key)).map((c) => {
     const laneTools = tools
-      .filter((t) => t.category === c.key)
+      .filter((t) => t.category === c.key && toolMatches(t))
       .sort((a, b) => a.firstDate - b.firstDate);
+    // A lane with nothing left to show is noise while searching, and a match
+    // inside a collapsed lane may as well not exist, so open every lane that
+    // survives the query.
+    if (q && !laneTools.length) return null;
     return (
       <Lane
         key={c.key}
         cat={c}
         tools={laneTools}
-        expanded={expanded.has(c.key)}
+        expanded={q ? true : expanded.has(c.key)}
         onToggle={() => setExpanded(toggleIn(expanded, c.key))}
         toolDimmed={toolDimmed}
         onSelect={openTool}
@@ -316,6 +392,14 @@ export default function Timeline() {
       />
     );
   });
+
+  // Filtering means a query with no hits empties the pane entirely, which reads
+  // as a broken page rather than an empty result. Say so instead.
+  const laneContent = noMatches ? (
+    <div style={{ padding: '28px 20px', fontSize: 12.5, color: '#8a8175' }}>
+      No tools or events match “{query.trim()}”.
+    </div>
+  ) : toolLanesEl;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: BG, color: '#3a352e' }}>
@@ -412,7 +496,7 @@ export default function Timeline() {
             {guides}
             {yearAxis}
             {eventsLaneEl}
-            {toolLanesEl}
+            {laneContent}
           </div>
         </div>
       ) : (
@@ -456,7 +540,7 @@ export default function Timeline() {
             <div style={{ position: 'relative', minWidth: innerWidth }}>
               {gridlines}
               {guides}
-              {toolLanesEl}
+              {laneContent}
             </div>
           </div>
         </div>
@@ -505,7 +589,7 @@ function ZoomButton({ label, title, onClick, disabled }) {
 }
 
 // ---------- Events lane ----------
-function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEvents, hoverEvent, setHoverEvent, onSelectEvent, scale, gutter }) {
+function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEvents, hoverEvent, setHoverEvent, onSelectEvent, scale, gutter, matched }) {
   const { xDate } = scale;
   const height = expanded ? EVH + activeLayers.length * EVR + 10 : 38;
   const hovered = hoverEvent != null ? visEvents[hoverEvent] : null;
@@ -536,7 +620,8 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
             onClick={() => onSelectEvent(e)}
             style={{
               position: 'absolute', top: 9, height: 20, width: 3, left: xDate(e.parsedDate) - 1,
-              background: e.color, borderRadius: 2, opacity: hoverEvent === i ? 1 : 0.68, cursor: 'pointer',
+              background: e.color, borderRadius: 2, cursor: 'pointer',
+              opacity: matched && !matched.has(e.id) ? 0.15 : (hoverEvent === i ? 1 : 0.68),
             }}
           />
         ))}
@@ -580,8 +665,33 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
               style={{
                 position: 'absolute', top, left: xDate(e.parsedDate) - size / 2, width: size, height: size,
                 borderRadius: '50%', background: e.color, boxShadow: '0 0 0 2px #f7f6f4', cursor: 'pointer',
+                opacity: matched && !matched.has(e.id) ? 0.18 : 1,
               }}
             />
+          );
+        })}
+        {/* Names, while a search is running. Events are otherwise anonymous
+            dots whose title only appears on hover, so a search that narrows to
+            three dots still leaves you unable to tell which is which. Labels
+            stay off when no query is active, where 170+ of them would collide. */}
+        {expanded && matched && visEvents.map((e, i) => {
+          if (!matched.has(e.id)) return null;
+          const top = EVH + activeRow[e.layer] * EVR + (EVR - 9) / 2;
+          return (
+            <div
+              key={`l-${e.id}`}
+              onMouseEnter={() => setHoverEvent(i)}
+              onMouseLeave={() => setHoverEvent(null)}
+              onClick={() => onSelectEvent(e)}
+              style={{
+                position: 'absolute', top: top - 3, left: xDate(e.parsedDate) + 9,
+                fontSize: 11, lineHeight: '15px', color: '#3a352e', whiteSpace: 'nowrap',
+                background: 'rgba(247,246,244,0.92)', padding: '0 5px', borderRadius: 3,
+                pointerEvents: 'auto', cursor: 'pointer', zIndex: 2,
+              }}
+            >
+              {e.title}
+            </div>
           );
         })}
         {/* hover popover */}
