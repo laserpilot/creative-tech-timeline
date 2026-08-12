@@ -28,6 +28,11 @@ const MOBILE_GUTTER = 118;
 const MOBILE_PXY = 46;
 const MOBILE_START_YEAR = 2003;
 
+// Search-result event labels: widest a label may get, and the width below which
+// it is dropped rather than shown as an ellipsis with a character or two.
+const LABEL_MAX = 260;
+const LABEL_MIN = 34;
+
 // Does `needle` appear in `hay` in order, allowing gaps? Catches abbreviations
 // and dropped letters that a plain substring test misses. Order-sensitive, so
 // transposed letters ("touchdesginer") still miss.
@@ -224,9 +229,14 @@ export default function Timeline() {
   // piece. A query highlights and names the events it hits and fades the rest,
   // rather than removing them.
   const visEvents = events.filter((e) => layersOn.has(e.layer));
-  const matchedEvents = q ? new Set(visEvents.filter((e) => eventMatches(e, q)).map((e) => e.id)) : null;
+  const eventHits = q ? new Set(visEvents.filter((e) => eventMatches(e, q)).map((e) => e.id)) : null;
+  // Fading the whole lane when nothing in it matches ghosts the backdrop without
+  // saying anything. Leave the events at full strength in that case and let the
+  // notice below carry the message.
+  const matchedEvents = eventHits && eventHits.size ? eventHits : null;
+  const noEventMatch = !!q && eventHits.size === 0;
   const eventsExpanded = expanded.has('events');
-  const noMatches = q && !matchedEvents.size && !tools.some((t) => catsOn.has(t.category) && toolMatches(t));
+  const toolHits = tools.filter((t) => catsOn.has(t.category) && toolMatches(t)).length;
 
   const innerWidth = gutter + scale.timeWidth;
   const nowLeft = scale.x(NOW);
@@ -366,6 +376,8 @@ export default function Timeline() {
       scale={scale}
       gutter={gutter}
       matched={matchedEvents}
+      noEventMatch={noEventMatch}
+      query={query.trim()}
     />
   );
 
@@ -394,10 +406,23 @@ export default function Timeline() {
   });
 
   // Filtering means a query with no hits empties the pane entirely, which reads
-  // as a broken page rather than an empty result. Say so instead.
-  const laneContent = noMatches ? (
-    <div style={{ padding: '28px 20px', fontSize: 12.5, color: '#8a8175' }}>
-      No tools or events match “{query.trim()}”.
+  // as a broken page rather than an empty result. Say so instead — including the
+  // half-empty case where events matched but no tool did, which otherwise leaves
+  // this pane silently blank.
+  const laneNotice = !q || toolHits > 0 ? null
+    : eventHits.size
+      ? `No tools match “${query.trim()}” — ${eventHits.size} matching event${eventHits.size === 1 ? '' : 's'} highlighted above.`
+      : `No tools or events match “${query.trim()}”.`;
+
+  const laneContent = laneNotice ? (
+    // Sticky, because this sits inside the horizontally scrolled track: pinned
+    // at the left edge it stays on screen wherever the timeline is panned to,
+    // rather than sitting off-screen at x=0 of a 2000px-wide row.
+    <div style={{
+      position: 'sticky', left: 0, width: 'fit-content', maxWidth: '100%',
+      padding: '28px 20px', fontSize: 12.5, color: '#8a8175', zIndex: 3,
+    }}>
+      {laneNotice}
     </div>
   ) : toolLanesEl;
 
@@ -589,10 +614,30 @@ function ZoomButton({ label, title, onClick, disabled }) {
 }
 
 // ---------- Events lane ----------
-function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEvents, hoverEvent, setHoverEvent, onSelectEvent, scale, gutter, matched }) {
+function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEvents, hoverEvent, setHoverEvent, onSelectEvent, scale, gutter, matched, noEventMatch, query }) {
   const { xDate } = scale;
   const height = expanded ? EVH + activeLayers.length * EVR + 10 : 38;
   const hovered = hoverEvent != null ? visEvents[hoverEvent] : null;
+
+  // How much horizontal room each label has before it would run into the next
+  // matched dot on its own layer row. Clusters are the normal case on a timeline
+  // — six Kinect events land within a few years of each other — and without this
+  // their labels overlap into an unreadable smear. Clipping to the gap lets the
+  // browser measure the text for us, so every match still gets named as far as
+  // there is room for it.
+  const labelRoom = {};
+  if (matched) {
+    const byRow = {};
+    visEvents.forEach((e) => { if (matched.has(e.id)) (byRow[e.layer] ||= []).push(e); });
+    Object.values(byRow).forEach((row) => {
+      row.sort((a, b) => a.parsedDate - b.parsedDate);
+      row.forEach((e, i) => {
+        const next = row[i + 1];
+        const room = next ? xDate(next.parsedDate) - xDate(e.parsedDate) - 13 : LABEL_MAX;
+        labelRoom[e.id] = Math.min(LABEL_MAX, room);
+      });
+    });
+  }
 
   return (
     <div style={{ display: 'flex', borderBottom: '1px solid #ece8e1', background: 'rgba(247,246,244,0.4)' }}>
@@ -676,15 +721,19 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
             stay off when no query is active, where 170+ of them would collide. */}
         {expanded && matched && visEvents.map((e, i) => {
           if (!matched.has(e.id)) return null;
+          // Too tight to read even truncated; the dot stays lit and hover names it.
+          if (labelRoom[e.id] < LABEL_MIN) return null;
           const top = EVH + activeRow[e.layer] * EVR + (EVR - 9) / 2;
           return (
             <div
               key={`l-${e.id}`}
+              title={e.title}
               onMouseEnter={() => setHoverEvent(i)}
               onMouseLeave={() => setHoverEvent(null)}
               onClick={() => onSelectEvent(e)}
               style={{
                 position: 'absolute', top: top - 3, left: xDate(e.parsedDate) + 9,
+                maxWidth: labelRoom[e.id], overflow: 'hidden', textOverflow: 'ellipsis',
                 fontSize: 11, lineHeight: '15px', color: '#3a352e', whiteSpace: 'nowrap',
                 background: 'rgba(247,246,244,0.92)', padding: '0 5px', borderRadius: 3,
                 pointerEvents: 'auto', cursor: 'pointer', zIndex: 2,
@@ -694,6 +743,19 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
             </div>
           );
         })}
+        {/* Sticky for the same reason as the tool-lane notice: it has to survive
+            being panned away from. Pinned at `gutter` rather than 0, since the
+            layer-name column is itself sticky at the left edge and would
+            otherwise be covered by this. */}
+        {expanded && noEventMatch && (
+          <div style={{
+            position: 'sticky', left: gutter + 10, width: 'fit-content', marginTop: EVH - 2,
+            padding: '0 8px', fontSize: 11.5, lineHeight: '18px', color: '#8a8175',
+            background: BG, borderRadius: 3, zIndex: 2,
+          }}>
+            No events match “{query}”.
+          </div>
+        )}
         {/* hover popover */}
         {hovered && (
           <div style={{
