@@ -1056,6 +1056,88 @@
         { "version": "BASIC Stamp 1 (BS1)", "dateString": "1992", "link": "https://en.wikipedia.org/wiki/BASIC_Stamp", "notes": "Parallax; PBASIC interpreter in ROM" },
         { "version": "BASIC Stamp 2 (BS2)", "dateString": "1995", "link": "https://en.wikipedia.org/wiki/BASIC_Stamp", "notes": "24-pin DIP form; more memory, faster, more I/O" }
       ]
+    },
+    "WATCHOUT": {
+      "category": "audio-visual",
+      "description": "Multi-display show composer from Swedish company Dataton, built around a production timeline rather than a layer mixer. Long-standing tool for large-format projection, multi-screen installations, facade mapping, planetariums, and themed entertainment.",
+      "link": "https://www.dataton.com/watchout",
+      "releases": [
+        {"version": "1.0", "dateString": "December 1999", "link": "https://fahl.se/the-story-of-watchout/", "notes": "Mike Fahl began development in August 1999 under the internal name VideoTRAX; v1 shipped that December.", "major": true},
+        {"version": "2.0", "dateString": "2003", "link": "https://fahl.se/the-story-of-watchout/", "notes": "Moved from Mac to PC, which opened up live video and PowerPoint integration through the capture cards then becoming available."},
+        {"version": "3.0", "dateString": "2005", "link": "https://fahl.se/the-story-of-watchout/", "notes": "Production software rewritten from scratch in C++ as a Windows application, leaving the Mac platform behind."},
+        {"version": "4.0", "dateString": "2008", "link": "https://fahl.se/the-story-of-watchout/", "notes": "Added compositions (the idea borrowed from After Effects), multiple timelines, and external inputs."},
+        {"version": "5.0", "dateString": "2011", "link": "https://fahl.se/the-story-of-watchout/", "notes": "Up to six displays from a single display computer, stereoscopic output, early 3D, and the Dynamic Image Server."},
+        {"version": "6.0", "dateString": "2015", "link": "https://www.dataton.com/watchout/release-notes-watchout-6", "notes": "Full 3D support: importing 3D models and placing projectors anywhere in 3D space. Point releases for v1 through v6 are not individually dated by Dataton.", "major": true},
+        {"version": "7.1", "dateString": "2024-02-05", "link": "https://www.dataton.com/watchout/release-notes", "notes": "Ground-up rewrite previewed through 2023; first general release of v7, shown at ISE 2024.", "major": true},
+        {"version": "7.1.1", "dateString": "2024-02-22", "link": "https://www.dataton.com/watchout/release-notes"},
+        {"version": "7.1.2", "dateString": "2024-03-25", "link": "https://www.dataton.com/watchout/release-notes", "notes": "Raised the pixel budget per computer to 8 x DCI 4K."},
+        {"version": "7.2", "dateString": "2024-05-20", "link": "https://www.dataton.com/watchout/release-notes", "notes": "Art-Net (DMX) control, chroma key, and improved HEVC and Notch LC playback."},
+        {"version": "7.2.2", "dateString": "2024-05-24", "link": "https://www.dataton.com/watchout/release-notes", "notes": "Better performance with large 3D models."},
+        {"version": "7.3", "dateString": "2024-07-05", "link": "https://www.dataton.com/watchout/release-notes", "notes": "EDID files can be imported and applied to individual displays."},
+        {"version": "7.3.1", "dateString": "2024-07-11", "link": "https://www.dataton.com/watchout/release-notes"},
+        {"version": "7.4.1", "dateString": "2024-09-17", "link": "https://www.dataton.com/watchout/release-notes", "notes": "Web user interface for the Asset Manager."},
+        {"version": "7.4.3", "dateString": "2024-10-23", "link": "https://www.dataton.com/watchout/release-notes", "notes": "Cut, copy and paste displays in the Stage window; improved colour and codec handling."},
+        {"version": "7.5", "dateString": "2024-12-12", "link": "https://www.dataton.com/watchout/release-notes", "notes": "Asset Watcher: a per-node process that watches folders and ingests new assets automatically."},
+        {"version": "7.5.1", "dateString": "2024-12-20", "link": "https://www.dataton.com/watchout/release-notes"},
+        {"version": "7.5.3", "dateString": "2025-02-10", "link": "https://www.dataton.com/watchout/release-notes", "notes": "Timeline locking at two levels — one preventing edits but allowing play, pause and stop."},
+        {"version": "7.6", "dateString": "2025-05-08", "link": "https://www.dataton.com/watchout/release-notes"},
+        {"version": "7.6.1", "dateString": "2025-06-05", "link": "https://www.dataton.com/watchout/release-notes", "notes": "Z-axis scaling returned to the WATCHOUT 6 compatible method."},
+        {"version": "7.6.2", "dateString": "2025-07-17", "link": "https://www.dataton.com/watchout/release-notes"},
+        {"version": "7.6.3", "dateString": "2025-08-29", "link": "https://www.dataton.com/watchout/release-notes", "notes": "Better timeline performance with many cues."},
+        {"version": "7.7", "dateString": "2025-12-03", "link": "https://www.dataton.com/watchout/release-notes", "notes": "Opt-in software updates for own-build media servers."},
+        {"version": "7.7.1", "dateString": "2026-01-28", "link": "https://www.dataton.com/watchout/release-notes"},
+        {"version": "7.8", "dateString": "2026-06-10", "link": "https://www.dataton.com/watchout/release-notes", "notes": "New high-fidelity video pipeline aimed at broadcast-grade workflows."},
+        {"version": "7.8.1", "dateString": "2026-06-16", "link": "https://www.dataton.com/watchout/release-notes"},
+        {"version": "7.8.2", "dateString": "2026-07-09", "link": "https://www.dataton.com/watchout/release-notes"},
+        {"version": "7.8.3", "dateString": "2026-08-03", "link": "https://www.dataton.com/watchout/release-notes"}
+      ]
+    },
+    "Millumin": {
+      "category": "audio-visual",
+      "description": "macOS software from French studio Anomes for audiovisual and interactive shows, used for theatre, dance, video mapping, and installations. Combines cue-based playback with live inputs, interactivity, and mapping.",
+      "link": "https://www.millumin.com",
+      "releases": [
+        {"version": "First public beta", "dateString": "24 August 2011", "link": "https://www.millumin.com/story/", "notes": "Design began in October 2010 after the Iduun collective hit the limits of existing live-video tools"},
+        {"version": "V1", "dateString": "2012-10-04", "link": "https://www.millumin.com/story/", "notes": "", "major": true},
+        {"version": "V2", "dateString": "2015-12-14", "link": "https://www.millumin.com/story/", "notes": "", "major": true},
+        {"version": "V3", "dateString": "2018-11-23", "link": "https://www.millumin.com/story/", "notes": "", "major": true},
+        {"version": "V4", "dateString": "2021-11-26", "link": "https://www.millumin.com/story/", "notes": "Matrix soft-edge lets you build a 2x2 or larger blend, and warping and masks can now be applied globally at canvas level rather than across multiple canvases", "major": true},
+        {"version": "V5", "dateString": "2025-04-29", "link": "https://www.millumin.com/story/", "notes": "Quick-Find (CMD+ENTER) pops up a filtered media browser you can search by colour and import straight into the timeline, alongside a synced library", "major": true}
+      ]
+    },
+    "QLab": {
+      "category": "audio-visual",
+      "description": "Show-control and playback software for macOS from Figure 53, cueing audio, video, and lighting for live performance. Widely adopted in theatre, becoming a default on Broadway and in the West End within a year of release.",
+      "link": "https://qlab.app",
+      "releases": [
+        {"version": "1.0", "dateString": "September 2006", "link": "https://en.wikipedia.org/wiki/QLab", "notes": "Chris Ashworth built it after a 2005 request for a better theatre audio playback tool.", "major": true},
+        {"version": "2", "dateString": "2009", "link": "https://en.wikipedia.org/wiki/QLab"},
+        {"version": "3", "dateString": "2013", "link": "https://en.wikipedia.org/wiki/QLab", "notes": "Point releases before 3.2.15 are not individually documented; 3.2.15, in October 2018, was the final supported QLab 3 release.", "major": true},
+        {"version": "4.0", "dateString": "2016-11-16", "link": "https://qlab.app/release-notes/4.0/", "notes": "Added the Light cue, driving lighting directly over Art-Net, and absorbed Figure 53’s separate QCart app as integrated cue carts.", "major": true},
+        {"version": "4.1", "dateString": "2017-06-20", "link": "https://qlab.app/release-notes/4.1/", "notes": "Added support for USB-DMX interfaces (ENTTEC DMX USB Pro, DMXking ultraDMX), so lighting could be driven without a separate network node."},
+        {"version": "4.2", "dateString": "2018-03-21", "link": "https://qlab.app/release-notes/4.2/", "notes": "Support for d&b audiotechnik’s Soundscape DS100 signal engine, plus accessibility improvements."},
+        {"version": "4.3", "dateString": "2018-08-28", "link": "https://qlab.app/release-notes/4.3/", "notes": "Timeline view: ‘start all’ group cues can be viewed and edited as a visual timeline."},
+        {"version": "4.4", "dateString": "2018-12-03", "link": "https://qlab.app/release-notes/4.4/", "notes": "Multiple inspector windows open at once against a single workspace."},
+        {"version": "4.5", "dateString": "2019-09-09", "link": "https://qlab.app/release-notes/4.5/", "notes": "Light submasters — any Light cue can act as a submaster in the Light Dashboard — plus virtual parameters, colour pickers and pan/tilt controls."},
+        {"version": "4.6", "dateString": "2020-02-05", "link": "https://qlab.app/release-notes/4.6/", "notes": "Workspaces can define an arbitrary number of Network cue destination patches."},
+        {"version": "4.7", "dateString": "2022-08-29", "link": "https://qlab.app/release-notes/4.7/", "notes": "Licensing groundwork, and a workaround for macOS losing track of video displays. Last of the 4.x line, released the day before 5.0."},
+        {"version": "5.0", "dateString": "2022-08-30", "link": "https://qlab.app/release-notes/5.0/", "notes": "Multiuser collaboration across Macs, autosave and snapshots, a rebuilt Metal video engine with NDI input and output, and timecode chasing and locking.", "major": true},
+        {"version": "5.1", "dateString": "2023-02-27", "link": "https://qlab.app/release-notes/5.1/", "notes": "Media logging."},
+        {"version": "5.2", "dateString": "2023-06-20", "link": "https://qlab.app/release-notes/5.2/", "notes": "Patch cueing."},
+        {"version": "5.3", "dateString": "2023-11-07", "link": "https://qlab.app/release-notes/5.3/", "notes": "Larger, more flexible audio matrix: up to 128 cue outputs and 128 device outputs."},
+        {"version": "5.4", "dateString": "2024-06-11", "link": "https://qlab.app/release-notes/5.4/", "notes": "Mute and solo buttons for cue and audio patch outputs; audio effects editable from collaboration remotes."},
+        {"version": "5.5", "dateString": "2025-08-12", "link": "https://qlab.app/release-notes/5.5/", "notes": "Wildcard and range syntax in OSC commands, e.g. /cue/1/mute/[2-9]."},
+        {"version": "5.6", "dateString": "2026-06-16", "link": "https://qlab.app/release-notes/5.6/", "notes": "Fade and Network cues with 2D fade paths can loop continuously; audio meters in the patch, map and trim editors."}
+      ]
+    },
+    "Modul8": {
+      "category": "audio-visual",
+      "description": "macOS application for live visual performance from Geneva-based GarageCube, among the first VJ tools built on real-time OpenGL compositing rather than video-editing paradigms.",
+      "link": "https://en.wikipedia.org/wiki/Modul8",
+      "releases": [
+        {"version": "1.0", "dateString": "2004", "link": "https://en.wikipedia.org/wiki/Modul8", "notes": "First public release; a stripped-down real-time compositing environment for VJ work. Wikipedia gives the year only", "major": true},
+        {"version": "2.0", "dateString": "2005", "link": "https://en.wikipedia.org/wiki/Modul8", "notes": "Introduced the module system, letting performers customize the interface"}
+      ]
     }
   }
 }
