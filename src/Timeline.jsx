@@ -28,6 +28,13 @@ const MOBILE_GUTTER = 118;
 const MOBILE_PXY = 46;
 const MOBILE_START_YEAR = 2003;
 
+// Hover cards are absolutely positioned inside a track only `timeWidth` wide, so
+// anything hovered in the last CARD_W pixels — which is to say anything in the
+// last couple of years, the busiest end of the timeline — would hang off the end
+// of the track and out of reach. Pin the card inside the track instead.
+const CARD_W = 220;
+const clampCard = (x, timeWidth) => Math.max(0, Math.min(x - 10, timeWidth - CARD_W - 8));
+
 // Search-result event labels: widest a label may get, and the width below which
 // it is dropped rather than shown as an ellipsis with a character or two.
 const LABEL_MAX = 260;
@@ -761,7 +768,7 @@ function EventsLane({ expanded, onToggle, count, activeLayers, activeRow, visEve
           <div style={{
             position: 'absolute',
             top: expanded ? EVH + activeRow[hovered.layer] * EVR + 22 : 34,
-            left: xDate(hovered.parsedDate) - 10, zIndex: 50, width: 220,
+            left: clampCard(xDate(hovered.parsedDate), scale.timeWidth), zIndex: 50, width: CARD_W,
             background: '#fff', border: '1px solid #e7e3dd', borderLeft: `3px solid ${hovered.color}`,
             borderRadius: 8, boxShadow: '0 12px 32px -14px rgba(40,34,30,0.4)', padding: '9px 12px', pointerEvents: 'none',
           }}>
@@ -869,8 +876,8 @@ function Lane({ cat, tools, expanded, onToggle, toolDimmed, onSelect, selected, 
           <div style={{
             position: 'absolute',
             top: LANE_HEADER + hovered.i * ROW + ROW + 2,
-            left: Math.max(0, (hoverRel ? xDate(hovered.r.date) : xDate(hovered.t.firstDate)) - 10),
-            zIndex: 50, width: 220, background: '#fff', border: '1px solid #e7e3dd',
+            left: clampCard(hoverRel ? xDate(hovered.r.date) : xDate(hovered.t.firstDate), scale.timeWidth),
+            zIndex: 50, width: CARD_W, background: '#fff', border: '1px solid #e7e3dd',
             borderLeft: `3px solid ${cat.color}`, borderRadius: 8,
             boxShadow: '0 12px 32px -14px rgba(40,34,30,0.4)', padding: '9px 12px', pointerEvents: 'none',
           }}>

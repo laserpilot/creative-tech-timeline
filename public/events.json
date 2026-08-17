@@ -43,7 +43,7 @@
     "publications": {
       "name": "Publications",
       "color": "#d4a017",
-      "description": "Blogs, magazines, and platforms that documented and circulated the field's work"
+      "description": "Blogs, magazines, and platforms that documented and circulated the field's work, and the essays and manifestos that gave it a critical vocabulary"
     },
     "platforms": {
       "name": "Platforms",
@@ -248,6 +248,15 @@
     },
 
     {
+      "id": "boundary-functions",
+      "title": "Scott Snibbe — Boundary Functions",
+      "date": "1998",
+      "layer": "artworks",
+      "description": "Floor projection that draws a Voronoi diagram between visitors, giving each person a visible cell of personal space that shifts as they move — an overhead camera tracks the crowd and custom software regenerates the partition in real time. An early demonstration that the interface could be the floor and the input could be a crowd rather than a user; premiered at Ars Electronica 1998.",
+      "link": "https://www.snibbe.com/projections/boundaryfunctions",
+      "creators": ["Scott Snibbe"]
+    },
+    {
       "id": "text-rain",
       "title": "Camille Utterback & Romy Achituv — Text Rain",
       "date": "1999-01-01",
@@ -337,6 +346,14 @@
       "link": "https://grayarea.org/"
     },
     {
+      "id": "node-forum",
+      "title": "NODE Forum for Digital Arts begins (Frankfurt)",
+      "date": "2008-04",
+      "layer": "inst-festivals",
+      "description": "Frankfurt festival of workshops, talks, performances and exhibition, initiated by David Brüll, Sebastian Oschatz, Thomas Hitthaler and Eno Henze with the vvvv core developers and MESO, and first held as part of the Luminale light festival. The first edition gathered the vvvv community in person for the first time; its workshop program has been the anchor ever since.",
+      "link": "https://nodeforum.org/about/history/"
+    },
+    {
       "id": "eyeo-festival",
       "title": "Eyeo Festival begins",
       "date": "2011-06-01",
@@ -359,6 +376,23 @@
       "layer": "inst-schools",
       "description": "Artist-run school in NYC for code as a creative and critical practice.",
       "link": "https://sfpc.study/"
+    },
+    {
+      "id": "idii-ivrea",
+      "title": "Interaction Design Institute Ivrea opens",
+      "date": "2001",
+      "end": "2006",
+      "layer": "inst-schools",
+      "description": "Graduate school for interaction design in Ivrea, Italy, founded in 2000 by Olivetti and Telecom Italia on a five-year endowment and directed by Gillian Crampton Smith. It graduated only 56 students before the funding lapsed and the program merged into Domus Academy in Milan, but it is the common ancestor of an unusual amount of this timeline: Casey Reas taught there while Processing was in its early years, Hernando Barragán built Wiring there as his 2003 master's thesis, supervised by Massimo Banzi and Reas, and Arduino followed from the same faculty in 2005, in the institute's final year.",
+      "link": "https://en.wikipedia.org/wiki/Interaction_Design_Institute_Ivrea"
+    },
+    {
+      "id": "school-of-ma",
+      "title": "School of Machines, Making & Make-Believe founded (Berlin)",
+      "date": "2014",
+      "layer": "inst-schools",
+      "description": "Independent Berlin school founded by Rachel Uwa, running short, small-cohort programs on art, technology and human connection taught by practicing artists. Part of the artist-run school model that grew up alongside SFPC as an alternative to university media-arts programs.",
+      "link": "https://www.schoolofma.org/about"
     },
 
     {
@@ -396,6 +430,14 @@
       "creators": [
         "John S. Johnson"
       ]
+    },
+    {
+      "id": "medialab-prado",
+      "title": "Medialab Madrid founded (later Medialab-Prado)",
+      "date": "2000",
+      "layer": "inst-spaces",
+      "description": "Municipal media lab created by Madrid City Council, first at the Conde Duque centre and renamed Medialab-Prado on its 2007 move to the Serrería Belga building near the Prado. Built its practice around Interactivos?, an open call and collaborative production workshop where outside proposals are prototyped in public over two weeks — a model of the lab as civic infrastructure rather than gallery, widely copied elsewhere in Latin America and Europe. Now runs as Medialab Matadero.",
+      "link": "https://www.medialab-matadero.es/en/medialab/more-info/history"
     },
     {
       "id": "fat-lab",
@@ -797,6 +839,17 @@
       ]
     },
 
+    {
+      "id": "cyborg-manifesto",
+      "title": "Donna Haraway — A Cyborg Manifesto",
+      "date": "1985",
+      "layer": "publications",
+      "description": "Essay first published in Socialist Review no. 80 as 'A Manifesto for Cyborgs', arguing the cyborg — a hybrid of organism and machine, with no origin story to return to — as a figure for identity that refuses the boundaries between human and animal, organism and machine, physical and non-physical. It gave a generation of artists working with technology a way to treat the human/machine boundary as political rather than merely technical, and is the text cyberfeminism and its successors argue from: VNS Matrix in 1991 and Legacy Russell's Glitch Feminism both write in its wake.",
+      "link": "https://en.wikipedia.org/wiki/A_Cyborg_Manifesto",
+      "creators": [
+        "Donna Haraway"
+      ]
+    },
     {
       "id": "vns-matrix-cyberfeminist-manifesto",
       "title": "VNS Matrix — A Cyberfeminist Manifesto for the 21st Century",
