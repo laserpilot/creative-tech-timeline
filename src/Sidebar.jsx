@@ -66,7 +66,7 @@ export default function Sidebar({
         <input
           value={query}
           onChange={(e) => onSearch(e.target.value)}
-          placeholder="Search tools…"
+          placeholder="Search tools & events…"
           style={{ flex: 1, border: 'none', outline: 'none', background: 'transparent', fontSize: 13, color: '#3a352e' }}
         />
         {query && <button onClick={() => onSearch('')} style={{ border: 'none', background: 'none', color: '#b4a99b', cursor: 'pointer', fontSize: 13 }}>×</button>}
